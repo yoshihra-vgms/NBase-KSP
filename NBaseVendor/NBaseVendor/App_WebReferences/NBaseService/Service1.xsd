@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NBaseCommon.Hachu.Excel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NBaseCommon.Hachu.Excel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="発注帳票Common.kubun発注帳票">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="査定表" />
+      <xs:enumeration value="請求書" />
+      <xs:enumeration value="注文書" />
+      <xs:enumeration value="見積依頼書" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="発注帳票Common.kubun発注帳票" nillable="true" type="tns:発注帳票Common.kubun発注帳票" />
+</xs:schema>

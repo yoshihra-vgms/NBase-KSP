@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+		select
+		DJ_AKASAKA_ID,
+		NAVICODE,
+		DATA,
+		RENEW_DATE
+		
+		from DJ_AKASAKA
+		where DJ_AKASAKA_ID = :DJ_AKASAKA_ID
+
+	</sql>
+	<sql name="InsertRecord">
+    insert into DJ_AKASAKA(
+    DJ_AKASAKA_ID   ,
+    NAVICODE        ,
+    DATA,
+    RENEW_DATE
+    )values(
+    nextval('SEQ_DJ_AKASAKA_ID')   ,
+    :NAVICODE        ,
+    :DATA,
+    :RENEW_DATE
+    )
+  </sql>
+
+</databaseConfig>

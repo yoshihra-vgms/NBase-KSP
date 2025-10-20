@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB" />
+  <xs:complexType name="MsBumon">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q1:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bumon_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="data_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_bumon_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="send_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsBumon" nillable="true" type="tns:MsBumon" />
+  <xs:complexType name="ArrayOfMsRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsRole" nillable="true" type="tns:MsRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsRole" nillable="true" type="tns:ArrayOfMsRole" />
+  <xs:complexType name="MsRole">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q2:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="admin_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="enable_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_bumon_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_role_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="name1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="name2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="name3" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsRole" nillable="true" type="tns:MsRole" />
+  <xs:complexType name="MsUser">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q3:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="admin_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="mail_address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mei" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mei_kana" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sei" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sei_kana" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sex" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_kbn" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsUser" nillable="true" type="tns:MsUser" />
+  <xs:complexType name="MsDeficiencyCode">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q4:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defective_item" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_code_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeficiencyCode" nillable="true" type="tns:MsDeficiencyCode" />
+  <xs:complexType name="MsViqVersion">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q5:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="end_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="start_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="viq_version" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_version_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsViqVersion" nillable="true" type="tns:MsViqVersion" />
+  <xs:complexType name="ArrayOfMsVessel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVessel" nillable="true" type="tns:MsVessel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVessel" nillable="true" type="tns:ArrayOfMsVessel" />
+  <xs:complexType name="MsVessel">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q6:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="completion_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="deficiency_order" type="xs:decimal" />
+          <xs:element minOccurs="0" name="imo_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_vessel_category_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_vessel_kind_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_type_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="official_number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="senin_enabled" type="xs:decimal" />
+          <xs:element minOccurs="0" name="show_order" type="xs:decimal" />
+          <xs:element minOccurs="0" name="vessel_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVessel" nillable="true" type="tns:MsVessel" />
+  <xs:complexType name="ArrayOfMsUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsUser" nillable="true" type="tns:MsUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsUser" nillable="true" type="tns:ArrayOfMsUser" />
+  <xs:complexType name="ArrayOfMsItemKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsItemKind" nillable="true" type="tns:MsItemKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsItemKind" nillable="true" type="tns:ArrayOfMsItemKind" />
+  <xs:complexType name="MsItemKind">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q7:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsItemKind" nillable="true" type="tns:MsItemKind" />
+  <xs:complexType name="ArrayOfMsActionCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsActionCode" nillable="true" type="tns:MsActionCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsActionCode" nillable="true" type="tns:ArrayOfMsActionCode" />
+  <xs:complexType name="MsActionCode">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q8:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_code_text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsActionCode" nillable="true" type="tns:MsActionCode" />
+  <xs:complexType name="ArrayOfMsDeficiencyCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeficiencyCode" nillable="true" type="tns:MsDeficiencyCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeficiencyCode" nillable="true" type="tns:ArrayOfMsDeficiencyCode" />
+  <xs:complexType name="ArrayOfMsVesselType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVesselType" nillable="true" type="tns:MsVesselType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVesselType" nillable="true" type="tns:ArrayOfMsVesselType" />
+  <xs:complexType name="MsVesselType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q9:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ms_vessel_type_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVesselType" nillable="true" type="tns:MsVesselType" />
+  <xs:complexType name="ArrayOfMsBasho">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsBasho" nillable="true" type="tns:MsBasho" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsBasho" nillable="true" type="tns:ArrayOfMsBasho" />
+  <xs:complexType name="MsBasho">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q10:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="akasaka_port_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="basho_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="data_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="gaichi_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_kubun_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="send_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsBasho" nillable="true" type="tns:MsBasho" />
+  <xs:complexType name="ArrayOfMsRegional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsRegional" nillable="true" type="tns:MsRegional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsRegional" nillable="true" type="tns:ArrayOfMsRegional" />
+  <xs:complexType name="MsRegional">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q11:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="data_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="regional_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="send_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsRegional" nillable="true" type="tns:MsRegional" />
+  <xs:complexType name="ArrayOfMsAccidentImportance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentImportance" nillable="true" type="tns:MsAccidentImportance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentImportance" nillable="true" type="tns:ArrayOfMsAccidentImportance" />
+  <xs:complexType name="MsAccidentImportance">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q12:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_importance_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentImportance" nillable="true" type="tns:MsAccidentImportance" />
+  <xs:complexType name="ArrayOfMsAccidentKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentKind" nillable="true" type="tns:MsAccidentKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentKind" nillable="true" type="tns:ArrayOfMsAccidentKind" />
+  <xs:complexType name="MsAccidentKind">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q13:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentKind" nillable="true" type="tns:MsAccidentKind" />
+  <xs:complexType name="ArrayOfMsAccidentSituation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentSituation" nillable="true" type="tns:MsAccidentSituation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentSituation" nillable="true" type="tns:ArrayOfMsAccidentSituation" />
+  <xs:complexType name="MsAccidentSituation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q14:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_situation_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_situation_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentSituation" nillable="true" type="tns:MsAccidentSituation" />
+  <xs:complexType name="ArrayOfMsKindOfAccident">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsKindOfAccident" nillable="true" type="tns:MsKindOfAccident" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsKindOfAccident" nillable="true" type="tns:ArrayOfMsKindOfAccident" />
+  <xs:complexType name="MsKindOfAccident">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q15:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kind_of_accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_accident_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsKindOfAccident" nillable="true" type="tns:MsKindOfAccident" />
+  <xs:complexType name="ArrayOfMsInspectionCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsInspectionCategory" nillable="true" type="tns:MsInspectionCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsInspectionCategory" nillable="true" type="tns:ArrayOfMsInspectionCategory" />
+  <xs:complexType name="MsInspectionCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q16:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="inspection_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="inspection_category_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsInspectionCategory" nillable="true" type="tns:MsInspectionCategory" />
+  <xs:complexType name="ArrayOfMsViqCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsViqCode" nillable="true" type="tns:MsViqCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsViqCode" nillable="true" type="tns:ArrayOfMsViqCode" />
+  <xs:complexType name="MsViqCode">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q17:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="description_eng" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code_name_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_version_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsViqCode" nillable="true" type="tns:MsViqCode" />
+  <xs:complexType name="ArrayOfMsViqNo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsViqNo" nillable="true" type="tns:MsViqNo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsViqNo" nillable="true" type="tns:ArrayOfMsViqNo" />
+  <xs:complexType name="MsViqNo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q18:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="description_eng" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_no_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsViqNo" nillable="true" type="tns:MsViqNo" />
+  <xs:complexType name="ArrayOfMsCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCustomer" nillable="true" type="tns:MsCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCustomer" nillable="true" type="tns:ArrayOfMsCustomer" />
+  <xs:complexType name="MsCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q19:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appointed_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="customer_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="inspection_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_customer_id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCustomer" nillable="true" type="tns:MsCustomer" />
+  <xs:complexType name="ArrayOfMsDeficiencyCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeficiencyCategory" nillable="true" type="tns:MsDeficiencyCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeficiencyCategory" nillable="true" type="tns:ArrayOfMsDeficiencyCategory" />
+  <xs:complexType name="MsDeficiencyCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q20:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deficiency_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_category_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_category_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeficiencyCategory" nillable="true" type="tns:MsDeficiencyCategory" />
+  <xs:complexType name="ArrayOfMsScheduleCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsScheduleCategory" nillable="true" type="tns:MsScheduleCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsScheduleCategory" nillable="true" type="tns:ArrayOfMsScheduleCategory" />
+  <xs:complexType name="MsScheduleCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q21:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="schedule_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_category_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsScheduleCategory" nillable="true" type="tns:MsScheduleCategory" />
+  <xs:complexType name="ArrayOfMsScheduleKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsScheduleKind" nillable="true" type="tns:MsScheduleKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsScheduleKind" nillable="true" type="tns:ArrayOfMsScheduleKind" />
+  <xs:complexType name="MsScheduleKind">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q22:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="schedule_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsScheduleKind" nillable="true" type="tns:MsScheduleKind" />
+  <xs:complexType name="ArrayOfMsScheduleKindDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsScheduleKindDetail" nillable="true" type="tns:MsScheduleKindDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsScheduleKindDetail" nillable="true" type="tns:ArrayOfMsScheduleKindDetail" />
+  <xs:complexType name="MsScheduleKindDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q23:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="color_b" type="xs:int" />
+          <xs:element minOccurs="0" name="color_g" type="xs:int" />
+          <xs:element minOccurs="0" name="color_r" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_detail_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_detail_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schedule_kind_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsScheduleKindDetail" nillable="true" type="tns:MsScheduleKindDetail" />
+  <xs:complexType name="ArrayOfMsViqCodeName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsViqCodeName" nillable="true" type="tns:MsViqCodeName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsViqCodeName" nillable="true" type="tns:ArrayOfMsViqCodeName" />
+  <xs:complexType name="MsViqCodeName">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q24:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="description_eng" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_code_name_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsViqCodeName" nillable="true" type="tns:MsViqCodeName" />
+  <xs:complexType name="ArrayOfMsViqVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsViqVersion" nillable="true" type="tns:MsViqVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsViqVersion" nillable="true" type="tns:ArrayOfMsViqVersion" />
+  <xs:complexType name="ArrayOfMsVesselScheduleKindDetailEnable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVesselScheduleKindDetailEnable" nillable="true" type="tns:MsVesselScheduleKindDetailEnable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVesselScheduleKindDetailEnable" nillable="true" type="tns:ArrayOfMsVesselScheduleKindDetailEnable" />
+  <xs:complexType name="MsVesselScheduleKindDetailEnable">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q25:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="schedule_kind_detail_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVesselScheduleKindDetailEnable" nillable="true" type="tns:MsVesselScheduleKindDetailEnable" />
+  <xs:complexType name="ArrayOfMsVesselCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVesselCategory" nillable="true" type="tns:MsVesselCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVesselCategory" nillable="true" type="tns:ArrayOfMsVesselCategory" />
+  <xs:complexType name="MsVesselCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q26:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ms_vessel_category_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_category_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVesselCategory" nillable="true" type="tns:MsVesselCategory" />
+  <xs:complexType name="ArrayOfMsCrewMatrixType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCrewMatrixType" nillable="true" type="tns:MsCrewMatrixType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCrewMatrixType" nillable="true" type="tns:ArrayOfMsCrewMatrixType" />
+  <xs:complexType name="MsCrewMatrixType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q27:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ms_crew_matrix_type_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCrewMatrixType" nillable="true" type="tns:MsCrewMatrixType" />
+</xs:schema>

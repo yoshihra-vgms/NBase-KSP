@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_EXCLUDE_MENJOU_KIND.MS_SI_MENJOU_KIND_ID,
+    MS_SI_EXCLUDE_MENJOU_KIND.EXCLUDE_MENJOU_KIND_ID,
+
+    MS_SI_EXCLUDE_MENJOU_KIND.DELETE_FLAG,
+    MS_SI_EXCLUDE_MENJOU_KIND.USER_KEY,
+    MS_SI_EXCLUDE_MENJOU_KIND.DATA_NO,
+    MS_SI_EXCLUDE_MENJOU_KIND.SEND_FLAG,
+    MS_SI_EXCLUDE_MENJOU_KIND.VESSEL_ID,
+    MS_SI_EXCLUDE_MENJOU_KIND.RENEW_DATE,
+    MS_SI_EXCLUDE_MENJOU_KIND.RENEW_USER_ID,
+    MS_SI_EXCLUDE_MENJOU_KIND.TS
+
+    FROM
+    MS_SI_EXCLUDE_MENJOU_KIND
+
+    WHERE
+    MS_SI_EXCLUDE_MENJOU_KIND.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSiMenjouKindID">
+    AND
+    MS_SI_EXCLUDE_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID
+  </sql>
+
+  <sql name="ByExcludeMenjouKindID">
+    AND
+    MS_SI_EXCLUDE_MENJOU_KIND.EXCLUDE_MENJOU_KIND_ID = :EXCLUDE_MENJOU_KIND_ID
+  </sql>
+
+
+  
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_EXCLUDE_MENJOU_KIND(
+
+    MS_SI_MENJOU_KIND_ID           ,
+    EXCLUDE_MENJOU_KIND_ID         ,
+
+    DELETE_FLAG                    ,
+    USER_KEY                       ,
+    DATA_NO                        ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+
+    :MS_SI_MENJOU_KIND_ID           ,
+    :EXCLUDE_MENJOU_KIND_ID         ,
+
+    :DELETE_FLAG                    ,
+    :USER_KEY                       ,
+    :DATA_NO                        ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_EXCLUDE_MENJOU_KIND
+
+    SET
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    USER_KEY = :USER_KEY                             ,
+    DATA_NO = :DATA_NO                               ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID
+    AND EXCLUDE_MENJOU_KIND_ID = :EXCLUDE_MENJOU_KIND_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

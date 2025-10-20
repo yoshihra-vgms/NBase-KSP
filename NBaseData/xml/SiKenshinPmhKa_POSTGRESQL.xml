@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KENSHIN_PMH_KA.SI_KENSHIN_PMH_KA_ID ,
+
+    SI_KENSHIN_PMH_KA.MS_SENIN_ID ,
+
+    SI_KENSHIN_PMH_KA.ALC_ID ,
+    SI_KENSHIN_PMH_KA.SMOKING ,
+    SI_KENSHIN_PMH_KA.EGG_ALLERGY ,
+    SI_KENSHIN_PMH_KA.MILK_ALLERGY ,
+    SI_KENSHIN_PMH_KA.PMH1 ,
+    SI_KENSHIN_PMH_KA.PMH2 ,
+    SI_KENSHIN_PMH_KA.PMH3 ,
+    SI_KENSHIN_PMH_KA.PMH4 ,
+    SI_KENSHIN_PMH_KA.PMH5 ,
+    SI_KENSHIN_PMH_KA.WHEAT_ALLERGY ,
+    SI_KENSHIN_PMH_KA.SHRIMP_ALLERGY ,
+    SI_KENSHIN_PMH_KA.CRAB_ALLERGY ,
+    SI_KENSHIN_PMH_KA.PEANUT_ALLERGY ,
+    SI_KENSHIN_PMH_KA.BUCKWHEAT_ALLERGY ,
+    SI_KENSHIN_PMH_KA.ETC_ALLERGY1 ,
+    SI_KENSHIN_PMH_KA.ETC_ALLERGY2 ,
+    SI_KENSHIN_PMH_KA.ETC_ALLERGY3 ,
+
+    SI_KENSHIN_PMH_KA.DELETE_FLAG      ,
+    SI_KENSHIN_PMH_KA.SEND_FLAG        ,
+    SI_KENSHIN_PMH_KA.VESSEL_ID        ,
+    SI_KENSHIN_PMH_KA.DATA_NO          ,
+    SI_KENSHIN_PMH_KA.USER_KEY         ,
+    SI_KENSHIN_PMH_KA.RENEW_DATE       ,
+    SI_KENSHIN_PMH_KA.RENEW_USER_ID    ,
+    SI_KENSHIN_PMH_KA.TS
+
+    FROM
+    SI_KENSHIN_PMH_KA
+  </sql>
+
+  <sql name="By有効データ">
+    WHERE
+    SI_KENSHIN_PMH_KA.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_KENSHIN_PMH_KA.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="BySiKenshinID">
+    AND
+    SI_KENSHIN_PMH_KA.SI_KENSHIN_PMH_KA_ID = :SI_KENSHIN_PMH_KA_ID
+  </sql>
+
+  <sql name="ByDataNo">
+    WHERE
+    SI_KENSHIN_PMH_KA.DATA_NO > :DATA_NO
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_KENSHIN_PMH_KA(
+    SI_KENSHIN_PMH_KA_ID    ,
+
+    MS_SENIN_ID      ,
+
+    ALC_ID ,
+    SMOKING ,
+    PMH1 ,
+    PMH2 ,
+    PMH3 ,
+    PMH4 ,
+    PMH5 ,
+    EGG_ALLERGY ,
+    MILK_ALLERGY ,
+    WHEAT_ALLERGY ,
+    SHRIMP_ALLERGY ,
+    CRAB_ALLERGY ,
+    PEANUT_ALLERGY ,
+    BUCKWHEAT_ALLERGY ,
+    ETC_ALLERGY1 ,
+    ETC_ALLERGY2 ,
+    ETC_ALLERGY3 ,
+
+    DELETE_FLAG      ,
+    SEND_FLAG        ,
+    VESSEL_ID        ,
+    DATA_NO          ,
+    USER_KEY         ,
+    RENEW_DATE       ,
+    RENEW_USER_ID    ,
+    TS
+    )
+    VALUES(
+    :SI_KENSHIN_PMH_KA_ID    ,
+
+    :MS_SENIN_ID      ,
+
+    :ALC_ID ,
+    :SMOKING ,
+    :PMH1 ,
+    :PMH2 ,
+    :PMH3 ,
+    :PMH4 ,
+    :PMH5 ,
+    :EGG_ALLERGY ,
+    :MILK_ALLERGY ,
+    :WHEAT_ALLERGY ,
+    :SHRIMP_ALLERGY ,
+    :CRAB_ALLERGY ,
+    :PEANUT_ALLERGY ,
+    :BUCKWHEAT_ALLERGY ,
+    :ETC_ALLERGY1 ,
+    :ETC_ALLERGY2 ,
+    :ETC_ALLERGY3 ,
+
+    :DELETE_FLAG      ,
+    :SEND_FLAG        ,
+    :VESSEL_ID        ,
+    :DATA_NO          ,
+    :USER_KEY         ,
+    :RENEW_DATE       ,
+    :RENEW_USER_ID    ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KENSHIN_PMH_KA
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID,
+
+    ALC_ID = :ALC_ID ,
+    SMOKING = :SMOKING ,
+    PMH1 = :PMH1 ,
+    PMH2 = :PMH2 ,
+    PMH3 = :PMH3 ,
+    PMH4 = :PMH4 ,
+    PMH5 = :PMH5 ,
+    EGG_ALLERGY = :EGG_ALLERGY ,
+    MILK_ALLERGY = :MILK_ALLERGY ,
+    WHEAT_ALLERGY = :WHEAT_ALLERGY ,
+    SHRIMP_ALLERGY = :SHRIMP_ALLERGY ,
+    CRAB_ALLERGY = :CRAB_ALLERGY ,
+    PEANUT_ALLERGY = :PEANUT_ALLERGY ,
+    BUCKWHEAT_ALLERGY = :BUCKWHEAT_ALLERGY ,
+    ETC_ALLERGY1 = :ETC_ALLERGY1 ,
+    ETC_ALLERGY2 = :ETC_ALLERGY2 ,
+    ETC_ALLERGY3 = :ETC_ALLERGY3 ,
+
+    DELETE_FLAG = :DELETE_FLAG           ,
+    SEND_FLAG = :SEND_FLAG               ,
+    VESSEL_ID = :VESSEL_ID               ,
+    DATA_NO = :DATA_NO                   ,
+    USER_KEY = :USER_KEY                 ,
+    RENEW_DATE = :RENEW_DATE             ,
+    RENEW_USER_ID = :RENEW_USER_ID       ,
+    TS = :TS
+
+    WHERE SI_KENSHIN_PMH_KA_ID = :SI_KENSHIN_PMH_KA_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

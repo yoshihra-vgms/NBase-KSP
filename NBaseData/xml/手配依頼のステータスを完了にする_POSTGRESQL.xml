@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="完了以外の手配依頼取得">
+	  select OD_THI.OD_THI_ID from OD_THI
+	  inner join OD_MM on OD_MM.OD_THI_ID = OD_THI.OD_THI_ID
+	  inner join OD_MK on OD_MK.OD_MM_ID = OD_MM.OD_MM_ID
+	  inner join OD_JRY on OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID
+	  inner join OD_SHR on OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID
+
+	  where OD_SHR.SHR_NO = :SHR_NO
+	  and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+  </sql>
+
+  <sql name="完了以外の手配依頼取得_支払合算対応">
+    select OD_THI.OD_THI_ID from OD_THI
+    inner join OD_MM on OD_MM.OD_THI_ID = OD_THI.OD_THI_ID
+    inner join OD_MK on OD_MK.OD_MM_ID = OD_MM.OD_MM_ID
+    inner join OD_JRY on OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID
+    inner join OD_SHR on OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID
+
+    where OD_SHR.SHR_NO = :SHR_NO
+    and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+
+    union
+
+    select OD_THI.OD_THI_ID from OD_THI
+    inner join OD_MM on OD_MM.OD_THI_ID = OD_THI.OD_THI_ID
+    inner join OD_MK on OD_MK.OD_MM_ID = OD_MM.OD_MM_ID
+    inner join OD_JRY on OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID
+    inner join OD_SHR_GASSAN_ITEM on OD_SHR_GASSAN_ITEM.OD_JRY_ID = OD_JRY.OD_JRY_ID
+    inner join OD_SHR_GASSAN_HEAD on OD_SHR_GASSAN_HEAD.OD_SHR_GASSAN_HEAD_ID = OD_SHR_GASSAN_ITEM.OD_SHR_GASSAN_HEAD_ID
+    inner join OD_SHR on OD_SHR.OD_SHR_ID = OD_SHR_GASSAN_HEAD.OD_SHR_ID
+
+    where OD_SHR.SHR_NO = :SHR_NO
+    and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+  </sql>
+
+  <sql name="支払済み以外の支払の個数を返す">
+	  select OD_SHR.OD_SHR_ID from OD_THI
+	  inner join OD_MM on OD_MM.OD_THI_ID = OD_THI.OD_THI_ID
+	  inner join OD_MK on OD_MK.OD_MM_ID = OD_MM.OD_MM_ID
+	  inner join OD_JRY on OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID
+	  inner join OD_SHR on OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID
+
+	  where OD_THI.OD_THI_ID = :OD_THI_ID
+	  and OD_SHR.STATUS in (0,1,2)
+  </sql>
+	<sql name="支払済みの支払の個数を返す">
+		select OD_SHR.OD_SHR_ID from OD_THI
+		inner join OD_MM on OD_MM.OD_THI_ID = OD_THI.OD_THI_ID
+		inner join OD_MK on OD_MK.OD_MM_ID = OD_MM.OD_MM_ID
+		inner join OD_JRY on OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID
+		inner join OD_SHR on OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID
+
+		where OD_THI.OD_THI_ID = :OD_THI_ID
+		and OD_SHR.STATUS = 3
+	</sql>
+
+	<sql name="手配依頼を完了にする">
+		update OD_THI set
+		MS_THI_IRAI_STATUS_ID = 4
+		where OD_THI_ID = :OD_THI_ID
+	</sql>
+</databaseConfig>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KYUKA.SI_KYUKA_ID                   ,
+
+    SI_KYUKA.MS_SENIN_ID                   ,
+    SI_KYUKA.NENDO                         ,
+
+    SI_KYUKA.YUKYU_KYUKA                  ,
+    SI_KYUKA.RIKUJYO_KYUKA                ,
+    SI_KYUKA.SENNAI_KYUJITSU              ,
+    SI_KYUKA.SENNAI_KYUKA                 ,
+
+    SI_KYUKA.DELETE_FLAG                    ,
+    SI_KYUKA.SEND_FLAG                      ,
+    SI_KYUKA.VESSEL_ID                      ,
+    SI_KYUKA.DATA_NO                        ,
+    SI_KYUKA.USER_KEY                       ,
+    SI_KYUKA.RENEW_DATE                     ,
+    SI_KYUKA.RENEW_USER_ID                  ,
+    SI_KYUKA.TS
+
+    FROM
+    SI_KYUKA
+
+    WHERE
+    SI_KYUKA.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name ="BySiKyukaID">
+    AND
+    SI_KYUKA.SI_KYUKA_ID = :SI_KYUKA_ID
+  </sql>
+  
+  <sql name ="ByNendo">
+    AND
+    SI_KYUKA.NENDO = :NENDO
+  </sql>
+  
+  <sql name ="OrderBy">
+    ORDER BY
+    SI_KYUKA.MS_SENIN_ID
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_KYUKA(
+    SI_KYUKA_ID                   ,
+
+    MS_SENIN_ID                   ,
+    NENDO                         ,
+
+    YUKYU_KYUKA                  ,
+    RIKUJYO_KYUKA                ,
+    SENNAI_KYUJITSU              ,
+    SENNAI_KYUKA                 ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_KYUKA_ID                   ,
+
+    :MS_SENIN_ID                   ,
+    :NENDO                         ,
+
+    :YUKYU＿KYUKA                  ,
+    :RIKUJYO＿KYUKA                ,
+    :SENNAI＿KYUJITSU              ,
+    :SENNAI＿KYUKA                 ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KYUKA
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                     ,
+    NENDO = :NENDO                                 ,
+
+    YUKYU_KYUKA = :YUKYU＿KYUKA                   ,
+    RIKUJYO_KYUKA = :RIKUJYO＿KYUKA               ,
+    SENNAI_KYUJITSU = :SENNAI＿KYUJITSU           ,
+    SENNAI_KYUKA = :SENNAI＿KYUKA                 ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_KYUKA_ID = :SI_KYUKA_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_CUSTOMER_ID                 ,
+    CUSTOMER_NAME                  ,
+    TEL                            ,
+    FAX                            ,
+    ZIP_CODE                       ,
+    ADDRESS1                       ,
+    ADDRESS2                       ,
+    BUILDING_NAME                  ,
+    BANK_NAME                      ,
+    BRANCH_NAME                    ,
+    ACCOUNT_NO                     ,
+    ACCOUNT_ID                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHUBETSU                       ,
+    LOGIN_ID                       ,
+    PASSWORD                       ,
+    TEACHER1                       ,
+    TEACHER2                       ,
+    BIKOU                          ,
+    SHUBETSU2                      ,
+    APPOINTED_FLAG                 ,
+    INSPECTION_FLAG
+    
+    from MS_CUSTOMER
+
+  </sql>
+
+　<sql name="_削除を除く">
+	 where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+　</sql>
+
+　<sql name="OrderBy">
+    ORDER BY MS_CUSTOMER.CUSTOMER_NAME, MS_CUSTOMER.MS_CUSTOMER_ID
+  </sql>
+
+  <sql name="ByShubetsu_未使用">
+    AND
+    SHUBETSU = :SHUBETSU
+  </sql>
+	
+　<sql name="_代理店_OLD">
+	AND
+	SHUBETSU >= 1
+　</sql>
+
+  <sql name="_代理店">
+    AND
+    SHUBETSU LIKE '%,1,%'　
+  </sql>
+
+  <sql name="GetRecord">
+    select
+    MS_CUSTOMER_ID                 ,
+    CUSTOMER_NAME                  ,
+    TEL                            ,
+    FAX                            ,
+    ZIP_CODE                       ,
+    ADDRESS1                       ,
+    ADDRESS2                       ,
+    BUILDING_NAME                  ,
+    BANK_NAME                      ,
+    BRANCH_NAME                    ,
+    ACCOUNT_NO                     ,
+    ACCOUNT_ID                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHUBETSU                       ,
+    LOGIN_ID                       ,
+    PASSWORD                       ,
+    TEACHER1                       ,
+    TEACHER2                       ,
+    BIKOU                          ,
+    SHUBETSU2                      ,
+    APPOINTED_FLAG                 ,
+    INSPECTION_FLAG
+
+    from
+    MS_CUSTOMER
+
+    where
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID
+
+  </sql>
+
+  <sql name="GetRecordByLoginId">
+    select
+    MS_CUSTOMER_ID                 ,
+    CUSTOMER_NAME                  ,
+    TEL                            ,
+    FAX                            ,
+    ZIP_CODE                       ,
+    ADDRESS1                       ,
+    ADDRESS2                       ,
+    BUILDING_NAME                  ,
+    BANK_NAME                      ,
+    BRANCH_NAME                    ,
+    ACCOUNT_NO                     ,
+    ACCOUNT_ID                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHUBETSU                       ,
+    LOGIN_ID                       ,
+    PASSWORD                       ,
+    TEACHER1                       ,
+    TEACHER2                       ,
+    BIKOU                          ,
+    SHUBETSU2                      ,
+    APPOINTED_FLAG                 ,
+    INSPECTION_FLAG
+
+    from
+    MS_CUSTOMER
+
+    where
+    LOGIN_ID = :LOGIN_ID
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_CUSTOMER(
+    MS_CUSTOMER_ID                 ,
+    CUSTOMER_NAME                  ,
+    TEL                            ,
+    FAX                            ,
+    ZIP_CODE                       ,
+    ADDRESS1                       ,
+    ADDRESS2                       ,
+    BUILDING_NAME                  ,
+    BANK_NAME                      ,
+    BRANCH_NAME                    ,
+    ACCOUNT_NO                     ,
+    ACCOUNT_ID                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHUBETSU                       ,
+    LOGIN_ID                       ,
+    PASSWORD                       ,
+    TEACHER1                       ,
+    TEACHER2                       ,
+    BIKOU                          ,
+    SHUBETSU2                      ,
+    APPOINTED_FLAG                 ,
+    INSPECTION_FLAG
+    )
+    VALUES(
+    :MS_CUSTOMER_ID                 ,
+    :CUSTOMER_NAME                  ,
+    :TEL                            ,
+    :FAX                            ,
+    :ZIP_CODE                       ,
+    :ADDRESS1                       ,
+    :ADDRESS2                       ,
+    :BUILDING_NAME                  ,
+    :BANK_NAME                      ,
+    :BRANCH_NAME                    ,
+    :ACCOUNT_NO                     ,
+    :ACCOUNT_ID                     ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO	                      ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :SHUBETSU                       ,
+    :LOGIN_ID                       ,
+    :PASSWORD                       ,
+    :TEACHER1                       ,
+    :TEACHER2                       ,
+    :BIKOU                          ,
+    :SHUBETSU2                      ,
+    :APPOINTED_FLAG                 ,
+    :INSPECTION_FLAG
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_CUSTOMER SET
+    CUSTOMER_NAME = :CUSTOMER_NAME,
+    TEL = :TEL,
+    FAX = :FAX,
+    ZIP_CODE = :ZIP_CODE,
+    ADDRESS1 = :ADDRESS1,
+    ADDRESS2 = :ADDRESS2,
+    BUILDING_NAME = :BUILDING_NAME,
+    BANK_NAME = :BANK_NAME                      ,
+    BRANCH_NAME = :BRANCH_NAME                    ,
+    ACCOUNT_NO = :ACCOUNT_NO                     ,
+    ACCOUNT_ID = :ACCOUNT_ID                     ,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY                       ,
+    RENEW_DATE = :RENEW_DATE                   ,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS,
+    SHUBETSU = :SHUBETSU,
+    LOGIN_ID = :LOGIN_ID,
+    PASSWORD = :PASSWORD,
+    TEACHER1 = :TEACHER1 ,
+    TEACHER2 = :TEACHER2 ,
+    BIKOU = :BIKOU,
+    SHUBETSU2 = :SHUBETSU2 ,
+    APPOINTED_FLAG = :APPOINTED_FLAG ,
+    INSPECTION_FLAG = :INSPECTION_FLAG
+    where
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID
+    and
+    TS = :TS
+  </sql>
+
+	<sql name="DeleteFlagRecord">
+		UPDATE MS_CUSTOMER SET
+		DELETE_FLAG = 1
+		,RENEW_DATE = :RENEW_DATE
+		,RENEW_USER_ID = :RENEW_USER_ID
+
+		where MS_CUSTOMER_ID = :MS_CUSTOMER_ID
+		AND TS = :TS
+	</sql>
+
+</databaseConfig>

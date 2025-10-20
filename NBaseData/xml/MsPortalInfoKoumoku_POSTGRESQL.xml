@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_PORTAL_INFO_KOUMOKU.MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_PORTAL_INFO_KOUMOKU.PORTAL_INFO_KOUMOKU_NAME   ,
+    MS_PORTAL_INFO_KOUMOKU.DELETE_FLAG                ,
+    MS_PORTAL_INFO_KOUMOKU.SEND_FLAG                  ,
+    MS_PORTAL_INFO_KOUMOKU.VESSEL_ID                  ,
+    MS_PORTAL_INFO_KOUMOKU.DATA_NO                    ,
+    MS_PORTAL_INFO_KOUMOKU.USER_KEY                   ,
+    MS_PORTAL_INFO_KOUMOKU.RENEW_DATE                 ,
+    MS_PORTAL_INFO_KOUMOKU.RENEW_USER_ID              ,
+    MS_PORTAL_INFO_KOUMOKU.TS
+    from
+    MS_PORTAL_INFO_KOUMOKU
+    where (MS_PORTAL_INFO_KOUMOKU.DELETE_FLAG = 0 or MS_PORTAL_INFO_KOUMOKU.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByPortalInfoKoumokuName">
+    and MS_PORTAL_INFO_KOUMOKU.PORTAL_INFO_KOUMOKU_NAME  = :PORTAL_INFO_KOUMOKU_NAME
+  </sql>
+
+</databaseConfig>

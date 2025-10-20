@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+    SELECT
+    PRM_1,
+    PRM_2,
+    PRM_3,
+    PRM_4,
+    PRM_5,
+    PRM_6,
+    PRM_7,
+    PRM_8,
+    PRM_9,
+    PRM_10,
+    MAINTENANCE_FLAG,
+    MAINTENANCE_MESSAGE,
+    RELEASE_VERSION, 
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    SN_PARAMETER
+  </sql>
+	
+  <sql name="InsertRecord">
+    INSERT INTO SN_PARAMETER
+    (
+    PRM_1,
+    PRM_2,
+    PRM_3,
+    PRM_4,
+    PRM_5,
+    PRM_6,
+    PRM_7,
+    PRM_8,
+    PRM_9,
+    PRM_10,
+    MAINTENANCE_FLAG,
+    MAINTENANCE_MESSAGE,
+    RELEASE_VERSION,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES(
+    :PRM_1,
+    :PRM_2,
+    :PRM_3,
+    :PRM_4,
+    :PRM_5,
+    :PRM_6,
+    :PRM_7,
+    :PRM_8,
+    :PRM_9,
+    :PRM_10,
+    :MAINTENANCE_FLAG,
+    :MAINTENANCE_MESSAGE,
+    :RELEASE_VERSION,
+    :SEND_FLAG,
+    :VESSEL_ID,
+    :DATA_NO,
+    :USER_KEY,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE SN_PARAMETER SET
+    PRM_1 = :PRM_1,
+    PRM_2 = :PRM_2,
+    PRM_3 = :PRM_3,
+    PRM_4 = :PRM_4,
+    PRM_5 = :PRM_5,
+    PRM_6 = :PRM_6,
+    PRM_7 = :PRM_7,
+    PRM_8 = :PRM_8,
+    PRM_9 = :PRM_9,
+    PRM_10 = :PRM_10,
+    MAINTENANCE_FLAG = :MAINTENANCE_FLAG,
+    MAINTENANCE_MESSAGE = :MAINTENANCE_MESSAGE,
+    RELEASE_VERSION = :RELEASE_VERSION,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+  </sql>
+</databaseConfig>

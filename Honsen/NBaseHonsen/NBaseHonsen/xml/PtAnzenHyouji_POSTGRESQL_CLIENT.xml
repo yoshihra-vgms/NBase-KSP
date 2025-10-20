@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		PT_ANZEN_HYOUJI_ID   ,
+		FILE_NAME                     ,
+		DATA                          ,
+
+		DELETE_FLAG                   ,
+		SEND_FLAG                     ,
+		VESSEL_ID                     ,
+		DATA_NO                       ,
+		USER_KEY                      ,
+		RENEW_DATE                    ,
+		RENEW_USER_ID                 ,
+		TS
+
+		from
+		PT_ANZEN_HYOUJI
+		WHERE (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		RENEW_DATE DESC
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO PT_ANZEN_HYOUJI
+	  (
+	  PT_ANZEN_HYOUJI_ID ,
+	  FILE_NAME                   ,
+	  DATA                        ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :PT_ANZEN_HYOUJI_ID ,
+	  :FILE_NAME                   ,
+	  :DATA                        ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE PT_ANZEN_HYOUJI SET
+	  FILE_NAME = :FILE_NAME                           ,
+	  DATA = :DATA                                     ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  PT_ANZEN_HYOUJI_ID = :PT_ANZEN_HYOUJI_ID
+  </sql>
+
+</databaseConfig>

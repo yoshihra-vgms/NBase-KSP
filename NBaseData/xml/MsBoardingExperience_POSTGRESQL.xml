@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_BOARDING_EXPERIENCE.MS_BOARDING_EXPERIENCE_ID ,
+
+    MS_BOARDING_EXPERIENCE.KUBUN                     ,
+    MS_BOARDING_EXPERIENCE.MS_VESSEL_ID              ,
+    MS_BOARDING_EXPERIENCE.MS_SI_SHOKUMEI_ID         ,
+    MS_BOARDING_EXPERIENCE.MS_CARGO_GROUP_ID         ,
+    MS_BOARDING_EXPERIENCE.COUNT                     ,
+
+    MS_BOARDING_EXPERIENCE.DELETE_FLAG                    ,
+    MS_BOARDING_EXPERIENCE.SEND_FLAG                      ,
+    MS_BOARDING_EXPERIENCE.VESSEL_ID                      ,
+    MS_BOARDING_EXPERIENCE.DATA_NO                        ,
+    MS_BOARDING_EXPERIENCE.USER_KEY                       ,
+    MS_BOARDING_EXPERIENCE.RENEW_DATE                     ,
+    MS_BOARDING_EXPERIENCE.RENEW_USER_ID                  ,
+    MS_BOARDING_EXPERIENCE.TS
+
+    FROM
+    MS_BOARDING_EXPERIENCE
+    
+    WHERE
+    MS_BOARDING_EXPERIENCE.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="ByKubun">
+    AND
+    (MS_BOARDING_EXPERIENCE.KUBUN = :KUBUN)
+  </sql>
+  
+  <sql name="ByVesselID">
+    AND
+    (MS_BOARDING_EXPERIENCE.MS_VESSEL_ID = :MS_VESSEL_ID)
+  </sql>
+
+  <sql name="ByShokumeiID">
+    AND
+    (MS_BOARDING_EXPERIENCE.MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID)
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_BOARDING_EXPERIENCE(
+    MS_BOARDING_EXPERIENCE_ID ,
+    
+    KUBUN                     ,
+    MS_VESSEL_ID              ,
+    MS_SI_SHOKUMEI_ID         ,
+    MS_CARGO_GROUP_ID         ,
+    COUNT                     ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_BOARDING_EXPERIENCE_ID ,
+
+    :KUBUN                     ,
+    :MS_VESSEL_ID              ,
+    :MS_SI_SHOKUMEI_ID         ,
+    :MS_CARGO_GROUP_ID         ,
+    :COUNT                     ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_BOARDING_EXPERIENCE
+    SET
+    KUBUN = :KUBUN ,
+    MS_VESSEL_ID = :MS_VESSEL_ID ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID ,
+    MS_CARGO_GROUP_ID = :MS_CARGO_GROUP_ID ,
+    COUNT = :COUNT ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_BOARDING_EXPERIENCE_ID = :MS_BOARDING_EXPERIENCE_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

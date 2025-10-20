@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_GETSUJI_SHIME.OD_GETSUJI_SHIME               ,
+    OD_GETSUJI_SHIME.NEN_GETSU                      ,
+    OD_GETSUJI_SHIME.MS_USER_ID                     ,
+    OD_GETSUJI_SHIME.SEND_FLAG                      ,
+    OD_GETSUJI_SHIME.VESSEL_ID                      ,
+    OD_GETSUJI_SHIME.DATA_NO                        ,
+    OD_GETSUJI_SHIME.USER_KEY                       ,
+    OD_GETSUJI_SHIME.RENEW_DATE                     ,
+    OD_GETSUJI_SHIME.RENEW_USER_ID                  ,
+    OD_GETSUJI_SHIME.TS
+    FROM
+    OD_GETSUJI_SHIME
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    OD_GETSUJI_SHIME.OD_GETSUJI_SHIME               ,
+    OD_GETSUJI_SHIME.NEN_GETSU                      ,
+    OD_GETSUJI_SHIME.MS_USER_ID                     ,
+    OD_GETSUJI_SHIME.SEND_FLAG                      ,
+    OD_GETSUJI_SHIME.VESSEL_ID                      ,
+    OD_GETSUJI_SHIME.DATA_NO                        ,
+    OD_GETSUJI_SHIME.USER_KEY                       ,
+    OD_GETSUJI_SHIME.RENEW_DATE                     ,
+    OD_GETSUJI_SHIME.RENEW_USER_ID                  ,
+    OD_GETSUJI_SHIME.TS
+    FROM
+    OD_GETSUJI_SHIME
+    WHERE
+    OD_GETSUJI_SHIME.OD_GETSUJI_SHIME = :OD_GETSUJI_SHIME
+
+  </sql>
+
+
+
+	<sql name="GetRecordByLastDate">
+		SELECT
+		OD_GETSUJI_SHIME.OD_GETSUJI_SHIME               ,
+		OD_GETSUJI_SHIME.NEN_GETSU                      ,
+		OD_GETSUJI_SHIME.MS_USER_ID                     ,
+		OD_GETSUJI_SHIME.SEND_FLAG                      ,
+		OD_GETSUJI_SHIME.VESSEL_ID                      ,
+		OD_GETSUJI_SHIME.DATA_NO                        ,
+		OD_GETSUJI_SHIME.USER_KEY                       ,
+		OD_GETSUJI_SHIME.RENEW_DATE                     ,
+		OD_GETSUJI_SHIME.RENEW_USER_ID                  ,
+		OD_GETSUJI_SHIME.TS
+		FROM
+		OD_GETSUJI_SHIME
+		WHERE NEN_GETSU IN
+		(
+			SELECT max(NEN_GETSU)
+			FROM OD_GETSUJI_SHIME
+		)
+
+	</sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_GETSUJI_SHIME
+    (
+    OD_GETSUJI_SHIME               ,
+    NEN_GETSU                      ,
+    MS_USER_ID                     ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OD_GETSUJI_SHIME               ,
+    :NEN_GETSU                      ,
+    :MS_USER_ID                     ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_GETSUJI_SHIME
+    SET
+    NEN_GETSU =:NEN_GETSU                            ,
+    MS_USER_ID =:MS_USER_ID                          ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    OD_GETSUJI_SHIME =:OD_GETSUJI_SHIME
+
+  </sql>
+
+</databaseConfig>

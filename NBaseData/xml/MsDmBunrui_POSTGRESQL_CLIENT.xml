@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_DM_BUNRUI.MS_DM_BUNRUI_ID               ,
+		MS_DM_BUNRUI.CODE                          ,
+		MS_DM_BUNRUI.NAME                          ,
+		MS_DM_BUNRUI.DELETE_FLAG                   ,
+		MS_DM_BUNRUI.SEND_FLAG                     ,
+		MS_DM_BUNRUI.VESSEL_ID                     ,
+		MS_DM_BUNRUI.DATA_NO                       ,
+		MS_DM_BUNRUI.USER_KEY                      ,
+		MS_DM_BUNRUI.RENEW_DATE                    ,
+		MS_DM_BUNRUI.RENEW_USER_ID                 ,
+		MS_DM_BUNRUI.TS
+
+		from
+		MS_DM_BUNRUI
+		WHERE (MS_DM_BUNRUI.DELETE_FLAG = 0 or MS_DM_BUNRUI.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="LikeName">
+		and MS_DM_BUNRUI.NAME LIKE :NAME
+	</sql>
+	
+	<sql name="ByMsDmBunruiID">
+		and MS_DM_BUNRUI.MS_DM_BUNRUI_ID like :MS_DM_BUNRUI_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By MS_DM_BUNRUI.CODE, MS_DM_BUNRUI.NAME
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO MS_DM_BUNRUI
+	  (
+	  MS_DM_BUNRUI_ID ,
+	  CODE			  ,
+	  NAME			  ,
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :MS_DM_BUNRUI_ID ,
+	  :CODE            ,
+	  :NAME            ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_DM_BUNRUI SET
+	  CODE = :CODE                    ,
+	  NAME = :NAME                    ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID
+  </sql>
+
+</databaseConfig>

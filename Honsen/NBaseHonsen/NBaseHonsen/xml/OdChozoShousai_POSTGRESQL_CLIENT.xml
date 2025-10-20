@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+    OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+    OD_CHOZO_SHOUSAI.MS_LO_ID                       ,
+    MS_LO.LO_NAME                                   ,
+    OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+    MS_LO.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                               ,
+    OD_CHOZO_SHOUSAI.COUNT                          ,
+
+    OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+    OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+    OD_CHOZO_SHOUSAI.DATA_NO                        ,
+    OD_CHOZO_SHOUSAI.USER_KEY                       ,
+    OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+    OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+    OD_CHOZO_SHOUSAI.TS                             ,
+    OD_CHOZO.MS_VESSEL_ID,
+    OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+    FROM
+    OD_CHOZO_SHOUSAI
+    INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+    OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+    OD_CHOZO_SHOUSAI.MS_LO_ID                       ,
+    MS_LO.LO_NAME                                   ,
+    OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+    MS_LO.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                               ,
+    OD_CHOZO_SHOUSAI.COUNT                          ,
+
+    OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+    OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+    OD_CHOZO_SHOUSAI.DATA_NO                        ,
+    OD_CHOZO_SHOUSAI.USER_KEY                       ,
+    OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+    OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+    OD_CHOZO_SHOUSAI.TS                             ,
+    OD_CHOZO.MS_VESSEL_ID,
+    OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+    FROM
+    OD_CHOZO_SHOUSAI
+    INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+    WHERE
+    OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID = :OD_CHOZO_SHOUSAI_ID
+  </sql>
+
+	<sql name="GetRecordsByVesselID_Date">
+		SELECT
+		OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+		OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+		OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+		OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+		MS_LO.LO_NAME                                   ,
+		MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+		OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+		MS_LO.MS_TANI_ID                     ,
+		MS_TANI.TANI_NAME                               ,
+		OD_CHOZO_SHOUSAI.COUNT                          ,
+
+		OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+		OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+		OD_CHOZO_SHOUSAI.DATA_NO                        ,
+		OD_CHOZO_SHOUSAI.USER_KEY                       ,
+		OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+		OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+		OD_CHOZO_SHOUSAI.TS                             ,
+		OD_CHOZO.MS_VESSEL_ID,
+		OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+		FROM
+		OD_CHOZO_SHOUSAI
+		LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+		LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+		LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+		LEFT OUTER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+		WHERE
+		(OD_CHOZO.NENGETSU = :NENGETSU) AND  (OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID)
+
+  </sql>
+
+
+	<sql name="GetRecordsByVesselID_Date_Shubetsu">
+    SELECT
+    OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+    OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+    OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+    OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+    MS_LO.LO_NAME                                   ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+    OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+    MS_LO.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                               ,
+    OD_CHOZO_SHOUSAI.COUNT                          ,
+
+    OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+    OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+    OD_CHOZO_SHOUSAI.DATA_NO                        ,
+    OD_CHOZO_SHOUSAI.USER_KEY                       ,
+    OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+    OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+    OD_CHOZO_SHOUSAI.TS                             ,
+    OD_CHOZO.MS_VESSEL_ID,
+    OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+    FROM
+    OD_CHOZO_SHOUSAI
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+    LEFT OUTER JOIN MS_TANI ON ((MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID) OR (MS_TANI.MS_TANI_ID = MS_VESSEL_ITEM.MS_TANI_ID))
+    INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+    WHERE
+    (OD_CHOZO.NENGETSU = :NENGETSU) AND
+    (OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+    (OD_CHOZO.SHUBETSU = :SHUBETSU)
+
+    ORDER BY SUBSTRING(OD_CHOZO_SHOUSAI.MS_LO_ID,0,1) DESC, OD_CHOZO_SHOUSAI.MS_LO_ID, OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+  </sql>
+
+
+
+	<sql name="GetRecordsByVesselID_Period_Shubetsu">
+		SELECT
+		OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+		OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+		OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+		OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+		MS_LO.LO_NAME                                   ,
+		MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+		OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+		MS_LO.MS_TANI_ID                     ,
+		MS_TANI.TANI_NAME                               ,
+		OD_CHOZO_SHOUSAI.COUNT                          ,
+
+		OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+		OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+		OD_CHOZO_SHOUSAI.DATA_NO                        ,
+		OD_CHOZO_SHOUSAI.USER_KEY                       ,
+		OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+		OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+		OD_CHOZO_SHOUSAI.TS                             ,
+		OD_CHOZO.MS_VESSEL_ID,
+		OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+		FROM
+		OD_CHOZO_SHOUSAI
+		LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+		LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+		LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+		INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+		WHERE
+		(OD_CHOZO.NENGETSU BETWEEN :START_DATE AND :END_DATE) AND
+		(OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+		(OD_CHOZO.SHUBETSU = :SHUBETSU)
+
+	</sql>
+
+	<sql name="GetRecordsByVesselID_Period_MsLoID">
+		SELECT
+		OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+		OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+		OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+		OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+		MS_LO.LO_NAME                                   ,
+		MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+		OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+		MS_LO.MS_TANI_ID                     ,
+		MS_TANI.TANI_NAME                               ,
+		OD_CHOZO_SHOUSAI.COUNT                          ,
+
+		OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+		OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+		OD_CHOZO_SHOUSAI.DATA_NO                        ,
+		OD_CHOZO_SHOUSAI.USER_KEY                       ,
+		OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+		OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+		OD_CHOZO_SHOUSAI.TS                             ,
+		OD_CHOZO.MS_VESSEL_ID,
+		OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+		FROM
+		OD_CHOZO_SHOUSAI
+		LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+		LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+		LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+		INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+		WHERE
+		(OD_CHOZO.NENGETSU BETWEEN :START_DATE AND :END_DATE) AND
+		(OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+		(OD_CHOZO_SHOUSAI.MS_LO_ID = :MS_LO_ID)
+	</sql>
+
+
+	<sql name="GetRecordsByVesselID_Period_MsVesselItemID">
+		SELECT
+		OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+		OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+		OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+		OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+		MS_LO.LO_NAME                                   ,
+		MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+		OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+		MS_LO.MS_TANI_ID                     ,
+		MS_TANI.TANI_NAME                               ,
+		OD_CHOZO_SHOUSAI.COUNT                          ,
+
+		OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+		OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+		OD_CHOZO_SHOUSAI.DATA_NO                        ,
+		OD_CHOZO_SHOUSAI.USER_KEY                       ,
+		OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+		OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+		OD_CHOZO_SHOUSAI.TS                             ,
+		OD_CHOZO.MS_VESSEL_ID,
+		OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+		FROM
+		OD_CHOZO_SHOUSAI
+		LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+		LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+		LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+		INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+		WHERE
+		(OD_CHOZO.NENGETSU BETWEEN :START_DATE AND :END_DATE) AND
+		(OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+		(OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID)
+	</sql>
+	
+	
+
+  <sql name="GetRecordsByDate_Shubetsu">
+	  SELECT
+	  OD_CHOZO.MS_VESSEL_ID,
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+	  OD_CHOZO_SHOUSAI.MS_LO_ID      		  ,
+	  OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		  ,
+
+	  MS_LO.LO_NAME                                   ,
+	  MS_VESSEL_ITEM.VESSEL_ITEM_NAME		  ,
+	  OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+	  MS_LO.MS_TANI_ID                     ,
+	  MS_TANI.TANI_NAME                               ,
+	  OD_CHOZO_SHOUSAI.COUNT                          ,
+
+	  OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+	  OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+	  OD_CHOZO_SHOUSAI.DATA_NO                        ,
+	  OD_CHOZO_SHOUSAI.USER_KEY                       ,
+	  OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+	  OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+	  OD_CHOZO_SHOUSAI.TS                             ,
+	  OD_CHOZO.MS_VESSEL_ID,
+	  OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+	  FROM
+	  OD_CHOZO_SHOUSAI
+	  INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+	  INNER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+	  LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_CHOZO_SHOUSAI.MS_LO_ID
+	  LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID
+	  LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_LO.MS_TANI_ID
+	  WHERE
+	  (OD_CHOZO.NENGETSU = :NENGETSU) AND (OD_CHOZO.SHUBETSU = :SHUBETSU)
+	  ORDER BY MS_VESSEL.SHOW_ORDER , MS_VESSEL.VESSEL_NO
+  </sql>
+
+  <sql name="GetRecordsByVesselID_Date_LoID">
+	  SELECT
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+	  OD_CHOZO_SHOUSAI.MS_LO_ID      		              ,
+	  OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		          ,
+	  OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+	  OD_CHOZO_SHOUSAI.COUNT                          ,
+
+	  OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+	  OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+	  OD_CHOZO_SHOUSAI.DATA_NO                        ,
+	  OD_CHOZO_SHOUSAI.USER_KEY                       ,
+	  OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+	  OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+	  OD_CHOZO_SHOUSAI.TS                             ,
+	  OD_CHOZO.MS_VESSEL_ID,
+	  OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+	  FROM
+	  OD_CHOZO_SHOUSAI
+	  INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+
+	  WHERE
+	  (OD_CHOZO.NENGETSU = :NENGETSU) AND
+	  (OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+	  (OD_CHOZO_SHOUSAI.MS_LO_ID = :MS_LO_ID)
+  </sql>
+
+  <sql name="GetRecordsByVesselID_Date_VesselItemID">
+	  SELECT
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_SHOUSAI_ID            ,
+	  OD_CHOZO_SHOUSAI.OD_CHOZO_ID                    ,
+	  OD_CHOZO_SHOUSAI.MS_LO_ID      		              ,
+	  OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID		          ,
+	  OD_CHOZO_SHOUSAI.ITEM_NAME                      ,
+	  OD_CHOZO_SHOUSAI.COUNT                          ,
+
+	  OD_CHOZO_SHOUSAI.SEND_FLAG                      ,
+	  OD_CHOZO_SHOUSAI.VESSEL_ID                      ,
+	  OD_CHOZO_SHOUSAI.DATA_NO                        ,
+	  OD_CHOZO_SHOUSAI.USER_KEY                       ,
+	  OD_CHOZO_SHOUSAI.RENEW_DATE                     ,
+	  OD_CHOZO_SHOUSAI.RENEW_USER_ID                  ,
+	  OD_CHOZO_SHOUSAI.TS                             ,
+	  OD_CHOZO.MS_VESSEL_ID,
+	  OD_CHOZO_SHOUSAI.UKEIRE_NENGETSU
+
+	  FROM
+	  OD_CHOZO_SHOUSAI
+	  INNER JOIN OD_CHOZO ON OD_CHOZO.OD_CHOZO_ID = OD_CHOZO_SHOUSAI.OD_CHOZO_ID
+
+	  WHERE
+	  (OD_CHOZO.NENGETSU = :NENGETSU) AND
+	  (OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+	  (OD_CHOZO_SHOUSAI.MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID)
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_CHOZO_SHOUSAI
+    (
+    OD_CHOZO_SHOUSAI_ID   ,
+    OD_CHOZO_ID           ,
+    MS_LO_ID              ,
+    MS_VESSEL_ITEM_ID		,
+    ITEM_NAME             ,
+    COUNT                 ,
+
+    SEND_FLAG             ,
+    VESSEL_ID             ,
+    DATA_NO               ,
+    USER_KEY              ,
+    RENEW_DATE            ,
+    RENEW_USER_ID         ,
+    TS                    ,
+    UKEIRE_NENGETSU
+    )
+    VALUES
+    (
+    :OD_CHOZO_SHOUSAI_ID   ,
+    :OD_CHOZO_ID           ,
+    :MS_LO_ID              ,
+    :MS_VESSEL_ITEM_ID		,
+    :ITEM_NAME             ,
+    :COUNT                 ,
+
+    :SEND_FLAG             ,
+    :VESSEL_ID             ,
+    :DATA_NO               ,
+    :USER_KEY              ,
+    :RENEW_DATE            ,
+    :RENEW_USER_ID         ,
+    :TS                    ,
+    :UKEIRE_NENGETSU
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_CHOZO_SHOUSAI
+    SET
+    OD_CHOZO_ID = :OD_CHOZO_ID                    ,
+    MS_LO_ID = :MS_LO_ID                          ,
+    ITEM_NAME = :ITEM_NAME                        ,
+    COUNT = :COUNT                                ,
+
+    SEND_FLAG = :SEND_FLAG                        ,
+    VESSEL_ID = :VESSEL_ID                        ,
+    DATA_NO = :DATA_NO                            ,
+    USER_KEY = :USER_KEY                          ,
+    RENEW_DATE = :RENEW_DATE                      ,
+    RENEW_USER_ID = :RENEW_USER_ID                ,
+    TS = :TS                                      ,
+    UKEIRE_NENGETSU = :UKEIRE_NENGETSU
+
+    WHERE
+    OD_CHOZO_SHOUSAI_ID = :OD_CHOZO_SHOUSAI_ID
+
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME               ,
+    MS_VESSEL_ITEM.KAMOKU_NO                      ,
+    MS_VESSEL_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                             ,
+    MS_VESSEL_ITEM.CATEGORY_NUMBER        				,
+
+    MS_VESSEL_ITEM.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM.BIKOU                          ,
+
+    MS_VESSEL_ITEM.SEND_FLAG                      ,
+    MS_VESSEL_ITEM.VESSEL_ID                      ,
+    MS_VESSEL_ITEM.DATA_NO                        ,
+    MS_VESSEL_ITEM.USER_KEY                       ,
+    MS_VESSEL_ITEM.RENEW_DATE                     ,
+    MS_VESSEL_ITEM.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM.TS
+    FROM
+    MS_VESSEL_ITEM
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_VESSEL_ITEM.MS_TANI_ID
+
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY MS_VESSEL_ITEM.CATEGORY_NUMBER, MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME               ,
+    MS_VESSEL_ITEM.KAMOKU_NO                      ,
+    MS_VESSEL_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                             ,
+    MS_VESSEL_ITEM.CATEGORY_NUMBER        				,
+
+    MS_VESSEL_ITEM.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM.BIKOU                          ,
+
+    MS_VESSEL_ITEM.SEND_FLAG                      ,
+    MS_VESSEL_ITEM.VESSEL_ID                      ,
+    MS_VESSEL_ITEM.DATA_NO                        ,
+    MS_VESSEL_ITEM.USER_KEY                       ,
+    MS_VESSEL_ITEM.RENEW_DATE                     ,
+    MS_VESSEL_ITEM.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM.TS
+    FROM
+    MS_VESSEL_ITEM
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = MS_VESSEL_ITEM.MS_TANI_ID
+
+    WHERE MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_VESSEL_ITEM(
+    MS_VESSEL_ITEM_ID              ,
+    VESSEL_ITEM_NAME               ,
+    KAMOKU_NO                      ,
+    MS_TANI_ID                     ,
+    CATEGORY_NUMBER				         ,
+
+    ZAIKO_COUNT                    ,
+    BIKOU                          ,
+
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_VESSEL_ITEM_ID              ,
+    :VESSEL_ITEM_NAME               ,
+    :KAMOKU_NO                      ,
+    :MS_TANI_ID                     ,
+    :CATEGORY_NUMBER				        ,
+
+    :ZAIKO_COUNT                    ,
+    :BIKOU                          ,
+
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_VESSEL_ITEM
+    SET
+    VESSEL_ITEM_NAME = :VESSEL_ITEM_NAME             ,
+    KAMOKU_NO = :KAMOKU_NO                           ,
+    MS_TANI_ID = :MS_TANI_ID                         ,
+    CATEGORY_NUMBER = :CATEGORY_NUMBER			         ,
+
+    ZAIKO_COUNT = :ZAIKO_COUNT                       ,
+    BIKOU = :BIKOU                                   ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    WHERE
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID
+    AND
+    TS = :TS
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE
+    FROM MS_VESSEL_ITEM
+
+    WHERE
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VESSEL_ITEM_CATEGORY.MS_VESSEL_ITEM_CATEGORY_NUMBER ,
+    MS_VESSEL_ITEM_CATEGORY.CATEGORY_NAME                  ,
+    MS_VESSEL_ITEM_CATEGORY.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_CATEGORY.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_CATEGORY.DATA_NO                        ,
+    MS_VESSEL_ITEM_CATEGORY.USER_KEY                       ,
+    MS_VESSEL_ITEM_CATEGORY.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_CATEGORY.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_CATEGORY.TS
+    FROM
+    MS_VESSEL_ITEM_CATEGORY
+    WHERE DELETE_FLAG = 0
+    ORDER BY MS_VESSEL_ITEM_CATEGORY.MS_VESSEL_ITEM_CATEGORY_NUMBER
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_VESSEL_ITEM_CATEGORY
+    (MS_VESSEL_ITEM_CATEGORY_NUMBER        ,
+    CATEGORY_NAME       ,
+    DELETE_FLAG         ,
+    SEND_FLAG           ,
+    VESSEL_ID           ,
+    DATA_NO             ,
+    USER_KEY            ,
+    RENEW_DATE          ,
+    RENEW_USER_ID       ,
+    TS                  
+    )
+    VALUES(:MS_VESSEL_ITEM_CATEGORY_NUMBER        ,
+    :CATEGORY_NAME       ,
+    :DELETE_FLAG         ,
+    :SEND_FLAG           ,
+    :VESSEL_ID           ,
+    :DATA_NO             ,
+    :USER_KEY            ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    :TS                  
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_VESSEL_ITEM_CATEGORY SET
+    MS_VESSEL_ITEM_CATEGORY_NUMBER = :MS_VESSEL_ITEM_CATEGORY_NUMBER,
+    CATEGORY_NAME = :CATEGORY_NAME,
+    DELETE_FLAG = :DELETE_FLAG       ,
+    SEND_FLAG = :SEND_FLAG           ,
+    VESSEL_ID = :VESSEL_ID           ,
+    DATA_NO = :DATA_NO               ,
+    USER_KEY = :USER_KEY             ,
+    RENEW_DATE = :RENEW_DATE         ,
+    RENEW_USER_ID = :RENEW_USER_ID   ,
+    TS = :TS
+
+    WHERE MS_VESSEL_ITEM_CATEGORY_NUMBER = :MS_VESSEL_ITEM_CATEGORY_NUMBER
+  </sql>
+
+</databaseConfig>

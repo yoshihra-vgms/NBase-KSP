@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecord">
+	  SELECT
+	  MS_PARAMETER.KEY,
+	  MS_PARAMETER.VALUE
+
+	  FROM
+	  MS_PARAMETER
+
+	  WHERE KEY = :KEY
+  </sql>
+	
+</databaseConfig>

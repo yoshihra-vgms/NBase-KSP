@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<HimokuTree>
+  <!--売上高-->
+  <Himoku MsHimokuID="1" BgColor="Aquamarine" Dollar="true">
+
+    <!--運賃-->
+    <Himoku MsHimokuID="2" BgColor="Aquamarine">
+      <Himoku MsHimokuID="3" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="4" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="5" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="6" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="7" BgColor="Aquamarine" />
+    </Himoku>
+
+    <!--賃船料-->
+    <Himoku MsHimokuID="8" BgColor="Aquamarine">
+      <Himoku MsHimokuID="9" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="10" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="11" BgColor="Aquamarine" />
+      <Himoku MsHimokuID="12" BgColor="Aquamarine" />
+    </Himoku>
+
+    <!--他船取扱手数料-->
+    <Himoku MsHimokuID="13" BgColor="Aquamarine" />
+
+    <!--ｿﾉ他収益-->
+    <Himoku MsHimokuID="14" BgColor="Aquamarine" />
+  </Himoku>
+
+  <!--売上原価-->
+  <Himoku MsHimokuID="15" BgColor="RoyalBlue" Dollar="true">
+
+    <!--運航費-->
+    <Himoku MsHimokuID="16" BgColor="RoyalBlue" Dollar="true">
+      <Himoku MsHimokuID="17" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="18" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="19" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="20" BgColor="RoyalBlue" />
+    </Himoku>
+    
+    <!--船費-->
+    <Himoku MsHimokuID="21" BgColor="RoyalBlue" Dollar="true">
+
+      <Himoku MsHimokuID="22" BgColor="RoyalBlue">
+        <Himoku MsHimokuID="23" BgColor="RoyalBlue">
+          <Himoku MsHimokuID="24" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="25" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="26" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="27" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="28" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="29" BgColor="RoyalBlue" />  
+          <Himoku MsHimokuID="30" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="31" BgColor="RoyalBlue" />
+        </Himoku>
+
+        <Himoku MsHimokuID="32" BgColor="RoyalBlue">
+          <Himoku MsHimokuID="33" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="34" BgColor="RoyalBlue" />
+        </Himoku>
+        
+        <Himoku MsHimokuID="35" BgColor="RoyalBlue" />
+
+        <Himoku MsHimokuID="36" BgColor="RoyalBlue">
+          <Himoku MsHimokuID="37" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="38" BgColor="RoyalBlue" />
+        </Himoku>
+        
+        <Himoku MsHimokuID="39" BgColor="RoyalBlue" />
+      </Himoku>
+        
+      <Himoku MsHimokuID="40" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="41" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="59" BgColor="RoyalBlue" />
+
+      <!--船舶修繕費-->
+      <Himoku MsHimokuID="42" BgColor="RoyalBlue" Dollar="true">
+        <Himoku MsHimokuID="43" BgColor="RoyalBlue">
+          <Himoku MsHimokuID="44" BgColor="RoyalBlue" />
+          <Himoku MsHimokuID="45" BgColor="RoyalBlue">
+            <Himoku MsHimokuID="46" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="47" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="48" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="79" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="49" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="50" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="51" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="52" BgColor="RoyalBlue" />
+            <Himoku MsHimokuID="53" BgColor="RoyalBlue" />
+          </Himoku>
+        </Himoku>
+        <Himoku MsHimokuID="54" BgColor="RoyalBlue" />
+        <Himoku MsHimokuID="55" BgColor="RoyalBlue" />
+        <Himoku MsHimokuID="56" BgColor="RoyalBlue" />
+      </Himoku>
+      
+      <Himoku MsHimokuID="57" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="58" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="60" BgColor="RoyalBlue" />
+      <Himoku MsHimokuID="61" BgColor="RoyalBlue" />
+    </Himoku>
+
+    <!--借船料-->
+    <Himoku MsHimokuID="62" BgColor="RoyalBlue" />
+
+    <!--その他海運業費用-->
+    <Himoku MsHimokuID="63" BgColor="RoyalBlue" />
+  </Himoku>
+
+  <!--売り上げ総利益-->
+  <Himoku MsHimokuID="64" BgColor="LightGreen" />
+
+  <!--販管費-->
+  <Himoku MsHimokuID="65" BgColor="Khaki" />
+
+  <!--営業損益-->
+  <Himoku MsHimokuID="68" BgColor="White" />
+
+  <!--営業外収入-->
+  <Himoku MsHimokuID="69" BgColor="LightSalmon" />
+
+  <!--営業外費用-->
+  <Himoku MsHimokuID="70" BgColor="LightSalmon">
+    <Himoku MsHimokuID="71" BgColor="LightSalmon" />
+    <Himoku MsHimokuID="72" BgColor="LightSalmon" />
+  </Himoku>
+
+  <!--経常損益-->
+  <Himoku MsHimokuID="73" BgColor="White" />
+
+  <!--特別利益-->
+  <Himoku MsHimokuID="74" BgColor="Pink" />
+
+  <!--特別損失-->
+  <Himoku MsHimokuID="75" BgColor="Pink" />
+
+  <!--税引前当期損益-->
+  <Himoku MsHimokuID="76" BgColor="White" />
+
+  <!--法人税等-->
+  <Himoku MsHimokuID="77" BgColor="OliveDrab" />
+
+  <!--当期損益-->
+  <Himoku MsHimokuID="78" BgColor="White" />
+</HimokuTree>

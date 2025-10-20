@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_CREW_MATRIX_TYPE_ID,
+    TYPE_NAME,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from MS_CREW_MATRIX_TYPE
+    where DELETE_FLAG = 0
+    order by MS_CREW_MATRIX_TYPE_ID
+  </sql>
+
+</databaseConfig>

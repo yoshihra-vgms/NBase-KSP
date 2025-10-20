@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_RIREKI.SI_RIREKI_ID                   ,
+
+    SI_RIREKI.MS_SENIN_ID                    ,
+    SI_RIREKI.MS_SI_SHOKUMEI_ID              ,
+
+    SI_RIREKI.RIREKI_DATE                    ,
+    SI_RIREKI.HONKYU                         ,
+    SI_RIREKI.GEKKYU                         ,
+    SI_RIREKI.BIKOU                          ,
+    
+    SI_RIREKI.TOKYU,
+    SI_RIREKI.NITIGAKU,
+
+    SI_RIREKI.DELETE_FLAG                    ,
+    SI_RIREKI.SEND_FLAG                      ,
+    SI_RIREKI.VESSEL_ID                      ,
+    SI_RIREKI.DATA_NO                        ,
+    SI_RIREKI.USER_KEY                       ,
+    SI_RIREKI.RENEW_DATE                     ,
+    SI_RIREKI.RENEW_USER_ID                  ,
+    SI_RIREKI.TS
+
+    FROM
+    SI_RIREKI
+
+    WHERE
+    SI_RIREKI.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_RIREKI.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_RIREKI(
+    SI_RIREKI_ID                   ,
+
+    MS_SENIN_ID                    ,
+    MS_SI_SHOKUMEI_ID              ,
+
+    RIREKI_DATE                    ,
+    HONKYU                         ,
+    GEKKYU                         ,
+    BIKOU                          ,
+    
+    TOKYU,
+    NITIGAKU,
+    
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_RIREKI_ID                   ,
+
+    :MS_SENIN_ID                    ,
+    :MS_SI_SHOKUMEI_ID              ,
+
+    :RIREKI_DATE                    ,
+    :HONKYU                         ,
+    :GEKKYU                         ,
+    :BIKOU                          ,
+
+    :TOKYU,
+    :NITIGAKU,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_RIREKI
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+
+    RIREKI_DATE = :RIREKI_DATE                       ,
+    HONKYU = :HONKYU                                 ,
+    GEKKYU = :GEKKYU                                 ,
+    BIKOU = :BIKOU                                   ,
+    
+    TOKYU = :TOKYU,
+    NITIGAKU = :NITIGAKU,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_RIREKI_ID = :SI_RIREKI_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

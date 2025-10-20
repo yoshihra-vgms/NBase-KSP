@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    select
+    DM_DOC_COMMENT.DM_DOC_COMMENT_ID          ,
+    DM_DOC_COMMENT.REG_DATE                     ,
+    DM_DOC_COMMENT.MS_USER_ID                   ,
+    DM_DOC_COMMENT.DOC_FLAG_CEO        ,
+    DM_DOC_COMMENT.DOC_FLAG_ADMIN      ,
+    DM_DOC_COMMENT.DOC_FLAG_MSI_FERRY  ,
+    DM_DOC_COMMENT.DOC_FLAG_CREW_FERRY ,
+    DM_DOC_COMMENT.DOC_FLAG_TSI_FERRY  ,
+    DM_DOC_COMMENT.DOC_FLAG_MSI_CARGO  ,
+    DM_DOC_COMMENT.DOC_FLAG_CREW_CARGO ,
+    DM_DOC_COMMENT.DOC_FLAG_TSI_CARGO  ,
+    DM_DOC_COMMENT.DOC_FLAG_OFFICER    ,
+    DM_DOC_COMMENT.DOC_FLAG_SD_MANAGER ,
+    DM_DOC_COMMENT.DOC_FLAG_GL         ,
+    DM_DOC_COMMENT.DOC_FLAG_TL         ,
+    DM_DOC_COMMENT.KOUKAI_SAKI                  ,
+    DM_DOC_COMMENT.KOUKAI_SAKI                  ,
+    DM_DOC_COMMENT.MS_VESSEL_ID                 ,
+    DM_DOC_COMMENT.MS_BUMON_ID                  ,
+    DM_DOC_COMMENT.LINK_SAKI                    ,
+    DM_DOC_COMMENT.LINK_SAKI_ID                 ,
+
+    DM_DOC_COMMENT.DELETE_FLAG                   ,
+    DM_DOC_COMMENT.SEND_FLAG                     ,
+    DM_DOC_COMMENT.VESSEL_ID                     ,
+    DM_DOC_COMMENT.DATA_NO                       ,
+    DM_DOC_COMMENT.USER_KEY                      ,
+    DM_DOC_COMMENT.RENEW_DATE                    ,
+    DM_DOC_COMMENT.RENEW_USER_ID                 ,
+    DM_DOC_COMMENT.TS
+
+    from
+    DM_DOC_COMMENT
+    WHERE (DM_DOC_COMMENT.DELETE_FLAG = 0 or DM_DOC_COMMENT.DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="ByLinkSaki">
+		AND DM_DOC_COMMENT.LINK_SAKI = :LINK_SAKI
+		AND DM_DOC_COMMENT.LINK_SAKI_ID = :LINK_SAKI_ID
+	</sql>
+
+	<sql name="ByDmDocCommentID">
+		AND DM_DOC_COMMENT.DM_DOC_COMMENT_ID = :DM_DOC_COMMENT_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		DM_DOC_COMMENT.KOUKAI_SAKI,
+		DM_DOC_COMMENT.MS_VESSEL_ID,
+		DM_DOC_COMMENT.MS_BUMON_ID,
+		DM_DOC_COMMENT.MS_USER_ID
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+    INSERT INTO DM_DOC_COMMENT
+    (
+    DM_DOC_COMMENT_ID ,
+    REG_DATE    ,
+    MS_USER_ID      ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_MSI_CARGO  ,
+    DOC_FLAG_CREW_CARGO ,
+    DOC_FLAG_TSI_CARGO  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_SD_MANAGER ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    KOUKAI_SAKI     ,
+    MS_VESSEL_ID    ,
+    MS_BUMON_ID     ,
+    LINK_SAKI       ,
+    LINK_SAKI_ID    ,
+
+    DELETE_FLAG     ,
+    SEND_FLAG       ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    USER_KEY        ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    )
+    VALUES(
+    :DM_DOC_COMMENT_ID ,
+    :REG_DATE    ,
+    :MS_USER_ID      ,
+    :DOC_FLAG_CEO        ,
+    :DOC_FLAG_ADMIN      ,
+    :DOC_FLAG_MSI_FERRY  ,
+    :DOC_FLAG_CREW_FERRY ,
+    :DOC_FLAG_TSI_FERRY  ,
+    :DOC_FLAG_MSI_CARGO  ,
+    :DOC_FLAG_CREW_CARGO ,
+    :DOC_FLAG_TSI_CARGO  ,
+    :DOC_FLAG_OFFICER    ,
+    :DOC_FLAG_SD_MANAGER ,
+    :DOC_FLAG_GL         ,
+    :DOC_FLAG_TL         ,
+    :KOUKAI_SAKI     ,
+    :MS_VESSEL_ID    ,
+    :MS_BUMON_ID     ,
+    :LINK_SAKI       ,
+    :LINK_SAKI_ID    ,
+    :DELETE_FLAG     ,
+    :SEND_FLAG       ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :USER_KEY        ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE DM_DOC_COMMENT SET
+    REG_DATE = :REG_DATE    ,
+    MS_USER_ID = :MS_USER_ID        ,
+    DOC_FLAG_CEO = :DOC_FLAG_CEO,
+    DOC_FLAG_ADMIN = :DOC_FLAG_ADMIN,
+    DOC_FLAG_MSI_FERRY = :DOC_FLAG_MSI_FERRY,
+    DOC_FLAG_CREW_FERRY = :DOC_FLAG_CREW_FERRY,
+    DOC_FLAG_TSI_FERRY = :DOC_FLAG_TSI_FERRY,
+    DOC_FLAG_MSI_CARGO = :DOC_FLAG_MSI_CARGO,
+    DOC_FLAG_CREW_CARGO = :DOC_FLAG_CREW_CARGO,
+    DOC_FLAG_TSI_CARGO = :DOC_FLAG_TSI_CARGO,
+    DOC_FLAG_OFFICER = :DOC_FLAG_OFFICER,
+    DOC_FLAG_SD_MANAGER = :DOC_FLAG_SD_MANAGER ,
+    DOC_FLAG_GL = :DOC_FLAG_GL         ,
+    DOC_FLAG_TL = :DOC_FLAG_TL         ,
+    KOUKAI_SAKI = :KOUKAI_SAKI      ,
+    MS_VESSEL_ID = :MS_VESSEL_ID    ,
+    MS_BUMON_ID = :MS_BUMON_ID      ,
+    LINK_SAKI = :LINK_SAKI          ,
+    LINK_SAKI_ID = :LINK_SAKI_ID    ,
+    DELETE_FLAG = :DELETE_FLAG      ,
+    SEND_FLAG = :SEND_FLAG          ,
+    VESSEL_ID = :VESSEL_ID          ,
+    DATA_NO = :DATA_NO              ,
+    USER_KEY = :USER_KEY            ,
+    RENEW_DATE = :RENEW_DATE        ,
+    RENEW_USER_ID = :RENEW_USER_ID  ,
+    TS = :TS
+
+    WHERE
+    DM_DOC_COMMENT_ID = :DM_DOC_COMMENT_ID
+    AND
+    TS = :TS
+  </sql>
+
+	<sql name="LogicalDelete">
+		UPDATE DM_DOC_COMMENT SET
+		DELETE_FLAG = 1,           
+		RENEW_DATE = :RENEW_DATE
+
+		WHERE
+		LINK_SAKI_ID = :LINK_SAKI_ID    ,
+	</sql>
+
+</databaseConfig>

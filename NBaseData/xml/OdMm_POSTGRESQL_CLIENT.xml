@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_MM.OD_MM_ID                       ,
+    OD_MM.STATUS                         ,
+    OD_MM.CANCEL_FLAG                    ,
+    OD_MM.OD_THI_ID                      ,
+    OD_MM.MM_NO                          ,
+    OD_MM.MM_DATE                        ,
+    OD_MM.MS_SHR_JOUKEN_ID               ,
+    MS_SHR_JOUKEN.SHIHARAI_JOUKEN_NAME   ,
+    OD_MM.OKURISAKI                      ,
+    OD_MM.NAIYOU                         ,
+    OD_MM.MM_SAKUSEISHA                  ,
+    MS_USER.SEI || ' ' || MS_USER.MEI as MM_SAKUSEISHA_NAME,
+    OD_MM.MS_NYUKYO_KAMOKU_ID            ,
+    MS_NYUKYO_KAMOKU.NYUKYO_KAMOKU_NAME  ,
+    OD_MM.SEND_FLAG                      ,
+    OD_MM.VESSEL_ID                      ,
+    OD_MM.DATA_NO                        ,
+    OD_MM.RENEW_DATE                     ,
+    OD_MM.RENEW_USER_ID                  ,
+    OD_MM.TS                             ,
+    OD_MM.MM_KIGEN
+
+    FROM
+    OD_MM
+    INNER JOIN OD_THI ON OD_THI.OD_THI_ID = OD_MM.OD_THI_ID
+    AND OD_THI.CANCEL_FLAG = 0
+    LEFT OUTER JOIN MS_NYUKYO_KAMOKU ON MS_NYUKYO_KAMOKU.MS_NYUKYO_KAMOKU_ID = OD_MM.MS_NYUKYO_KAMOKU_ID
+    LEFT OUTER JOIN MS_SHR_JOUKEN ON MS_SHR_JOUKEN.MS_SHR_JOUKEN_ID = OD_MM.MS_SHR_JOUKEN_ID
+    LEFT JOIN MS_USER ON MS_USER.MS_USER_ID = OD_MM.MM_SAKUSEISHA
+
+    #APPEND_JOIN_STR#
+
+    WHERE OD_MM.CANCEL_FLAG = 0
+  </sql>
+  <sql name="OrderByNo">
+    ORDER BY OD_THI.TEHAI_IRAI_NO, OD_MM.MM_NO
+  </sql>
+
+  <sql name="ByOdThiID">
+    AND OD_MM.OD_THI_ID = :OD_THI_ID
+  </sql>
+
+  <sql name="ByOdMmID">
+    AND OD_MM.OD_MM_ID = :OD_MM_ID
+  </sql>
+
+
+  <sql name="FilterByMsVesselId">
+    AND OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="FilterByJimTantouID">
+    AND OD_THI.JIM_TANTOU_ID = :JIM_TANTOU_ID
+  </sql>
+  <sql name="FilterByMsThiIraiStatusID">
+    AND OD_THI.MS_THI_IRAI_STATUS_ID IN ( #INNER_SQL_MS_THI_IRAI_STATUS_IDS# )
+  </sql>
+  <sql name="FilterByThiIraiDateFrom">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') >= TO_CHAR(:THI_IRAI_DATE_FROM,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByThiIraiDateTo">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:THI_IRAI_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByThiIraiDateFromTo">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') >= TO_CHAR(:THI_IRAI_DATE_FROM,'YYYY/MM/DD')
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:THI_IRAI_DATE_TO,'YYYY/MM/DD')
+  </sql>
+
+  <sql name="AppendJoinForOdThiFilter1">
+    INNER JOIN OD_MK ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MK.CANCEL_FLAG = 0
+  </sql>
+  <sql name="AppendJoinForOdThiFilter2">
+    INNER JOIN OD_MK ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MK.CANCEL_FLAG = 0
+    INNER JOIN OD_JRY ON OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID AND OD_JRY.CANCEL_FLAG = 0
+  </sql>
+  <sql name="FilterByJryDateFrom">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') >= TO_CHAR(:JRY_DATE_FROM,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByJryDateTo">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:JRY_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByJryDateFromTo">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') >= TO_CHAR(:JRY_DATE_FROM,'YYYY/MM/DD')
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:JRY_DATE_TO,'YYYY/MM/DD')
+  </sql>
+
+  
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_MM
+    (
+    OD_MM_ID                       ,
+    STATUS                         ,
+    CANCEL_FLAG                    ,
+    OD_THI_ID                      ,
+    MM_NO                          ,
+    MM_DATE                        ,
+    MS_SHR_JOUKEN_ID               ,
+    OKURISAKI                      ,
+    NAIYOU                         ,
+    MM_SAKUSEISHA                  ,
+    MS_NYUKYO_KAMOKU_ID            ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    MM_KIGEN
+    )
+    VALUES
+    (
+    :OD_MM_ID                       ,
+    :STATUS                         ,
+    :CANCEL_FLAG                    ,
+    :OD_THI_ID                      ,
+    :MM_NO                          ,
+    :MM_DATE                        ,
+    :MS_SHR_JOUKEN_ID               ,
+    :OKURISAKI                      ,
+    :NAIYOU                         ,
+    :MM_SAKUSEISHA                  ,
+    :MS_NYUKYO_KAMOKU_ID            ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :MM_KIGEN
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_MM
+    SET
+    STATUS = :STATUS                                 ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    OD_THI_ID = :OD_THI_ID                           ,
+    MM_NO = :MM_NO                                   ,
+    MM_DATE = :MM_DATE                               ,
+    MS_SHR_JOUKEN_ID = :MS_SHR_JOUKEN_ID             ,
+    OKURISAKI = :OKURISAKI                           ,
+    NAIYOU = :NAIYOU                                 ,
+    MM_SAKUSEISHA = :MM_SAKUSEISHA                   ,
+    MS_NYUKYO_KAMOKU_ID = :MS_NYUKYO_KAMOKU_ID       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         
+
+
+    WHERE
+    OD_MM_ID = :OD_MM_ID
+
+  </sql>
+
+</databaseConfig>

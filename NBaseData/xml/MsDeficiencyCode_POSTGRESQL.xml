@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    DEFICIENCY_CODE_ID,
+    DEFICIENCY_CODE_NAME,
+    DEFECTIVE_ITEM,
+    DEFICIENCY_CATEGORY_ID,
+
+    DELETE_FLAG,
+    CREATE_DATE,
+    UPDATE_DATE,
+    CREATE_MS_USER_ID,
+    UPDATE_MS_USER_ID
+
+    FROM
+    MS_DEFICIENCY_CODE
+
+    WHERE
+    DELETE_FLAG = False
+  </sql>
+
+  <sql name="SearchByCategoryID">
+    AND
+    DEFICIENCY_CATEGORY_ID = :DEFICIENCY_CATEGORY_ID
+  </sql>
+  <sql name="SearchByName">
+    AND
+    DEFICIENCY_CODE_NAME LIKE :DEFICIENCY_CODE_NAME
+  </sql>
+  <sql name="SearchByDefectiveItem">
+    AND
+    DEFECTIVE_ITEM LIKE :DEFECTIVE_ITEM
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_DEFICIENCY_CODE(
+    DEFICIENCY_CODE_NAME      ,
+    DEFECTIVE_ITEM      ,
+    DEFICIENCY_CATEGORY_ID,
+    DELETE_FLAG           ,
+    UPDATE_MS_USER_ID     ,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :DEFICIENCY_CODE_NAME      ,
+    :DEFECTIVE_ITEM      ,
+    :DEFICIENCY_CATEGORY_ID,
+    :DELETE_FLAG           ,
+    :UPDATE_MS_USER_ID     ,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_DEFICIENCY_CODE
+    SET
+    DEFICIENCY_CODE_NAME = :DEFICIENCY_CODE_NAME    ,
+    DEFECTIVE_ITEM = :DEFECTIVE_ITEM    ,
+    DEFICIENCY_CATEGORY_ID = :DEFICIENCY_CATEGORY_ID,
+    DELETE_FLAG = :DELETE_FLAG              ,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE DEFICIENCY_CODE_ID = :DEFICIENCY_CODE_ID
+  </sql>
+
+</databaseConfig>

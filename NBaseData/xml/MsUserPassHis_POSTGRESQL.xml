@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_USER_PASS_HIS_ID,
+		MS_USER_ID         ,
+		PASSWORD           ,
+		SEND_FLAG          ,
+		VESSEL_ID          ,
+		DATA_NO            ,
+		USER_KEY           ,
+		TS                 ,
+		RENEW_DATE         ,
+		RENEW_USER_ID
+
+		from MS_USER_PASS_HIS
+		where MS_USER_ID = :MS_USER_ID
+
+		order by RENEW_DATE desc
+	</sql>
+	
+	<sql name="GetRecordByMaxDate">
+		select
+		max(RENEW_DATE) as RENEW_DATE
+
+		from MS_USER_PASS_HIS
+		where MS_USER_ID = :MS_USER_ID
+
+	</sql>
+
+	<sql name="InsertRecord">
+		insert into MS_USER_PASS_HIS(
+		MS_USER_PASS_HIS_ID,
+		MS_USER_ID         ,
+		PASSWORD           ,
+		SEND_FLAG          ,
+		VESSEL_ID          ,
+		USER_KEY           ,
+		RENEW_DATE         ,
+		RENEW_USER_ID)
+		values(
+		:MS_USER_PASS_HIS_ID,
+		:MS_USER_ID         ,
+		:PASSWORD           ,
+		:SEND_FLAG          ,
+		:VESSEL_ID          ,
+		:USER_KEY           ,
+		:RENEW_DATE         ,
+		:RENEW_USER_ID)
+	</sql>
+</databaseConfig>

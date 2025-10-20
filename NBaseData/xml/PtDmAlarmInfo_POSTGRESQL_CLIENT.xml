@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		SELECT
+		PT_DM_ALARM_INFO.PT_DM_ALARM_INFO_ID        ,
+		PT_DM_ALARM_INFO.PT_ALARM_INFO_ID        ,
+		PT_DM_ALARM_INFO.MS_DM_HOUKOKUSHO_ID               ,
+		PT_DM_ALARM_INFO.JIKI_NEN                     ,
+		PT_DM_ALARM_INFO.JIKI_TUKI                     ,
+		PT_DM_ALARM_INFO.KOUKAI_SAKI                    ,
+		PT_DM_ALARM_INFO.MS_VESSEL_ID                   ,
+		PT_DM_ALARM_INFO.MS_BUMON_ID                    ,
+
+		PT_DM_ALARM_INFO.DELETE_FLAG                   ,
+		PT_DM_ALARM_INFO.SEND_FLAG                     ,
+		PT_DM_ALARM_INFO.VESSEL_ID                     ,
+		PT_DM_ALARM_INFO.DATA_NO                       ,
+		PT_DM_ALARM_INFO.USER_KEY                      ,
+		PT_DM_ALARM_INFO.RENEW_DATE                    ,
+		PT_DM_ALARM_INFO.RENEW_USER_ID                 ,
+		PT_DM_ALARM_INFO.TS
+
+		FROM
+		PT_DM_ALARM_INFO
+
+		WHERE (PT_DM_ALARM_INFO.DELETE_FLAG = 0 or PT_DM_ALARM_INFO.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByMsDmHoukokushoID">
+		AND PT_DM_ALARM_INFO.MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+	</sql>
+
+	<sql name="OrderBy">
+		ORDER BY
+		PT_DM_ALARM_INFO.MS_DM_HOUKOKUSHO_ID
+		,PT_DM_ALARM_INFO.JIKI_NEN
+		,PT_DM_ALARM_INFO.JIKI_TUKI
+		,PT_DM_ALARM_INFO.KOUKAI_SAKI
+		,PT_DM_ALARM_INFO.MS_VESSEL_ID
+		,PT_DM_ALARM_INFO.MS_BUMON_ID
+	</sql>
+
+	<sql name="GetRecord">
+		SELECT
+		PT_DM_ALARM_INFO.PT_DM_ALARM_INFO_ID        ,
+		PT_DM_ALARM_INFO.PT_ALARM_INFO_ID        ,
+		PT_DM_ALARM_INFO.MS_DM_HOUKOKUSHO_ID               ,
+		PT_DM_ALARM_INFO.JIKI_NEN                     ,
+		PT_DM_ALARM_INFO.JIKI_TUKI                     ,
+		PT_DM_ALARM_INFO.KOUKAI_SAKI                    ,
+		PT_DM_ALARM_INFO.MS_VESSEL_ID                   ,
+		PT_DM_ALARM_INFO.MS_BUMON_ID                    ,
+
+		PT_DM_ALARM_INFO.DELETE_FLAG                   ,
+		PT_DM_ALARM_INFO.SEND_FLAG                     ,
+		PT_DM_ALARM_INFO.VESSEL_ID                     ,
+		PT_DM_ALARM_INFO.DATA_NO                       ,
+		PT_DM_ALARM_INFO.USER_KEY                      ,
+		PT_DM_ALARM_INFO.RENEW_DATE                    ,
+		PT_DM_ALARM_INFO.RENEW_USER_ID                 ,
+		PT_DM_ALARM_INFO.TS
+
+		FROM
+		PT_DM_ALARM_INFO
+
+		WHERE (PT_DM_ALARM_INFO.DELETE_FLAG = 0 or PT_DM_ALARM_INFO.DELETE_FLAG is NULL)
+		AND PT_DM_ALARM_INFO.MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+		AND PT_DM_ALARM_INFO.JIKI_NEN = :JIKI_NEN
+		AND PT_DM_ALARM_INFO.JIKI_TUKI = :JIKI_TUKI
+		AND PT_DM_ALARM_INFO.KOUKAI_SAKI = :KOUKAI_SAKI
+	</sql>
+
+	<sql name="ByKoukaiSakiVessel">
+		AND PT_DM_ALARM_INFO.MS_VESSEL_ID = :MS_VESSEL_ID
+	</sql>
+
+	<sql name="ByKoukaiSakiBumon">
+		AND PT_DM_ALARM_INFO.MS_BUMON_ID = :MS_BUMON_ID
+	</sql>
+
+
+
+	<sql name="InsertRecord">
+	  INSERT INTO PT_DM_ALARM_INFO
+	  (
+	  PT_DM_ALARM_INFO_ID,
+	  PT_ALARM_INFO_ID,
+	  MS_DM_HOUKOKUSHO_ID,
+	  JIKI_NEN,
+	  JIKI_TUKI,
+	  KOUKAI_SAKI,
+	  MS_VESSEL_ID,
+	  MS_BUMON_ID,
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :PT_DM_ALARM_INFO_ID ,
+	  :PT_ALARM_INFO_ID,
+	  :MS_DM_HOUKOKUSHO_ID,
+	  :JIKI_NEN,
+	  :JIKI_TUKI,
+	  :KOUKAI_SAKI,
+	  :MS_VESSEL_ID,
+	  :MS_BUMON_ID,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE PT_DM_ALARM_INFO SET
+	  MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID ,
+	  PT_ALARM_INFO_ID = :PT_ALARM_INFO_ID ,
+	  JIKI_NEN = :JIKI_NEN ,
+	  JIKI_TUKI = :JIKI_TUKI ,
+	  KOUKAI_SAKI = :KOUKAI_SAKI ,
+	  MS_VESSEL_ID = :MS_VESSEL_ID ,
+	  MS_BUMON_ID = :MS_BUMON_ID ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  PT_DM_ALARM_INFO_ID = :PT_DM_ALARM_INFO_ID
+  </sql>
+
+
+	<sql name="LogicalDelete">
+    UPDATE PT_DM_ALARM_INFO
+    SET
+    DELETE_FLAG = 1                ,
+    RENEW_DATE = :RENEW_DATE       ,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE DELETE_FLAG = 0
+    AND MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+    AND ( JIKI_NEN > :JIKI_NEN  OR ( JIKI_NEN = :JIKI_NEN AND JIKI_TUKI >= :JIKI_TUKI ) )
+  </sql>
+</databaseConfig>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.DB" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.DB" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+  <xs:complexType name="UserData">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="Bumon" nillable="true" type="q1:MsBumon" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="RoleList" nillable="true" type="q2:ArrayOfMsRole" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="User" nillable="true" type="q3:MsUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserData" nillable="true" type="tns:UserData" />
+  <xs:complexType name="PSCInspectionData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseCommentItemData">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="ActionCodeHistoryList" nillable="true" type="q4:ArrayOfDcActionCodeHistory" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="PscInspection" nillable="true" type="q5:DcCiPscInspection" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PSCInspectionData" nillable="true" type="tns:PSCInspectionData" />
+  <xs:complexType name="BaseCommentItemData">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q6:ArrayOfDcAttachment" />
+      <xs:element minOccurs="0" name="ParentData" nillable="true" type="tns:CommentData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseCommentItemData" nillable="true" type="tns:BaseCommentItemData" />
+  <xs:complexType name="CommentData">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q7:ArrayOfDcAttachment" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Comment" nillable="true" type="q8:DcComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentData" nillable="true" type="tns:CommentData" />
+  <xs:complexType name="ArrayOfPSCInspectionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PSCInspectionData" nillable="true" type="tns:PSCInspectionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPSCInspectionData" nillable="true" type="tns:ArrayOfPSCInspectionData" />
+  <xs:complexType name="AccidentData">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Accident" nillable="true" type="q9:DcAccident" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q10:ArrayOfDcAttachment" />
+      <xs:element minOccurs="0" name="ProgressList" nillable="true" type="tns:ArrayOfAccidentProgressData" />
+      <xs:element minOccurs="0" name="ReportsList" nillable="true" type="tns:ArrayOfAccidentReportsData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccidentData" nillable="true" type="tns:AccidentData" />
+  <xs:complexType name="ArrayOfAccidentProgressData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccidentProgressData" nillable="true" type="tns:AccidentProgressData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccidentProgressData" nillable="true" type="tns:ArrayOfAccidentProgressData" />
+  <xs:complexType name="AccidentProgressData">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q11:ArrayOfDcAttachment" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Progress" nillable="true" type="q12:DcAccidentProgress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccidentProgressData" nillable="true" type="tns:AccidentProgressData" />
+  <xs:complexType name="ArrayOfAccidentReportsData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccidentReportsData" nillable="true" type="tns:AccidentReportsData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccidentReportsData" nillable="true" type="tns:ArrayOfAccidentReportsData" />
+  <xs:complexType name="AccidentReportsData">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q13:ArrayOfDcAttachment" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Reports" nillable="true" type="q14:DcAccidentReports" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccidentReportsData" nillable="true" type="tns:AccidentReportsData" />
+  <xs:complexType name="ArrayOfMoiData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoiData" nillable="true" type="tns:MoiData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoiData" nillable="true" type="tns:ArrayOfMoiData" />
+  <xs:complexType name="MoiData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Header" nillable="true" type="tns:MoiHeaderData" />
+      <xs:element minOccurs="0" name="Observation" nillable="true" type="tns:MoiObservationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoiData" nillable="true" type="tns:MoiData" />
+  <xs:complexType name="MoiHeaderData">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q15:ArrayOfDcAttachment" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Moi" nillable="true" type="q16:DcMoi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoiHeaderData" nillable="true" type="tns:MoiHeaderData" />
+  <xs:complexType name="MoiObservationData">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="AttachmentList" nillable="true" type="q17:ArrayOfDcAttachment" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="Observation" nillable="true" type="q18:DcMoiObservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoiObservationData" nillable="true" type="tns:MoiObservationData" />
+  <xs:complexType name="ArrayOfMoiObservationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoiObservationData" nillable="true" type="tns:MoiObservationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoiObservationData" nillable="true" type="tns:ArrayOfMoiObservationData" />
+  <xs:complexType name="ArrayOfDeficiencyCategoryData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeficiencyCategoryData" nillable="true" type="tns:DeficiencyCategoryData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeficiencyCategoryData" nillable="true" type="tns:ArrayOfDeficiencyCategoryData" />
+  <xs:complexType name="DeficiencyCategoryData">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="Category" nillable="true" type="q19:MsDeficiencyCategory" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="CodeList" nillable="true" type="q20:ArrayOfMsDeficiencyCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeficiencyCategoryData" nillable="true" type="tns:DeficiencyCategoryData" />
+</xs:schema>

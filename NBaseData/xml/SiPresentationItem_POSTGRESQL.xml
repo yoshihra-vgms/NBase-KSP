@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_PRESENTATION_ITEM_ID ,
+    SI_ADVANCED_SEARCH_CONDITION_ID ,
+    MS_SI_PRESENTATION_ID ,
+    ON_OFF_FLAG ,
+    SHOW_ORDER ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    SI_PRESENTATION_ITEM
+
+    WHERE
+    DELETE_FLAG = 0
+    
+  </sql>
+  
+  <sql name="OrderBy">
+    ORDER BY SI_ADVANCED_SEARCH_CONDITION_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_PRESENTATION_ITEM (
+    SI_PRESENTATION_ITEM_ID
+    ,SI_ADVANCED_SEARCH_CONDITION_ID
+    ,MS_SI_PRESENTATION_ID
+    ,ON_OFF_FLAG
+    ,SHOW_ORDER
+    ,DELETE_FLAG
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    )
+    VALUES(
+    :SI_PRESENTATION_ITEM_ID
+    ,:SI_ADVANCED_SEARCH_CONDITION_ID
+    ,:MS_SI_PRESENTATION_ID
+    ,:ON_OFF_FLAG
+    ,:SHOW_ORDER
+    ,:DELETE_FLAG
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    )
+  </sql>
+  
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_PRESENTATION_ITEM
+    SET
+
+    SI_ADVANCED_SEARCH_CONDITION_ID = :SI_ADVANCED_SEARCH_CONDITION_ID
+    MS_SI_PRESENTATION_ID = :MS_SI_PRESENTATION_ID,
+    ON_OFF_FLAG = :ON_OFF_FLAG,
+    SHOW_ORDER = :SHOW_ORDER,
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE SI_PRESENTATION_ITEM_ID = :SI_PRESENTATION_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

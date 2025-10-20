@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+	<sql name="GetRecords">
+		select
+		MS_DJ_KENKOUJYOUTAI_ID               ,
+		KENKOUJYOUTAI                        ,
+		DELETE_FLAG                   ,
+		SEND_FLAG                     ,
+		VESSEL_ID                     ,
+		DATA_NO                       ,
+		USER_KEY                      ,
+		RENEW_DATE                    ,
+		RENEW_USER_ID                 ,
+		TS 
+		
+		from
+		MS_DJ_KENKOUJYOUTAI
+		WHERE (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+	</sql>
+
+  <sql name="OrderBy">
+    Order By TO_NUMBER(MS_DJ_KENKOUJYOUTAI_ID,'9999999999')
+  </sql>
+  
+  <sql name="InsertRecord">
+	  INSERT INTO MS_DJ_KENKOUJYOUTAI
+	  (
+	  MS_DJ_KENKOUJYOUTAI_ID               ,
+	  KENKOUJYOUTAI					    ,
+	  DELETE_FLAG                   ,
+	  SEND_FLAG                     ,
+	  VESSEL_ID                     ,
+	  DATA_NO                       ,
+	  USER_KEY                      ,
+	  RENEW_DATE                    ,
+	  RENEW_USER_ID                 ,
+	  TS
+	  )
+	  VALUES(
+	  :MS_DJ_KENKOUJYOUTAI_ID               ,
+	  :KENKOUJYOUTAI                        ,
+	  :DELETE_FLAG                   ,
+	  :SEND_FLAG                     ,
+	  :VESSEL_ID                     ,
+	  :DATA_NO                       ,
+	  :USER_KEY                      ,
+	  :RENEW_DATE                    ,
+	  :RENEW_USER_ID                 ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_DJ_KENKOUJYOUTAI SET
+	  KENKOUJYOUTAI = :KENKOUJYOUTAI,
+	  DELETE_FLAG = :DELETE_FLAG                  ,
+	  SEND_FLAG = :SEND_FLAG                      ,
+	  VESSEL_ID = :VESSEL_ID                      ,
+	  DATA_NO = :DATA_NO                          ,
+	  USER_KEY = :USER_KEY                        ,
+	  RENEW_DATE = :RENEW_DATE                    ,
+	  RENEW_USER_ID = :RENEW_USER_ID              ,
+	  TS = :TS
+
+	  WHERE
+	  MS_DJ_KENKOUJYOUTAI_ID = :MS_DJ_KENKOUJYOUTAI_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

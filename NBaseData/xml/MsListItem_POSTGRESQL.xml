@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_LIST_ITEM_ID,
+
+    KIND,
+    DISP_NAME,
+    IS_VISIBLE,
+    ALWAYS_SELECTED,
+    CLASS_NAME,
+    PROPERTY_NAME,
+    WIDTH,
+    DISPLAY_ORDER,
+    MASTER_NAME,
+    MASTER_PROPERTY_NAME,
+    ALIGNMENT,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    MS_LIST_ITEM
+
+    WHERE
+    DELETE_FLAG = 0
+    AND
+    KIND = :KIND
+
+    ORDER BY
+    DISPLAY_ORDER
+  </sql>
+
+
+</databaseConfig>

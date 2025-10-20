@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KYUYO_TEATE.SI_KYUYO_TEATE_ID       ,
+    SI_KYUYO_TEATE.MS_SENIN_ID             ,
+    SI_KYUYO_TEATE.MS_SI_SHOKUMEI_ID       ,
+    SI_KYUYO_TEATE.MS_VESSEL_ID            ,
+    SI_KYUYO_TEATE.YM                      ,
+    SI_KYUYO_TEATE.MS_SI_KYUYO_TEATE_ID    ,
+    SI_KYUYO_TEATE.TANKA                   ,
+    SI_KYUYO_TEATE.START_DATE              ,
+    SI_KYUYO_TEATE.END_DATE                ,
+    SI_KYUYO_TEATE.DAYS                    ,
+    SI_KYUYO_TEATE.HONSEN_KINGAKU          ,
+    SI_KYUYO_TEATE.KINGAKU                 ,
+    SI_KYUYO_TEATE.CANCEL_FLAG             ,
+    SI_KYUYO_TEATE.DELETE_FLAG             ,
+    SI_KYUYO_TEATE.SEND_FLAG               ,
+    SI_KYUYO_TEATE.VESSEL_ID               ,
+    SI_KYUYO_TEATE.DATA_NO                 ,
+    SI_KYUYO_TEATE.USER_KEY                ,
+    SI_KYUYO_TEATE.RENEW_DATE              ,
+    SI_KYUYO_TEATE.RENEW_USER_ID           ,
+    SI_KYUYO_TEATE.TS                      ,
+    
+    MS_SENIN.SEI || ' ' || MS_SENIN.MEI AS SENIN_NAME
+
+    FROM
+    SI_KYUYO_TEATE
+
+    INNER JOIN MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_KYUYO_TEATE.MS_SENIN_ID
+
+    WHERE SI_KYUYO_TEATE.DELETE_FLAG = 0
+  </sql>
+  <sql name="BySiKyuyoTeateID">
+    AND
+    SI_KYUYO_TEATE.SI_KYUYO_TEATE_ID = :SI_KYUYO_TEATE_ID
+  </sql>
+  <sql name="ByMsSeninID">
+    AND
+    SI_KYUYO_TEATE.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_KYUYO_TEATE(
+    SI_KYUYO_TEATE_ID       ,
+    MS_SENIN_ID             ,
+    MS_SI_SHOKUMEI_ID       ,
+    MS_VESSEL_ID            ,
+    YM                      ,
+    MS_SI_KYUYO_TEATE_ID    ,
+    TANKA                   ,
+    START_DATE              ,
+    END_DATE                ,
+    DAYS                    ,
+    HONSEN_KINGAKU          ,
+    KINGAKU                 ,
+    CANCEL_FLAG             ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_KYUYO_TEATE_ID       ,
+    :MS_SENIN_ID             ,
+    :MS_SI_SHOKUMEI_ID       ,
+    :MS_VESSEL_ID            ,
+    :YM                      ,
+    :MS_SI_KYUYO_TEATE_ID    ,
+    :TANKA                   ,
+    :START_DATE              ,
+    :END_DATE                ,
+    :DAYS                    ,
+    :HONSEN_KINGAKU          ,
+    :KINGAKU                 ,
+    :CANCEL_FLAG             ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KYUYO_TEATE
+    SET
+
+    MS_SENIN_ID = :MS_SENIN_ID                   ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID       ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                 ,
+    YM = :YM                                     ,
+    MS_SI_KYUYO_TEATE_ID = :MS_SI_KYUYO_TEATE_ID ,
+    TANKA = :TANKA                               ,
+    START_DATE = :START_DATE                     ,
+    END_DATE = :END_DATE                         ,
+    DAYS = :DAYS                                 ,
+    HONSEN_KINGAKU = :HONSEN_KINGAKU             ,
+    KINGAKU = :KINGAKU                           ,
+    CANCEL_FLAG = :CANCEL_FLAG                   ,
+
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    SI_KYUYO_TEATE_ID = :SI_KYUYO_TEATE_ID
+  </sql>
+
+</databaseConfig>

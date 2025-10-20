@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    PT_ALARM_INFO.PT_ALARM_INFO_ID           ,
+    PT_ALARM_INFO.MS_PORTAL_INFO_SHUBETU_ID  ,
+    PT_ALARM_INFO.MS_PORTAL_INFO_KOUMOKU_ID  ,
+    PT_ALARM_INFO.MS_PORTAL_INFO_KUBUN_ID    ,
+    PT_ALARM_INFO.SANSHOUMOTO_ID             ,
+    PT_ALARM_INFO.HAASEI_DATE                ,
+    PT_ALARM_INFO.MS_VESSEL_ID               ,
+    PT_ALARM_INFO.YUUKOUKIGEN                ,
+    PT_ALARM_INFO.NAIYOU                     ,
+    PT_ALARM_INFO.SHOUSAI                    ,
+    PT_ALARM_INFO.ALARM_SHOW_FLAG            ,
+    PT_ALARM_INFO.ALARM_STOP_USER            ,
+    PT_ALARM_INFO.ALARM_STOP_DATE            ,
+    PT_ALARM_INFO.DELETE_FLAG                ,
+    PT_ALARM_INFO.SEND_FLAG                  ,
+    PT_ALARM_INFO.VESSEL_ID                  ,
+    PT_ALARM_INFO.DATA_NO                    ,
+    PT_ALARM_INFO.USER_KEY                   ,
+    PT_ALARM_INFO.RENEW_DATE                 ,
+    PT_ALARM_INFO.RENEW_USER_ID              ,
+    PT_ALARM_INFO.TS                         ,
+    MS_VESSEL.VESSEL_NAME                    ,
+    MS_PORTAL_INFO_SHUBETU.PORTAL_INFO_SYUBETU_NAME
+    from
+    PT_ALARM_INFO
+    LEFT OUTER JOIN  MS_VESSEL ON PT_ALARM_INFO.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN  MS_PORTAL_INFO_SHUBETU ON PT_ALARM_INFO.MS_PORTAL_INFO_SHUBETU_ID = MS_PORTAL_INFO_SHUBETU.MS_PORTAL_INFO_SHUBETU_ID
+
+    where
+    (PT_ALARM_INFO.DELETE_FLAG = 0 or PT_ALARM_INFO.DELETE_FLAG is NULL)
+    and
+    (PT_ALARM_INFO.ALARM_SHOW_FLAG = 0 or PT_ALARM_INFO.ALARM_SHOW_FLAG is NULL)
+  </sql>
+
+  <sql name="ByPtAlarmInfoId">
+    and
+    PT_ALARM_INFO.PT_ALARM_INFO_ID = :PT_ALARM_INFO_ID
+  </sql>
+
+  <sql name="BySanshoumotoId">
+    and
+    PT_ALARM_INFO.SANSHOUMOTO_ID = :SANSHOUMOTO_ID
+  </sql>
+
+  <sql name="ByHaaseiDate">
+    and
+    PT_ALARM_INFO.HAASEI_DATE &lt;= :HAASEI_DATE
+  </sql>
+
+  <sql name="_shubetu_koumoku_kubun">
+    and
+    PT_ALARM_INFO.MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID
+    and
+    PT_ALARM_INFO.MS_PORTAL_INFO_KOUMOKU_ID = :MS_PORTAL_INFO_KOUMOKU_ID
+    and
+    PT_ALARM_INFO.MS_PORTAL_INFO_KUBUN_ID = :MS_PORTAL_INFO_KUBUN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO PT_ALARM_INFO
+    (
+    PT_ALARM_INFO_ID           ,
+    MS_PORTAL_INFO_SHUBETU_ID  ,
+    MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_PORTAL_INFO_KUBUN_ID    ,
+    SANSHOUMOTO_ID             ,
+    HAASEI_DATE                ,
+    MS_VESSEL_ID               ,
+    YUUKOUKIGEN                ,
+    NAIYOU                     ,
+    SHOUSAI                    ,
+    ALARM_SHOW_FLAG            ,
+    ALARM_STOP_USER            ,
+    ALARM_STOP_DATE            ,
+    DELETE_FLAG                   ,
+    SEND_FLAG                     ,
+    VESSEL_ID                     ,
+    DATA_NO                       ,
+    USER_KEY                      ,
+    RENEW_DATE                    ,
+    RENEW_USER_ID                 ,
+    TS
+    )
+    VALUES(
+    :PT_ALARM_INFO_ID           ,
+    :MS_PORTAL_INFO_SHUBETU_ID  ,
+    :MS_PORTAL_INFO_KOUMOKU_ID  ,
+    :MS_PORTAL_INFO_KUBUN_ID    ,
+    :SANSHOUMOTO_ID             ,
+    :HAASEI_DATE                ,
+    :MS_VESSEL_ID               ,
+    :YUUKOUKIGEN                ,
+    :NAIYOU                     ,
+    :SHOUSAI                    ,
+    :ALARM_SHOW_FLAG            ,
+    :ALARM_STOP_USER            ,
+    :ALARM_STOP_DATE            ,
+    :DELETE_FLAG                   ,
+    :SEND_FLAG                     ,
+    :VESSEL_ID                     ,
+    :DATA_NO                       ,
+    :USER_KEY                      ,
+    :RENEW_DATE                    ,
+    :RENEW_USER_ID                 ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE PT_ALARM_INFO
+    SET
+    MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID  ,
+    MS_PORTAL_INFO_KOUMOKU_ID = :MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_PORTAL_INFO_KUBUN_ID = :MS_PORTAL_INFO_KUBUN_ID      ,
+    SANSHOUMOTO_ID = :SANSHOUMOTO_ID              ,
+    HAASEI_DATE = :HAASEI_DATE                    ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                  ,
+    YUUKOUKIGEN = :YUUKOUKIGEN                    ,
+    NAIYOU = :NAIYOU                              ,
+    SHOUSAI = :SHOUSAI                            ,
+    ALARM_SHOW_FLAG = :ALARM_SHOW_FLAG            ,
+    ALARM_STOP_USER = :ALARM_STOP_USER            ,
+    ALARM_STOP_DATE = :ALARM_STOP_DATE            ,
+    DELETE_FLAG = :DELETE_FLAG                  ,
+    SEND_FLAG = :SEND_FLAG                      ,
+    VESSEL_ID = :VESSEL_ID                      ,
+    DATA_NO = :DATA_NO                          ,
+    USER_KEY = :USER_KEY                        ,
+    RENEW_DATE = :RENEW_DATE                    ,
+    RENEW_USER_ID = :RENEW_USER_ID              ,
+    TS = :TS
+
+    WHERE
+    PT_ALARM_INFO_ID = :PT_ALARM_INFO_ID
+
+  </sql>
+
+
+	<sql name="LogicalDelete">
+    UPDATE PT_ALARM_INFO
+    SET
+    DELETE_FLAG = 1                ,
+    RENEW_DATE = :RENEW_DATE       ,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    DELETE_FLAG = 0
+    AND
+    PT_ALARM_INFO_ID IN (
+    SELECT PT_ALARM_INFO_ID FROM PT_DM_ALARM_INFO WHERE MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+    AND  ( JIKI_NEN > :JIKI_NEN  OR ( JIKI_NEN = :JIKI_NEN AND JIKI_TUKI >= :JIKI_TUKI ) ) )
+  </sql>
+</databaseConfig>

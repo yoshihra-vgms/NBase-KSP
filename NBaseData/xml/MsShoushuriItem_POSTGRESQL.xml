@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SHOUSHURI_ITEM.MS_SS_ITEM_ID                  ,
+    MS_SHOUSHURI_ITEM.MS_VESSEL_ID                   ,
+    MS_SHOUSHURI_ITEM.ITEM_NAME                      ,
+    MS_SHOUSHURI_ITEM.SEND_FLAG                      ,
+    MS_SHOUSHURI_ITEM.VESSEL_ID                      ,
+    MS_SHOUSHURI_ITEM.DATA_NO                        ,
+    MS_SHOUSHURI_ITEM.USER_KEY                       ,
+    MS_SHOUSHURI_ITEM.RENEW_DATE                     ,
+    MS_SHOUSHURI_ITEM.RENEW_USER_ID                  ,
+    MS_SHOUSHURI_ITEM.TS
+    FROM
+    MS_SHOUSHURI_ITEM
+
+    WHERE 1 = 1
+  </sql>
+
+  <sql name="whereMsVesselID">
+    AND MS_SHOUSHURI_ITEM.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="whereItemName">
+    AND MS_SHOUSHURI_ITEM.ITEM_NAME = :ITEM_NAME
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_SHOUSHURI_ITEM.MS_SS_ITEM_ID                  ,
+    MS_SHOUSHURI_ITEM.MS_VESSEL_ID                   ,
+    MS_SHOUSHURI_ITEM.ITEM_NAME                      ,
+    MS_SHOUSHURI_ITEM.SEND_FLAG                      ,
+    MS_SHOUSHURI_ITEM.VESSEL_ID                      ,
+    MS_SHOUSHURI_ITEM.DATA_NO                        ,
+    MS_SHOUSHURI_ITEM.USER_KEY                       ,
+    MS_SHOUSHURI_ITEM.RENEW_DATE                     ,
+    MS_SHOUSHURI_ITEM.RENEW_USER_ID                  ,
+    MS_SHOUSHURI_ITEM.TS
+    FROM
+    MS_SHOUSHURI_ITEM
+    WHERE
+    MS_SHOUSHURI_ITEM.MS_SS_ITEM_ID = :MS_SS_ITEM_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_SHOUSHURI_ITEM
+    (
+    MS_SS_ITEM_ID         ,
+    MS_VESSEL_ID          ,
+    ITEM_NAME             ,
+
+    SEND_FLAG             ,
+    VESSEL_ID             ,
+    DATA_NO               ,
+    USER_KEY              ,
+    RENEW_DATE            ,
+    RENEW_USER_ID         ,
+    TS
+    )
+    VALUES
+    (
+    :MS_SS_ITEM_ID         ,
+    :MS_VESSEL_ID          ,
+    :ITEM_NAME             ,
+
+    :SEND_FLAG             ,
+    :VESSEL_ID             ,
+    :DATA_NO               ,
+    :USER_KEY              ,
+    :RENEW_DATE            ,
+    :RENEW_USER_ID         ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SHOUSHURI_ITEM
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                  ,
+    ITEM_NAME = :ITEM_NAME                        ,
+
+    SEND_FLAG = :SEND_FLAG                        ,
+    VESSEL_ID = :VESSEL_ID                        ,
+    DATA_NO = :DATA_NO                            ,
+    USER_KEY = :USER_KEY                          ,
+    RENEW_DATE = :RENEW_DATE                      ,
+    RENEW_USER_ID = :RENEW_USER_ID                ,
+    TS = :TS
+    WHERE
+    MS_SS_ITEM_ID = :MS_SS_ITEM_ID
+    AND
+    TS = :TS
+
+  </sql>
+
+</databaseConfig>

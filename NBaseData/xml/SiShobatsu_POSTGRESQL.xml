@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_SHOBATSU.SI_SHOBATSU_ID            ,
+
+    SI_SHOBATSU.MS_SENIN_ID              ,
+    SI_SHOBATSU.SHOBATSU_NAME,
+    SI_SHOBATSU.SHOBATSU_DATE,
+    SI_SHOBATSU.REMARKS,
+
+    SI_SHOBATSU.DELETE_FLAG              ,
+    SI_SHOBATSU.SEND_FLAG                ,
+    SI_SHOBATSU.VESSEL_ID                ,
+    SI_SHOBATSU.DATA_NO                  ,
+    SI_SHOBATSU.USER_KEY                 ,
+    SI_SHOBATSU.RENEW_DATE               ,
+    SI_SHOBATSU.RENEW_USER_ID            ,
+    SI_SHOBATSU.TS
+
+    FROM
+    SI_SHOBATSU
+
+    WHERE
+    SI_SHOBATSU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_SHOBATSU.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_SHOBATSU(
+    SI_SHOBATSU_ID                  ,
+
+    MS_SENIN_ID                    ,
+
+    SHOBATSU_NAME,
+    SHOBATSU_DATE,
+    REMARKS,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_SHOBATSU_ID                  ,
+
+    :MS_SENIN_ID                    ,
+
+    :SHOBATSU_NAME,
+    :SHOBATSU_DATE,
+    :REMARKS,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_SHOBATSU
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+
+    SHOBATSU_NAME = :SHOBATSU_NAME,
+    SHOBATSU_DATE = :SHOBATSU_DATE,
+    REMARKS = :REMARKS,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_SHOBATSU_ID = :SI_SHOBATSU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

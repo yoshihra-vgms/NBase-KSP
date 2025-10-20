@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    BG_RATE.RATE_ID,
+    BG_RATE.YOSAN_HEAD_ID,
+    BG_RATE.YEAR,
+    BG_RATE.KAMIKI_RATE,
+    BG_RATE.SHIMOKI_RATE,
+    BG_RATE.RENEW_DATE,
+    BG_RATE.RENEW_USER_ID,
+    BG_RATE.TS
+
+    FROM
+    BG_RATE
+
+    WHERE 1 = 1
+  </sql>
+
+  <sql name="ByYosanHeadID">
+    AND BG_RATE.YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+    ORDER BY BG_RATE.YEAR
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO BG_RATE
+    (
+    RATE_ID,
+    YOSAN_HEAD_ID,
+    YEAR,
+    KAMIKI_RATE,
+    SHIMOKI_RATE,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_BG_RATE_ID'),
+    :YOSAN_HEAD_ID,
+    :YEAR,
+    :KAMIKI_RATE,
+    :SHIMOKI_RATE,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE BG_RATE SET
+
+    YOSAN_HEAD_ID = :YOSAN_HEAD_ID,
+    YEAR = :YEAR,
+    KAMIKI_RATE = :KAMIKI_RATE,
+    SHIMOKI_RATE = :SHIMOKI_RATE,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (RATE_ID = :RATE_ID) AND
+    (TS = :TS)
+  </sql>
+
+  <sql name="InsertRecords_コピー">
+    INSERT INTO BG_RATE
+    (
+    RATE_ID,
+    YOSAN_HEAD_ID,
+    YEAR,
+    KAMIKI_RATE,
+    SHIMOKI_RATE,
+    RENEW_DATE,
+    RENEW_USER_ID
+    )
+
+    SELECT
+    nextval('SEQ_BG_RATE_ID'),
+    :YOSAN_HEAD_ID,
+    YEAR,
+    KAMIKI_RATE,
+    SHIMOKI_RATE,
+    :RENEW_DATE,
+    :RENEW_USER_ID
+
+    FROM BG_RATE
+
+    WHERE
+    YOSAN_HEAD_ID = :LAST_YOSAN_HEAD_ID
+  </sql>
+
+  <sql name="ByYear">
+    AND
+    YEAR &lt;= :MAX_YEAR
+  </sql>
+
+</databaseConfig>

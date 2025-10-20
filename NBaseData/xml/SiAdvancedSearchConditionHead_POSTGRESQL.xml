@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_ADVANCED_SEARCH_CONDITION_HEAD_ID ,
+    NAME ,
+    MS_SENIN_COMPANY_ID ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    SI_ADVANCED_SEARCH_CONDITION_HEAD
+
+    WHERE
+    DELETE_FLAG = 0
+    
+  </sql>
+
+  <sql name="ByCompanyId">
+    AND MS_SENIN_COMPANY_ID = :MS_SENIN_COMPANY_ID
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_ADVANCED_SEARCH_CONDITION_HEAD (
+    SI_ADVANCED_SEARCH_CONDITION_HEAD_ID
+    ,NAME
+    ,MS_SENIN_COMPANY_ID
+    ,DELETE_FLAG
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    )
+    VALUES(
+    :SI_ADVANCED_SEARCH_CONDITION_HEAD_ID
+    ,:NAME
+    ,:MS_SENIN_COMPANY_ID
+    ,:DELETE_FLAG
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    )
+  </sql>
+  
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_ADVANCED_SEARCH_CONDITION_HEAD
+    SET
+
+    NAME = :NAME
+    ,MS_SENIN_COMPANY_ID = :MS_SENIN_COMPANY_ID
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE SI_ADVANCED_SEARCH_CONDITION_HEAD_ID = :SI_ADVANCED_SEARCH_CONDITION_HEAD_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

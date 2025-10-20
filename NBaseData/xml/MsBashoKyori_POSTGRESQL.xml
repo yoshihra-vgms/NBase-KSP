@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecord_ORG1">
+	  select
+	  MS_BASHO_KYORI.MS_BASHO_KYORI_ID,
+	  MS_BASHO_KYORI.MS_BASHO_ID1,
+	  MS_BASHO_KYORI.MS_BASHO_ID2,
+	  MS_BASHO_KYORI.KYORI,
+	  BASHO1.BASHO_NAME as BASHO_NAME1,
+	  BASHO2.BASHO_NAME as BASHO_NAME2,
+	  MS_BASHO_KYORI.RENEW_DATE,
+	  MS_BASHO_KYORI.RENEW_USER_ID,
+	  MS_BASHO_KYORI.USER_KEY,
+	  MS_BASHO_KYORI.SEND_FLAG,
+	  MS_BASHO_KYORI.VESSEL_ID,
+	  MS_BASHO_KYORI.TS
+
+	  from MS_BASHO_KYORI
+	  inner join MS_BASHO BASHO1 on BASHO1.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID1
+	  inner join MS_BASHO BASHO2 on BASHO2.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID2
+
+	  where MS_BASHO_KYORI.DELETE_FLAG = 0
+	  and (BASHO1.MS_BASHO_NO = :B1 or BASHO2.MS_BASHO_NO = :B1)
+	  and (BASHO1.MS_BASHO_NO = :B2 or BASHO2.MS_BASHO_NO = :B2)
+	  and :B1 != :B2
+  </sql>
+  
+  <sql name="GetRecord_ORG2">
+    select
+    MS_BASHO_KYORI.MS_BASHO_KYORI_ID,
+    MS_BASHO_KYORI.MS_BASHO_ID1,
+    MS_BASHO_KYORI.MS_BASHO_ID2,
+    MS_BASHO_KYORI.KYORI,
+    BASHO1.BASHO_NAME as BASHO_NAME1,
+    BASHO2.BASHO_NAME as BASHO_NAME2,
+    MS_BASHO_KYORI.RENEW_DATE,
+    MS_BASHO_KYORI.RENEW_USER_ID,
+    MS_BASHO_KYORI.USER_KEY,
+    MS_BASHO_KYORI.SEND_FLAG,
+    MS_BASHO_KYORI.VESSEL_ID,
+    MS_BASHO_KYORI.TS
+
+    from MS_BASHO_KYORI
+    inner join MS_BASHO BASHO1 on BASHO1.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID1
+    inner join MS_BASHO BASHO2 on BASHO2.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID2
+
+    where MS_BASHO_KYORI.DELETE_FLAG = 0
+    and (BASHO1.MS_BASHO_NO = :B1 or BASHO2.MS_BASHO_NO = :B1)
+    and (BASHO1.MS_BASHO_NO = :B2 or BASHO2.MS_BASHO_NO = :B2)
+  </sql>
+
+  <sql name="GetRecord">
+    select
+    MS_BASHO_KYORI.MS_BASHO_KYORI_ID,
+    MS_BASHO_KYORI.MS_BASHO_ID1,
+    MS_BASHO_KYORI.MS_BASHO_ID2,
+    MS_BASHO_KYORI.KYORI,
+    BASHO1.BASHO_NAME as BASHO_NAME1,
+    BASHO2.BASHO_NAME as BASHO_NAME2,
+    MS_BASHO_KYORI.RENEW_DATE,
+    MS_BASHO_KYORI.RENEW_USER_ID,
+    MS_BASHO_KYORI.USER_KEY,
+    MS_BASHO_KYORI.SEND_FLAG,
+    MS_BASHO_KYORI.VESSEL_ID,
+    MS_BASHO_KYORI.TS
+
+    from MS_BASHO_KYORI
+    inner join MS_BASHO BASHO1 on BASHO1.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID1
+    inner join MS_BASHO BASHO2 on BASHO2.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID2
+
+    where MS_BASHO_KYORI.DELETE_FLAG = 0
+    and ((BASHO1.MS_BASHO_NO = :B1 and BASHO2.MS_BASHO_NO = :B2)
+    or (BASHO1.MS_BASHO_NO = :B2 and BASHO2.MS_BASHO_NO = :B1))
+  </sql>
+
+  <sql name="GetRecords">
+		select
+		MS_BASHO_KYORI.MS_BASHO_KYORI_ID,
+		MS_BASHO_KYORI.MS_BASHO_ID1,
+		MS_BASHO_KYORI.MS_BASHO_ID2,
+		MS_BASHO_KYORI.KYORI,
+		BASHO1.BASHO_NAME as BASHO_NAME1,
+		BASHO2.BASHO_NAME as BASHO_NAME2,
+		MS_BASHO_KYORI.RENEW_DATE,
+		MS_BASHO_KYORI.RENEW_USER_ID,
+		MS_BASHO_KYORI.USER_KEY,
+		MS_BASHO_KYORI.SEND_FLAG,
+		MS_BASHO_KYORI.VESSEL_ID,
+		MS_BASHO_KYORI.TS
+
+
+		from MS_BASHO_KYORI
+		inner join MS_BASHO BASHO1 on BASHO1.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID1
+		inner join MS_BASHO BASHO2 on BASHO2.MS_BASHO_ID = MS_BASHO_KYORI.MS_BASHO_ID2
+
+		where MS_BASHO_KYORI.DELETE_FLAG = 0
+	</sql>
+
+	<sql name="ByMsBashoID">
+		AND (MS_BASHO_KYORI.MS_BASHO_ID1 = :MS_BASHO_ID1 OR MS_BASHO_KYORI.MS_BASHO_ID2 = :MS_BASHO_ID2)
+
+	</sql>	
+
+	<sql name="InsertRecord">
+	  INSERT INTO MS_BASHO_KYORI
+	  (
+	  MS_BASHO_KYORI_ID                   ,
+	  MS_BASHO_ID1                ,
+	  MS_BASHO_ID2                   ,
+	  KYORI                       ,
+	  DELETE_FLAG                        ,
+	  SEND_FLAG                       ,
+	  VESSEL_ID                        ,
+	  USER_KEY                        ,
+	  RENEW_DATE                       ,
+	  RENEW_USER_ID
+	  )	  VALUES	  (
+	  :MS_BASHO_KYORI_ID                   ,
+	  :MS_BASHO_ID1                ,
+	  :MS_BASHO_ID2                   ,
+	  :KYORI                       ,
+	  0                        ,
+	  0                       ,
+	  :VESSEL_ID                        ,
+	  '0'                        ,
+	  :RENEW_DATE                       ,
+	  :RENEW_USER_ID
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  update MS_BASHO_KYORI set
+	  KYORI = :KYORI,
+	  DELETE_FLAG = :DELETE_FLAG,
+	  SEND_FLAG = :SEND_FLAG,
+	  VESSEL_ID = :VESSEL_ID,
+	  USER_KEY = :USER_KEY,
+	  RENEW_DATE = :RENEW_DATE,
+	  RENEW_USER_ID = :RENEW_USER_ID
+
+	  where MS_BASHO_KYORI_ID = :MS_BASHO_KYORI_ID and TS = :TS
+	  
+  </sql>
+</databaseConfig>

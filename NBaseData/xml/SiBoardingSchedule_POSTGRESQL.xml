@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_BOARDING_SCHEDULE.SI_BOARDING_SCHEDULE_ID       ,
+
+    SI_BOARDING_SCHEDULE.MS_SENIN_ID                   ,
+    SI_BOARDING_SCHEDULE.MS_SI_SHOKUMEI_ID             ,
+    SI_BOARDING_SCHEDULE.MS_VESSEL_ID                  ,
+    SI_BOARDING_SCHEDULE.SIGN_ON_DATE                  ,
+    SI_BOARDING_SCHEDULE.SIGN_OFF_SI_CARD_ID           ,
+    SI_BOARDING_SCHEDULE.STATUS                        ,
+    
+    SENIN.SEI || ' ' || SENIN.MEI  as SIGN_ON_CREW_NAME,
+
+
+    SI_BOARDING_SCHEDULE.DELETE_FLAG                    ,
+    SI_BOARDING_SCHEDULE.SEND_FLAG                      ,
+    SI_BOARDING_SCHEDULE.VESSEL_ID                      ,
+    SI_BOARDING_SCHEDULE.DATA_NO                        ,
+    SI_BOARDING_SCHEDULE.USER_KEY                       ,
+    SI_BOARDING_SCHEDULE.RENEW_DATE                     ,
+    SI_BOARDING_SCHEDULE.RENEW_USER_ID                  ,
+    SI_BOARDING_SCHEDULE.TS
+
+    FROM
+    SI_BOARDING_SCHEDULE
+    
+    INNER JOIN MS_SENIN SENIN ON SENIN.MS_SENIN_ID = SI_BOARDING_SCHEDULE.MS_SENIN_ID
+
+    WHERE
+    SI_BOARDING_SCHEDULE.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="ByPlan">
+    AND
+    (SI_BOARDING_SCHEDULE.STATUS = 0)
+  </sql>
+  
+  <sql name="ByBoardingScheduleID">
+    AND
+    (SI_BOARDING_SCHEDULE.SI_BOARDING_SCHEDULE_ID = :SI_BOARDING_SCHEDULE_ID)
+  </sql>
+
+  <sql name="BySignOffSiCardID">
+    AND
+    (SI_BOARDING_SCHEDULE.SIGN_OFF_SI_CARD_ID = :SIGN_OFF_SI_CARD_ID)
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_BOARDING_SCHEDULE(
+    SI_BOARDING_SCHEDULE_ID        ,
+
+    MS_SENIN_ID                    ,
+    MS_SI_SHOKUMEI_ID              ,
+    MS_VESSEL_ID                   ,
+    SIGN_ON_DATE                   ,
+    SIGN_OFF_SI_CARD_ID            ,
+    STATUS                         ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_BOARDING_SCHEDULE_ID        ,
+
+    :MS_SENIN_ID                    ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :MS_VESSEL_ID                   ,
+    :SIGN_ON_DATE                   ,
+    :SIGN_OFF_SI_CARD_ID            ,
+    :STATUS                         ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_BOARDING_SCHEDULE
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                  ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID      ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                ,
+    SIGN_ON_DATE = :SIGN_ON_DATE                ,
+    SIGN_OFF_SI_CARD_ID = :SIGN_OFF_SI_CARD_ID  ,
+    STATUS = :STATUS                            ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_BOARDING_SCHEDULE_ID = :SI_BOARDING_SCHEDULE_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

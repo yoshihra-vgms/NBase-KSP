@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_CHOZO.OD_CHOZO_ID                    ,
+    OD_CHOZO.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME          ,
+    OD_CHOZO.NENGETSU                       ,
+    OD_CHOZO.SEND_FLAG                      ,
+    OD_CHOZO.VESSEL_ID                      ,
+    OD_CHOZO.DATA_NO                        ,
+    OD_CHOZO.USER_KEY                       ,
+    OD_CHOZO.RENEW_DATE                     ,
+    OD_CHOZO.RENEW_USER_ID                  ,
+    OD_CHOZO.TS
+    FROM
+    OD_CHOZO
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    OD_CHOZO.OD_CHOZO_ID                    ,
+    OD_CHOZO.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME          ,
+    OD_CHOZO.NENGETSU                       ,
+    OD_CHOZO.SEND_FLAG                      ,
+    OD_CHOZO.VESSEL_ID                      ,
+    OD_CHOZO.DATA_NO                        ,
+    OD_CHOZO.USER_KEY                       ,
+    OD_CHOZO.RENEW_DATE                     ,
+    OD_CHOZO.RENEW_USER_ID                  ,
+    OD_CHOZO.TS
+    FROM
+    OD_CHOZO
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+    WHERE
+    OD_CHOZO.OD_CHOZO_ID = :OD_CHOZO_ID
+
+  </sql>
+
+	<sql name="GetRecordsByVesselID_Nengetsu">
+		SELECT
+		OD_CHOZO.OD_CHOZO_ID                    ,
+		OD_CHOZO.MS_VESSEL_ID                   ,
+		MS_VESSEL.VESSEL_NAME          ,
+		OD_CHOZO.NENGETSU                       ,
+		OD_CHOZO.SHUBETSU                       ,
+		OD_CHOZO.SEND_FLAG                      ,
+		OD_CHOZO.VESSEL_ID                      ,
+		OD_CHOZO.DATA_NO                        ,
+		OD_CHOZO.USER_KEY                       ,
+		OD_CHOZO.RENEW_DATE                     ,
+		OD_CHOZO.RENEW_USER_ID                  ,
+		OD_CHOZO.TS
+		FROM
+		OD_CHOZO
+		LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+		WHERE
+		(OD_CHOZO.MS_VESSEL_ID = :MS_VESSEL_ID) AND (OD_CHOZO.NENGETSU = :NENGETSU)
+
+	</sql>
+
+
+	<sql name="GetRecord_Date_VesselID_Kind">
+		SELECT
+		OD_CHOZO.OD_CHOZO_ID                    ,
+		OD_CHOZO.MS_VESSEL_ID                   ,
+		MS_VESSEL.VESSEL_NAME          ,
+		OD_CHOZO.NENGETSU                       ,
+		OD_CHOZO.SHUBETSU                       ,
+		OD_CHOZO.SEND_FLAG                      ,
+		OD_CHOZO.VESSEL_ID                      ,
+		OD_CHOZO.DATA_NO                        ,
+		OD_CHOZO.USER_KEY                       ,
+		OD_CHOZO.RENEW_DATE                     ,
+		OD_CHOZO.RENEW_USER_ID                  ,
+		OD_CHOZO.TS
+		FROM OD_CHOZO
+		LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+		WHERE
+		(OD_CHOZO.MS_VESSEL_ID = :VESSEL_ID) AND
+		(OD_CHOZO.NENGETSU = :NENGETSU) AND
+		(OD_CHOZO.SHUBETSU = :SHUBETSU)
+
+	</sql>
+
+
+	<sql name="GetRecordsByShubetsu">
+		SELECT
+		OD_CHOZO.OD_CHOZO_ID                    ,
+		OD_CHOZO.MS_VESSEL_ID                   ,
+		MS_VESSEL.VESSEL_NAME          ,
+		OD_CHOZO.NENGETSU                       ,
+		OD_CHOZO.SHUBETSU                       ,
+		OD_CHOZO.SEND_FLAG                      ,
+		OD_CHOZO.VESSEL_ID                      ,
+		OD_CHOZO.DATA_NO                        ,
+		OD_CHOZO.USER_KEY                       ,
+		OD_CHOZO.RENEW_DATE                     ,
+		OD_CHOZO.RENEW_USER_ID                  ,
+		OD_CHOZO.TS
+		FROM
+		OD_CHOZO
+		LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_CHOZO.MS_VESSEL_ID
+		WHERE OD_CHOZO.SHUBETSU = :SHUBETSU
+		ORDER BY NENGETSU ASC
+	</sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_CHOZO
+    (
+    OD_CHOZO_ID                    ,
+    MS_VESSEL_ID                   ,
+    NENGETSU                       ,
+    SHUBETSU                       ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OD_CHOZO_ID                    ,
+    :MS_VESSEL_ID                   ,
+    :NENGETSU                       ,
+    :SHUBETSU                       ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_CHOZO
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    NENGETSU = :NENGETSU                             ,
+    SHUBETSU = :SHUBETSU                             ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    OD_CHOZO_ID = :OD_CHOZO_ID
+
+  </sql>
+
+</databaseConfig>
+

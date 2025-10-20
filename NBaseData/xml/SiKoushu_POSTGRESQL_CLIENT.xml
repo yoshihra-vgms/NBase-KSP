@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KOUSHU.SI_KOUSHU_ID                   ,
+
+    SI_KOUSHU.MS_SI_KOUSHU_ID                ,
+    SI_KOUSHU.MS_SENIN_ID                    ,
+    SI_KOUSHU.BASHO                          ,
+
+    SI_KOUSHU.YOTEI_FROM                     ,
+    SI_KOUSHU.YOTEI_TO                       ,
+    SI_KOUSHU.JISEKI_FROM                    ,
+    SI_KOUSHU.JISEKI_TO                      ,
+    SI_KOUSHU.BIKOU                          ,
+
+    SI_KOUSHU.DELETE_FLAG                    ,
+    SI_KOUSHU.SEND_FLAG                      ,
+    SI_KOUSHU.VESSEL_ID                      ,
+    SI_KOUSHU.DATA_NO                        ,
+    SI_KOUSHU.USER_KEY                       ,
+    SI_KOUSHU.RENEW_DATE                     ,
+    SI_KOUSHU.RENEW_USER_ID                  ,
+    SI_KOUSHU.TS                             ,
+
+    MS_SI_KOUSHU.NAME AS KOUSHU_NAME,
+    MS_SI_KOUSHU.YUKOKIGEN_STR AS KOUSHU_YUKOKIGEN_STR,
+    MS_SI_KOUSHU.YUKOKIGEN_DAYS AS KOUSHU_YUKOKIGEN_DAYS,
+
+    MS_SENIN.SEI || ' ' || MS_SENIN.MEI AS SENIN_NAME,
+    MS_SENIN.SHIMEI_CODE AS SENIN_SHIMEI_CODE,
+
+    MS_SI_SHOKUMEI.NAME AS SENIN_SHOKUMEI,
+    MS_SENIN.KUBUN AS SENIN_KUBUN
+
+    FROM
+    SI_KOUSHU
+
+    INNER JOIN
+    MS_SI_KOUSHU ON MS_SI_KOUSHU.MS_SI_KOUSHU_ID = SI_KOUSHU.MS_SI_KOUSHU_ID
+
+    INNER JOIN
+    MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_KOUSHU.MS_SENIN_ID
+
+    INNER JOIN
+    MS_SI_SHOKUMEI ON MS_SI_SHOKUMEI.MS_SI_SHOKUMEI_ID = MS_SENIN.MS_SI_SHOKUMEI_ID
+
+    WHERE
+    SI_KOUSHU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="GetRecordsBashoOnly">
+    SELECT DISTINCT
+    SI_KOUSHU.BASHO
+
+    FROM
+    SI_KOUSHU
+
+    WHERE
+    SI_KOUSHU.DELETE_FLAG = 0
+    ORDER BY SI_KOUSHU.BASHO
+  </sql>
+
+  <sql name="GetIdByJisekiToMax">
+    SELECT
+    SI_KOUSHU.SI_KOUSHU_ID
+
+    FROM SI_KOUSHU,
+    (select MS_SI_KOUSHU_ID, MS_SENIN_ID, MAX(JISEKI_TO) MAX_JISEKI_TO
+    from SI_KOUSHU
+    WHERE JISEKI_TO IS NOT NULL
+    GROUP BY MS_SI_KOUSHU_ID, MS_SENIN_ID) B
+
+    WHERE SI_KOUSHU.MS_SI_KOUSHU_ID = B.MS_SI_KOUSHU_ID
+    AND SI_KOUSHU.MS_SENIN_ID = B.MS_SENIN_ID
+    AND SI_KOUSHU.JISEKI_TO = B.MAX_JISEKI_TO
+  </sql>
+  
+  <sql name="FilterByMsSeninID">
+    AND
+    SI_KOUSHU.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="FilterByID">
+    AND
+    SI_KOUSHU.SI_KOUSHU_ID = :SI_KOUSHU_ID
+  </sql>
+
+  <sql name="FilterByName">
+    AND
+    MS_SI_KOUSHU.NAME LIKE :NAME
+  </sql>
+
+  <sql name="FilterByYoteiFrom">
+    AND SI_KOUSHU.YOTEI_FROM >= :YOTEI_FROM
+  </sql>
+
+  <sql name="FilterByBikou">
+    AND
+    MS_SI_KOUSHU.BIKOU LIKE :BIKOU
+  </sql>
+
+  <sql name="FilterByName">
+    AND
+    (
+    MS_SENIN.SEI || ' ' || MS_SENIN.MEI
+    LIKE
+    :NAME
+    )
+  </sql>
+
+  <sql name="FilterByNameKana">
+    AND
+    (
+    MS_SENIN.SEI_KANA || ' ' || MS_SENIN.MEI_KANA
+    LIKE
+    :NAME_KANA
+    )
+  </sql>
+
+  <sql name="FilterBy受講済み">
+    AND ( SI_KOUSHU.JISEKI_FROM IS NOT NULL OR SI_KOUSHU.JISEKI_TO IS NOT NULL )
+  </sql>
+
+  <sql name="FilterBy受講予定">
+    AND ( SI_KOUSHU.JISEKI_FROM IS NULL AND SI_KOUSHU.JISEKI_TO IS NULL AND SI_KOUSHU.YOTEI_FROM >= :NOW )
+  </sql>
+
+  <sql name="FilterByMsSiShokumeiID">
+    AND MS_SI_SHOKUMEI.MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID
+  </sql>
+  
+  <sql name="FilterByJisekiFrom">
+    AND SI_KOUSHU.JISEKI_FROM >= :JISEKI_FROM
+  </sql>
+
+  <sql name="FilterByJisekiTo">
+    AND SI_KOUSHU.JISEKI_TO >= :JISEKI_TO
+  </sql>
+
+  <sql name="FilterBy未受講">
+    AND (
+    (
+    ( SI_KOUSHU.YOTEI_FROM IS NULL AND SI_KOUSHU.YOTEI_FROM IS NULL ) OR
+    ( SI_KOUSHU.YOTEI_FROM IS NULL AND SI_KOUSHU.YOTEI_TO &lt;= :NOW ) OR
+    ( SI_KOUSHU.YOTEI_TO IS NULL AND SI_KOUSHU.YOTEI_FROM &lt;= :NOW )
+    )
+    AND
+    (
+    ( SI_KOUSHU.JISEKI_FROM IS NULL AND SI_KOUSHU.JISEKI_TO IS NULL ) OR
+    ( SI_KOUSHU.JISEKI_FROM IS NULL AND SI_KOUSHU.JISEKI_TO &lt;= :NOW ) OR
+    ( SI_KOUSHU.JISEKI_TO IS NULL AND SI_KOUSHU.JISEKI_FROM &lt;= :NOW )
+    )
+    )
+  </sql>
+
+
+  <sql name="OrderBy">
+    ORDER BY
+    MS_SI_KOUSHU.NAME,
+    MS_SENIN.SHIMEI_CODE,
+    SI_KOUSHU.YOTEI_FROM,
+    SI_KOUSHU.JISEKI_TO
+  </sql>
+
+  
+  
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_KOUSHU(
+    SI_KOUSHU_ID                   ,
+
+    MS_SI_KOUSHU_ID                ,
+    MS_SENIN_ID                    ,
+    BASHO                          ,
+
+    YOTEI_FROM                     ,
+    YOTEI_TO                       ,
+    JISEKI_FROM                    ,
+    JISEKI_TO                      ,
+    BIKOU                          ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_KOUSHU_ID                   ,
+
+    :MS_SI_KOUSHU_ID                ,
+    :MS_SENIN_ID                    ,
+    :BASHO                          ,
+
+    :YOTEI_FROM                     ,
+    :YOTEI_TO                       ,
+    :JISEKI_FROM                    ,
+    :JISEKI_TO                      ,
+    :BIKOU                          ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KOUSHU
+    SET
+    MS_SI_KOUSHU_ID = :MS_SI_KOUSHU_ID               ,
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    BASHO = :BASHO                                   ,
+
+    YOTEI_FROM = :YOTEI_FROM                         ,
+    YOTEI_TO = :YOTEI_TO                             ,
+    JISEKI_FROM = :JISEKI_FROM                       ,
+    JISEKI_TO = :JISEKI_TO                           ,
+    BIKOU = :BIKOU                                   ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_KOUSHU_ID = :SI_KOUSHU_ID
+  </sql>
+
+</databaseConfig>

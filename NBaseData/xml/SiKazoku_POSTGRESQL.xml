@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KAZOKU.SI_KAZOKU_ID                   ,
+
+    SI_KAZOKU.MS_SENIN_ID                    ,
+
+    SI_KAZOKU.KIND                           ,
+    SI_KAZOKU.SEI                            ,
+    SI_KAZOKU.MEI                            ,
+    SI_KAZOKU.SEI_KANA                       ,
+    SI_KAZOKU.MEI_KANA                       ,
+    SI_KAZOKU.SEX                            ,
+    SI_KAZOKU.TUZUKIGARA                     ,
+    SI_KAZOKU.BIRTHDAY                       ,
+    SI_KAZOKU.TEL                            ,
+    SI_KAZOKU.OCCUPATION                     ,
+    SI_KAZOKU.EMERGENCY_KIND                 ,
+    SI_KAZOKU.LIVING_TOGETHER                ,
+    SI_KAZOKU.ZIP_CODE                       ,
+    SI_KAZOKU.PREFECTURES                    ,
+    SI_KAZOKU.CITY_TOWN                      ,
+    SI_KAZOKU.STREET                        ,
+    SI_KAZOKU.SEAMEN_S_INSURANCE_DEPENDENT  ,
+    SI_KAZOKU.DEPENDENT                      ,
+    SI_KAZOKU.ELDERLY                        ,
+    SI_KAZOKU.HANDICAPPED                    ,
+    SI_KAZOKU.REMARKS                        ,
+    SI_KAZOKU.SHOW_ORDER                     ,
+
+    SI_KAZOKU.DELETE_FLAG                    ,
+    SI_KAZOKU.SEND_FLAG                      ,
+    SI_KAZOKU.VESSEL_ID                      ,
+    SI_KAZOKU.DATA_NO                        ,
+    SI_KAZOKU.USER_KEY                       ,
+    SI_KAZOKU.RENEW_DATE                     ,
+    SI_KAZOKU.RENEW_USER_ID                  ,
+    SI_KAZOKU.TS
+
+    FROM
+    SI_KAZOKU
+  </sql>
+
+  <sql name="By有効データ">
+    WHERE
+    SI_KAZOKU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiKazokuID">
+    AND
+    SI_KAZOKU.SI_KAZOKU_ID = :SI_KAZOKU_ID
+  </sql>
+  
+  <sql name="ByMsSeninID">
+    AND
+    SI_KAZOKU.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="ByDataNo">
+    WHERE
+    SI_KAZOKU.DATA_NO > :DATA_NO
+  </sql>
+
+  
+  
+  <sql name="InsertRecord">
+	  INSERT INTO SI_KAZOKU(
+	  SI_KAZOKU_ID                 ,
+
+	  MS_SENIN_ID                  ,
+
+	  KIND                         ,
+	  SEI                          ,
+	  MEI                          ,
+	  SEI_KANA                     ,
+	  MEI_KANA                     ,
+	  SEX                          ,
+	  TUZUKIGARA                   ,
+	  BIRTHDAY                     ,
+	  TEL                          ,
+	  OCCUPATION                   ,
+	  EMERGENCY_KIND               ,
+	  LIVING_TOGETHER              ,
+	  ZIP_CODE                     ,
+	  PREFECTURES                  ,
+	  CITY_TOWN                    ,
+	  STREET                       ,
+	  SEAMEN_S_INSURANCE_DEPENDENT ,
+	  DEPENDENT                    ,
+	  ELDERLY                      ,
+	  HANDICAPPED                  ,
+	  REMARKS                      ,
+	  SHOW_ORDER                   ,
+
+	  DELETE_FLAG                    ,
+	  SEND_FLAG                      ,
+	  VESSEL_ID                      ,
+	  DATA_NO                        ,
+	  USER_KEY                       ,
+	  RENEW_DATE                     ,
+	  RENEW_USER_ID                  ,
+	  TS
+	  )
+	  VALUES(
+	  :SI_KAZOKU_ID                   ,
+
+	  :MS_SENIN_ID                    ,
+	  
+	  :KIND                           ,
+	  :SEI                            ,
+	  :MEI                            ,
+	  :SEI_KANA                       ,
+	  :MEI_KANA                       ,
+	  :SEX                            ,
+	  :TUZUKIGARA                     ,
+	  :BIRTHDAY                       ,
+	  :TEL                            ,
+	  :OCCUPATION                     ,
+	  :EMERGENCY_KIND                 ,
+	  :LIVING_TOGETHER                ,
+	  :ZIP_CODE                       ,
+	  :PREFECTURES                    ,
+	  :CITY_TOWN                      ,
+	  :STREET                         ,
+	  :SEAMEN_S_INSURANCE_DEPENDENT   ,
+	  :DEPENDENT                      ,
+	  :ELDERLY                        ,
+	  :HANDICAPPED                    ,
+	  :REMARKS                        ,
+	  :SHOW_ORDER                     ,
+
+	  :DELETE_FLAG                    ,
+	  :SEND_FLAG                      ,
+	  :VESSEL_ID                      ,
+	  :DATA_NO                        ,
+	  :USER_KEY                       ,
+	  :RENEW_DATE                     ,
+	  :RENEW_USER_ID                  ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KAZOKU
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+
+    KIND = :KIND                                     ,
+    SEI = :SEI                                       ,
+    MEI = :MEI                                       ,
+    SEI_KANA = :SEI_KANA                             ,
+    MEI_KANA = :MEI_KANA                             ,
+    SEX = :SEX                                       ,
+    TUZUKIGARA = :TUZUKIGARA                         ,
+    BIRTHDAY = :BIRTHDAY                             ,
+    TEL = :TEL                                       ,
+    OCCUPATION = :OCCUPATION                         ,
+    EMERGENCY_KIND = :EMERGENCY_KIND                 ,
+    LIVING_TOGETHER = :LIVING_TOGETHER               ,
+    ZIP_CODE = :ZIP_CODE                             ,
+    PREFECTURES = :PREFECTURES                       ,
+    CITY_TOWN = :CITY_TOWN                           ,
+    STREET = :STREET                                 ,
+    SEAMEN_S_INSURANCE_DEPENDENT = :SEAMEN_S_INSURANCE_DEPENDENT ,
+    DEPENDENT = :DEPENDENT                           ,
+    ELDERLY = :ELDERLY                               ,
+    HANDICAPPED = :HANDICAPPED                       ,
+    REMARKS = :REMARKS                               ,
+    SHOW_ORDER = :SHOW_ORDER                         ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_KAZOKU_ID = :SI_KAZOKU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

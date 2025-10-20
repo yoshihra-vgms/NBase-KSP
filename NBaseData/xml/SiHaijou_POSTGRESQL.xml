@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_HAIJOU_ID                   ,
+
+    HAISHIN_USER_ID                ,
+
+    HAISHIN_DATE                   ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    SI_HAIJOU
+
+    WHERE
+    DELETE_FLAG = 0
+
+    ORDER BY
+    HAISHIN_DATE DESC
+  </sql>
+
+
+  <sql name="GetRecordsByMsUserID">
+    SELECT
+    SI_HAIJOU_ID                   ,
+
+    HAISHIN_USER_ID                ,
+
+    HAISHIN_DATE                   ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    SI_HAIJOU
+
+    WHERE
+    DELETE_FLAG = 0 AND
+    HAISHIN_USER_ID = :MS_USER_ID
+
+    ORDER BY
+    HAISHIN_DATE DESC
+  </sql>
+
+  <sql name="GetRecord_前回配信">
+    SELECT
+    SI_HAIJOU_ID                   ,
+
+    HAISHIN_USER_ID                ,
+
+    HAISHIN_DATE                   ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    (
+    SELECT
+    *
+    FROM
+    SI_HAIJOU
+
+    WHERE
+    DELETE_FLAG = 0
+
+    ORDER BY
+    HAISHIN_DATE DESC
+    ) as SI_HAIJOU_NOTDEL
+
+    LIMIT 1 OFFSET 0
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_HAIJOU(
+    SI_HAIJOU_ID                   ,
+
+    HAISHIN_USER_ID                ,
+
+    HAISHIN_DATE                   ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_HAIJOU_ID                   ,
+
+    :HAISHIN_USER_ID                ,
+
+    :HAISHIN_DATE                   ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_HAIJOU
+    SET
+    HAISHIN_USER_ID = :HAISHIN_USER_ID               ,
+
+    HAISHIN_DATE = :HAISHIN_DATE                     ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_HAIJOU_ID = :SI_HAIJOU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

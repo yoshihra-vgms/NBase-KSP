@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_SALARY_ID,
+    MS_SI_SALARY_ID,
+    MS_SENIN_ID,
+
+    KIND,
+    START_DATE,
+    END_DATE,
+
+    HYOREI,
+    HYOREI_ALLOWANCE,
+
+    MS_SI_SHOKUMEI_SALARY_ID,
+    EXPERIENCE,
+    RANK_ALLOWANCE,
+
+    BASIC_SALARY,
+    UNION_DUES,
+
+    QUALIFICATION_ALLOWANCE,
+    SHARED_REMARKS,
+    FISCAL_YEAR_REMARKS,
+
+    USER_KEY,
+    DATA_NO,
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    SI_SALARY
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="ByKinds">
+    AND
+    KIND in ( #KINDS# )
+  </sql>
+
+  <sql name="ByKind">
+    AND
+    KIND = :KIND
+  </sql>
+
+  <sql name="BySiSalaryId">
+    AND
+    SI_SALARY_ID = :SI_SALARY_ID
+  </sql>
+  <sql name="ByMsSiSalaryID">
+    AND
+    MS_SI_SALARY_ID = :MS_SI_SALARY_ID
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+  
+  <sql name="ByStartEndDate">
+    AND
+    (
+    (START_DATE &lt; :END_DATE AND END_DATE >= :START_DATE)
+    OR
+    (START_DATE &lt; :END_DATE AND END_DATE IS NULL)
+    )
+  </sql>
+
+  <sql name="ByStartDate">
+    AND
+    (
+    START_DATE &lt;= :START_DATE
+    AND
+    (END_DATE >= :START_DATE OR END_DATE IS NULL)
+    )
+  </sql>
+
+  <sql name="ByEndDate">
+    AND
+    (
+    END_DATE >= :END_DATE
+    OR
+    (START_DATE &lt; :END_DATE OR END_DATE IS NULL)
+    )
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    KIND, START_DATE, END_DATE
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_SALARY(
+    SI_SALARY_ID,
+    MS_SI_SALARY_ID,
+
+    MS_SENIN_ID,
+    KIND,
+    START_DATE,
+    END_DATE ,
+    HYOREI,
+    HYOREI_ALLOWANCE,
+    MS_SI_SHOKUMEI_SALARY_ID,
+    EXPERIENCE,
+    RANK_ALLOWANCE,
+
+    BASIC_SALARY,
+    UNION_DUES,
+
+    QUALIFICATION_ALLOWANCE,
+    SHARED_REMARKS,
+    FISCAL_YEAR_REMARKS,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_SALARY_ID,
+    :MS_SI_SALARY_ID,
+
+    :MS_SENIN_ID,
+    :KIND,
+    :START_DATE,
+    :END_DATE,
+    :HYOREI,
+    :HYOREI_ALLOWANCE,
+    :MS_SI_SHOKUMEI_SALARY_ID,
+    :EXPERIENCE,
+    :RANK_ALLOWANCE,
+
+    :BASIC_SALARY,
+    :UNION_DUES,
+
+    :QUALIFICATION_ALLOWANCE,
+    :SHARED_REMARKS,
+    :FISCAL_YEAR_REMARKS,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_SALARY
+    SET
+    MS_SI_SALARY_ID = :MS_SI_SALARY_ID,
+    MS_SENIN_ID = :MS_SENIN_ID,
+    KIND = :KIND,
+    START_DATE = :START_DATE,
+    END_DATE = :END_DATE,
+    HYOREI = :HYOREI,
+    HYOREI_ALLOWANCE = :HYOREI_ALLOWANCE,
+
+    MS_SI_SHOKUMEI_SALARY_ID = :MS_SI_SHOKUMEI_SALARY_ID,
+    EXPERIENCE = :EXPERIENCE,
+    RANK_ALLOWANCE = :RANK_ALLOWANCE,
+
+    BASIC_SALARY = :BASIC_SALARY,
+    UNION_DUES = :UNION_DUES,
+
+    QUALIFICATION_ALLOWANCE = :QUALIFICATION_ALLOWANCE,
+    SHARED_REMARKS = :SHARED_REMARKS,
+    FISCAL_YEAR_REMARKS = :FISCAL_YEAR_REMARKS,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_SALARY_ID = :SI_SALARY_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

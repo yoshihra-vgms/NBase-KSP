@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		船NO,
+		船名,
+		次航,
+		積揚セット,
+		積地コード,
+		積地名,
+		積数量,
+		揚地コード,
+		揚地名,
+		揚数量,
+		積荷コード,
+		積荷名,
+		積日付,
+		揚日付,
+		荷主
+
+		from V_ENEHOU_DATA
+
+		where 次航 = :JIKO_NO
+
+		order by 船NO, 次航, 積日付, 揚日付
+	</sql>
+
+</databaseConfig>

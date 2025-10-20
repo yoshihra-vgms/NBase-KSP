@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB" />
+  <xs:complexType name="PscInspectionSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q1:BaseSearchData">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ActionCodeIDList" nillable="true" type="q2:ArrayOfint" />
+          <xs:element minOccurs="0" name="DeficiencyCountZeroEnabledFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SearchKeyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StatusComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StatusPending" type="xs:boolean" />
+          <xs:element minOccurs="0" name="date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="deficiency_code_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PscInspectionSearchData" nillable="true" type="tns:PscInspectionSearchData" />
+  <xs:complexType name="AccidentSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q3:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SearchKeyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accident_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_situation_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="kind_of_accident_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccidentSearchData" nillable="true" type="tns:AccidentSearchData" />
+  <xs:complexType name="MoiSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q4:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ObservationZeroEnabledFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SearchKeyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_category_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="inspection_ms_customer_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="inspection_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="viq_code_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_no_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_version_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoiSearchData" nillable="true" type="tns:MoiSearchData" />
+  <xs:complexType name="SchedulePlanSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q5:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InspectionEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="estimate_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="estimate_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="output_expiry_date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schedule_kind_detail_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SchedulePlanSearchData" nillable="true" type="tns:SchedulePlanSearchData" />
+  <xs:complexType name="ScheduleCompanySearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q6:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="estimate_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="estimate_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="output_expiry_date" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScheduleCompanySearchData" nillable="true" type="tns:ScheduleCompanySearchData" />
+  <xs:complexType name="ScheduleOtherSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q7:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="estimate_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="estimate_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date_start" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScheduleOtherSearchData" nillable="true" type="tns:ScheduleOtherSearchData" />
+</xs:schema>

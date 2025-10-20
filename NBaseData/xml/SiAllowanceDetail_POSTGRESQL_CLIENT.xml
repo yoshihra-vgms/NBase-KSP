@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_ALLOWANCE_DETAIL.SI_ALLOWANCE_DETAIL_ID  ,
+    SI_ALLOWANCE_DETAIL.SI_ALLOWANCE_ID         ,
+    SI_ALLOWANCE_DETAIL.MS_SENIN_ID             ,
+    SI_ALLOWANCE_DETAIL.MS_SI_SHOKUMEI_ID       ,
+    SI_ALLOWANCE_DETAIL.ALLOWANCE               ,
+    SI_ALLOWANCE_DETAIL.IS_TARGET               ,
+    SI_ALLOWANCE_DETAIL.SI_CARD_ID              ,
+    SI_ALLOWANCE_DETAIL.DELETE_FLAG             ,
+    SI_ALLOWANCE_DETAIL.SEND_FLAG               ,
+    SI_ALLOWANCE_DETAIL.VESSEL_ID               ,
+    SI_ALLOWANCE_DETAIL.DATA_NO                 ,
+    SI_ALLOWANCE_DETAIL.USER_KEY                ,
+    SI_ALLOWANCE_DETAIL.RENEW_DATE              ,
+    SI_ALLOWANCE_DETAIL.RENEW_USER_ID           ,
+    SI_ALLOWANCE_DETAIL.TS
+
+    FROM
+    SI_ALLOWANCE_DETAIL
+
+    WHERE SI_ALLOWANCE_DETAIL.DELETE_FLAG = 0
+    AND SI_ALLOWANCE_ID = :SI_ALLOWANCE_ID
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_ALLOWANCE_DETAIL(
+    SI_ALLOWANCE_DETAIL_ID     ,
+    SI_ALLOWANCE_ID            ,
+    MS_SENIN_ID                ,
+    MS_SI_SHOKUMEI_ID          ,
+    ALLOWANCE                  ,
+    IS_TARGET                  ,
+    SI_CARD_ID                 ,
+    DELETE_FLAG                ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+    )
+    VALUES(
+    :SI_ALLOWANCE_DETAIL_ID     ,
+    :SI_ALLOWANCE_ID            ,
+    :MS_SENIN_ID                ,
+    :MS_SI_SHOKUMEI_ID          ,
+    :ALLOWANCE                  ,
+    :IS_TARGET                  ,
+    :SI_CARD_ID                 ,
+    :DELETE_FLAG                ,
+    :SEND_FLAG                  ,
+    :VESSEL_ID                  ,
+    :DATA_NO                    ,
+    :USER_KEY                   ,
+    :RENEW_DATE                 ,
+    :RENEW_USER_ID              ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_ALLOWANCE_DETAIL
+    SET
+    SI_ALLOWANCE_ID = :SI_ALLOWANCE_ID ,
+    MS_SENIN_ID = :MS_SENIN_ID ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID ,
+    ALLOWANCE = :ALLOWANCE ,
+    IS_TARGET = :IS_TARGET ,
+    SI_CARD_ID = :SI_CARD_ID ,
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    SI_ALLOWANCE_DETAIL_ID = :SI_ALLOWANCE_DETAIL_ID
+  </sql>
+
+</databaseConfig>

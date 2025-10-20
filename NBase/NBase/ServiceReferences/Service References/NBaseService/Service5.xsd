@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NBaseData.BLC" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NBaseData.BLC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3715/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NBaseData.DAC" />
+  <xs:import schemaLocation="http://localhost:3715/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfCrewMatrix">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CrewMatrix" nillable="true" type="tns:CrewMatrix" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCrewMatrix" nillable="true" type="tns:ArrayOfCrewMatrix" />
+  <xs:complexType name="CrewMatrix">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Days" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSeninID" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" type="tns:CrewMatrix.CREW_MATRIX_TYPE" />
+      <xs:element minOccurs="0" name="TypeOfTanker" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CrewMatrix" nillable="true" type="tns:CrewMatrix" />
+  <xs:simpleType name="CrewMatrix.CREW_MATRIX_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="YEARS_IN_OPERATOR" />
+      <xs:enumeration value="YEARS_IN_RANK" />
+      <xs:enumeration value="YEARS_ON_THIS_TYPE_OF_TANKER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CrewMatrix.CREW_MATRIX_TYPE" nillable="true" type="tns:CrewMatrix.CREW_MATRIX_TYPE" />
+  <xs:complexType name="ArrayOf概算計上一覧Row">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="概算計上一覧Row" nillable="true" type="tns:概算計上一覧Row" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf概算計上一覧Row" nillable="true" type="tns:ArrayOf概算計上一覧Row" />
+  <xs:complexType name="概算計上一覧Row">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MsVesselId" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusOrder" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="odjry" nillable="true" type="q1:OdJry" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="odshr" nillable="true" type="q2:OdShr" />
+      <xs:element minOccurs="0" name="事務担当者" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="件名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="取引先" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="受領日" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="受領番号" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="種別" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="船" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="詳細種別" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="金額" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="概算計上一覧Row" nillable="true" type="tns:概算計上一覧Row" />
+  <xs:complexType name="年間管理表受入データ">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Amounts" nillable="true" type="q3:ArrayOfdecimal" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Counts" nillable="true" type="q4:ArrayOfint" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="年間管理表受入データ" nillable="true" type="tns:年間管理表受入データ" />
+  <xs:complexType name="ArrayOf配乗シミュレーション">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="配乗シミュレーション" nillable="true" type="tns:配乗シミュレーション" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf配乗シミュレーション" nillable="true" type="tns:ArrayOf配乗シミュレーション" />
+  <xs:complexType name="配乗シミュレーション">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="BoardingSchedule" nillable="true" type="q5:SiBoardingSchedule" />
+      <xs:element minOccurs="0" name="HoliDays" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSeninID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSiShokumeiID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSiShubetsuID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+      <xs:element minOccurs="0" name="SeninName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShokumeiShowOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="SiCardID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselShowOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkDays" type="xs:int" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="experienceCargos" nillable="true" type="q6:ArrayOfSiExperienceCargo" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="experienceForeigns" nillable="true" type="q7:ArrayOfSiExperienceForeign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="配乗シミュレーション" nillable="true" type="tns:配乗シミュレーション" />
+  <xs:complexType name="発注RowData検索条件">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HachuDateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HachuDateTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JryDateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JryDateTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MsCustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiSbtID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiShousaiID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MsThiIraiStatusIDs" nillable="true" type="q8:ArrayOfstring" />
+      <xs:element minOccurs="0" name="MsVesselID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ShrDateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShrDateTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ThiIraiDateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ThiIraiDateTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ThiIraiNoFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThiIraiNoTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="type" type="tns:発注RowData検索条件.出力タイプEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="発注RowData検索条件" nillable="true" type="tns:発注RowData検索条件" />
+  <xs:simpleType name="発注RowData検索条件.出力タイプEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ヘッダー" />
+      <xs:enumeration value="詳細品目" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="発注RowData検索条件.出力タイプEnum" nillable="true" type="tns:発注RowData検索条件.出力タイプEnum" />
+  <xs:simpleType name="貯蔵品リスト.対象Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="潤滑油" />
+      <xs:enumeration value="船用品" />
+      <xs:enumeration value="特定品" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="貯蔵品リスト.対象Enum" nillable="true" type="tns:貯蔵品リスト.対象Enum" />
+  <xs:complexType name="ArrayOf貯蔵品編集RowData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="貯蔵品編集RowData" nillable="true" type="tns:貯蔵品編集RowData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf貯蔵品編集RowData" nillable="true" type="tns:ArrayOf貯蔵品編集RowData" />
+  <xs:complexType name="貯蔵品編集RowData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="OdChozoShousaiData" nillable="true" type="q9:OdChozoShousai" />
+      <xs:element minOccurs="0" name="カテゴリ" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="リストs" nillable="true" type="tns:ArrayOf貯蔵品リスト" />
+      <xs:element minOccurs="0" name="単位" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="受入" type="xs:int" />
+      <xs:element minOccurs="0" name="受入金額" type="xs:decimal" />
+      <xs:element minOccurs="0" name="品名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="残量" type="xs:int" />
+      <xs:element minOccurs="0" name="残量金額" type="xs:decimal" />
+      <xs:element minOccurs="0" name="消費" type="xs:int" />
+      <xs:element minOccurs="0" name="消費金額" type="xs:decimal" />
+      <xs:element minOccurs="0" name="繰越" type="xs:int" />
+      <xs:element minOccurs="0" name="繰越金額" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="貯蔵品編集RowData" nillable="true" type="tns:貯蔵品編集RowData" />
+  <xs:complexType name="ArrayOf貯蔵品リスト">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="貯蔵品リスト" nillable="true" type="tns:貯蔵品リスト" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf貯蔵品リスト" nillable="true" type="tns:ArrayOf貯蔵品リスト" />
+  <xs:complexType name="貯蔵品リスト">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JS_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MS_VESSEL_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="SS_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="単位" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="受領単価" type="xs:decimal" />
+      <xs:element minOccurs="0" name="受領年月" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="受領数" type="xs:int" />
+      <xs:element minOccurs="0" name="品名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="支払単価" type="xs:decimal" />
+      <xs:element minOccurs="0" name="支払数" type="xs:int" />
+      <xs:element minOccurs="0" name="業者名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="残量" type="xs:int" />
+      <xs:element minOccurs="0" name="消費" type="xs:int" />
+      <xs:element minOccurs="0" name="発注番号" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="納品日" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="貯蔵品リスト" nillable="true" type="tns:貯蔵品リスト" />
+  <xs:complexType name="ArrayOf状況確認一覧Row">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="状況確認一覧Row" nillable="true" type="tns:状況確認一覧Row" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf状況確認一覧Row" nillable="true" type="tns:ArrayOf状況確認一覧Row" />
+  <xs:complexType name="状況確認一覧Row">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DmKanriKirokuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DmKoubunshoKisokuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KoukaiSakiVesselId" type="xs:int" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="KoukaisakiList" nillable="true" type="q10:ArrayOfDmKoukaiSaki" />
+      <xs:element minOccurs="0" name="Mei" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsDmHoukokushoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublisherFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="PublisherVesselId" type="xs:int" />
+      <xs:element minOccurs="0" name="RenewDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RenewUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sei" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="備考" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="分類名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="完了日" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="完了者" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="小分類名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="文書名" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="文書番号" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="発行元" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="発行日" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="船名" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="状況確認一覧Row" nillable="true" type="tns:状況確認一覧Row" />
+  <xs:simpleType name="ユーザパスワード.STATUS">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="正常" />
+      <xs:enumeration value="履歴重複" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ユーザパスワード.STATUS" nillable="true" type="tns:ユーザパスワード.STATUS" />
+  <xs:simpleType name="貯蔵品集計表.Enum対象">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="潤滑油" />
+      <xs:enumeration value="船用品" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="貯蔵品集計表.Enum対象" nillable="true" type="tns:貯蔵品集計表.Enum対象" />
+  <xs:complexType name="ArrayOf合算対象の受領">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="合算対象の受領" nillable="true" type="tns:合算対象の受領" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOf合算対象の受領" nillable="true" type="tns:ArrayOf合算対象の受領" />
+  <xs:complexType name="合算対象の受領">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Carriage" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HachuDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HachuNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KamokuName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KamokuNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NebikiAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OdJryID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ThiNaiyou" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UtiwakeKamokuName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UtiwakeKamokuNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="合算対象の受領" nillable="true" type="tns:合算対象の受領" />
+</xs:schema>

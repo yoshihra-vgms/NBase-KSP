@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+  
+  <sql name="GetRecord">
+    SELECT
+    OD_HACHU_MAIL.OD_HACHU_MAIL_ID               ,
+    OD_HACHU_MAIL.OD_MK_ID                       ,
+    OD_HACHU_MAIL.TANTOUSHA                      ,
+    OD_HACHU_MAIL.TANTOU_MAIL_ADDRESS            ,
+    OD_HACHU_MAIL.SUBJECT                        ,
+    OD_HACHU_MAIL.BIKOU                        ,
+    OD_HACHU_MAIL.RENEW_DATE                     ,
+    OD_HACHU_MAIL.RENEW_USER_ID                  ,
+    OD_HACHU_MAIL.TS
+    FROM
+    OD_HACHU_MAIL
+
+    WHERE OD_HACHU_MAIL.OD_MK_ID = :OD_MK_ID
+    AND OD_HACHU_MAIL.TANTOUSHA = :TANTOUSHA
+    AND OD_HACHU_MAIL.TANTOU_MAIL_ADDRESS = :TANTOU_MAIL_ADDRESS
+    AND OD_HACHU_MAIL.SUBJECT = :SUBJECT
+
+  </sql>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_HACHU_MAIL.OD_HACHU_MAIL_ID               ,
+    OD_HACHU_MAIL.OD_MK_ID                       ,
+    OD_HACHU_MAIL.TANTOUSHA                      ,
+    OD_HACHU_MAIL.TANTOU_MAIL_ADDRESS            ,
+    OD_HACHU_MAIL.SUBJECT                        ,
+    OD_HACHU_MAIL.BIKOU                        ,
+    OD_HACHU_MAIL.RENEW_DATE                     ,
+    OD_HACHU_MAIL.RENEW_USER_ID                  ,
+    OD_HACHU_MAIL.TS
+    FROM
+    OD_HACHU_MAIL
+
+    WHERE OD_HACHU_MAIL.OD_MK_ID = :OD_MK_ID
+
+    ORDER BY OD_HACHU_MAIL.RENEW_DATE DESC
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_HACHU_MAIL
+    (
+    OD_HACHU_MAIL_ID               ,
+    OD_MK_ID                       ,
+    TANTOUSHA                      ,
+    TANTOU_MAIL_ADDRESS            ,
+    SUBJECT                        ,
+    BIKOU                        ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID
+    )
+    VALUES
+    (
+    :OD_HACHU_MAIL_ID               ,
+    :OD_MK_ID                       ,
+    :TANTOUSHA                      ,
+    :TANTOU_MAIL_ADDRESS            ,
+    :SUBJECT                        ,
+    :BIKOU                        ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_HACHU_MAIL
+    SET
+    OD_MK_ID = :OD_MK_ID                             ,
+    TANTOUSHA = :TANTOUSHA                           ,
+    TANTOU_MAIL_ADDRESS = :TANTOU_MAIL_ADDRESS       ,
+    SUBJECT = :SUBJECT                               ,
+    BIKOU = :BIKOU                               ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    OD_HACHU_MAIL_ID = :OD_HACHU_MAIL_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

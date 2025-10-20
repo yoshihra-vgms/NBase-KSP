@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		DM_KOUKAI_SAKI.DM_KOUKAI_SAKI_ID                ,
+		DM_KOUKAI_SAKI.KOUKAI_SAKI                    ,
+		DM_KOUKAI_SAKI.MS_VESSEL_ID                   ,
+		DM_KOUKAI_SAKI.MS_BUMON_ID                    ,
+		DM_KOUKAI_SAKI.LINK_SAKI                      ,
+		DM_KOUKAI_SAKI.LINK_SAKI_ID                   ,
+
+		DM_KOUKAI_SAKI.DELETE_FLAG                   ,
+		DM_KOUKAI_SAKI.SEND_FLAG                     ,
+		DM_KOUKAI_SAKI.VESSEL_ID                     ,
+		DM_KOUKAI_SAKI.DATA_NO                       ,
+		DM_KOUKAI_SAKI.USER_KEY                      ,
+		DM_KOUKAI_SAKI.RENEW_DATE                    ,
+		DM_KOUKAI_SAKI.RENEW_USER_ID                 ,
+		DM_KOUKAI_SAKI.TS
+
+		from
+		DM_KOUKAI_SAKI
+		WHERE (DM_KOUKAI_SAKI.DELETE_FLAG = 0 or DM_KOUKAI_SAKI.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByLinkSakiID">
+		AND DM_KOUKAI_SAKI.LINK_SAKI_ID = :LINK_SAKI_ID
+	</sql>
+  
+  <sql name="ByLinkSakiIDs">
+    AND DM_KOUKAI_SAKI.LINK_SAKI_ID in (#INNER_SELECT_STR#)
+  </sql>
+
+  <sql name="ByDmPublisherID">
+		AND DM_KOUKAI_SAKI.DM_KOUKAI_SAKI_ID = :DM_KOUKAI_SAKI_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		DM_KOUKAI_SAKI.KOUKAI_SAKI,
+		DM_KOUKAI_SAKI.MS_VESSEL_ID,
+		DM_KOUKAI_SAKI.MS_BUMON_ID
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO DM_KOUKAI_SAKI
+	  (
+	  DM_KOUKAI_SAKI_ID ,
+	  KOUKAI_SAKI     ,
+	  MS_VESSEL_ID    ,
+	  MS_BUMON_ID     ,
+	  LINK_SAKI       ,
+	  LINK_SAKI_ID    ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :DM_KOUKAI_SAKI_ID ,
+	  :KOUKAI_SAKI     ,
+	  :MS_VESSEL_ID    ,
+	  :MS_BUMON_ID     ,
+	  :LINK_SAKI       ,
+	  :LINK_SAKI_ID    ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE DM_KOUKAI_SAKI SET
+	  KOUKAI_SAKI = :KOUKAI_SAKI      ,
+	  MS_VESSEL_ID = :MS_VESSEL_ID    ,
+	  MS_BUMON_ID = :MS_BUMON_ID      ,
+	  LINK_SAKI = :LINK_SAKI          ,
+	  LINK_SAKI_ID = :LINK_SAKI_ID    ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  DM_KOUKAI_SAKI_ID = :DM_KOUKAI_SAKI_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+	<sql name="LogicalDelete">
+		UPDATE DM_KOUKAI_SAKI SET
+		DELETE_FLAG = 1,
+		RENEW_DATE = :RENEW_DATE,
+		RENEW_USER_ID = :RENEW_USER_ID
+
+		WHERE
+		LINK_SAKI_ID = :LINK_SAKI_ID
+	</sql>
+
+  <sql name="LogicalDeleteByMsVesseId">
+    UPDATE DM_KOUKAI_SAKI SET
+    DELETE_FLAG = 1,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+
+    WHERE
+    MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+</databaseConfig>

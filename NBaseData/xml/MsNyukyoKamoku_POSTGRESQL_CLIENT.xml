@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_NYUKYO_KAMOKU.MS_NYUKYO_KAMOKU_ID            ,
+    MS_NYUKYO_KAMOKU.NYUKYO_KAMOKU_NAME             ,
+    MS_NYUKYO_KAMOKU.SEND_FLAG                      ,
+    MS_NYUKYO_KAMOKU.VESSEL_ID                      ,
+    MS_NYUKYO_KAMOKU.DATA_NO                        ,
+    MS_NYUKYO_KAMOKU.USER_KEY                       ,
+    MS_NYUKYO_KAMOKU.RENEW_DATE                     ,
+    MS_NYUKYO_KAMOKU.RENEW_USER_ID                  ,
+    MS_NYUKYO_KAMOKU.TS                             ,
+    MS_NYUKYO_KAMOKU.SHOW_ORDER
+    FROM
+    MS_NYUKYO_KAMOKU
+
+    ORDER BY MS_NYUKYO_KAMOKU.SHOW_ORDER
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_NYUKYO_KAMOKU.MS_NYUKYO_KAMOKU_ID            ,
+    MS_NYUKYO_KAMOKU.NYUKYO_KAMOKU_NAME             ,
+    MS_NYUKYO_KAMOKU.SEND_FLAG                      ,
+    MS_NYUKYO_KAMOKU.VESSEL_ID                      ,
+    MS_NYUKYO_KAMOKU.DATA_NO                        ,
+    MS_NYUKYO_KAMOKU.USER_KEY                       ,
+    MS_NYUKYO_KAMOKU.RENEW_DATE                     ,
+    MS_NYUKYO_KAMOKU.RENEW_USER_ID                  ,
+    MS_NYUKYO_KAMOKU.TS                             ,
+    MS_NYUKYO_KAMOKU.SHOW_ORDER
+    FROM
+    MS_NYUKYO_KAMOKU
+
+    WHERE MS_NYUKYO_KAMOKU.MS_NYUKYO_KAMOKU_ID = :MS_NYUKYO_KAMOKU_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_NYUKYO_KAMOKU
+    (
+    MS_NYUKYO_KAMOKU_ID            ,
+    NYUKYO_KAMOKU_NAME             ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHOW_ORDER
+    )
+    VALUES
+    (
+    :MS_NYUKYO_KAMOKU_ID            ,
+    :NYUKYO_KAMOKU_NAME             ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :SHOW_ORDER
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_NYUKYO_KAMOKU
+    SET
+    NYUKYO_KAMOKU_NAME  = :NYUKYO_KAMOKU_NAME        ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    SHOW_ORDER = :SHOW_ORDER
+
+    WHERE
+    MS_NYUKYO_KAMOKU_ID = :MS_NYUKYO_KAMOKU_ID
+
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    PT_KANIDOUSEI_INFO.PT_KANIDOUSEI_INFO_ID          ,
+    PT_KANIDOUSEI_INFO.MS_VESSEL_ID                   ,
+    PT_KANIDOUSEI_INFO.EVENT_DATE                     ,
+    PT_KANIDOUSEI_INFO.KOMA				,
+    PT_KANIDOUSEI_INFO.MS_BASHO_ID                    ,
+    PT_KANIDOUSEI_INFO.MS_KICHI_ID                    ,
+    PT_KANIDOUSEI_INFO.MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+    PT_KANIDOUSEI_INFO.BIKOU                          ,
+    PT_KANIDOUSEI_INFO.SEND_FLAG                      ,
+    PT_KANIDOUSEI_INFO.VESSEL_ID                      ,
+    PT_KANIDOUSEI_INFO.DATA_NO                        ,
+    PT_KANIDOUSEI_INFO.USER_KEY                       ,
+    PT_KANIDOUSEI_INFO.RENEW_DATE                     ,
+    PT_KANIDOUSEI_INFO.RENEW_USER_ID                  ,
+    PT_KANIDOUSEI_INFO.TS                             ,
+    MS_VESSEL.VESSEL_NAME                             ,
+    MS_KANIDOUSEI_INFO_SHUBETU.KANIDOUSEI_INFO_SHUBETU_NAME  ,
+    MS_BASHO.BASHO_NAME				                             ,
+    MS_KICHI.KICHI_NAME,
+    PT_KANIDOUSEI_INFO.DELETE_FLAG,
+    PT_KANIDOUSEI_INFO.DJ_DOUSEI_ID
+    ,PT_KANIDOUSEI_INFO.HONSEN_CHECK_DATE
+    ,PT_KANIDOUSEI_INFO.MS_CARGO_ID
+    ,PT_KANIDOUSEI_INFO.QTTY,
+    MS_CARGO.CARGO_NAME
+
+    from
+    PT_KANIDOUSEI_INFO
+    LEFT OUTER JOIN  MS_VESSEL ON PT_KANIDOUSEI_INFO.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN  MS_KANIDOUSEI_INFO_SHUBETU  ON PT_KANIDOUSEI_INFO.MS_KANIDOUSEI_INFO_SHUBETU_ID = MS_KANIDOUSEI_INFO_SHUBETU.MS_KANIDOUSEI_INFO_SHUBETU_ID
+    LEFT OUTER JOIN  MS_BASHO  ON PT_KANIDOUSEI_INFO.MS_BASHO_ID = MS_BASHO.MS_BASHO_ID
+    LEFT OUTER JOIN  MS_KICHI ON PT_KANIDOUSEI_INFO.MS_KICHI_ID = MS_KICHI.MS_KICHI_ID
+    LEFT OUTER JOIN  MS_CARGO ON PT_KANIDOUSEI_INFO.MS_CARGO_ID = MS_CARGO.MS_CARGO_ID
+  </sql>
+
+
+
+  <sql name="GetRecordsByMsVesselID">
+    select
+    PT_KANIDOUSEI_INFO.PT_KANIDOUSEI_INFO_ID          ,
+    PT_KANIDOUSEI_INFO.MS_VESSEL_ID                   ,
+    PT_KANIDOUSEI_INFO.EVENT_DATE                     ,
+    PT_KANIDOUSEI_INFO.KOMA				,
+    PT_KANIDOUSEI_INFO.MS_BASHO_ID                    ,
+    PT_KANIDOUSEI_INFO.MS_KICHI_ID                    ,
+    PT_KANIDOUSEI_INFO.MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+    PT_KANIDOUSEI_INFO.BIKOU                          ,
+    PT_KANIDOUSEI_INFO.SEND_FLAG                      ,
+    PT_KANIDOUSEI_INFO.VESSEL_ID                      ,
+    PT_KANIDOUSEI_INFO.DATA_NO                        ,
+    PT_KANIDOUSEI_INFO.USER_KEY                       ,
+    PT_KANIDOUSEI_INFO.RENEW_DATE                     ,
+    PT_KANIDOUSEI_INFO.RENEW_USER_ID                  ,
+    PT_KANIDOUSEI_INFO.TS                             ,
+    PT_KANIDOUSEI_INFO.DELETE_FLAG					  ,
+    PT_KANIDOUSEI_INFO.DJ_DOUSEI_ID
+    ,PT_KANIDOUSEI_INFO.HONSEN_CHECK_DATE
+    ,PT_KANIDOUSEI_INFO.MS_CARGO_ID
+    ,PT_KANIDOUSEI_INFO.QTTY
+
+    from
+    PT_KANIDOUSEI_INFO
+
+    WHERE
+    PT_KANIDOUSEI_INFO.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  
+  
+
+  <sql name="ByPtKanidouseiInfoId">
+	  Where PT_KANIDOUSEI_INFO.PT_KANIDOUSEI_INFO_ID  = :PT_KANIDOUSEI_INFO_ID
+	  And PT_KANIDOUSEI_INFO.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByEventDate">
+	  Where MS_VESSEL.KANIDOUSEI_ENABLED = 1
+	  And PT_KANIDOUSEI_INFO.EVENT_DATE between :EVENT_DATE1 and :EVENT_DATE2
+	  And PT_KANIDOUSEI_INFO.DELETE_FLAG = 0
+  </sql>
+	
+	<sql name="ByEventDateVessel_ORG">
+		Where MS_VESSEL.MS_VESSEL_ID = :MS_VESSEL_ID
+		And PT_KANIDOUSEI_INFO.EVENT_DATE = :EVENT_DATE
+		And PT_KANIDOUSEI_INFO.DELETE_FLAG = 0
+	</sql>
+
+  <sql name="ByEventDateVessel">
+    Where MS_VESSEL.MS_VESSEL_ID = :MS_VESSEL_ID
+    And PT_KANIDOUSEI_INFO.EVENT_DATE between :EVENT_DATE1 and :EVENT_DATE2
+    And PT_KANIDOUSEI_INFO.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByDjDouseiID">
+		Where PT_KANIDOUSEI_INFO.DJ_DOUSEI_ID = :DJ_DOUSEI_ID
+	</sql>
+
+	<sql name="重複チェック">
+	  where PT_KANIDOUSEI_INFO.MS_VESSEL_ID = :MS_VESSEL_ID
+	  and PT_KANIDOUSEI_INFO.EVENT_DATE = :EVENT_DATE
+	  and PT_KANIDOUSEI_INFO.KOMA = :KOMA
+	  and PT_KANIDOUSEI_INFO.PT_KANIDOUSEI_INFO_ID != :PT_KANIDOUSEI_INFO_ID
+	  And PT_KANIDOUSEI_INFO.DELETE_FLAG = 0
+  </sql>
+
+	<sql name="ByMsKichiID">
+		Where PT_KANIDOUSEI_INFO.MS_KICHI_ID = :MS_KICHI_ID
+	</sql>
+
+	<sql name="ByMsBashoID">
+		Where PT_KANIDOUSEI_INFO.MS_BASHO_ID = :MS_BASHO_ID
+	</sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO PT_KANIDOUSEI_INFO
+    (
+    PT_KANIDOUSEI_INFO_ID          ,
+    MS_VESSEL_ID                   ,
+    EVENT_DATE                     ,
+    KOMA                     ,
+    MS_BASHO_ID                    ,
+    MS_KICHI_ID                    ,
+    MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+    BIKOU                          ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS,
+    RENKEI_FLAG,
+    DELETE_FLAG,
+    DJ_DOUSEI_ID,
+    HONSEN_CHECK_DATE,
+    MS_CARGO_ID,
+    QTTY
+    )
+    VALUES(
+    :PT_KANIDOUSEI_INFO_ID          ,
+    :MS_VESSEL_ID                   ,
+    :EVENT_DATE                     ,
+    :KOMA                     ,
+    :MS_BASHO_ID                    ,
+    :MS_KICHI_ID                   ,
+    :MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+    :BIKOU                          ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS,
+    :RENKEI_FLAG,
+    :DELETE_FLAG,
+    :DJ_DOUSEI_ID,
+    :HONSEN_CHECK_DATE,
+    :MS_CARGO_ID,
+    :QTTY
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE PT_KANIDOUSEI_INFO
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                                    ,
+    EVENT_DATE = :EVENT_DATE                                        ,
+    KOMA = :KOMA													,
+    MS_BASHO_ID = :MS_BASHO_ID                                      ,
+    MS_KICHI_ID = :MS_KICHI_ID                                      ,
+    MS_KANIDOUSEI_INFO_SHUBETU_ID = :MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+    BIKOU = :BIKOU                                                  ,
+    SEND_FLAG = :SEND_FLAG                                          ,
+    VESSEL_ID = :VESSEL_ID                                          ,
+    DATA_NO = :DATA_NO                                              ,
+    USER_KEY = :USER_KEY                                            ,
+    RENEW_DATE = :RENEW_DATE                                        ,
+    RENEW_USER_ID = :RENEW_USER_ID                                  ,
+    TS = :TS,
+    RENKEI_FLAG = :RENKEI_FLAG,
+    DELETE_FLAG = :DELETE_FLAG,
+    DJ_DOUSEI_ID = :DJ_DOUSEI_ID,
+    HONSEN_CHECK_DATE = :HONSEN_CHECK_DATE,
+    MS_CARGO_ID = :MS_CARGO_ID,
+    QTTY = :QTTY
+
+    WHERE
+    PT_KANIDOUSEI_INFO_ID = :PT_KANIDOUSEI_INFO_ID
+    AND
+    TS = :TS
+  </sql>
+
+  <sql name="DeleteRecord">
+	  UPDATE PT_KANIDOUSEI_INFO
+	  SET
+	  DELETE_FLAG = 1
+	  WHERE
+	  PT_KANIDOUSEI_INFO_ID = :PT_KANIDOUSEI_INFO_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+  <sql name="DeleteByVoyageNo">
+    update PT_KANIDOUSEI_INFO
+    set DELETE_FLAG = 1
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    where DJ_DOUSEI_ID in ( SELECT DJ_DOUSEI_ID FROM DJ_DOUSEI WHERE MS_VESSEL_ID = :MS_VESSEL_ID AND VOYAGE_NO = :VOYAGE_NO )
+  </sql>
+
+</databaseConfig>

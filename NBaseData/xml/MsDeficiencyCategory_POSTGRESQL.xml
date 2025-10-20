@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    DEFICIENCY_CATEGORY_ID,
+    DEFICIENCY_CATEGORY_NO,
+    DEFICIENCY_CATEGORY_NAME,
+
+    DELETE_FLAG,
+    CREATE_DATE,
+    UPDATE_DATE,
+    CREATE_MS_USER_ID,
+    UPDATE_MS_USER_ID
+
+    FROM
+    MS_DEFICIENCY_CATEGORY
+
+    WHERE
+    DELETE_FLAG = False
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    DEFICIENCY_CATEGORY_NAME LIKE :DEFICIENCY_CATEGORY_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_DEFICIENCY_CATEGORY(
+    DEFICIENCY_CATEGORY_NO      ,
+    DEFICIENCY_CATEGORY_NAME      ,
+    DELETE_FLAG           ,
+    UPDATE_MS_USER_ID     ,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :DEFICIENCY_CATEGORY_NO      ,
+    :DEFICIENCY_CATEGORY_NAME      ,
+    :DELETE_FLAG           ,
+    :UPDATE_MS_USER_ID     ,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_DEFICIENCY_CATEGORY
+    SET
+    DEFICIENCY_CATEGORY_NO = :DEFICIENCY_CATEGORY_NO    ,
+    DEFICIENCY_CATEGORY_NAME = :DEFICIENCY_CATEGORY_NAME    ,
+    DELETE_FLAG = :DELETE_FLAG              ,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE DEFICIENCY_CATEGORY_ID = :DEFICIENCY_CATEGORY_ID
+  </sql>
+
+</databaseConfig>

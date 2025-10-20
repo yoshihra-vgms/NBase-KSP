@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_FURIKAE_TORITATE.OD_FURIKAE_TORITATE_ID,
+    OD_FURIKAE_TORITATE.CANCEL_FLAG,
+    OD_FURIKAE_TORITATE.MS_VESSEL_ID,
+    OD_FURIKAE_TORITATE.MS_THI_IRAI_SBT_ID,
+    OD_FURIKAE_TORITATE.MS_THI_IRAI_SHOUSAI_ID,
+    OD_FURIKAE_TORITATE.MS_ITEM_SBT_ID,
+    OD_FURIKAE_TORITATE.MS_NYUKYO_KAMOKU_ID,
+    OD_FURIKAE_TORITATE.HACHU_DATE,
+    OD_FURIKAE_TORITATE.KOUMOKU,
+    OD_FURIKAE_TORITATE.MS_CUSTOMER_ID,
+    OD_FURIKAE_TORITATE.COUNT,
+    OD_FURIKAE_TORITATE.TANKA,
+    OD_FURIKAE_TORITATE.AMOUNT,
+    OD_FURIKAE_TORITATE.KANRYOBI,
+    OD_FURIKAE_TORITATE.SEIKYUSHOBI,
+    OD_FURIKAE_TORITATE.KIHYOBI,
+    OD_FURIKAE_TORITATE.BIKOU,
+    OD_FURIKAE_TORITATE.CREATE_DATE,
+    OD_FURIKAE_TORITATE.CREATE_USER_ID,
+    OD_FURIKAE_TORITATE.RENEW_DATE,
+    OD_FURIKAE_TORITATE.RENEW_USER_ID,
+    OD_FURIKAE_TORITATE.TS,
+
+    MS_VESSEL.VESSEL_NAME                       as MS_VESSEL_NAME,
+    MS_THI_IRAI_SBT.THI_IRAI_SBT_NAME           as MS_THI_IRAI_SBT_NAME,
+    MS_THI_IRAI_SHOUSAI.THI_IRAI_SHOUSAI_NAME   as MS_THI_IRAI_SHOUSAI_NAME,
+    MS_ITEM_SBT.ITEM_SBT_NAME                   as MS_ITEM_SBT_NAME,
+    MS_NYUKYO_KAMOKU.NYUKYO_KAMOKU_NAME         as MS_NYUKYO_KAMOKU_NAME,
+    MS_CUSTOMER.CUSTOMER_NAME                   as MS_CUSTOMER_NAME,
+    CREATE_USER.SEI || ' ' || CREATE_USER.MEI   as CREATE_USER_NAME,
+    RENEW_USER.SEI || ' ' || RENEW_USER.MEI     as RENEW_USER_NAME
+
+    FROM
+    OD_FURIKAE_TORITATE
+    INNER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_FURIKAE_TORITATE.MS_VESSEL_ID
+    INNER JOIN MS_THI_IRAI_SBT ON MS_THI_IRAI_SBT.MS_THI_IRAI_SBT_ID = OD_FURIKAE_TORITATE.MS_THI_IRAI_SBT_ID
+
+    LEFT JOIN MS_THI_IRAI_SHOUSAI ON MS_THI_IRAI_SHOUSAI.MS_THI_IRAI_SHOUSAI_ID = OD_FURIKAE_TORITATE.MS_THI_IRAI_SHOUSAI_ID
+    LEFT OUTER JOIN MS_ITEM_SBT on MS_ITEM_SBT.MS_ITEM_SBT_ID = OD_FURIKAE_TORITATE.MS_ITEM_SBT_ID
+    LEFT OUTER JOIN MS_NYUKYO_KAMOKU ON MS_NYUKYO_KAMOKU.MS_NYUKYO_KAMOKU_ID = OD_FURIKAE_TORITATE.MS_NYUKYO_KAMOKU_ID
+    LEFT OUTER JOIN MS_CUSTOMER ON MS_CUSTOMER.MS_CUSTOMER_ID = OD_FURIKAE_TORITATE.MS_CUSTOMER_ID
+
+    INNER JOIN MS_USER CREATE_USER ON CREATE_USER.MS_USER_ID = OD_FURIKAE_TORITATE.CREATE_USER_ID
+    INNER JOIN MS_USER RENEW_USER ON RENEW_USER.MS_USER_ID = OD_FURIKAE_TORITATE.CREATE_USER_ID
+
+    WHERE OD_FURIKAE_TORITATE.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="ByOdFurikaeToritateID">
+    AND OD_FURIKAE_TORITATE_ID = :OD_FURIKAE_TORITATE_ID
+  </sql>
+
+  <sql name="FilterByMsVesselId">
+    AND OD_FURIKAE_TORITATE.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="FilterByThiIraiSbtID">
+    AND OD_FURIKAE_TORITATE.MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+  </sql>
+  <sql name="FilterByThiIraiShousaiID">
+    AND OD_FURIKAE_TORITATE.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+  </sql>
+  <sql name="FilterByHachuDateFrom">
+    AND OD_FURIKAE_TORITATE.HACHU_DATE >= :HACHU_DATE_FROM
+  </sql>
+  <sql name="FilterByHachuDateTo">
+    AND OD_FURIKAE_TORITATE.HACHU_DATE &lt;= :HACHU_DATE_TO
+  </sql>
+  <sql name="FilterByHachuDateFromTo">
+    AND TO_CHAR(OD_FURIKAE_TORITATE.HACHU_DATE,'YYYY/MM/DD') >= :HACHU_DATE_FROM
+    AND TO_CHAR(OD_FURIKAE_TORITATE.HACHU_DATE,'YYYY/MM/DD') &lt;= :HACHU_DATE_TO
+  </sql>
+  
+  <sql name="FilterByOrder">
+    ORDER BY OD_FURIKAE_TORITATE.HACHU_DATE
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO OD_FURIKAE_TORITATE(
+    OD_FURIKAE_TORITATE_ID         ,
+    CANCEL_FLAG                    ,
+    MS_VESSEL_ID                   ,
+    MS_THI_IRAI_SBT_ID             ,
+    MS_THI_IRAI_SHOUSAI_ID         ,
+    MS_ITEM_SBT_ID                 ,
+    MS_NYUKYO_KAMOKU_ID            ,
+    HACHU_DATE                     ,
+    KOUMOKU                        ,
+    MS_CUSTOMER_ID                 ,
+    COUNT                          ,
+    TANKA                          ,
+    AMOUNT                         ,
+    KANRYOBI                       ,
+    SEIKYUSHOBI                    ,
+    KIHYOBI                        ,
+    BIKOU                          ,
+    CREATE_DATE                    ,
+    CREATE_USER_ID                 ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :OD_FURIKAE_TORITATE_ID         ,
+    :CANCEL_FLAG                    ,
+    :MS_VESSEL_ID                   ,
+    :MS_THI_IRAI_SBT_ID             ,
+    :MS_THI_IRAI_SHOUSAI_ID         ,
+    :MS_ITEM_SBT_ID                 ,
+    :MS_NYUKYO_KAMOKU_ID            ,
+    :HACHU_DATE                     ,
+    :KOUMOKU                        ,
+    :MS_CUSTOMER_ID                 ,
+    :COUNT                          ,
+    :TANKA                          ,
+    :AMOUNT                         ,
+    :KANRYOBI                       ,
+    :SEIKYUSHOBI                    ,
+    :KIHYOBI                        ,
+    :BIKOU                          ,
+    :CREATE_DATE                    ,
+    :CREATE_USER_ID                 ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_FURIKAE_TORITATE
+    SET
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID         ,
+    MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID ,
+    MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID                 ,
+    MS_NYUKYO_KAMOKU_ID = :MS_NYUKYO_KAMOKU_ID       ,
+    HACHU_DATE = :HACHU_DATE                         ,
+    KOUMOKU = :KOUMOKU                               ,
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID                 ,
+    COUNT = :COUNT                                   ,
+    TANKA = :TANKA                                   ,
+    AMOUNT = :AMOUNT                                 ,
+    KANRYOBI = :KANRYOBI                             ,
+    SEIKYUSHOBI = :SEIKYUSHOBI                       ,
+    KIHYOBI = :KIHYOBI                               ,
+    BIKOU = :BIKOU                                   ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE OD_FURIKAE_TORITATE_ID = :OD_FURIKAE_TORITATE_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

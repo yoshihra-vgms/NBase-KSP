@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_FELLOW_PASSENGERS.SI_FELLOW_PASSENGERS_ID                   ,
+
+    SI_FELLOW_PASSENGERS.MS_SI_SHOKUMEI_ID_1              ,
+    SI_FELLOW_PASSENGERS.MS_SENIN_ID_1                   ,
+    SI_FELLOW_PASSENGERS.MS_SI_SHOKUMEI_ID_2              ,
+    SI_FELLOW_PASSENGERS.MS_SENIN_ID_2                   ,
+
+    SI_FELLOW_PASSENGERS.BIKOU                          ,
+    
+    SENIN1.SEI || ' ' || SENIN1.MEI  as NAME_1,
+    SENIN2.SEI || ' ' || SENIN2.MEI  as NAME_2,
+
+    SI_FELLOW_PASSENGERS.DELETE_FLAG                    ,
+    SI_FELLOW_PASSENGERS.SEND_FLAG                      ,
+    SI_FELLOW_PASSENGERS.VESSEL_ID                      ,
+    SI_FELLOW_PASSENGERS.DATA_NO                        ,
+    SI_FELLOW_PASSENGERS.USER_KEY                       ,
+    SI_FELLOW_PASSENGERS.RENEW_DATE                     ,
+    SI_FELLOW_PASSENGERS.RENEW_USER_ID                  ,
+    SI_FELLOW_PASSENGERS.TS
+
+    FROM
+    SI_FELLOW_PASSENGERS
+    
+    INNER JOIN MS_SENIN SENIN1 ON SENIN1.MS_SENIN_ID = SI_FELLOW_PASSENGERS.MS_SENIN_ID_1
+    INNER JOIN MS_SENIN SENIN2 ON SENIN2.MS_SENIN_ID = SI_FELLOW_PASSENGERS.MS_SENIN_ID_2
+
+    WHERE
+    SI_FELLOW_PASSENGERS.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    (SI_FELLOW_PASSENGERS.MS_SENIN_ID_1 = :MS_SENIN_ID_1 OR SI_FELLOW_PASSENGERS.MS_SENIN_ID_2 = :MS_SENIN_ID_2)
+  </sql>
+  
+  <sql name="ByMsSiShokumeiID">
+    AND
+    (SI_FELLOW_PASSENGERS.MS_SI_SHOKUMEI_ID_1 = :MS_SI_SHOKUMEI_ID_1 OR SI_FELLOW_PASSENGERS.MS_SI_SHOKUMEI_ID_2 = :MS_SI_SHOKUMEI_ID_2)
+  </sql>
+  
+  <sql name="ByName">
+    AND
+    (SENIN1.SEI || ' ' || SENIN1.MEI LIKE :NAME OR SENIN2.SEI || ' ' || SENIN2.MEI LIKE :NAME)
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_FELLOW_PASSENGERS(
+    SI_FELLOW_PASSENGERS_ID                   ,
+
+    MS_SI_SHOKUMEI_ID_1              ,
+    MS_SENIN_ID_1                    ,
+    MS_SI_SHOKUMEI_ID_2              ,
+    MS_SENIN_ID_2                    ,
+
+
+    BIKOU                          ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_FELLOW_PASSENGERS_ID                   ,
+
+    :MS_SI_SHOKUMEI_ID_1              ,
+    :MS_SENIN_ID_1                    ,
+    :MS_SI_SHOKUMEI_ID_2              ,
+    :MS_SENIN_ID_2                    ,
+    :BIKOU                          ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_FELLOW_PASSENGERS
+    SET
+    MS_SI_SHOKUMEI_ID_1 = :MS_SI_SHOKUMEI_ID_1           ,
+    MS_SENIN_ID_1 = :MS_SENIN_ID_1                       ,
+    MS_SI_SHOKUMEI_ID_2 = :MS_SI_SHOKUMEI_ID_2           ,
+    MS_SENIN_ID_2 = :MS_SENIN_ID_2                       ,
+
+    BIKOU = :BIKOU                                   ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_FELLOW_PASSENGERS_ID = :SI_FELLOW_PASSENGERS_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

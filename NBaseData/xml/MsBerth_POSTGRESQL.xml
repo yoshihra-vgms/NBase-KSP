@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+	  select
+	  MS_BERTH.MS_BERTH_ID     ,
+	  MS_BERTH.BERTH_CODE		,
+	  MS_BERTH.BERTH_NAME      ,
+	  MS_BERTH.MS_KICHI_ID	,
+	  MS_BERTH.DELETE_FLAG     ,
+	  MS_BERTH.USER_KEY        ,
+	  MS_BERTH.VESSEL_ID       ,
+	  MS_BERTH.DATA_NO         ,
+	  MS_BERTH.SEND_FLAG       ,
+	  MS_BERTH.RENEW_DATE      ,
+	  MS_BERTH.RENEW_USER_ID   ,
+	  MS_BERTH.TS,
+	  MS_KICHI.KICHI_NAME
+
+	  from
+	  MS_BERTH
+	  left join MS_KICHI on MS_KICHI.MS_KICHI_ID = MS_BERTH.MS_KICHI_ID
+	  where (MS_BERTH.DELETE_FLAG = 0 or MS_BERTH.DELETE_FLAG is NULL)
+  </sql>
+  <sql name="OrderBy">
+
+    order by MS_BERTH.BERTH_CODE
+
+  </sql>
+
+  <sql name="ByBerthName">
+	  and MS_BERTH.BERTH_NAME  = :BERTH_NAME
+  </sql>
+	
+	<sql name="ByBerthCode">
+		and MS_BERTH.BERTH_CODE  = :BERTH_CODE
+	</sql>
+	
+	<sql name="ByBerthCodeBerthName">
+		and MS_BERTH.BERTH_CODE like :BERTH_CODE
+		and MS_BERTH.BERTH_NAME like :BERTH_NAME
+	</sql>
+
+	<sql name="ByMsKichiID">
+		and MS_BERTH.MS_KICHI_ID  = :MS_KICHI_ID
+	</sql>
+
+	<sql name="InsertRecord">
+	  INSERT INTO MS_BERTH
+	  (
+	  MS_BERTH_ID     ,
+	  BERTH_CODE		,
+	  BERTH_NAME      ,
+	  MS_KICHI_ID	,
+	  DELETE_FLAG     ,
+	  USER_KEY        ,
+	  VESSEL_ID       ,
+	  SEND_FLAG       ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   
+	  )
+	  VALUES
+	  (
+	  :MS_BERTH_ID     ,
+	  :BERTH_CODE,
+	  :BERTH_NAME      ,
+	  :MS_KICHI_ID,
+	  :DELETE_FLAG     ,
+	  :USER_KEY        ,
+	  :VESSEL_ID       ,
+	  :SEND_FLAG       ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_BERTH
+	  SET
+	  BERTH_CODE = :BERTH_CODE,
+	  BERTH_NAME = :BERTH_NAME        ,
+	  MS_KICHI_ID = :MS_KICHI_ID,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  USER_KEY = :USER_KEY            ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  
+
+	  WHERE
+	  MS_BERTH_ID = :MS_BERTH_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

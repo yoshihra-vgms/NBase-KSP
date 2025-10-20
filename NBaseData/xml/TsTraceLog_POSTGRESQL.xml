@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="InsertRecord">
+    INSERT INTO TS_TRACE_LOG(
+    ACCESS_DATE
+    ,SYSTEM
+    ,USER_ID
+    ,BUMON_ID
+    ,FUNCTION1
+    ,FUNCTION2
+    ,FUNCTION3
+    ,START_DATE
+    ,END_DATE
+    ,HOST_NAME
+    )
+    VALUES(
+    :ACCESS_DATE
+    ,:SYSTEM
+    ,:USER_ID
+    ,:BUMON_ID
+    ,:FUNCTION1
+    ,:FUNCTION2
+    ,:FUNCTION3
+    ,:START_DATE
+    ,:END_DATE
+    ,:HOST_NAME
+    )
+
+  </sql>
+
+</databaseConfig>

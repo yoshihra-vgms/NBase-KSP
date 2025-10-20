@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT DISTINCT
+    OD_THI.OD_THI_ID                      ,
+    OD_THI.STATUS                         ,
+    OD_THI.CANCEL_FLAG                    ,
+    OD_THI.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                 ,
+    OD_THI.THI_IRAI_DATE                  ,
+    OD_THI.MS_THI_IRAI_SBT_ID             ,
+    OD_THI.MS_THI_IRAI_SHOUSAI_ID         ,
+    OD_THI.BASHO                          ,
+    OD_THI.NAIYOU                         ,
+    OD_THI.BIKOU                          ,
+    OD_THI.TEHAI_IRAI_NO                  ,
+    OD_THI.KIBOUBI                        ,
+    OD_THI.KIBOUKOU                       ,
+    OD_THI.THI_USER_ID                    ,
+    OD_THI.JIM_TANTOU_ID                  ,
+    OD_THI.MS_THI_IRAI_STATUS_ID          ,
+    MS_THI_IRAI_STATUS.ORDER_THI_IRAI_STATUS,
+    OD_THI.MM_FLAG                        ,
+    OD_THI.SEND_FLAG                      ,
+    OD_THI.VESSEL_ID                      ,
+    OD_THI.DATA_NO                        ,
+    OD_THI.USER_KEY                       ,
+    OD_THI.RENEW_DATE                     ,
+    OD_THI.RENEW_USER_ID                  ,
+    OD_THI.TS                             ,
+    MS_THI_IRAI_SBT.THI_IRAI_SBT_NAME     ,
+    MS_THI_IRAI_SHOUSAI.THI_IRAI_SHOUSAI_NAME,
+    THI_USER.SEI || ' ' || THI_USER.MEI as THI_USER_NAME,
+    JIM_USER.SEI || ' ' || JIM_USER.MEI as JIM_TANTOU_NAME
+    FROM
+    OD_THI
+    INNER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_THI.MS_VESSEL_ID
+    INNER JOIN MS_THI_IRAI_STATUS ON MS_THI_IRAI_STATUS.MS_THI_IRAI_STATUS_ID = OD_THI.MS_THI_IRAI_STATUS_ID
+    INNER JOIN MS_THI_IRAI_SBT ON MS_THI_IRAI_SBT.MS_THI_IRAI_SBT_ID = OD_THI.MS_THI_IRAI_SBT_ID
+    LEFT JOIN MS_THI_IRAI_SHOUSAI ON MS_THI_IRAI_SHOUSAI.MS_THI_IRAI_SHOUSAI_ID = OD_THI.MS_THI_IRAI_SHOUSAI_ID
+    LEFT JOIN MS_USER THI_USER ON THI_USER.MS_USER_ID = OD_THI.THI_USER_ID
+    LEFT JOIN MS_USER JIM_USER ON JIM_USER.MS_USER_ID = OD_THI.JIM_TANTOU_ID
+
+    #APPEND_JOIN_STR#
+
+    WHERE OD_THI.CANCEL_FLAG = 0
+  </sql>
+  
+  <sql name="GetOdThiIds">
+    SELECT DISTINCT
+    OD_THI.OD_THI_ID
+
+    FROM
+    OD_THI
+    INNER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_THI.MS_VESSEL_ID
+    INNER JOIN MS_THI_IRAI_STATUS ON MS_THI_IRAI_STATUS.MS_THI_IRAI_STATUS_ID = OD_THI.MS_THI_IRAI_STATUS_ID
+    INNER JOIN MS_THI_IRAI_SBT ON MS_THI_IRAI_SBT.MS_THI_IRAI_SBT_ID = OD_THI.MS_THI_IRAI_SBT_ID
+    LEFT JOIN MS_THI_IRAI_SHOUSAI ON MS_THI_IRAI_SHOUSAI.MS_THI_IRAI_SHOUSAI_ID = OD_THI.MS_THI_IRAI_SHOUSAI_ID
+
+    #APPEND_JOIN_STR#
+
+    WHERE OD_THI.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="ByOdThiID">
+    AND OD_THI_ID = :OD_THI_ID
+  </sql>
+
+  <sql name="whereVesselId">
+    AND OD_THI.VESSEL_ID = :VESSEL_ID
+    ORDER BY OD_THI.THI_IRAI_DATE DESC
+  </sql>
+
+  <sql name="ByLatestNyukyoRecord">
+    AND OD_THI.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+    AND OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') &lt; :THI_IRAI_DATE_TO
+    ORDER BY OD_THI.THI_IRAI_DATE DESC
+  </sql>
+
+  <sql name="whereMsThiIraiShousaiId">
+    AND OD_THI.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+    AND OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') >= :THI_IRAI_DATE_FROM
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') &lt;= :THI_IRAI_DATE_TO
+    ORDER BY OD_THI.THI_IRAI_DATE DESC
+  </sql>
+
+  <sql name="FilterByMsVesselId">
+    --AND OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID
+    AND OD_THI.VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="FilterByJimTantouID">
+    AND OD_THI.JIM_TANTOU_ID = :JIM_TANTOU_ID
+  </sql>
+  <sql name="FilterByMsThiIraiStatusID_OLD">
+    AND OD_THI.MS_THI_IRAI_STATUS_ID IN ( #INNER_SQL_MS_THI_IRAI_STATUS_IDS# )
+  </sql>
+  <sql name="FilterByMsThiIraiStatusID">
+    OD_THI.MS_THI_IRAI_STATUS_ID IN ( #INNER_SQL_MS_THI_IRAI_STATUS_IDS# )
+  </sql>
+  <sql name="FilterByThiIraiSbtID">
+    AND OD_THI.MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+  </sql>
+  <sql name="FilterByThiIraiShousaiID">
+    AND OD_THI.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+  </sql>
+  <sql name="FilterByThiIraiDateFrom">
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') >= :THI_IRAI_DATE_FROM
+  </sql>
+  <sql name="FilterByThiIraiDateTo">
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') &lt;= :THI_IRAI_DATE_TO
+  </sql>
+  <sql name="FilterByThiIraiDateFromTo">
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') >= :THI_IRAI_DATE_FROM
+    AND to_char(OD_THI.THI_IRAI_DATE,'yyyy/mm/dd') &lt;= :THI_IRAI_DATE_TO
+  </sql>
+  <sql name="AppendJoinForOdThiFilter1">
+    LEFT JOIN OD_MM ON OD_MM.OD_THI_ID = OD_THI.OD_THI_ID AND OD_MM.CANCEL_FLAG = 0
+    LEFT JOIN OD_MK ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MK.CANCEL_FLAG = 0
+  </sql>
+  <sql name="AppendJoinForOdThiFilter2">
+    LEFT JOIN OD_MM ON OD_MM.OD_THI_ID = OD_THI.OD_THI_ID AND OD_MM.CANCEL_FLAG = 0
+    LEFT JOIN OD_MK ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MK.CANCEL_FLAG = 0
+    LEFT JOIN OD_JRY ON OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID AND OD_JRY.CANCEL_FLAG = 0
+  </sql>
+  <sql name="FilterByJryDateFrom">
+    AND to_char(OD_JRY.JRY_DATE,'yyyy/mm/dd') >= :JRY_DATE_FROM
+  </sql>
+  <sql name="FilterByJryDateTo">
+    AND to_char(OD_JRY.JRY_DATE,'yyyy/mm/dd') &lt;= :JRY_DATE_TO
+  </sql>
+  <sql name="FilterByJryDateFromTo">
+    AND to_char(OD_JRY.JRY_DATE,'yyyy/mm/dd') >= :JRY_DATE_FROM
+    AND to_char(OD_JRY.JRY_DATE,'yyyy/mm/dd') &lt;= :JRY_DATE_TO
+  </sql>
+
+  <sql name="FilterByJryStatus">
+    OD_JRY.STATUS = :JRY_STATUS
+  </sql>
+  <sql name="FilterByOrder">
+    ORDER BY OD_THI.TEHAI_IRAI_NO
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO OD_THI(
+    OD_THI_ID                      ,
+    STATUS                         ,
+    CANCEL_FLAG                    ,
+    MS_VESSEL_ID                   ,
+    THI_IRAI_DATE                  ,
+    MS_THI_IRAI_SBT_ID             ,
+    MS_THI_IRAI_SHOUSAI_ID         ,
+    BASHO                          ,
+    NAIYOU                         ,
+    BIKOU                          ,
+    TEHAI_IRAI_NO                  ,
+    KIBOUBI                        ,
+    KIBOUKOU                       ,
+    THI_USER_ID                    ,
+    JIM_TANTOU_ID                  ,
+    MS_THI_IRAI_STATUS_ID          ,
+    MM_FLAG                        ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :OD_THI_ID                      ,
+    :STATUS                         ,
+    :CANCEL_FLAG                    ,
+    :MS_VESSEL_ID                   ,
+    :THI_IRAI_DATE                  ,
+    :MS_THI_IRAI_SBT_ID             ,
+    :MS_THI_IRAI_SHOUSAI_ID         ,
+    :BASHO                          ,
+    :NAIYOU                         ,
+    :BIKOU                          ,
+    :TEHAI_IRAI_NO                  ,
+    :KIBOUBI                        ,
+    :KIBOUKOU                       ,
+    :THI_USER_ID                    ,
+    :JIM_TANTOU_ID                  ,
+    :MS_THI_IRAI_STATUS_ID          ,
+    :MM_FLAG                        ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_THI
+    SET
+    STATUS = :STATUS                                 ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    THI_IRAI_DATE = :THI_IRAI_DATE                   ,
+    MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID         ,
+    MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID ,
+    BASHO = :BASHO                                   ,
+    NAIYOU = :NAIYOU                                 ,
+    BIKOU = :BIKOU                                   ,
+    TEHAI_IRAI_NO = :TEHAI_IRAI_NO                   ,
+    KIBOUBI = :KIBOUBI                               ,
+    KIBOUKOU = :KIBOUKOU                             ,
+    THI_USER_ID = :THI_USER_ID                       ,
+    JIM_TANTOU_ID = :JIM_TANTOU_ID                   ,
+    MS_THI_IRAI_STATUS_ID = :MS_THI_IRAI_STATUS_ID   ,
+    MM_FLAG = :MM_FLAG                               ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE OD_THI_ID = :OD_THI_ID
+  </sql>
+
+</databaseConfig>

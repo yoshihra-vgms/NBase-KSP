@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    OD_THI_SHOUSAI_ITEM.OD_THI_SHOUSAI_ITEM_ID,
+    OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID,
+    OD_THI_ITEM.ITEM_NAME           as OD_THI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME as MS_VESSEL_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_LO_ID,
+    MS_LO.LO_NAME                         as MS_LO_NAME,
+    OD_THI_SHOUSAI_ITEM.ZAIKO_COUNT,
+    OD_THI_SHOUSAI_ITEM.COUNT,
+    OD_THI_SHOUSAI_ITEM.SATEISU,
+    OD_THI_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                   as MS_TANI_NAME,
+    OD_THI_SHOUSAI_ITEM.BIKOU                          ,
+    OD_THI_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_THI_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_THI_SHOUSAI_ITEM.DATA_NO	                       ,
+    OD_THI_SHOUSAI_ITEM.USER_KEY	                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_THI_SHOUSAI_ITEM.TS                             ,
+    OD_THI_SHOUSAI_ITEM.CANCEL_FLAG                    ,
+    OD_THI_SHOUSAI_ITEM.SHOW_ORDER                     ,
+    OD_THI_ITEM.OD_THI_ID
+    ,OD_THI_SHOUSAI_ITEM.OD_ATTACH_FILE_ID
+    ,MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG
+
+    from OD_THI_SHOUSAI_ITEM
+    left join OD_THI_ITEM on OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID = OD_THI_ITEM.OD_THI_ITEM_ID
+    left join OD_THI on OD_THI.OD_THI_ID = OD_THI_ITEM.OD_THI_ID
+    left join MS_VESSEL_ITEM on OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID
+    left join MS_VESSEL_ITEM_VESSEL on OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID AND MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID = OD_THI.MS_VESSEL_ID
+    left join MS_LO on OD_THI_SHOUSAI_ITEM.MS_LO_ID = MS_LO.MS_LO_ID
+    left join MS_TANI on OD_THI_SHOUSAI_ITEM.MS_TANI_ID = MS_TANI.MS_TANI_ID
+
+    WHERE OD_THI_SHOUSAI_ITEM.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="GetRecordsByMsLoID">
+    select
+    OD_THI_SHOUSAI_ITEM.OD_THI_SHOUSAI_ITEM_ID,
+    OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID,
+    OD_THI_ITEM.ITEM_NAME           as OD_THI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME as MS_VESSEL_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_LO_ID,
+    MS_LO.LO_NAME                         as MS_LO_NAME,
+    OD_THI_SHOUSAI_ITEM.ZAIKO_COUNT,
+    OD_THI_SHOUSAI_ITEM.COUNT,
+    OD_THI_SHOUSAI_ITEM.SATEISU,
+    OD_THI_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                   as MS_TANI_NAME,
+    OD_THI_SHOUSAI_ITEM.BIKOU                          ,
+    OD_THI_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_THI_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_THI_SHOUSAI_ITEM.DATA_NO	                       ,
+    OD_THI_SHOUSAI_ITEM.USER_KEY	                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_THI_SHOUSAI_ITEM.TS                             ,
+    OD_THI_SHOUSAI_ITEM.CANCEL_FLAG                    ,
+    OD_THI_SHOUSAI_ITEM.SHOW_ORDER                     ,
+    OD_THI_ITEM.OD_THI_ID
+    ,OD_THI_SHOUSAI_ITEM.OD_ATTACH_FILE_ID
+
+    from OD_THI_SHOUSAI_ITEM
+    left join OD_THI_ITEM on OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID = OD_THI_ITEM.OD_THI_ITEM_ID
+    left join MS_VESSEL_ITEM on OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID
+    left join MS_LO on OD_THI_SHOUSAI_ITEM.MS_LO_ID = MS_LO.MS_LO_ID
+    left join MS_TANI on OD_THI_SHOUSAI_ITEM.MS_TANI_ID = MS_TANI.MS_TANI_ID
+
+    WHERE OD_THI_SHOUSAI_ITEM.CANCEL_FLAG = 0 AND
+    OD_THI_SHOUSAI_ITEM.MS_LO_ID = :MS_LO_ID
+  </sql>
+
+  <sql name="GetRecordsByMsVesselItemID">
+    select
+    OD_THI_SHOUSAI_ITEM.OD_THI_SHOUSAI_ITEM_ID,
+    OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID,
+    OD_THI_ITEM.ITEM_NAME           as OD_THI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME as MS_VESSEL_ITEM_NAME,
+    OD_THI_SHOUSAI_ITEM.MS_LO_ID,
+    MS_LO.LO_NAME                         as MS_LO_NAME,
+    OD_THI_SHOUSAI_ITEM.ZAIKO_COUNT,
+    OD_THI_SHOUSAI_ITEM.COUNT,
+    OD_THI_SHOUSAI_ITEM.SATEISU,
+    OD_THI_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                   as MS_TANI_NAME,
+    OD_THI_SHOUSAI_ITEM.BIKOU                          ,
+    OD_THI_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_THI_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_THI_SHOUSAI_ITEM.DATA_NO	                       ,
+    OD_THI_SHOUSAI_ITEM.USER_KEY	                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_THI_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_THI_SHOUSAI_ITEM.TS                             ,
+    OD_THI_SHOUSAI_ITEM.CANCEL_FLAG                    ,
+    OD_THI_SHOUSAI_ITEM.SHOW_ORDER                     ,
+    OD_THI_ITEM.OD_THI_ID
+    ,OD_THI_SHOUSAI_ITEM.OD_ATTACH_FILE_ID
+    ,MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG
+
+    from OD_THI_SHOUSAI_ITEM
+    left join OD_THI_ITEM on OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID = OD_THI_ITEM.OD_THI_ITEM_ID
+    left join OD_THI on OD_THI.OD_THI_ID = OD_THI_ITEM.OD_THI_ID
+    left join MS_VESSEL_ITEM on OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID
+    left join MS_VESSEL_ITEM_VESSEL on OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID AND MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID = OD_THI.MS_VESSEL_ID
+    left join MS_LO on OD_THI_SHOUSAI_ITEM.MS_LO_ID = MS_LO.MS_LO_ID
+    left join MS_TANI on OD_THI_SHOUSAI_ITEM.MS_TANI_ID = MS_TANI.MS_TANI_ID
+
+    WHERE OD_THI_SHOUSAI_ITEM.CANCEL_FLAG = 0 AND
+    OD_THI_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID
+  </sql>
+
+  <sql name="ByOdThiID">
+    AND OD_THI_ITEM.OD_THI_ID = :OD_THI_ID
+  </sql>
+
+  <sql name="ByOdThiShousaiItemID">
+    AND OD_THI_SHOUSAI_ITEM.OD_THI_SHOUSAI_ITEM_ID = :OD_THI_SHOUSAI_ITEM_ID
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY OD_THI_SHOUSAI_ITEM.SHOW_ORDER
+  </sql>
+
+  <sql name="FilterByOdJryIDs">
+    AND OD_THI_ITEM.OD_THI_ID IN ( #INNER_SQL_OD_THI_IDS# )
+  </sql>
+
+  <sql name="ByThiIraiSbtID">
+    AND OD_THI.MS_THI_IRAI_SBT_ID  = :MS_THI_IRAI_SBT_ID AND OD_THI.VESSEL_ID = :VESSEL_ID
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO OD_THI_SHOUSAI_ITEM(
+    OD_THI_SHOUSAI_ITEM_ID,
+    OD_THI_ITEM_ID,
+    SHOUSAI_ITEM_NAME,
+    MS_VESSEL_ITEM_ID,
+    MS_LO_ID,
+    ZAIKO_COUNT,
+    COUNT,
+    SATEISU,
+    MS_TANI_ID,
+    BIKOU,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY	                     ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    CANCEL_FLAG                    ,
+    SHOW_ORDER
+    ,OD_ATTACH_FILE_ID
+    )
+    VALUES(
+    :OD_THI_SHOUSAI_ITEM_ID,
+    :OD_THI_ITEM_ID,
+    :SHOUSAI_ITEM_NAME,
+    :MS_VESSEL_ITEM_ID,
+    :MS_LO_ID,
+    :ZAIKO_COUNT,
+    :COUNT,
+    :SATEISU,
+    :MS_TANI_ID,
+    :BIKOU,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO	                      ,
+    :USER_KEY	                      ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :CANCEL_FLAG                    ,
+    :SHOW_ORDER
+    ,:OD_ATTACH_FILE_ID
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE OD_THI_SHOUSAI_ITEM SET
+    OD_THI_ITEM_ID = :OD_THI_ITEM_ID,
+    SHOUSAI_ITEM_NAME = :SHOUSAI_ITEM_NAME,
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID,
+    MS_LO_ID = :MS_LO_ID,
+    ZAIKO_COUNT = :ZAIKO_COUNT,
+    COUNT = :COUNT,
+    SATEISU = :SATEISU,
+    MS_TANI_ID = :MS_TANI_ID,
+    BIKOU = :BIKOU,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO                         ,
+    USER_KEY = :USER_KEY	                     ,
+    RENEW_DATE = :RENEW_DATE                   ,
+    RENEW_USER_ID = :RENEW_USER_ID             ,
+    TS = :TS                                   ,
+    CANCEL_FLAG = :CANCEL_FLAG                 ,
+    SHOW_ORDER = :SHOW_ORDER
+    ,OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+
+    WHERE OD_THI_SHOUSAI_ITEM_ID = :OD_THI_SHOUSAI_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE FROM OD_THI_SHOUSAI_ITEM
+    WHERE OD_THI_SHOUSAI_ITEM_ID = :OD_THI_SHOUSAI_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+  <sql name="CancelByOdThiID">
+    UPDATE OD_THI_SHOUSAI_ITEM
+    SET CANCEL_FLAG = 1
+    WHERE OD_THI_ITEM_ID IN
+    (SELECT OD_THI_ITEM_ID
+    FROM OD_THI_ITEM
+    WHERE OD_THI_ID = :OD_THI_ID)
+  </sql>
+
+  <sql name="DeleteRecords">
+    DELETE FROM OD_THI_SHOUSAI_ITEM
+    WHERE OD_THI_ITEM_ID IN
+    (SELECT OD_THI_ITEM_ID
+    FROM OD_THI_ITEM
+    WHERE OD_THI_ID = :OD_THI_ID)
+  </sql>
+
+</databaseConfig>

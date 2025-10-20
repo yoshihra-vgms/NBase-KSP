@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_PORTAL_INFO_SHUBETU.MS_PORTAL_INFO_SHUBETU_ID ,
+    MS_PORTAL_INFO_SHUBETU.PORTAL_INFO_SYUBETU_NAME  ,
+    MS_PORTAL_INFO_SHUBETU.DELETE_FLAG               ,
+    MS_PORTAL_INFO_SHUBETU.SEND_FLAG                 ,
+    MS_PORTAL_INFO_SHUBETU.VESSEL_ID                 ,
+    MS_PORTAL_INFO_SHUBETU.DATA_NO                   ,
+    MS_PORTAL_INFO_SHUBETU.USER_KEY                  ,
+    MS_PORTAL_INFO_SHUBETU.RENEW_DATE                ,
+    MS_PORTAL_INFO_SHUBETU.RENEW_USER_ID             ,
+    MS_PORTAL_INFO_SHUBETU.TS
+    from
+    MS_PORTAL_INFO_SHUBETU
+    where (MS_PORTAL_INFO_SHUBETU.DELETE_FLAG = 0 or MS_PORTAL_INFO_SHUBETU.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByPortalInfoSyubetuName">
+    and MS_PORTAL_INFO_SHUBETU.PORTAL_INFO_SYUBETU_NAME  = :PORTAL_INFO_SYUBETU_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_PORTAL_INFO_SHUBETU
+    (
+    MS_PORTAL_INFO_SHUBETU_ID ,
+    PORTAL_INFO_SYUBETU_NAME  ,
+    DELETE_FLAG               ,
+    SEND_FLAG                 ,
+    VESSEL_ID                 ,
+    DATA_NO                   ,
+    USER_KEY                  ,
+    RENEW_DATE                ,
+    RENEW_USER_ID             ,
+    TS
+    )
+    VALUES(
+    :MS_PORTAL_INFO_SHUBETU_ID ,
+    :PORTAL_INFO_SYUBETU_NAME  ,
+    :DELETE_FLAG               ,
+    :SEND_FLAG                 ,
+    :VESSEL_ID                 ,
+    :DATA_NO                   ,
+    :USER_KEY                  ,
+    :RENEW_DATE                ,
+    :RENEW_USER_ID             ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_PORTAL_INFO_SHUBETU
+    SET
+    PORTAL_INFO_SYUBETU_NAME = :PORTAL_INFO_SYUBETU_NAME  ,
+    DELETE_FLAG = :DELETE_FLAG                            ,
+    SEND_FLAG = :SEND_FLAG                                ,
+    VESSEL_ID = :VESSEL_ID                                ,
+    DATA_NO = :DATA_NO                                    ,
+    USER_KEY = :USER_KEY                                  ,
+    RENEW_DATE = :RENEW_DATE                              ,
+    RENEW_USER_ID = :RENEW_USER_ID                        ,
+    TS = :TS
+
+    WHERE
+    MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID
+
+  </sql>
+
+</databaseConfig>

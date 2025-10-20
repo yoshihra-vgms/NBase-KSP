@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID,
+
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID,
+
+    MS_SI_MENJOU_KIND.NAME,
+    MS_SI_MENJOU_KIND.NAME_ABBR,
+    MS_SI_MENJOU_KIND.SHOW_ORDER,
+
+    MS_SI_MENJOU_KIND.DELETE_FLAG,
+    MS_SI_MENJOU_KIND.SEND_FLAG,
+    MS_SI_MENJOU_KIND.VESSEL_ID,
+    MS_SI_MENJOU_KIND.DATA_NO,
+    MS_SI_MENJOU_KIND.USER_KEY,
+    MS_SI_MENJOU_KIND.RENEW_DATE,
+    MS_SI_MENJOU_KIND.RENEW_USER_ID,
+    MS_SI_MENJOU_KIND.TS,
+
+    MS_SI_MENJOU.NAME AS MENJOU_NAME
+
+    FROM
+    MS_SI_MENJOU_KIND
+
+    JOIN
+    MS_SI_MENJOU ON MS_SI_MENJOU.MS_SI_MENJOU_ID = MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID
+
+    WHERE
+    MS_SI_MENJOU_KIND.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="GetRecordsByMsSiMenjouID">
+    SELECT
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID,
+
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID,
+
+    MS_SI_MENJOU_KIND.NAME,
+    MS_SI_MENJOU_KIND.NAME_ABBR,
+    MS_SI_MENJOU_KIND.SHOW_ORDER,
+
+    MS_SI_MENJOU_KIND.DELETE_FLAG,
+    MS_SI_MENJOU_KIND.SEND_FLAG,
+    MS_SI_MENJOU_KIND.VESSEL_ID,
+    MS_SI_MENJOU_KIND.DATA_NO,
+    MS_SI_MENJOU_KIND.USER_KEY,
+    MS_SI_MENJOU_KIND.RENEW_DATE,
+    MS_SI_MENJOU_KIND.RENEW_USER_ID,
+    MS_SI_MENJOU_KIND.TS,
+
+    MS_SI_MENJOU.NAME AS MENJOU_NAME
+
+    FROM
+    MS_SI_MENJOU_KIND
+
+    JOIN
+    MS_SI_MENJOU ON MS_SI_MENJOU.MS_SI_MENJOU_ID = MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID
+
+    WHERE
+    MS_SI_MENJOU_KIND.DELETE_FLAG = 0 AND
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID
+  </sql>
+
+  <sql name="ByMsSiMenjouKindID">
+    AND
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID
+  </sql>
+
+  <sql name="ByMsSiMenjouID">
+    AND
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY
+    MS_SI_MENJOU.SHOW_ORDER, MS_SI_MENJOU.MS_SI_MENJOU_ID,
+    MS_SI_MENJOU_KIND.SHOW_ORDER, MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    MS_SI_MENJOU_KIND.NAME LIKE :NAME
+  </sql>
+
+  <sql name="SearchByNameAbbr">
+    AND
+    MS_SI_MENJOU_KIND.NAME_ABBR LIKE :NAME_ABBR
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_MENJOU_KIND(
+    MS_SI_MENJOU_KIND_ID           ,
+
+    MS_SI_MENJOU_ID                ,
+
+    NAME                           ,
+    NAME_ABBR                      ,
+    SHOW_ORDER                     ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    nextval('SEQ_MS_SI_MENJOU_KIND_ID'),
+
+    :MS_SI_MENJOU_ID                ,
+
+    :NAME                           ,
+    :NAME_ABBR                      ,
+    :SHOW_ORDER                     ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_MENJOU_KIND
+    SET
+    MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID               ,
+
+    NAME = :NAME                                     ,
+    NAME_ABBR = :NAME_ABBR                           ,
+    SHOW_ORDER = :SHOW_ORDER                         ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

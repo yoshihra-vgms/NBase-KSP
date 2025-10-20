@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_SHOKUMEI_SHOUSAI_ID,
+    MS_SI_SHOKUMEI_ID,
+    NAME,
+    NAME_ABBR,
+    NAME_ENG,
+    SHOW_ORDER,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    MS_SI_SHOKUMEI_SHOUSAI
+
+    WHERE
+    DELETE_FLAG = 0
+
+    ORDER BY
+    SHOW_ORDER
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_SHOKUMEI_SHOUSAI(
+    MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+    MS_SI_SHOKUMEI_ID              ,
+    NAME                           ,
+    NAME_ABBR                      ,
+    SHOW_ORDER                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :NAME                           ,
+    :NAME_ABBR                      ,
+    :SHOW_ORDER                     ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_SHOKUMEI_SHOUSAI
+    SET
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+    NAME = :NAME                                     ,
+    NAME_ABBR = :NAME_ABBR                           ,
+    SHOW_ORDER = :SHOW_ORDER                         ,
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_SHOKUMEI_SHOUSAI_ID = :MS_SI_SHOKUMEI_SHOUSAI_ID
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+		select
+		MS_BASHO.MS_BASHO_ID                   ,
+		MS_BASHO.MS_BASHO_NO                   ,
+		MS_BASHO.BASHO_NAME                    ,
+		MS_BASHO.MS_BASHO_KUBUN_ID             ,
+		MS_BASHO.AKASAKA_PORT_NO				,
+		MS_BASHO.DELETE_FLAG                   ,
+		MS_BASHO.SEND_FLAG                     ,
+		MS_BASHO.VESSEL_ID                     ,
+		MS_BASHO.DATA_NO                       ,
+		MS_BASHO.USER_KEY                      ,
+		MS_BASHO.RENEW_DATE                    ,
+		MS_BASHO.RENEW_USER_ID                 ,
+		MS_BASHO.TS                            ,
+		MS_BASHO_KUBUN.BASHO_KUBUN_NAME,
+		MS_BASHO.GAICHI_FLAG
+		
+		from
+		MS_BASHO
+		LEFT OUTER JOIN  MS_BASHO_KUBUN ON MS_BASHO.MS_BASHO_KUBUN_ID = MS_BASHO_KUBUN.MS_BASHO_KUBUN_ID
+		WHERE (MS_BASHO.DELETE_FLAG = 0 or MS_BASHO.DELETE_FLAG is NULL)
+		and MS_BASHO.MS_BASHO_NO = :MS_BASHO_NO
+
+	</sql>
+
+	<sql name="GetRecords">
+		select
+		MS_BASHO.MS_BASHO_ID                   ,
+		MS_BASHO.MS_BASHO_NO                   ,
+		MS_BASHO.BASHO_NAME                    ,
+		MS_BASHO.MS_BASHO_KUBUN_ID             ,
+		MS_BASHO.AKASAKA_PORT_NO				,
+		MS_BASHO.DELETE_FLAG                   ,
+		MS_BASHO.SEND_FLAG                     ,
+		MS_BASHO.VESSEL_ID                     ,
+		MS_BASHO.DATA_NO                       ,
+		MS_BASHO.USER_KEY                      ,
+		MS_BASHO.RENEW_DATE                    ,
+		MS_BASHO.RENEW_USER_ID                 ,
+		MS_BASHO.TS                            ,
+		MS_BASHO_KUBUN.BASHO_KUBUN_NAME,
+		MS_BASHO.GAICHI_FLAG
+		
+		from
+		MS_BASHO
+		LEFT OUTER JOIN  MS_BASHO_KUBUN ON MS_BASHO.MS_BASHO_KUBUN_ID = MS_BASHO_KUBUN.MS_BASHO_KUBUN_ID
+		WHERE (MS_BASHO.DELETE_FLAG = 0 or MS_BASHO.DELETE_FLAG is NULL)
+	</sql>
+
+  <sql name="ByBashoName">
+    and MS_BASHO.BASHO_NAME  = :BASHO_NAME
+  </sql>
+	
+	<sql name="LikeBashoNo">
+		and MS_BASHO.MS_BASHO_NO like :MS_BASHO_NO
+	</sql>
+
+	<sql name="LikeBashoName">
+    and MS_BASHO.BASHO_NAME  like :BASHO_NAME
+  </sql>
+
+  <sql name="ByBashoKubun">
+    and MS_BASHO.MS_BASHO_KUBUN_ID  = :BASHO_KUBUN_ID
+  </sql>
+
+  <sql name="OrderBy">
+    Order By MS_BASHO.MS_BASHO_NO
+  </sql>
+
+  <sql name="ByAkasakaPortNo">
+	  and MS_BASHO.AKASAKA_PORT_NO = :AKASAKA_PORT_NO
+  </sql>
+	
+  <sql name="GetRecordsBy港">
+	  select
+	  MS_BASHO.MS_BASHO_ID                   ,
+	  MS_BASHO.MS_BASHO_NO                   ,
+	  MS_BASHO.BASHO_NAME                    ,
+	  MS_BASHO.MS_BASHO_KUBUN_ID             ,
+	  MS_BASHO.AKASAKA_PORT_NO				,
+	  MS_BASHO.DELETE_FLAG                   ,
+	  MS_BASHO.SEND_FLAG                     ,
+	  MS_BASHO.VESSEL_ID                     ,
+	  MS_BASHO.DATA_NO                       ,
+	  MS_BASHO.USER_KEY                      ,
+	  MS_BASHO.RENEW_DATE                    ,
+	  MS_BASHO.RENEW_USER_ID                 ,
+	  MS_BASHO.TS                            ,
+	  MS_BASHO_KUBUN.BASHO_KUBUN_NAME,
+	  MS_BASHO.GAICHI_FLAG
+	  
+	  from
+	  MS_BASHO
+	  LEFT OUTER JOIN  MS_BASHO_KUBUN ON MS_BASHO.MS_BASHO_KUBUN_ID = MS_BASHO_KUBUN.MS_BASHO_KUBUN_ID
+	  WHERE (MS_BASHO.DELETE_FLAG = 0 or MS_BASHO.DELETE_FLAG is NULL)
+	  AND MS_BASHO.MS_BASHO_KUBUN_ID = '10'
+  </sql>
+
+  <sql name="InsertRecord">
+	  INSERT INTO MS_BASHO
+	  (
+	  MS_BASHO_ID                   ,
+	  MS_BASHO_NO					,
+	  BASHO_NAME                    ,
+	  MS_BASHO_KUBUN_ID             ,
+	  AKASAKA_PORT_NO				,
+	  DELETE_FLAG                   ,
+	  SEND_FLAG                     ,
+	  VESSEL_ID                     ,
+	  DATA_NO                       ,
+	  USER_KEY                      ,
+	  RENEW_DATE                    ,
+	  RENEW_USER_ID                 ,
+	  TS,
+	  GAICHI_FLAG
+	  )
+	  VALUES(
+	  :MS_BASHO_ID                   ,
+	  :MS_BASHO_NO					,
+	  :BASHO_NAME                    ,
+	  :MS_BASHO_KUBUN_ID             ,
+	  :AKASAKA_PORT_NO				,
+	  :DELETE_FLAG                   ,
+	  :SEND_FLAG                     ,
+	  :VESSEL_ID                     ,
+	  :DATA_NO                       ,
+	  :USER_KEY                      ,
+	  :RENEW_DATE                    ,
+	  :RENEW_USER_ID                 ,
+	  :TS,
+	  :GAICHI_FLAG
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_BASHO SET
+	  MS_BASHO_NO = :MS_BASHO_NO,
+	  BASHO_NAME = :BASHO_NAME                    ,
+	  MS_BASHO_KUBUN_ID = :MS_BASHO_KUBUN_ID      ,
+	  AKASAKA_PORT_NO = :AKASAKA_PORT_NO			,
+	  DELETE_FLAG = :DELETE_FLAG                  ,
+	  SEND_FLAG = :SEND_FLAG                      ,
+	  VESSEL_ID = :VESSEL_ID                      ,
+	  DATA_NO = :DATA_NO                          ,
+	  USER_KEY = :USER_KEY                        ,
+	  RENEW_DATE = :RENEW_DATE                    ,
+	  RENEW_USER_ID = :RENEW_USER_ID              ,
+	  TS = :TS,
+	  GAICHI_FLAG = :GAICHI_FLAG
+
+	  WHERE
+	  MS_BASHO_ID = :MS_BASHO_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

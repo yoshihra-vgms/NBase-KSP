@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_CARD.SI_CARD_ID                     ,
+
+    SI_CARD.MS_SENIN_ID                    ,
+    SI_CARD.MS_SI_SHUBETSU_ID              ,
+    SI_CARD.MS_VESSEL_ID                   ,
+
+    SI_CARD.START_DATE                     ,
+    SI_CARD.END_DATE                       ,
+    SI_CARD.DAYS                           ,
+
+    SI_CARD.VESSEL_NAME,
+    SI_CARD.COMPANY_NAME,
+    SI_CARD.MS_CREW_MATRIX_TYPE_ID,
+    SI_CARD.KENM_TUSHINCYO,
+    SI_CARD.KENM_TUSHINCYO_START,
+    SI_CARD.KENM_TUSHINCYO_END,
+
+    SI_CARD.MS_SI_SHUBETSU_SHOUSAI_ID,
+    SI_CARD.LABOR_ON_BOARDING,
+    SI_CARD.LABOR_ON_DISEMBARKING,
+
+    SI_CARD.MS_VESSEL_TYPE_ID,
+    SI_CARD.GROSS_TON,
+    SI_CARD.NAVIGATION_AREA,
+    SI_CARD.OWNER_NAME,
+
+    SI_CARD.SIGN_ON_BASHO_ID,
+
+    SI_CARD.SIGN_OFF_REASON,
+    SI_CARD.SIGN_OFF_BASHO_ID,
+    SI_CARD.REPLACEMENT_ID,
+    SI_CARD.WTM_LINKAGE_ID,
+
+    SI_CARD.DELETE_FLAG                    ,
+    SI_CARD.SEND_FLAG                      ,
+    SI_CARD.VESSEL_ID                      ,
+    SI_CARD.DATA_NO                        ,
+    SI_CARD.USER_KEY                       ,
+    SI_CARD.RENEW_DATE                     ,
+    SI_CARD.RENEW_USER_ID                  ,
+    SI_CARD.TS                             ,
+
+    --MS_SENIN.MS_USER_ID,
+    CASE
+    WHEN MS_SENIN.MS_USER_ID IS NOT NULL THEN MS_SENIN.MS_USER_ID
+    ELSE SI_CARD.MS_USER_ID
+    END AS MS_USER_ID,
+
+    CASE
+    WHEN MS_SENIN.MEI IS NULL THEN MS_SENIN.SEI
+    ELSE MS_SENIN.SEI || ' ' || MS_SENIN.MEI
+    END AS SENIN_NAME,
+
+    CASE
+    WHEN MS_SENIN.MEI_KANA IS NULL THEN MS_SENIN.SEI_KANA
+    ELSE MS_SENIN.SEI_KANA || ' ' || MS_SENIN.MEI_KANA
+    END AS SENIN_NAME_KANA,
+
+    MS_SENIN.SHIMEI_CODE AS SENIN_SHIMEI_CODE,
+    MS_SENIN.HOKEN_NO AS SENIN_HOKEN_NO,
+    MS_SENIN.BIRTHDAY AS SENIN_BIRTHDAY,
+    MS_SENIN.MS_SI_SHOKUMEI_ID AS SENIN_MS_SI_SHOKUMEI_ID,
+    MS_SENIN.KUBUN AS SENIN_KUBUN,
+    MS_SENIN.RETIRE_FLAG AS SENIN_RETIRE_FLAG
+
+
+    FROM
+    SI_CARD
+
+    LEFT JOIN
+    MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_CARD.MS_SENIN_ID
+
+    WHERE
+    SI_CARD.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="FilterByMsSeninID">
+    AND
+    SI_CARD.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="FilterByMsSiShubetsuIDs">
+    AND SI_CARD.MS_SI_SHUBETSU_ID IN ( #INNER_SQL_MS_SI_SHUBETSUS# )
+  </sql>
+
+  <sql name="FilterByStartEnd">
+    AND
+    (
+    SI_CARD.END_DATE >= :START_DATE
+    AND
+    SI_CARD.START_DATE &lt; :END_DATE
+    OR
+    SI_CARD.END_DATE IS NULL
+    AND
+    SI_CARD.START_DATE &lt; :END_DATE
+    )
+  </sql>
+
+  <sql name="FilterByMsVesselIDs">
+    AND SI_CARD.MS_VESSEL_ID IN ( #INNER_SQL_MSVESSELIDS# )
+  </sql>
+
+  <sql name="FilterByMsVesselIDsIncludeNull">
+    AND (SI_CARD.MS_VESSEL_ID IN ( #INNER_SQL_MSVESSELIDS# )
+    OR SI_CARD.MS_VESSEL_ID IS NULL)
+  </sql>
+
+  <sql name="FilterByRetireFlag">
+    AND MS_SENIN.RETIRE_FLAG = :RETIRE_FLAG
+  </sql>
+
+  <sql name="OrderByStartDate">
+    ORDER BY
+    SI_CARD.START_DATE
+  </sql>
+
+  <sql name="OrderByStartDateDesc">
+    ORDER BY
+    SI_CARD.START_DATE DESC, SI_CARD.END_DATE
+  </sql>
+
+  <sql name="OrderByMsSiShokumeiId">
+    ORDER BY
+    MS_SENIN.MS_SI_SHOKUMEI_ID, SI_CARD.START_DATE DESC
+  </sql>
+
+  <sql name="GetRecordsJoinMsUserByFilter">
+    SELECT
+    SI_CARD.SI_CARD_ID                     ,
+
+    SI_CARD.MS_SENIN_ID                    ,
+    SI_CARD.MS_SI_SHUBETSU_ID              ,
+    SI_CARD.MS_VESSEL_ID                   ,
+
+    SI_CARD.START_DATE                     ,
+    SI_CARD.END_DATE                       ,
+    SI_CARD.DAYS                           ,
+
+    SI_CARD.DELETE_FLAG                    ,
+    SI_CARD.SEND_FLAG                      ,
+    SI_CARD.VESSEL_ID                      ,
+    SI_CARD.DATA_NO                        ,
+    SI_CARD.USER_KEY                       ,
+    SI_CARD.RENEW_DATE                     ,
+    SI_CARD.RENEW_USER_ID                  ,
+    SI_CARD.TS                             ,
+    SI_CARD.MS_USER_ID,
+
+    MS_USER.SEI || ' ' || MS_USER.MEI AS SENIN_NAME
+
+    FROM
+    SI_CARD
+
+    INNER JOIN
+    MS_USER ON MS_USER.MS_USER_ID = SI_CARD.MS_USER_ID
+
+    WHERE SI_CARD.DELETE_FLAG = 0
+    AND SI_CARD.MS_VESSEL_ID = :MS_VESSEL_ID
+    AND SI_CARD.MS_SI_SHUBETSU_ID = :MS_SI_SHUBETSU_ID
+    AND
+    (
+    SI_CARD.END_DATE >= :START_DATE
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    OR
+    SI_CARD.END_DATE IS NULL
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    )
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_CARD(
+    SI_CARD_ID                     ,
+
+    MS_SENIN_ID                    ,
+    MS_SI_SHUBETSU_ID              ,
+    MS_VESSEL_ID                   ,
+
+    START_DATE                     ,
+    END_DATE                       ,
+    DAYS                           ,
+
+    VESSEL_NAME,
+    COMPANY_NAME,
+    MS_CREW_MATRIX_TYPE_ID,
+    KENM_TUSHINCYO,
+    KENM_TUSHINCYO_START,
+    KENM_TUSHINCYO_END,
+
+    MS_SI_SHUBETSU_SHOUSAI_ID,
+    LABOR_ON_BOARDING,
+    LABOR_ON_DISEMBARKING,
+
+    MS_VESSEL_TYPE_ID,
+    GROSS_TON,
+    NAVIGATION_AREA,
+    OWNER_NAME,
+
+    SIGN_ON_BASHO_ID,
+    SIGN_OFF_REASON,
+    SIGN_OFF_BASHO_ID,
+    REPLACEMENT_ID,
+    WTM_LINKAGE_ID,
+    MS_USER_ID,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_CARD_ID                     ,
+
+    :MS_SENIN_ID                    ,
+    :MS_SI_SHUBETSU_ID              ,
+    :MS_VESSEL_ID                   ,
+
+    :START_DATE                     ,
+    :END_DATE                       ,
+    :DAYS                           ,
+
+    :VESSEL_NAME,
+    :COMPANY_NAME,
+    :MS_CREW_MATRIX_TYPE_ID,
+    :KENM_TUSHINCYO,
+    :KENM_TUSHINCYO_START,
+    :KENM_TUSHINCYO_END,
+
+    :MS_SI_SHUBETSU_SHOUSAI_ID,
+    :LABOR_ON_BOARDING,
+    :LABOR_ON_DISEMBARKING,
+
+    :MS_VESSEL_TYPE_ID,
+    :GROSS_TON,
+    :NAVIGATION_AREA,
+    :OWNER_NAME,
+
+    :SIGN_ON_BASHO_ID,
+    :SIGN_OFF_REASON,
+    :SIGN_OFF_BASHO_ID,
+    :REPLACEMENT_ID,
+    :WTM_LINKAGE_ID,
+    :MS_USER_ID,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_CARD
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    MS_SI_SHUBETSU_ID = :MS_SI_SHUBETSU_ID           ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+
+    START_DATE = :START_DATE                         ,
+    END_DATE = :END_DATE                             ,
+    DAYS = :DAYS                                     ,
+
+    VESSEL_NAME = :VESSEL_NAME,
+    COMPANY_NAME = :COMPANY_NAME,
+    MS_CREW_MATRIX_TYPE_ID = :MS_CREW_MATRIX_TYPE_ID,
+    KENM_TUSHINCYO = :KENM_TUSHINCYO,
+    KENM_TUSHINCYO_START = :KENM_TUSHINCYO_START,
+    KENM_TUSHINCYO_END = :KENM_TUSHINCYO_END,
+
+    MS_SI_SHUBETSU_SHOUSAI_ID = :MS_SI_SHUBETSU_SHOUSAI_ID,
+    LABOR_ON_BOARDING = :LABOR_ON_BOARDING,
+    LABOR_ON_DISEMBARKING = :LABOR_ON_DISEMBARKING,
+
+    MS_VESSEL_TYPE_ID = :MS_VESSEL_TYPE_ID,
+    GROSS_TON = :GROSS_TON,
+    NAVIGATION_AREA = :NAVIGATION_AREA,
+    OWNER_NAME = :OWNER_NAME,
+
+    SIGN_ON_BASHO_ID = :SIGN_ON_BASHO_ID,
+
+    SIGN_OFF_REASON = :SIGN_OFF_REASON,
+    SIGN_OFF_BASHO_ID = :SIGN_OFF_BASHO_ID,
+    REPLACEMENT_ID = :REPLACEMENT_ID,
+    WTM_LINKAGE_ID = :WTM_LINKAGE_ID,
+    MS_USER_ID = :MS_USER_ID,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_CARD_ID = :SI_CARD_ID
+  </sql>
+
+</databaseConfig>

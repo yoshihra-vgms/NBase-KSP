@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_SHOUSAI_ITEM_ID      ,
+    OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_ITEM_ID              ,
+    OD_NYUKYO_ITEM.ITEN_NAME                              ,
+    OD_NYUKYO_SHOUSAI_ITEM.NAME                           ,
+    OD_NYUKYO_SHOUSAI_ITEM.BIKOU                          ,
+    OD_NYUKYO_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                                     ,
+    OD_NYUKYO_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_NYUKYO_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_NYUKYO_SHOUSAI_ITEM.DATA_NO                        ,
+    OD_NYUKYO_SHOUSAI_ITEM.USER_KEY                       ,
+    OD_NYUKYO_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_NYUKYO_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_NYUKYO_SHOUSAI_ITEM.TS
+    FROM
+    OD_NYUKYO_SHOUSAI_ITEM
+    LEFT OUTER JOIN OD_NYUKYO_ITEM ON OD_NYUKYO_ITEM.OR_NYUKYO_ITEM_ID = OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_ITEM_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = OD_NYUKYO_SHOUSAI_ITEM.MS_TANI_ID
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_SHOUSAI_ITEM_ID      ,
+    OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_ITEM_ID              ,
+    OD_NYUKYO_ITEM.ITEN_NAME                              ,
+    OD_NYUKYO_SHOUSAI_ITEM.NAME                           ,
+    OD_NYUKYO_SHOUSAI_ITEM.BIKOU                          ,
+    OD_NYUKYO_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                                     ,
+    OD_NYUKYO_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_NYUKYO_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_NYUKYO_SHOUSAI_ITEM.DATA_NO                        ,
+    OD_NYUKYO_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_NYUKYO_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_NYUKYO_SHOUSAI_ITEM.TS
+    FROM
+    OD_NYUKYO_SHOUSAI_ITEM
+    LEFT OUTER JOIN OD_NYUKYO_ITEM ON OD_NYUKYO_ITEM.OR_NYUKYO_ITEM_ID = OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_ITEM_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = OD_NYUKYO_SHOUSAI_ITEM.MS_TANI_ID
+    WHERE
+    OD_NYUKYO_SHOUSAI_ITEM.OR_NYUKYO_SHOUSAI_ITEM_ID = :OR_NYUKYO_SHOUSAI_ITEM_IDD
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_NYUKYO_SHOUSAI_ITEM
+    (
+    OR_NYUKYO_SHOUSAI_ITEM_ID      ,
+    OR_NYUKYO_ITEM_ID              ,
+    NAME                           ,
+    BIKOU                          ,
+    MS_TANI_ID                     ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OR_NYUKYO_SHOUSAI_ITEM_ID      ,
+    :OR_NYUKYO_ITEM_ID              ,
+    :NAME                           ,
+    :BIKOU                          ,
+    :MS_TANI_ID                     ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_NYUKYO_SHOUSAI_ITEM
+    SET
+    OR_NYUKYO_ITEM_ID = :OR_NYUKYO_ITEM_ID           ,
+    NAME = :NAME                                     ,
+    BIKOU = :BIKOU                                   ,
+    MS_TANI_ID = :MS_TANI_ID                         ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    
+    WHERE
+    OR_NYUKYO_SHOUSAI_ITEM_ID = :OR_NYUKYO_SHOUSAI_ITEM_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

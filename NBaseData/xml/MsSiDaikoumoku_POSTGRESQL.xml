@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_DAIKOUMOKU.MS_SI_DAIKOUMOKU_ID,
+
+    MS_SI_DAIKOUMOKU.MS_SI_HIYOU_KAMOKU_ID,
+
+    MS_SI_DAIKOUMOKU.NAME,
+
+    MS_SI_DAIKOUMOKU.DELETE_FLAG,
+    MS_SI_DAIKOUMOKU.SEND_FLAG,
+    MS_SI_DAIKOUMOKU.VESSEL_ID,
+    MS_SI_DAIKOUMOKU.DATA_NO,
+    MS_SI_DAIKOUMOKU.USER_KEY,
+    MS_SI_DAIKOUMOKU.RENEW_DATE,
+    MS_SI_DAIKOUMOKU.RENEW_USER_ID,
+    MS_SI_DAIKOUMOKU.TS,
+
+    MS_SI_HIYOU_KAMOKU.NAME AS HIYOU_KAMOKU_NAME
+
+    FROM
+    MS_SI_DAIKOUMOKU
+
+    JOIN
+    MS_SI_HIYOU_KAMOKU ON MS_SI_HIYOU_KAMOKU.MS_SI_HIYOU_KAMOKU_ID = MS_SI_DAIKOUMOKU.MS_SI_HIYOU_KAMOKU_ID
+
+    WHERE
+    MS_SI_DAIKOUMOKU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    MS_SI_HIYOU_KAMOKU.MS_SI_HIYOU_KAMOKU_ID, MS_SI_DAIKOUMOKU.MS_SI_DAIKOUMOKU_ID
+  </sql>
+
+  <sql name="OrderByName">
+    ORDER BY
+    MS_SI_DAIKOUMOKU.NAME
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    MS_SI_DAIKOUMOKU.NAME LIKE :NAME
+  </sql>
+
+  <sql name="SearchByHiyouKamoku">
+    AND
+    MS_SI_DAIKOUMOKU.MS_SI_HIYOU_KAMOKU_ID = :MS_SI_HIYOU_KAMOKU_ID
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_DAIKOUMOKU(
+    MS_SI_DAIKOUMOKU_ID            ,
+
+    MS_SI_HIYOU_KAMOKU_ID          ,
+
+    NAME                           ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    nextval('SEQ_MS_SI_DAIKOUMOKU_ID') ,
+
+    :MS_SI_HIYOU_KAMOKU_ID          ,
+
+    :NAME                           ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_DAIKOUMOKU
+    SET
+    MS_SI_HIYOU_KAMOKU_ID = :MS_SI_HIYOU_KAMOKU_ID   ,
+
+    NAME = :NAME                                     ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_DAIKOUMOKU_ID = :MS_SI_DAIKOUMOKU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

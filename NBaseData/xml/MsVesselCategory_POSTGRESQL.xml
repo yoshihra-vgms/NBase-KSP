@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_VESSEL_CATEGORY_ID,
+    VESSEL_CATEGORY_NAME,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from MS_VESSEL_CATEGORY
+    where DELETE_FLAG = 0
+    order by MS_VESSEL_CATEGORY_ID
+  </sql>
+
+  <sql name="GetRecord">
+    select
+    MS_VESSEL_CATEGORY_ID,
+    VESSEL_CATEGORY_NAME,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from MS_VESSEL_CATEGORY
+    where
+    MS_VESSEL_CATEGORY_ID = :MS_VESSEL_CATEGORY_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_VESSEL_CATEGORY(
+    MS_VESSEL_CATEGORY_ID,
+    VESSEL_CATEGORY_NAME,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES(
+    :MS_VESSEL_CATEGORY_ID,
+    :VESSEL_CATEGORY_NAME,
+    :DELETE_FLAG,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_VESSEL_CATEGORY SET
+    VESSEL_CATEGORY_NAME = :VESSEL_CATEGORY_NAME,
+    DELETE_FLAG = :DELETE_FLAG,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    where MS_VESSEL_CATEGORY_ID = :MS_VESSEL_CATEGORY_ID
+    and
+    TS = :TS
+  </sql>
+
+</databaseConfig>

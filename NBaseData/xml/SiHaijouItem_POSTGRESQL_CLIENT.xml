@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_HAIJOU_ITEM.SI_HAIJOU_ITEM_ID              ,
+
+    SI_HAIJOU_ITEM.SI_HAIJOU_ID                   ,
+    SI_HAIJOU_ITEM.MS_VESSEL_ID                   ,
+    SI_HAIJOU_ITEM.MS_SI_SHOKUMEI_ID              ,
+    SI_HAIJOU_ITEM.MS_SI_SHUBETSU_ID              ,
+    SI_HAIJOU_ITEM.MS_SENIN_ID                    ,
+
+    SI_HAIJOU_ITEM.ITEM_KIND                      ,
+    SI_HAIJOU_ITEM.WORKDAYS                       ,
+    SI_HAIJOU_ITEM.HOLIDAYS                       ,
+
+    SI_HAIJOU_ITEM.DELETE_FLAG                    ,
+    SI_HAIJOU_ITEM.SEND_FLAG                      ,
+    SI_HAIJOU_ITEM.VESSEL_ID                      ,
+    SI_HAIJOU_ITEM.DATA_NO                        ,
+    SI_HAIJOU_ITEM.USER_KEY                       ,
+    SI_HAIJOU_ITEM.RENEW_DATE                     ,
+    SI_HAIJOU_ITEM.RENEW_USER_ID                  ,
+    SI_HAIJOU_ITEM.TS                             ,
+
+    CASE
+    WHEN MS_SENIN.MEI IS NULL THEN MS_SENIN.SEI
+    ELSE MS_SENIN.SEI || ' ' || MS_SENIN.MEI
+    END AS SENIN_NAME
+
+    FROM
+    SI_HAIJOU_ITEM
+
+    LEFT JOIN
+    MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_HAIJOU_ITEM.MS_SENIN_ID
+
+    WHERE
+    SI_HAIJOU_ITEM.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiHaijouID">
+    AND
+    SI_HAIJOU_ITEM.SI_HAIJOU_ID = :SI_HAIJOU_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_HAIJOU_ITEM(
+    SI_HAIJOU_ITEM_ID              ,
+
+    SI_HAIJOU_ID                   ,
+    MS_VESSEL_ID                   ,
+    MS_SI_SHOKUMEI_ID              ,
+    MS_SI_SHUBETSU_ID              ,
+    MS_SENIN_ID                    ,
+
+    ITEM_KIND                      ,
+    WORKDAYS                       ,
+    HOLIDAYS                       ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_HAIJOU_ITEM_ID              ,
+
+    :SI_HAIJOU_ID                   ,
+    :MS_VESSEL_ID                   ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :MS_SI_SHUBETSU_ID              ,
+    :MS_SENIN_ID                    ,
+
+    :ITEM_KIND                      ,
+    :WORKDAYS                       ,
+    :HOLIDAYS                       ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_HAIJOU_ITEM
+    SET
+    SI_HAIJOU_ID = :SI_HAIJOU_ID                     ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+    MS_SI_SHUBETSU_ID = :MS_SI_SHUBETSU_ID           ,
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+
+    ITEM_KIND = :ITEM_KIND                           ,
+    WORKDAYS = :WORKDAYS                             ,
+    HOLIDAYS = :HOLIDAYS                             ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_HAIJOU_ITEM_ID = :SI_HAIJOU_ITEM_ID
+  </sql>
+
+</databaseConfig>

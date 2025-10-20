@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_SALARY_NENDO.SI_SALARY_NENDO_ID            ,
+    SI_SALARY_NENDO.NEN                      ,
+    SI_SALARY_NENDO.MS_USER_ID                     ,
+    SI_SALARY_NENDO.SEND_FLAG                      ,
+    SI_SALARY_NENDO.VESSEL_ID                      ,
+    SI_SALARY_NENDO.DATA_NO                        ,
+    SI_SALARY_NENDO.USER_KEY                       ,
+    SI_SALARY_NENDO.RENEW_DATE                     ,
+    SI_SALARY_NENDO.RENEW_USER_ID                  ,
+    SI_SALARY_NENDO.TS
+    FROM
+    SI_SALARY_NENDO
+
+  </sql>
+
+  <sql name="GetRecordsByMsUserID">
+    SELECT
+    SI_SALARY_NENDO.SI_SALARY_NENDO_ID            ,
+    SI_SALARY_NENDO.NEN                      ,
+    SI_SALARY_NENDO.MS_USER_ID                     ,
+    SI_SALARY_NENDO.SEND_FLAG                      ,
+    SI_SALARY_NENDO.VESSEL_ID                      ,
+    SI_SALARY_NENDO.DATA_NO                        ,
+    SI_SALARY_NENDO.USER_KEY                       ,
+    SI_SALARY_NENDO.RENEW_DATE                     ,
+    SI_SALARY_NENDO.RENEW_USER_ID                  ,
+    SI_SALARY_NENDO.TS
+    FROM
+    SI_SALARY_NENDO
+    WHERE
+    SI_SALARY_NENDO.MS_USER_ID = :MS_USER_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    SI_SALARY_NENDO.SI_SALARY_NENDO_ID            ,
+    SI_SALARY_NENDO.NEN                      ,
+    SI_SALARY_NENDO.MS_USER_ID                     ,
+    SI_SALARY_NENDO.SEND_FLAG                      ,
+    SI_SALARY_NENDO.VESSEL_ID                      ,
+    SI_SALARY_NENDO.DATA_NO                        ,
+    SI_SALARY_NENDO.USER_KEY                       ,
+    SI_SALARY_NENDO.RENEW_DATE                     ,
+    SI_SALARY_NENDO.RENEW_USER_ID                  ,
+    SI_SALARY_NENDO.TS
+    FROM
+    SI_SALARY_NENDO
+    WHERE
+    SI_SALARY_NENDO.SI_SALARY_NENDO_ID = :SI_SALARY_NENDO_ID
+
+  </sql>
+
+
+
+	<sql name="GetRecordByLastDate">
+    SELECT
+    SI_SALARY_NENDO.SI_SALARY_NENDO_ID            ,
+    SI_SALARY_NENDO.NEN                      ,
+    SI_SALARY_NENDO.MS_USER_ID                     ,
+    SI_SALARY_NENDO.SEND_FLAG                      ,
+    SI_SALARY_NENDO.VESSEL_ID                      ,
+    SI_SALARY_NENDO.DATA_NO                        ,
+    SI_SALARY_NENDO.USER_KEY                       ,
+    SI_SALARY_NENDO.RENEW_DATE                     ,
+    SI_SALARY_NENDO.RENEW_USER_ID                  ,
+    SI_SALARY_NENDO.TS
+    FROM
+    SI_SALARY_NENDO
+    WHERE NEN IN
+    (
+    SELECT max(NEN)
+    FROM SI_SALARY_NENDO
+    )
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    SI_SALARY_NENDO
+    (
+    SI_SALARY_NENDO_ID            ,
+    NEN                      ,
+    MS_USER_ID                     ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :SI_SALARY_NENDO_ID            ,
+    :NEN                      ,
+    :MS_USER_ID                     ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_SALARY_NENDO
+    SET
+    NEN =:NEN                            ,
+    MS_USER_ID =:MS_USER_ID                          ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    SI_SALARY_NENDO_ID  =:SI_SALARY_NENDO_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_MK_ITEM.OD_MK_ITEM_ID                  ,
+    OD_MK_ITEM.OD_MK_ID                       ,
+    OD_MK_ITEM.OD_MM_ITEM_ID                  ,
+    OD_MK_ITEM.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME as MS_ITEM_SBT_NAME,
+    OD_MK_ITEM.HEADER                         ,
+    OD_MK_ITEM.ITEM_NAME                      ,
+    OD_MK_ITEM.BIKOU                          ,
+    OD_MK_ITEM.SEND_FLAG                      ,
+    OD_MK_ITEM.VESSEL_ID                      ,
+    OD_MK_ITEM.DATA_NO                        ,
+    OD_MK_ITEM.USER_KEY                       ,
+    OD_MK_ITEM.RENEW_DATE                     ,
+    OD_MK_ITEM.RENEW_USER_ID                  ,
+    OD_MK_ITEM.TS                             ,
+    OD_MK_ITEM.CANCEL_FLAG                    ,
+    OD_MK_ITEM.SHOW_ORDER
+    ,OD_MK_ITEM.OD_ATTACH_FILE_ID
+
+    FROM
+    OD_MK_ITEM
+    LEFT OUTER JOIN MS_ITEM_SBT ON MS_ITEM_SBT.MS_ITEM_SBT_ID = OD_MK_ITEM.MS_ITEM_SBT_ID
+
+    WHERE OD_MK_ITEM.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY OD_MK_ITEM.SHOW_ORDER
+  </sql>
+
+  <sql name="ByOdMkID">
+    AND OD_MK_ITEM.OD_MK_ID = :OD_MK_ID
+  </sql>
+  
+  <sql name="ByOdMkItemID">
+    AND OD_MK_ITEM.OD_MK_ITEM_ID = :OD_MK_ITEM_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_MK_ITEM
+    (
+    OD_MK_ITEM_ID                  ,
+    OD_MK_ID                       ,
+    OD_MM_ITEM_ID                  ,
+    MS_ITEM_SBT_ID                 ,
+    HEADER                         ,
+    ITEM_NAME                      ,
+    BIKOU                          ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    CANCEL_FLAG                    ,
+    SHOW_ORDER
+    ,OD_ATTACH_FILE_ID
+    )
+    VALUES
+    (
+    :OD_MK_ITEM_ID                  ,
+    :OD_MK_ID                       ,
+    :OD_MM_ITEM_ID                  ,
+    :MS_ITEM_SBT_ID                 ,
+    :HEADER                         ,
+    :ITEM_NAME                      ,
+    :BIKOU                          ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :CANCEL_FLAG                    ,
+    :SHOW_ORDER
+    ,:OD_ATTACH_FILE_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_MK_ITEM
+    SET
+    OD_MK_ID = :OD_MK_ID                             ,
+    OD_MM_ITEM_ID = :OD_MM_ITEM_ID                   ,
+    MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID                 ,
+    HEADER = :HEADER                                 ,
+    ITEM_NAME = :ITEM_NAME                           ,
+    BIKOU = :BIKOU                                   ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    SHOW_ORDER = :SHOW_ORDER
+    ,OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+
+    WHERE
+    OD_MK_ITEM_ID = :OD_MK_ITEM_ID
+    AND
+    TS = :TS
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE FROM
+    OD_MK_ITEM
+
+    WHERE
+    OD_MK_ITEM_ID = :OD_MK_ITEM_ID
+  </sql>
+
+  <sql name="DeleteRecords">
+    DELETE FROM OD_MK_ITEM
+    WHERE OD_MK_ID = :OD_MK_ID
+  </sql>
+
+</databaseConfig>

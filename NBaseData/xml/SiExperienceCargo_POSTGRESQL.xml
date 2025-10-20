@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_EXPERIENCE_CARGO.MS_SENIN_ID        ,
+    SI_EXPERIENCE_CARGO.MS_SI_SHOKUMEI_ID  ,
+    SI_EXPERIENCE_CARGO.MS_CARGO_GROUP_ID  ,
+    SI_EXPERIENCE_CARGO.COUNT              ,
+
+    SI_EXPERIENCE_CARGO.DELETE_FLAG                    ,
+    SI_EXPERIENCE_CARGO.SEND_FLAG                      ,
+    SI_EXPERIENCE_CARGO.VESSEL_ID                      ,
+    SI_EXPERIENCE_CARGO.DATA_NO                        ,
+    SI_EXPERIENCE_CARGO.USER_KEY                       ,
+    SI_EXPERIENCE_CARGO.RENEW_DATE                     ,
+    SI_EXPERIENCE_CARGO.RENEW_USER_ID                  ,
+    SI_EXPERIENCE_CARGO.TS
+
+    FROM
+    SI_EXPERIENCE_CARGO
+
+    WHERE
+    SI_EXPERIENCE_CARGO.DELETE_FLAG = 0
+  </sql>
+
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_EXPERIENCE_CARGO(
+    MS_SENIN_ID        ,
+    MS_SI_SHOKUMEI_ID  ,
+    MS_CARGO_GROUP_ID  ,
+    COUNT              ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SENIN_ID        ,
+    :MS_SI_SHOKUMEI_ID  ,
+    :MS_CARGO_GROUP_ID  ,
+    :COUNT              ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_EXPERIENCE_CARGO
+    SET
+    COUNT = :COUNT                  ,
+
+    DELETE_FLAG = :DELETE_FLAG      ,
+    SEND_FLAG = :SEND_FLAG          ,
+    VESSEL_ID = :VESSEL_ID          ,
+    DATA_NO = :DATA_NO              ,
+    USER_KEY = :USER_KEY            ,
+    RENEW_DATE = :RENEW_DATE        ,
+    RENEW_USER_ID = :RENEW_USER_ID  ,
+    TS = :TS
+
+    WHERE MS_SENIN_ID = :MS_SENIN_ID
+    AND MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID
+    AND MS_CARGO_GROUP_ID = :MS_CARGO_GROUP_ID
+  </sql>
+
+</databaseConfig>

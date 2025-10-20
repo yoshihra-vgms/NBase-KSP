@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_PERSONAL_SCHEDULE.SI_PERSONAL_SCHEDULE_ID                   ,
+
+    SI_PERSONAL_SCHEDULE.MS_SI_SHOKUMEI_ID              ,
+    SI_PERSONAL_SCHEDULE.MS_SENIN_ID                   ,
+    SI_PERSONAL_SCHEDULE.FROM_DATE              ,
+    SI_PERSONAL_SCHEDULE.TO_DATE                   ,
+
+    SI_PERSONAL_SCHEDULE.BIKOU                          ,
+    
+    SENIN.SEI || ' ' || SENIN.MEI  as NAME,
+
+    SI_PERSONAL_SCHEDULE.DELETE_FLAG                    ,
+    SI_PERSONAL_SCHEDULE.SEND_FLAG                      ,
+    SI_PERSONAL_SCHEDULE.VESSEL_ID                      ,
+    SI_PERSONAL_SCHEDULE.DATA_NO                        ,
+    SI_PERSONAL_SCHEDULE.USER_KEY                       ,
+    SI_PERSONAL_SCHEDULE.RENEW_DATE                     ,
+    SI_PERSONAL_SCHEDULE.RENEW_USER_ID                  ,
+    SI_PERSONAL_SCHEDULE.TS
+
+    FROM
+    SI_PERSONAL_SCHEDULE
+    
+    INNER JOIN MS_SENIN SENIN ON SENIN.MS_SENIN_ID = SI_PERSONAL_SCHEDULE.MS_SENIN_ID
+
+    WHERE
+    SI_PERSONAL_SCHEDULE.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    (SI_PERSONAL_SCHEDULE.MS_SENIN_ID = :MS_SENIN_ID)
+  </sql>
+  
+  <sql name="ByMsSiShokumeiID">
+    AND
+    (SI_PERSONAL_SCHEDULE.MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID)
+  </sql>
+  
+  <sql name="ByName">
+    AND
+    (SENIN.SEI || ' ' || SENIN.MEI LIKE :NAME)
+  </sql>
+  
+  <sql name="ByFromTo">
+   AND
+    (
+    (
+    SI_PERSONAL_SCHEDULE.FROM_DATE >= :FROM_DATE
+    AND
+    SI_PERSONAL_SCHEDULE.FROM_DATE &lt;= :TO_DATE
+    )
+    OR
+    (
+    SI_PERSONAL_SCHEDULE.TO_DATE >= :FROM_DATE
+    AND
+    SI_PERSONAL_SCHEDULE.TO_DATE &lt;= :TO_DATE
+    )
+    )
+  </sql>
+
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_PERSONAL_SCHEDULE(
+    SI_PERSONAL_SCHEDULE_ID        ,
+
+    MS_SI_SHOKUMEI_ID              ,
+    MS_SENIN_ID                    ,
+    FROM_DATE                      ,
+    TO_DATE                        ,
+    BIKOU                          ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_PERSONAL_SCHEDULE_ID        ,
+
+    :MS_SI_SHOKUMEI_ID              ,
+    :MS_SENIN_ID                    ,
+    :FROM_DATE                      ,
+    :TO_DATE                        ,
+    :BIKOU                          ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_PERSONAL_SCHEDULE
+    SET
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    FROM_DATE = :FROM_DATE                           ,
+    TO_DATE = :TO_DATE                               ,
+    BIKOU = :BIKOU                                   ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_PERSONAL_SCHEDULE_ID = :SI_PERSONAL_SCHEDULE_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_ADVANCED_SEARCH_CONDITION_ID ,
+    LAYER ,
+    SN ,
+    PARENT_ID ,
+    NAME ,
+    CHILDREN_COMPONENT ,
+    VALUE_COMPONENT1 ,
+    VALUE_COMPONENT2 ,
+    PRESENTATION_ITEM_SET_NO ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    MS_SI_ADVANCED_SEARCH_CONDITION
+
+    WHERE
+    DELETE_FLAG = 0
+    
+  </sql>
+  
+  <sql name="OrderBy">
+    ORDER BY LAYER, PARENT_ID, SN
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_ADVANCED_SEARCH_CONDITION (
+    MS_SI_ADVANCED_SEARCH_CONDITION_ID
+    ,LAYER
+    ,SN
+    ,SIGN_DIVISION
+    ,NAME
+    ,CHILDREN_COMPONENT
+    ,VALUE_COMPONENT1
+    ,VALUE_COMPONENT2
+    ,PRESENTATION_ITEM_SET_NO
+    ,DELETE_FLAG
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    )
+    VALUES(
+    :MS_SI_ADVANCED_SEARCH_CONDITION_ID
+    ,:LAYER
+    ,:SN
+    ,:SIGN_DIVISION
+    ,:NAME
+    ,:CHILDREN_COMPONENT
+    ,:VALUE_COMPONENT1
+    ,:VALUE_COMPONENT2
+    ,:PRESENTATION_ITEM_SET_NO
+    ,:DELETE_FLAG
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    )
+  </sql>
+  
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_ADVANCED_SEARCH_CONDITION
+    SET
+
+    LAYER = :LAYER
+    ,SN = :SN
+    ,SIGN_DIVISION = :SIGN_DIVISION
+    ,NAME = :NAME
+    ,CHILDREN_COMPONENT = :CHILDREN_COMPONENT
+    ,VALUE_COMPONENT1 = :VALUE_COMPONENT1
+    ,VALUE_COMPONENT2 = :VALUE_COMPONENT2
+    ,PRESENTATION_ITEM_SET_NO = :PRESENTATION_ITEM_SET_NO
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MS_SI_ADVANCED_SEARCH_CONDITION_ID = :MS_SI_ADVANCED_SEARCH_CONDITION_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

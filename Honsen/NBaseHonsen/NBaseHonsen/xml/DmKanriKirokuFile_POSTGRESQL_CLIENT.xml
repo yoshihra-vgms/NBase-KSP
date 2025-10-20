@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_FILE_ID   ,
+		DM_KANRI_KIROKU_FILE.UPDATE_DATE                   ,
+		DM_KANRI_KIROKU_FILE.FILE_NAME                     ,
+		DM_KANRI_KIROKU_FILE.DATA                          ,
+		DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_ID        ,
+
+		DM_KANRI_KIROKU_FILE.DELETE_FLAG                   ,
+		DM_KANRI_KIROKU_FILE.SEND_FLAG                     ,
+		DM_KANRI_KIROKU_FILE.VESSEL_ID                     ,
+		DM_KANRI_KIROKU_FILE.DATA_NO                       ,
+		DM_KANRI_KIROKU_FILE.USER_KEY                      ,
+		DM_KANRI_KIROKU_FILE.RENEW_DATE                    ,
+		DM_KANRI_KIROKU_FILE.RENEW_USER_ID                 ,
+		DM_KANRI_KIROKU_FILE.TS
+
+		from
+		DM_KANRI_KIROKU_FILE
+		WHERE (DM_KANRI_KIROKU_FILE.DELETE_FLAG = 0 or DM_KANRI_KIROKU_FILE.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByDmKanriKirokuFileID">
+		AND DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_FILE_ID = :DM_KANRI_KIROKU_FILE_ID
+	</sql>
+
+	<sql name="ByDmKanriKirokuID">
+		AND DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_ID = :DM_KANRI_KIROKU_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		DM_KANRI_KIROKU_FILE.RENEW_DATE DESC
+	</sql>
+	
+	<sql name="Get未送信Records">
+		select
+		DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_FILE_ID   ,
+		DM_KANRI_KIROKU_FILE.UPDATE_DATE                   ,
+		DM_KANRI_KIROKU_FILE.FILE_NAME                     ,
+		DM_KANRI_KIROKU_FILE.DATA                          ,
+		DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_ID        ,
+
+		DM_KANRI_KIROKU_FILE.DELETE_FLAG                   ,
+		DM_KANRI_KIROKU_FILE.SEND_FLAG                     ,
+		DM_KANRI_KIROKU_FILE.VESSEL_ID                     ,
+		DM_KANRI_KIROKU_FILE.DATA_NO                       ,
+		DM_KANRI_KIROKU_FILE.USER_KEY                      ,
+		DM_KANRI_KIROKU_FILE.RENEW_DATE                    ,
+		DM_KANRI_KIROKU_FILE.RENEW_USER_ID                 ,
+		DM_KANRI_KIROKU_FILE.TS
+
+		from
+		DM_KANRI_KIROKU_FILE
+		INNER JOIN DM_KANRI_KIROKU ON DM_KANRI_KIROKU.DM_KANRI_KIROKU_ID = DM_KANRI_KIROKU_FILE.DM_KANRI_KIROKU_ID
+		AND (DM_KANRI_KIROKU.DELETE_FLAG = 0 or DM_KANRI_KIROKU.DELETE_FLAG is NULL)
+
+		WHERE (DM_KANRI_KIROKU_FILE.DELETE_FLAG = 0 or DM_KANRI_KIROKU_FILE.DELETE_FLAG is NULL)
+		AND DM_KANRI_KIROKU_FILE.SEND_FLAG = 0
+	</sql>
+
+
+	<sql name="InsertRecord">
+	  INSERT INTO DM_KANRI_KIROKU_FILE
+	  (
+	  DM_KANRI_KIROKU_FILE_ID ,
+	  UPDATE_DATE                 ,
+	  FILE_NAME                   ,
+	  DATA                        ,
+	  DM_KANRI_KIROKU_ID      ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :DM_KANRI_KIROKU_FILE_ID ,
+	  :UPDATE_DATE                 ,
+	  :FILE_NAME                   ,
+	  :DATA                        ,
+	  :DM_KANRI_KIROKU_ID      ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE DM_KANRI_KIROKU_FILE SET
+	  UPDATE_DATE = :UPDATE_DATE                       ,
+	  FILE_NAME = :FILE_NAME                           ,
+	  DATA = :DATA                                     ,
+	  DM_KANRI_KIROKU_ID = :DM_KANRI_KIROKU_ID ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  DM_KANRI_KIROKU_FILE_ID = :DM_KANRI_KIROKU_FILE_ID
+  </sql>
+
+</databaseConfig>

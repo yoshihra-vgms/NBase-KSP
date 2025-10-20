@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    PT_PORTAL_INFO_FORMAT.PT_PORTAL_INFO_FORMAT_ID   ,
+    PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_SHUBETU_ID  ,
+    PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_KOUMOKU_ID  ,
+    PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_KUBUN_ID	   ,
+    PT_PORTAL_INFO_FORMAT.NAIYOU                     ,
+    PT_PORTAL_INFO_FORMAT.SHOUSAI                    ,
+    PT_PORTAL_INFO_FORMAT.KIKAN                      ,
+    PT_PORTAL_INFO_FORMAT.DELETE_FLAG                ,
+    PT_PORTAL_INFO_FORMAT.SEND_FLAG                  ,
+    PT_PORTAL_INFO_FORMAT.VESSEL_ID                  ,
+    PT_PORTAL_INFO_FORMAT.DATA_NO                    ,
+    PT_PORTAL_INFO_FORMAT.USER_KEY                   ,
+    PT_PORTAL_INFO_FORMAT.RENEW_DATE                 ,
+    PT_PORTAL_INFO_FORMAT.RENEW_USER_ID              ,
+    PT_PORTAL_INFO_FORMAT.TS
+    from
+    PT_PORTAL_INFO_FORMAT
+    where (PT_PORTAL_INFO_FORMAT.DELETE_FLAG = 0 or PT_PORTAL_INFO_FORMAT.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByShubet_Koumoku">
+    and PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID
+    and PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_KOUMOKU_ID = :MS_PORTAL_INFO_KOUMOKU_ID
+  </sql>
+
+  <sql name="ByPortalInfoKubunId">
+    and
+    PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_KUBUN_ID = :MS_PORTAL_INFO_KUBUN_ID
+  </sql>
+
+  <sql name="ByPortalInfoKubunIdIsNull">
+    and
+    PT_PORTAL_INFO_FORMAT.MS_PORTAL_INFO_KUBUN_ID IS NULL
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO PT_PORTAL_INFO_FORMAT
+    (
+    PT_PORTAL_INFO_FORMAT_ID      ,
+    MS_PORTAL_INFO_SHUBETU_ID     ,
+    MS_PORTAL_INFO_KOUMOKU_ID     ,
+    MS_PORTAL_INFO_KUBUN_ID       ,
+    NAIYOU                        ,
+    SHOUSAI                       ,
+    KIKAN                         ,
+    DELETE_FLAG                   ,
+    SEND_FLAG                     ,
+    VESSEL_ID                     ,
+    DATA_NO                       ,
+    USER_KEY                      ,
+    RENEW_DATE                    ,
+    RENEW_USER_ID                 ,
+    TS
+    )
+    VALUES(
+    :PT_PORTAL_INFO_FORMAT_ID      ,
+    :MS_PORTAL_INFO_SHUBETU_ID     ,
+    :MS_PORTAL_INFO_KOUMOKU_ID     ,
+    :MS_PORTAL_INFO_KUBUN_ID       ,
+    :NAIYOU                        ,
+    :SHOUSAI                       ,
+    :KIKAN                         ,
+    :DELETE_FLAG                   ,
+    :SEND_FLAG                     ,
+    :VESSEL_ID                     ,
+    :DATA_NO                       ,
+    :USER_KEY                      ,
+    :RENEW_DATE                    ,
+    :RENEW_USER_ID                 ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE PT_PORTAL_INFO_FORMAT
+    SET
+    PT_PORTAL_INFO_FORMAT_ID = :PT_PORTAL_INFO_FORMAT_ID       ,
+    MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID     ,
+    MS_PORTAL_INFO_KOUMOKU_ID = :MS_PORTAL_INFO_KOUMOKU_ID     ,
+    MS_PORTAL_INFO_KUBUN_ID = :MS_PORTAL_INFO_KUBUN_ID         ,
+    NAIYOU = :NAIYOU                            ,
+    SHOUSAI = :SHOUSAI                          ,
+    KIKAN = :KIKAN                              ,
+    DELETE_FLAG = :DELETE_FLAG                  ,
+    SEND_FLAG = :SEND_FLAG                      ,
+    VESSEL_ID = :VESSEL_ID                      ,
+    DATA_NO = :DATA_NO                          ,
+    USER_KEY = :USER_KEY                        ,
+    RENEW_DATE = :RENEW_DATE                    ,
+    RENEW_USER_ID = :RENEW_USER_ID              ,
+    TS = :TS
+
+    WHERE
+    PT_PORTAL_INFO_FORMAT_ID = :PT_PORTAL_INFO_FORMAT_ID
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+  
+  <sql name="SearchBasic">
+    SELECT
+   
+    MS_SENIN_ID
+    
+    FROM MS_SENIN
+    
+    WHERE DELETE_FLAG = 0    
+  </sql>
+
+  <sql name="ByRank">
+    AND MS_SENIN.MS_SI_SHOKUMEI_ID IN ( #INNER_SQL_BY_RANK# )
+  </sql>
+  <sql name="ByName">
+    AND (MS_SENIN.SEI || ' ' || MS_SENIN.MEI LIKE :NAME)
+  </sql>
+  <sql name="ByStatus">
+    AND MS_SENIN.STATUS IN ( #INNER_SQL_BY_STATUS# )
+  </sql>
+  <sql name="ByCompany">
+    AND MS_SENIN.MS_SENIN_COMPANY_ID IN ( #INNER_SQL_BY_COMPANY# )
+  </sql>
+  <sql name="ByFromAge">
+    AND TO_CHAR(MS_SENIN.BIRTHDAY, 'yyyyMMdd') &lt; :FROM_BIRTHDAY
+  </sql>
+  <sql name="ByToAge">
+    AND TO_CHAR(MS_SENIN.BIRTHDAY, 'yyyyMMdd') > :TO_BIRTHDAY
+  </sql>
+
+
+
+  <sql name="SearchSignOnOff">
+    SELECT DISTINCT
+
+    MS_SENIN_ID,
+
+    SI_CARD.SI_CARD_ID,
+    SI_CARD.MS_SI_SHUBETSU_ID,
+    SI_CARD.MS_VESSEL_ID,
+    SI_CARD.VESSEL_NAME,
+    SI_LINK_SHOKUMEI_CARD.MS_SI_SHOKUMEI_ID CARD_MS_SI_SHOKUMEI_ID,
+    START_DATE,
+    END_DATE,
+    case when end_date is null
+    then cast((current_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    else cast((end_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    end days
+
+    FROM SI_CARD
+
+    INNER JOIN SI_LINK_SHOKUMEI_CARD ON SI_LINK_SHOKUMEI_CARD.SI_CARD_ID = SI_CARD.SI_CARD_ID AND SI_LINK_SHOKUMEI_CARD.DELETE_FLAG = 0
+
+    WHERE SI_CARD.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="ByBoarding">
+    AND SI_CARD.MS_SI_SHUBETSU_ID = :BOARDING_STATUS
+  </sql>
+  
+  <sql name="ByBoardingVessel">
+    AND SI_CARD.MS_VESSEL_ID IN ( #INNER_SQL_BY_BORADING# )
+    AND
+    (
+    SI_CARD.END_DATE >= :START_DATE
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    OR
+    SI_CARD.END_DATE IS NULL
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    )
+  </sql>
+  
+  <sql name="ByVesselAll">
+    AND SI_CARD.MS_VESSEL_ID IN ( #INNER_SQL_BY_VESSEL_ALL# )
+  </sql>
+  
+  <sql name="ByVesselType">
+    AND SI_CARD.VESSEL_TYPE_NAME IN ( #INNER_SQL_BY_VESSEL_TYPE# )
+  </sql>
+  <sql name="ByVesselType--">
+    AND SI_CARD.MS_VESSEL_TYPE_ID IN ( #INNER_SQL_BY_VESSEL_TYPE# )
+    AND
+    (
+    SI_CARD.END_DATE >= :START_DATE
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    OR
+    SI_CARD.END_DATE IS NULL
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    )
+  </sql>
+  
+  <sql name="ByFromDays">
+    AND ( SI_CARD.END_DATE IS NULL AND (CAST((CURRENT_DATE  + INTERVAL '1 day') as date) - CAST(SI_CARD.START_DATE AS DATE)) >= :FROM_DAYS  ) 
+  </sql>
+  <sql name="ByToDays">
+    AND ( SI_CARD.END_DATE IS NULL AND (CAST((CURRENT_DATE  + INTERVAL '1 day') as date) - CAST(SI_CARD.START_DATE AS DATE)) &lt;= :TO_DAYS  )
+  </sql>
+  
+  <sql name="ByFromDays--">
+    AND ( ( SI_CARD.END_DATE IS NULL AND (CAST((CURRENT_DATE  + INTERVAL '1 day') as date) - CAST(SI_CARD.START_DATE AS DATE)) >= :FROM_DAYS  ) OR ( ( CAST((END_DATE  + INTERVAL '1 day') as date) - CAST(START_DATE AS DATE) ) >= :FROM_DAYS ) )
+  </sql>
+  
+  <sql name="ByToDays--">
+    AND ( ( SI_CARD.END_DATE IS NULL AND (CAST((CURRENT_DATE  + INTERVAL '1 day') as date) - CAST(SI_CARD.START_DATE AS DATE)) &lt;= :TO_DAYS  ) OR ( ( CAST((END_DATE  + INTERVAL '1 day') as date) - CAST(START_DATE AS DATE) ) &lt;= :TO_DAYS ) )
+  </sql>
+
+
+
+  <sql name="SearchLicense">
+    SELECT
+
+    MS_SENIN_ID
+
+    ,SI_MENJOU_ID
+    ,MS_SI_MENJOU_ID
+    ,MS_SI_MENJOU_KIND_ID
+    ,NO
+    ,KIGEN
+    ,SHUTOKU_DATE
+
+    FROM SI_MENJOU
+
+    WHERE DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByType">
+    AND MS_SI_MENJOU_ID IN ( #INNER_SQL_BY_LICENSE_TYPE# )
+  </sql>
+
+  <sql name="ByGrade">
+    AND MS_SI_MENJOU_KIND_ID IN ( #INNER_SQL_BY_LICENSE_GRADE# )
+  </sql>
+
+  <sql name="ByFormExpiryDate">
+    AND KIGEN >= CAST(:FROM_EXPIRY_DATE AS DATE)
+  </sql>
+
+  <sql name="ByToExpiryDate">
+    AND KIGEN &lt;= CAST(:TO_EXPIRY_DATE AS DATE)
+  </sql>
+
+  <sql name="ByFormIssueDate">
+    AND SHUTOKU_DATE >= CAST(:FROM_ISSUE_DATE AS DATE)
+  </sql>
+
+  <sql name="ByToIssueDate">
+    AND SHUTOKU_DATE &lt;= CAST(:TO_ISSUE_DATE AS DATE)
+  </sql>
+
+
+  
+  
+
+  <sql name="SearchShobyo">
+    SELECT
+
+    MS_SENIN_ID
+    
+    ,SI_SHOBYO_ID
+    ,KIND
+    ,FROM_DATE
+    ,TO_DATE
+    ,STATUS
+
+    FROM SI_SHOBYO
+
+    WHERE DELETE_FLAG = 0
+</sql>
+
+  <sql name="SearchNotExistsShobyo">
+    SELECT
+
+    MS_SENIN_ID
+
+    FROM MS_SENIN
+
+    WHERE DELETE_FLAG = 0
+
+    AND NOT EXISTS ( SELECT * FROM SI_SHOBYO WHERE DELETE_FLAG = 0 AND MS_SENIN.MS_SENIN_ID = SI_SHOBYO.MS_SENIN_ID )
+    ORDER BY MS_SENIN_ID
+  </sql>
+
+  
+  
+
+  <sql name="SearchYearsInRank">
+    select
+
+    b.ms_senin_id
+    ,cast(days + plus_days as numeric) as days
+
+    from (
+    select
+
+    a.ms_senin_id,
+    si_link_shokumei_card.ms_si_shokumei_id,
+    sum(calc_days) days
+
+    from
+    (
+    select
+
+    si_card.si_card_id,
+    ms_senin_id,
+    start_date,
+    end_date,
+    days,
+    case when end_date is null
+    then cast((current_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    else
+    case when end_date &lt; start_date
+    then 0
+    else cast((end_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    end
+    end calc_days,
+    company_name,
+    ms_crew_matrix_type_id
+
+    from si_card
+    where si_card.delete_flag = 0
+    and ms_si_shubetsu_id = 1
+    ) a
+
+    inner join si_link_shokumei_card on si_link_shokumei_card.si_card_id = a.si_card_id
+    inner join ms_senin on ms_senin.ms_senin_id = a.ms_senin_id and si_link_shokumei_card.ms_si_shokumei_id = ms_senin.ms_si_shokumei_id
+
+    group by a.ms_senin_id, si_link_shokumei_card.ms_si_shokumei_id
+    ) b
+
+
+    inner join
+    (
+    select
+    ms_senin_id,
+    case when rireki_date is not null and rireki_date &lt; '2009/04/01'
+    then (2009 - date_part('YEAR', rireki_date)) * 270
+    else 0
+    end plus_days
+    from
+    (
+    select si_rireki.ms_senin_id, min(rireki_date) rireki_date
+    from si_rireki
+    inner join ms_senin on ms_senin.ms_senin_id = si_rireki.ms_senin_id and ms_senin.ms_si_shokumei_id = si_rireki.ms_si_shokumei_id
+    group by si_rireki.ms_senin_id
+    ) rireki
+
+    ) c
+    on b.ms_senin_id = c.ms_senin_id   
+    
+    
+    WHERE 0 = 0
+  </sql>
+
+  <sql name="SearchYearsInOperator">
+    select
+
+    b.ms_senin_id
+    ,cast(days + plus_days as numeric) as days
+
+    from (
+    select
+
+    ms_senin_id,
+    sum(calc_days) days
+
+    from
+    (
+    select
+
+    si_card.si_card_id,
+    ms_senin_id,
+    start_date,
+    end_date,
+    days,
+    case when end_date is null
+    then cast((current_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    else
+    case when end_date &lt; start_date
+    then 0
+    else cast((end_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    end
+    end calc_days,
+    company_name,
+    ms_crew_matrix_type_id
+
+    from si_card
+    where si_card.delete_flag = 0
+    and ms_si_shubetsu_id = 1
+    ) a
+
+    where company_name = :COMPANY_NAME
+    group by ms_senin_id
+    ) b
+
+
+    inner join
+    (select
+    ms_senin_id,
+    case when nyuusha_date is not null and nyuusha_date &lt; '2009/04/01'
+    then 
+
+    case when date_part('MONTH', nyuusha_date) &lt; 4
+    then (2009 - (date_part('YEAR', nyuusha_date) - 1)) * 270
+    else (2009 - date_part('YEAR', nyuusha_date)) * 270
+    end
+    
+    else 0
+    end plus_days
+    from ms_senin) c
+    on b.ms_senin_id = c.ms_senin_id
+
+    WHERE 0 = 0
+  </sql>
+
+  <sql name="SearchYearsOfTanker">
+    select
+
+    c.ms_senin_id
+    ,crew_matrix_name TYPE_OF_TANKER
+    ,cast(days + plus_days as numeric) as days
+
+    from (
+    select
+
+    ms_senin_id,
+    crew_matrix_name,
+    sum(days) days
+
+    from
+    (
+    select
+
+    ms_senin_id,
+    company_name,
+    crew_matrix_name,
+    --trunc(sum(calc_days)/365,0)*365 + trunc(mod(sum(calc_days),365)/31,0)*31  days
+    sum(calc_days) days
+
+
+    from
+    (
+    select
+
+    ms_senin_id,
+    case when end_date is null
+    then cast((current_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    else
+    case when end_date &lt; start_date
+    then 0
+    else cast((end_date  + INTERVAL '1 day')as date) - cast(start_date as date)
+    end
+    end calc_days,
+    company_name,
+    type_name as crew_matrix_name
+
+    from si_card
+    inner join ms_crew_matrix_type on ms_crew_matrix_type.ms_crew_matrix_type_id = si_card.ms_crew_matrix_type_id
+
+    where si_card.delete_flag = 0
+    and ms_si_shubetsu_id = 1
+    ) a
+
+    group by ms_senin_id,company_name,crew_matrix_name
+
+
+    ) b
+
+
+    group by ms_senin_id,crew_matrix_name
+    ) c
+
+
+    left join
+    (select
+    ms_senin_id,
+    case when nyuusha_date is not null and nyuusha_date &lt; '2009/04/01'
+    then 
+
+    case when date_part('MONTH', nyuusha_date) &lt; 4
+    then (2009 - (date_part('YEAR', nyuusha_date) - 1)) * 270
+    else (2009 - date_part('YEAR', nyuusha_date)) * 270
+    end
+    
+    else 0
+    end plus_days
+    from ms_senin) d
+    on c.ms_senin_id = d.ms_senin_id and c.crew_matrix_name = 'GAS'
+
+      
+    WHERE 0 = 0
+  </sql>
+
+  <sql name="ByTypeOfTanker">
+    AND crew_matrix_name IN ( #INNER_SQL_BY_TYPE_OF_TANKER# )
+  </sql>
+
+  <sql name="ByFromCrewMatrix">
+    AND (days + plus_days) >= :FROM_DAYS
+  </sql>
+
+  <sql name="ByToCrewMatrix">
+    AND (days + plus_days) &lt;= :TO_DAYS
+  </sql>
+
+
+
+
+
+  <sql name="SearchKenshin">
+    SELECT
+
+    MS_SENIN_ID
+
+    ,SI_KENSHIN_ID
+    ,KIND
+    ,CONSULTATION_DATE
+    ,EXPIRATION_DATE
+    ,RESULT
+
+    FROM SI_KENSHIN
+
+    WHERE DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByKenshinKind">
+    AND KIND IN ( #INNER_SQL_BY_KENSHIN_KIND# )
+  </sql>
+
+  <sql name="ByKenshinResult">
+    AND RESULT IN ( #INNER_SQL_BY_KENSHIN_RESULT# )
+  </sql>
+
+  <sql name="ByFormKenshinExpiryDate">
+    AND EXPIRATION_DATE >= CAST(:FROM_EXPIRY_DATE AS DATE)
+  </sql>
+
+  <sql name="ByToKenshinExpiryDate">
+    AND EXPIRATION_DATE &lt;= CAST(:TO_EXPIRY_DATE AS DATE)
+  </sql>
+
+  <sql name="ByFormKenshinConsultationDate">
+    AND CONSULTATION_DATE >= CAST(:FROM_CONSULTATION_DATE AS DATE)
+  </sql>
+
+  <sql name="ByToKenshinConsultationDate">
+    AND CONSULTATION_DATE &lt;= CAST(:TO_CONSULTATION_DATE AS DATE)
+  </sql>
+
+
+  
+  
+
+  <sql name="SearchKoushu">
+    SELECT
+
+    MS_SENIN_ID
+
+    ,SI_KOUSHU_ID
+    ,MS_SI_KOUSHU_ID
+    ,JISEKI_FROM
+    ,JISEKI_TO
+
+    FROM SI_KOUSHU
+
+    WHERE DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByKoushu">
+    AND MS_SI_KOUSHU_ID IN ( #INNER_SQL_BY_KOUSHU# )
+  </sql>
+
+
+
+  
+
+  <sql name="SearchExperienceCargo">
+    SELECT
+
+    MS_SENIN_ID
+
+    ,MS_CARGO_GROUP_ID
+    ,COUNT
+
+    FROM
+    (
+    SELECT
+
+    MS_SENIN_ID
+
+    ,MS_CARGO_GROUP_ID
+    ,SUM(COUNT) as COUNT
+    FROM
+    SI_EXPERIENCE_CARGO
+
+    WHERE DELETE_FLAG = 0
+
+    GROUP BY MS_SENIN_ID, MS_CARGO_GROUP_ID
+    ) TBL1
+    WHERE 0 = 0
+  </sql>
+
+  <sql name="ByCargoGroup">
+    AND MS_CARGO_GROUP_ID IN ( #INNER_SQL_BY_CARGO_GROUP# )
+  </sql>
+
+  <sql name="ByExperienceCargo">
+    AND COUNT >= :COUNT
+  </sql>
+
+
+
+</databaseConfig>

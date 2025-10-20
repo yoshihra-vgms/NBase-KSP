@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+	  select
+	  MS_KANIDOUSEI_INFO_SHUBETU_ID  ,
+	  KANIDOUSEI_INFO_SHUBETU_NAME   ,
+	  DELETE_FLAG                    ,
+	  SEND_FLAG                      ,
+	  VESSEL_ID                      ,
+	  DATA_NO                        ,
+	  USER_KEY                       ,
+	  RENEW_DATE                     ,
+	  RENEW_USER_ID                  ,
+	  TS
+	  from
+	  MS_KANIDOUSEI_INFO_SHUBETU
+	  where
+	  (MS_KANIDOUSEI_INFO_SHUBETU.DELETE_FLAG = 0 or MS_KANIDOUSEI_INFO_SHUBETU.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByKanidouseiShubetuName">
+    and KANIDOUSEI_INFO_SHUBETU_NAME = :KANIDOUSEI_INFO_SHUBETU_NAME
+  </sql>
+
+	<sql name="ByKaniDouseiEnabled">
+		and KANIDOUSEI_ENABLED = 1
+	</sql>
+	
+  <sql name="ByDouseiEnabled">
+	  and DOUSEI_ENABLED = 1
+  </sql>
+  <sql name="OrderBy">
+	  order by MS_KANIDOUSEI_INFO_SHUBETU_ID
+  </sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO MS_KANIDOUSEI_INFO_SHUBETU
+    (
+    MS_KANIDOUSEI_INFO_SHUBETU_ID ,
+    KANIDOUSEI_INFO_SHUBETU_NAME  ,
+    DELETE_FLAG                   ,
+    SEND_FLAG                     ,
+    VESSEL_ID                     ,
+    DATA_NO                       ,
+    USER_KEY                      ,
+    RENEW_DATE                    ,
+    RENEW_USER_ID                 ,
+    TS
+    )
+    VALUES(
+    :MS_KANIDOUSEI_INFO_SHUBETU_ID ,
+    :KANIDOUSEI_INFO_SHUBETU_NAME  ,
+    :DELETE_FLAG                   ,
+    :SEND_FLAG                     ,
+    :VESSEL_ID                     ,
+    :DATA_NO                       ,
+    :USER_KEY                      ,
+    :RENEW_DATE                    ,
+    :RENEW_USER_ID                 ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_KANIDOUSEI_INFO_SHUBETU
+    SET
+    KANIDOUSEI_INFO_SHUBETU_NAME = :KANIDOUSEI_INFO_SHUBETU_NAME  ,
+    DELETE_FLAG = :DELETE_FLAG                  ,
+    SEND_FLAG = :SEND_FLAG                      ,
+    VESSEL_ID = :VESSEL_ID                      ,
+    DATA_NO = :DATA_NO                          ,
+    USER_KEY = :USER_KEY                        ,
+    RENEW_DATE = :RENEW_DATE                    ,
+    RENEW_USER_ID = :RENEW_USER_ID              ,
+    TS = :TS
+
+    WHERE
+    MS_KANIDOUSEI_INFO_SHUBETU_ID = :MS_KANIDOUSEI_INFO_SHUBETU_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    TAISYO_YM				,
+    FUNE_NO					,
+    KANJO_KMK_CD		,
+    UTIWAKE_KMK_CD	,
+    FKIN					　,
+    YKIN					  ,
+    KANSAN_YKIN
+    from
+    VCPJISSEKI_WING
+  </sql>
+
+  <sql name="ByTaisyoYm">
+    Where TAISYO_YM  = :TAISYO_YM
+  </sql>
+
+</databaseConfig>

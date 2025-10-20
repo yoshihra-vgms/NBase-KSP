@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    WORK_PATTERN.WORK_PATTERN_ID ,
+    WORK_PATTERN.GID ,
+    WORK_PATTERN.EVENT_KIND ,
+    WORK_PATTERN.MS_VESSEL_ID ,
+    WORK_PATTERN.MS_SI_SHOKUMEI_ID ,
+    WORK_PATTERN.WORK_DATE ,
+    WORK_PATTERN.WORK_DATE_DIFF ,
+    WORK_PATTERN.WORK_CONTENT_ID ,
+    WORK_PATTERN.DELETE_FLAG,
+    WORK_PATTERN.RENEW_DATE,
+    WORK_PATTERN.RENEW_USER_ID,
+    WORK_PATTERN.DATA_NO,
+    WORK_PATTERN.TS
+
+    FROM
+    WORK_PATTERN
+
+    WHERE DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="ByEventKind">
+    AND EVENT_KIND = :EVENT_KIND
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO WORK_PATTERN
+    (
+    WORK_PATTERN_ID,
+    GID,
+    EVENT_KIND,
+    MS_VESSEL_ID,
+    MS_SI_SHOKUMEI_ID,
+    WORK_DATE,
+    WORK_DATE_DIFF,
+    WORK_CONTENT_ID,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    DATA_NO,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_WORK_PATTERN_ID'),
+    :GID,
+    :EVENT_KIND,
+    :MS_VESSEL_ID,
+    :MS_SI_SHOKUMEI_ID,
+    :WORK_DATE,
+    :WORK_DATE_DIFF,
+    :WORK_CONTENT_ID,
+    :DELETE_FLAG,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :DATA_NO,
+    :TS
+    )
+  </sql>
+
+
+  <sql name="UpdateRecord">
+    UPDATE WORK_PATTERN
+    SET
+    GID = :GID,
+    EVENT_KIND = :EVENT_KIND,
+    MS_VESSEL_ID = :MS_VESSEL_ID,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID,
+    WORK_DATE = :WORK_DATE,
+    WORK_DATE_DIFF = :WORK_DATE_DIFF,
+    WORK_CONTENT_ID = :WORK_CONTENT_ID,
+    DELETE_FLAG = :DELETE_FLAG,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    WHERE
+    WORK_PATTERN_ID = :WORK_PATTERN_ID
+  </sql>
+
+  <sql name="DeleteRecords">
+    UPDATE WORK_PATTERN
+    SET
+    DELETE_FLAG = 1,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+
+    WHERE
+    GID = :GID
+  </sql>
+</databaseConfig>

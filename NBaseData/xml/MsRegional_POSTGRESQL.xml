@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_REGIONAL_CODE            ,
+    REGIONAL_NAME                   ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO	                       ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    from MS_REGIONAL
+
+    where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="LikeRegionalCode">
+    AND MS_REGIONAL_CODE LIKE :MS_REGIONAL_CODE
+  </sql>
+
+  <sql name="LikeRegionalName">
+    AND REGIONAL_NAME LIKE :REGIONAL_NAME
+  </sql>
+
+ <sql name="OrderBy">
+   ORDER BY MS_REGIONAL.MS_REGIONAL_CODE
+ </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_REGIONAL(
+    MS_REGIONAL_CODE            ,
+    REGIONAL_NAME               ,
+    DELETE_FLAG                 ,
+    SEND_FLAG                   ,
+    VESSEL_ID                   ,
+    DATA_NO	                    ,
+    USER_KEY                    ,
+    RENEW_DATE                  ,
+    RENEW_USER_ID               ,
+    TS
+    )
+    VALUES(
+    :MS_REGIONAL_CODE            ,
+    :REGIONAL_NAME               ,
+    :DELETE_FLAG                 ,
+    :SEND_FLAG                   ,
+    :VESSEL_ID                   ,
+    :DATA_NO	                   ,
+    :USER_KEY                    ,
+    :RENEW_DATE                  ,
+    :RENEW_USER_ID               ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_REGIONAL SET
+    REGIONAL_NAME = :REGIONAL_NAME,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+    where
+    MS_REGIONAL_CODE = :MS_REGIONAL_CODE
+    and
+    TS = :TS
+  </sql>
+
+</databaseConfig>

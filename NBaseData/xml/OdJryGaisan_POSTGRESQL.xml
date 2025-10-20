@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_JRY_GAISAN.OD_JRY_GAISAN_ID               ,
+    OD_JRY_GAISAN.OD_JRY_ID                      ,
+    OD_JRY_GAISAN.AMOUNT                         ,
+    OD_JRY_GAISAN.BIKOU                          ,
+    OD_JRY_GAISAN.SEND_FLAG                      ,
+    OD_JRY_GAISAN.VESSEL_ID                      ,
+    OD_JRY_GAISAN.DATA_NO                        ,
+    OD_JRY_GAISAN.USER_KEY                       ,
+    OD_JRY_GAISAN.RENEW_DATE                     ,
+    OD_JRY_GAISAN.RENEW_USER_ID                  ,
+    OD_JRY_GAISAN.TS
+
+    FROM
+    OD_JRY_GAISAN
+
+    WHERE OD_JRY_GAISAN.CANCEL_FLAG = 0
+  </sql>
+
+	<sql name="ByOdJryID">
+    AND OD_JRY_GAISAN.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+  
+  <sql name="Order">
+    ORDER BY RENEW_DATE DESC
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_JRY_GAISAN
+    (
+    OD_JRY_GAISAN_ID               ,
+    OD_JRY_ID                      ,
+    AMOUNT                         ,
+    BIKOU                          ,
+    CANCEL_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OD_JRY_GAISAN_ID               ,
+    :OD_JRY_ID                      ,
+    :AMOUNT                         ,
+    :BIKOU                          ,
+    :CANCEL_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_JRY_GAISAN
+    SET
+    OD_JRY_ID = :OD_JRY_ID                           ,
+    AMOUNT = :AMOUNT                                 ,
+    BIKOU = :BIKOU                                   ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    OD_JRY_GAISAN_ID = :OD_JRY_GAISAN_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

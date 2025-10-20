@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_SALARY_RANK.MS_SI_SALARY_RANK_ID,
+
+    MS_SI_SALARY_RANK.MS_SI_SALARY_ID,
+    MS_SI_SALARY_RANK.MS_SI_SHOKUMEI_SALARY_ID,
+    MS_SI_SALARY_RANK.ALLOWANCE0,
+    MS_SI_SALARY_RANK.ALLOWANCE1,
+    MS_SI_SALARY_RANK.ALLOWANCE2,
+    MS_SI_SALARY_RANK.ALLOWANCE3,
+    MS_SI_SALARY_RANK.ALLOWANCE4,
+    MS_SI_SALARY_RANK.ALLOWANCE5,
+    MS_SI_SALARY_RANK.ALLOWANCE6,
+
+    MS_SI_SALARY_RANK.USER_KEY,
+    MS_SI_SALARY_RANK.DATA_NO,
+    MS_SI_SALARY_RANK.DELETE_FLAG,
+    MS_SI_SALARY_RANK.SEND_FLAG,
+    MS_SI_SALARY_RANK.VESSEL_ID,
+    MS_SI_SALARY_RANK.RENEW_USER_ID,
+    MS_SI_SALARY_RANK.RENEW_DATE,
+    MS_SI_SALARY_RANK.TS,
+
+    MS_SI_SHOKUMEI_SALARY.NAME MS_SI_SHOKUMEI_NAME,
+    MS_SI_SHOKUMEI_SALARY.SHOW_ORDER
+
+    FROM
+    MS_SI_SALARY_RANK
+
+    INNER JOIN MS_SI_SHOKUMEI_SALARY ON MS_SI_SHOKUMEI_SALARY.MS_SI_SHOKUMEI_SALARY_ID = MS_SI_SALARY_RANK.MS_SI_SHOKUMEI_SALARY_ID
+
+    WHERE
+    MS_SI_SALARY_RANK.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="SearchByMsSiSalaryId">
+    AND
+    MS_SI_SALARY_ID = :MS_SI_SALARY_ID
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    MS_SI_SHOKUMEI_SALARY.SHOW_ORDER
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_SALARY_RANK(
+    MS_SI_SALARY_RANK_ID            ,
+
+    MS_SI_SALARY_ID                 ,
+    MS_SI_SHOKUMEI_SALARY_ID        ,
+    ALLOWANCE0                      ,
+    ALLOWANCE1                      ,
+    ALLOWANCE2                      ,
+    ALLOWANCE3                      ,
+    ALLOWANCE4                      ,
+    ALLOWANCE5                      ,
+    ALLOWANCE6                      ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    Nextval( 'SEQ_MS_SI_SALARY_RANK_ID' ),
+
+    :MS_SI_SALARY_ID,
+    :MS_SI_SHOKUMEI_SALARY_ID        ,
+    :ALLOWANCE0                      ,
+    :ALLOWANCE1                      ,
+    :ALLOWANCE2                      ,
+    :ALLOWANCE3                      ,
+    :ALLOWANCE4                      ,
+    :ALLOWANCE5                      ,
+    :ALLOWANCE6                      ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_SALARY_RANK
+    SET
+    MS_SI_SALARY_ID = :MS_SI_SALARY_ID                    ,
+    MS_SI_SHOKUMEI_SALARY_ID = :MS_SI_SHOKUMEI_SALARY_ID  ,
+    ALLOWANCE0 = :ALLOWANCE0                      ,
+    ALLOWANCE1 = :ALLOWANCE1                      ,
+    ALLOWANCE2 = :ALLOWANCE2                      ,
+    ALLOWANCE3 = :ALLOWANCE3                      ,
+    ALLOWANCE4 = :ALLOWANCE4                      ,
+    ALLOWANCE5 = :ALLOWANCE5                      ,
+    ALLOWANCE6 = :ALLOWANCE6                      ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_SALARY_RANK_ID = :MS_SI_SALARY_RANK_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

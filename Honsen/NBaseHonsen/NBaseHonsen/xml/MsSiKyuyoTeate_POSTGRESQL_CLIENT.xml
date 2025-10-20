@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_KYUYO_TEATE.MS_SI_KYUYO_TEATE_ID       ,
+    MS_SI_KYUYO_TEATE.NAME                       ,
+    MS_SI_KYUYO_TEATE.YUKO                       ,
+    MS_SI_KYUYO_TEATE.SHOW_ORDER                 ,
+    MS_SI_KYUYO_TEATE.DELETE_FLAG                ,
+    MS_SI_KYUYO_TEATE.SEND_FLAG                  ,
+    MS_SI_KYUYO_TEATE.VESSEL_ID                  ,
+    MS_SI_KYUYO_TEATE.DATA_NO                    ,
+    MS_SI_KYUYO_TEATE.USER_KEY                   ,
+    MS_SI_KYUYO_TEATE.RENEW_DATE                 ,
+    MS_SI_KYUYO_TEATE.RENEW_USER_ID              ,
+    MS_SI_KYUYO_TEATE.TS
+    FROM
+    MS_SI_KYUYO_TEATE
+
+    WHERE MS_SI_KYUYO_TEATE.DELETE_FLAG = 0
+    ORDER BY MS_SI_KYUYO_TEATE.SHOW_ORDER, MS_SI_KYUYO_TEATE.MS_SI_KYUYO_TEATE_ID
+  </sql>
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_KYUYO_TEATE(
+    MS_SI_KYUYO_TEATE_ID           ,
+    NAME                           ,
+    YUKO                           ,
+    SHOW_ORDER                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SI_KYUYO_TEATE_ID           ,
+    :NAME                           ,
+    :YUKO                           ,
+    :SHOW_ORDER                     ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_KYUYO_TEATE
+    SET
+    NAME = :NAME                      ,
+    YUKO = :YUKO                      ,
+    SHOW_ORDER = :SHOW_ORDER          ,
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    MS_SI_KYUYO_TEATE_ID = :MS_SI_KYUYO_TEATE_ID
+  </sql>
+
+</databaseConfig>

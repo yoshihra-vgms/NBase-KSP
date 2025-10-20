@@ -1,0 +1,2718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B19B709C-1867-4062-9FED-281578F2F96C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBaseHonsen</RootNamespace>
+    <AssemblyName>NBaseHonsenApp-KSP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>842BFD375F673249150BE83FF293C4CD43CA63BE</ManifestCertificateThumbprint>
+    <ManifestKeyFile>HonsenWing_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\Project\NBase\Deploy\20250625\Nbase-KSP\NBaseHonsenApp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://vgms.jp/Nbase-KSP/NBaseHonsenApp/</InstallUrl>
+    <ProductName>NBaseHonsenApp-KSP</ProductName>
+    <PublisherName>VGMS</PublisherName>
+    <MinimumRequiredVersion>0.0.1.1</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>default.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.1.1</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>BUILD_BK</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>BUILD_BK</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>NBase-logo-Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\ComponentOne\WinForms Edition\bin\v4.8\C1.Win.4.8.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1List.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Shared.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Core.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Creator.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.View.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="GZipEncoder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\GZipEncoder\bin\GZipEncoder.dll</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=520f5185833939dc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6103e469a96a1589, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists.TreeListView, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e382cb4f3627d662, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.TreeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase">
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLC\CommonDefine.cs" />
+    <Compile Include="BLC\簡易動静情報出力処理.cs" />
+    <Compile Include="BLC\貯蔵品年間管理票処理.cs" />
+    <Compile Include="BLC\貯蔵品管理票処理.cs" />
+    <Compile Include="BLC\貯蔵品編集処理.cs" />
+    <Compile Include="BLC\貯蔵品金額計算処理.cs" />
+    <Compile Include="Chozo\貯蔵品Classes.cs" />
+    <Compile Include="Chozo\貯蔵品Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chozo\貯蔵品Form.designer.cs">
+      <DependentUpon>貯蔵品Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chozo\貯蔵品FormTreeListManager.cs" />
+    <Compile Include="Controls\DateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DateUserControl.Designer.cs">
+      <DependentUpon>DateUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DouseiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DouseiUserControl.Designer.cs">
+      <DependentUpon>DouseiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PortUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PortUserControl.Designer.cs">
+      <DependentUpon>PortUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KaniDouseiControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\KaniDouseiControl2.Designer.cs">
+      <DependentUpon>KaniDouseiControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VesselUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VesselUserControl.Designer.cs">
+      <DependentUpon>VesselUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSyncReporter.cs" />
+    <Compile Include="Document\BLC\内容確認処理.cs" />
+    <Compile Include="Document\BLC\コメント登録処理.cs" />
+    <Compile Include="Document\BLC\公文書・規則処理.cs" />
+    <Compile Include="Document\BLC\回覧終了処理.cs" />
+    <Compile Include="Document\BLC\確認状況一覧出力.cs" />
+    <Compile Include="Document\BLC\管理記録処理.cs" />
+    <Compile Include="Document\Contorol\JokyoKakuninTableCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Document\Contorol\JokyoKakuninTableCell.Designer.cs">
+      <DependentUpon>JokyoKakuninTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\Contorol\JokyoKakuninTableRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Document\Contorol\JokyoKakuninTableRow.Designer.cs">
+      <DependentUpon>JokyoKakuninTableRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\Reports\状況確認一覧.cs" />
+    <Compile Include="Document\コメント登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\コメント登録Form.Designer.cs">
+      <DependentUpon>コメント登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\備考編集Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\備考編集Form.Designer.cs">
+      <DependentUpon>備考編集Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\個別文書登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\個別文書登録Form.Designer.cs">
+      <DependentUpon>個別文書登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\文書同期状況Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\文書同期状況Form.Designer.cs">
+      <DependentUpon>文書同期状況Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\状況確認一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\状況確認一覧Form.Designer.cs">
+      <DependentUpon>状況確認一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\文書メニュー.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\文書メニュー.Designer.cs">
+      <DependentUpon>文書メニュー.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\状況確認詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\状況確認詳細Form.Designer.cs">
+      <DependentUpon>状況確認詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\管理記録一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\管理記録一覧Form.Designer.cs">
+      <DependentUpon>管理記録一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\管理記録登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\管理記録登録Form.Designer.cs">
+      <DependentUpon>管理記録登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\船員エラーForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\船員エラーForm.Designer.cs">
+      <DependentUpon>船員エラーForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\動静報告Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dousei\動静報告Form.Designer.cs">
+      <DependentUpon>動静報告Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\動静報告一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dousei\動静報告一覧Form.Designer.cs">
+      <DependentUpon>動静報告一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDataSyncObserver.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceMessageForm.Designer.cs">
+      <DependentUpon>MaintenanceMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterTable.cs" />
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\tek手当一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\tek手当一覧Form.Designer.cs">
+      <DependentUpon>tek手当一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\tek手当詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\tek手当詳細Form.Designer.cs">
+      <DependentUpon>tek手当詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\util\SeninUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Senin\util\SeninUserControl.Designer.cs">
+      <DependentUpon>SeninUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\util\TeateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Senin\util\TeateUserControl.Designer.cs">
+      <DependentUpon>TeateUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\util\TreeListViewDelegate免状免許.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate船内収支.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate船員カード.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate下船_乗船休暇.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate配乗表.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate送金.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate乗船.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate船員2.cs" />
+    <Compile Include="Document\船員リストForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\船員リストForm.Designer.cs">
+      <DependentUpon>船員リストForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\util\TreeListViewDelegate講習.cs" />
+    <Compile Include="Senin\役職変更Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\役職変更Form.Designer.cs">
+      <DependentUpon>役職変更Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\給与手当申請Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\給与手当申請Form.Designer.cs">
+      <DependentUpon>給与手当申請Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\給与手当登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\給与手当登録Form.Designer.cs">
+      <DependentUpon>給与手当登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="util\本船更新情報.cs" />
+    <Compile Include="Senin\下船_乗船休暇Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\下船_乗船休暇Form.Designer.cs">
+      <DependentUpon>下船_乗船休暇Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\乗船Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\乗船Form.Designer.cs">
+      <DependentUpon>乗船Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\職名選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\職名選択Form.Designer.cs">
+      <DependentUpon>職名選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\船内収支Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\船内収支Form.Designer.cs">
+      <DependentUpon>船内収支Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\船内収支詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\船内収支詳細Form.Designer.cs">
+      <DependentUpon>船内収支詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\船員メニュー.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\船員メニュー.Designer.cs">
+      <DependentUpon>船員メニュー.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\船員リストForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\船員リストForm.Designer.cs">
+      <DependentUpon>船員リストForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\船員詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\船員詳細Form.Designer.cs">
+      <DependentUpon>船員詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\配乗表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senin\配乗表Form.Designer.cs">
+      <DependentUpon>配乗表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\OdThiTreeListViewHelper.cs" />
+    <Compile Include="HonsenUIConstants.cs" />
+    <Compile Include="SyncSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyncSplash.Designer.cs">
+      <DependentUpon>SyncSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\ThiItemHeader.cs" />
+    <Compile Include="util\OdJryTreeListViewHelper.cs" />
+    <Compile Include="Senin\util\TreeListViewDelegate船員.cs" />
+    <Compile Include="動静実績新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="動静実績新規登録Form.Designer.cs">
+      <DependentUpon>動静実績新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="動静実績登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="動静実績登録Form.Designer.cs">
+      <DependentUpon>動静実績登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="同期詳細情報Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="同期詳細情報Form.Designer.cs">
+      <DependentUpon>同期詳細情報Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="手配依頼FormDelegate_燃料_潤滑油以外.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="一括受領Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="一括受領Form.Designer.cs">
+      <DependentUpon>一括受領Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="一括受領確認Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="一括受領確認Form.Designer.cs">
+      <DependentUpon>一括受領確認Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="入渠種別Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="入渠種別Form.designer.cs">
+      <DependentUpon>入渠種別Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="手配依頼FormDelegate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配依頼FormDelegate_燃料_潤滑油.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配品目FormDelegate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配品目Form詳細Delegate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="特定船用品選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="特定船用品選択Form.Designer.cs">
+      <DependentUpon>特定船用品選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="納品Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="納品Form.Designer.cs">
+      <DependentUpon>納品Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PortalForm.Designer.cs">
+      <DependentUpon>PortalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Chozo\貯蔵品Form.resx">
+      <DependentUpon>貯蔵品Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DateUserControl.resx">
+      <DependentUpon>DateUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DouseiUserControl.resx">
+      <DependentUpon>DouseiUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PortUserControl.resx">
+      <DependentUpon>PortUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\KaniDouseiControl2.resx">
+      <DependentUpon>KaniDouseiControl2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VesselUserControl.resx">
+      <DependentUpon>VesselUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\Contorol\JokyoKakuninTableCell.resx">
+      <DependentUpon>JokyoKakuninTableCell.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\Contorol\JokyoKakuninTableRow.resx">
+      <DependentUpon>JokyoKakuninTableRow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\コメント登録Form.resx">
+      <DependentUpon>コメント登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\備考編集Form.resx">
+      <DependentUpon>備考編集Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\個別文書登録Form.resx">
+      <DependentUpon>個別文書登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\文書同期状況Form.resx">
+      <DependentUpon>文書同期状況Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\状況確認一覧Form.resx">
+      <DependentUpon>状況確認一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\文書メニュー.resx">
+      <DependentUpon>文書メニュー.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\状況確認詳細Form.resx">
+      <DependentUpon>状況確認詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\管理記録一覧Form.resx">
+      <DependentUpon>管理記録一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\管理記録登録Form.resx">
+      <DependentUpon>管理記録登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\船員エラーForm.resx">
+      <DependentUpon>船員エラーForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\動静報告Form.resx">
+      <DependentUpon>動静報告Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\動静報告一覧Form.resx">
+      <DependentUpon>動静報告一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceMessageForm.resx">
+      <DependentUpon>MaintenanceMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\船員リストForm.resx">
+      <DependentUpon>船員リストForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\tek手当一覧Form.resx">
+      <DependentUpon>tek手当一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\tek手当詳細Form.resx">
+      <DependentUpon>tek手当詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\util\SeninUserControl.resx">
+      <DependentUpon>SeninUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\util\TeateUserControl.resx">
+      <DependentUpon>TeateUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\下船_乗船休暇Form.resx">
+      <DependentUpon>下船_乗船休暇Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\乗船Form.resx">
+      <DependentUpon>乗船Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\役職変更Form.resx">
+      <DependentUpon>役職変更Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\給与手当申請Form.resx">
+      <DependentUpon>給与手当申請Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\給与手当登録Form.resx">
+      <DependentUpon>給与手当登録Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\職名選択Form.resx">
+      <DependentUpon>職名選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\船内収支Form.resx">
+      <DependentUpon>船内収支Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\船内収支詳細Form.resx">
+      <DependentUpon>船内収支詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\船員メニュー.resx">
+      <DependentUpon>船員メニュー.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\船員リストForm.resx">
+      <DependentUpon>船員リストForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\船員詳細Form.resx">
+      <DependentUpon>船員詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Senin\配乗表Form.resx">
+      <DependentUpon>配乗表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyncSplash.resx">
+      <DependentUpon>SyncSplash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="一括受領Form.resx">
+      <DependentUpon>一括受領Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="一括受領確認Form.resx">
+      <DependentUpon>一括受領確認Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="入渠種別Form.resx">
+      <DependentUpon>入渠種別Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="動静実績新規登録Form.resx">
+      <DependentUpon>動静実績新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="動静実績登録Form.resx">
+      <DependentUpon>動静実績登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="同期詳細情報Form.resx">
+      <DependentUpon>同期詳細情報Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="特定船用品選択Form.resx">
+      <DependentUpon>特定船用品選択Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="納品Form.resx">
+      <DependentUpon>納品Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortalForm.resx">
+      <DependentUpon>PortalForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="手配品目Form.resx">
+      <DependentUpon>手配品目Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="手配依頼一覧Form.resx">
+      <DependentUpon>手配依頼一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="手配依頼Form.resx">
+      <DependentUpon>手配依頼Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="依頼種別Form.resx">
+      <DependentUpon>依頼種別Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船用品カテゴリ選択Form.resx">
+      <DependentUpon>船用品カテゴリ選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船用品追加Form.resx">
+      <DependentUpon>船用品追加Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="詳細品目選択Form.resx">
+      <DependentUpon>詳細品目選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\IGT_同期Client.ServiceReference1.CompositeType1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="手配品目Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配品目Form.Designer.cs">
+      <DependentUpon>手配品目Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="手配依頼一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配依頼一覧Form.designer.cs">
+      <DependentUpon>手配依頼一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="手配依頼Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="手配依頼Form.designer.cs">
+      <DependentUpon>手配依頼Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="依頼種別Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="依頼種別Form.designer.cs">
+      <DependentUpon>依頼種別Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船用品カテゴリ選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船用品カテゴリ選択Form.designer.cs">
+      <DependentUpon>船用品カテゴリ選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船用品追加Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船用品追加Form.Designer.cs">
+      <DependentUpon>船用品追加Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="詳細品目選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="詳細品目選択Form.Designer.cs">
+      <DependentUpon>詳細品目選択Form.cs</DependentUpon>
+    </Compile>
+    <Content Include="AlterWtmTableSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AlterWtmRoleSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MakeWtmBaseTableSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MakeWtmTableSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NBase-logo-Icon.ico" />
+    <Content Include="NBASE.ico" />
+    <None Include="Resources\NBase-login.png" />
+    <None Include="Resources\NBase-Splash.png" />
+    <Content Include="Template\Template_KK修繕注文書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_KK船用品請求書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_KK修繕注文書%28査定%29.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_KK修繕申込書%28査定%29.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_KK修繕申込書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_KK船用品注文書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_労務管理記録簿.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template_手当支給依頼書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_クルーリスト.xls" />
+    <Content Include="Template\Template_クルーリスト.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_個人情報一覧.xls" />
+    <Content Include="Template\Template_個人情報一覧.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_動静報告一覧.xls" />
+    <Content Include="Template\Template_動静報告一覧.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_動静表.xls" />
+    <Content Include="Template\Template_動静表.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_確認状況一覧.xls" />
+    <Content Include="Template\Template_確認状況一覧.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_科目別集計表.xls" />
+    <Content Include="Template\Template_科目別集計表.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_給与手当一覧表.xls" />
+    <Content Include="Template\Template_給与手当一覧表.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_船内収支報告書.xls" />
+    <Content Include="Template\Template_船内収支報告書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_船用品注文書.xls" />
+    <Content Include="Template\Template_船用品注文書.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\Template_配乗表.xls" />
+    <Content Include="Template\Template_配乗表.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Template\xls\貯蔵品管理票Template.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SyncClient\SyncClient\SyncClient.csproj">
+      <Project>{eb8666f4-c651-4f2f-b71f-acd19fdee928}</Project>
+      <Name>SyncClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714f98e7-2dda-44f7-8651-6c40a52719b9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{acdbd951-2c1f-4155-93c1-56ab4212123a}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBase\NBase\NBaseCommon\NBaseCommon.csproj">
+      <Project>{aa019336-3937-4b0d-a7f3-29523ff52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SqlMapper\SqlMapper.csproj">
+      <Project>{E99EFCAD-A268-4B46-A6D8-396775C922D3}</Project>
+      <Name>SqlMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WTM\WTM-Honsen.csproj">
+      <Project>{9ab4af0d-d6b2-48b9-bc2d-d1c938843d70}</Project>
+      <Name>WTM-Honsen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AlterTableSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document\Resources\icon_doc.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document\Resources\icon_pdf.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document\Resources\icon_pps.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document\Resources\icon_txt.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document\Resources\icon_xls.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\AssemblyInfo.cs.template" />
+    <None Include="Properties\DataSources\IGT_同期Client.ServiceReference1.CompositeType.datasource" />
+    <None Include="Service References\ServiceReference1\NBaseHonsen.ServiceReference1.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Service1.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\icon_doc.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icon_pdf.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icon_pps.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icon_txt.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icon_xls.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MakeTableSql.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\Common_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DjDouseiCargo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DjDouseiHoukoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DjDousei_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmDocComment_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKakuninJokyo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmKanriKirokuFile_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKanriKiroku_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKanryoInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKoubunshoKisokuFile_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKoubunshoKisoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmKoukaiSaki_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DmPublisher_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\HoukokushoKanriKiroku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsBashoKubun_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsBasho_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsBumon_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsCargo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsCustomerTantou_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsCustomer_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDjKazamuki_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDjKenkoujyoutai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDjSentaisetsubi_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDjTani_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDjTenkou_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDmBunrui_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDmHoukokusho_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDmShoubunrui_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsDmTemplateFile_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsHimoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsItemSbt_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsKamoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsKanidouseiInfoShubetu_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsKichi_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsLoVessel_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsLo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsNyukyoKamoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsPortalInfoShubetu_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsRole_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSenin_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsShoushuriItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsShrJouken_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiAllowance_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiDaikoumoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiGetsujiShimeBi_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiHiyouKamoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiKamoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiKoushu_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiKyuyoTeateSet_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiKyuyoTeate_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiMeisai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiMenjouKind_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiMenjou_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiShokumeiShousai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiShokumei_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiShubetsuShousai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSiShubetsu_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsSsShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsTanaoroshiLo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsTani_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsTax_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsThiIraiSbt_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsThiIraiShousai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsThiIraiStatus_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsUserBumon_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsUser_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsVesselItemCategory_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsVesselItemVessel_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsVesselItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsVesselType_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\MsVessel_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\NbaseContractFunction_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdAttachFile_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdChozoShousai_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdChozo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdGaisanKeijo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdGetsujiShime_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdHachuTanka_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdJryItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdJryShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdJry_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMkItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMkShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMk_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMmItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMmShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdMm_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdNyukyoItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdNyukyoShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdShrItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdShrShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdShr_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdThiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdThiShousaiItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\OdThi_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtAlarmInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtAnzenHyouji_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtDmAlarmInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtHonsenkoushinInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtJimushokoushinInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtKanidouseiInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PtPortalInfoFormat_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiAllowanceDetail_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiAllowance_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiCard_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiGetsujiShime_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiHaijouItem_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiHaijou_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiJunbikin_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiKazoku_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiKoushu_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiKyuyoTeate_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiLaborManagementRecordBook_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiLinkShokumeiCard_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiMenjou_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiNenjiShime_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiNightSetting_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiRequiredNumberOfDays_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiRireki_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SiSoukin_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SnParameter_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\SnTableInfo_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd" />
+    <None Include="Service References\ServiceReference1\Service11.xsd" />
+    <None Include="Service References\ServiceReference1\Service12.xsd" />
+    <None Include="Service References\ServiceReference1\Service13.xsd" />
+    <Content Include="xml\WingMessage_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\状況確認一覧Row_POSTGRESQL_CLIENT.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\貯蔵品リスト_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Oracle.DataAccess">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Resources\icon_doc.gif">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Resources\icon_pdf.gif">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Resources\icon_pps.gif">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Resources\icon_txt.gif">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Resources\icon_xls.gif">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="SqlMapper">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\Common_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DjDouseiCargo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DjDouseiHoukoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DjDousei_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmDocComment_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKakuninJokyo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKanriKirokuFile_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKanriKiroku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKanryoInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKoubunshoKisokuFile_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKoubunshoKisoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmKoukaiSaki_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\DmPublisher_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\HoukokushoKanriKiroku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsBashoKubun_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsBasho_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsBumon_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsCargo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsCustomerTantou_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsCustomer_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDjKazamuki_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDjKenkoujyoutai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDjSentaisetsubi_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDjTani_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDjTenkou_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDmBunrui_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDmHoukokusho_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDmShoubunrui_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsDmTemplateFile_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsHimoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsItemSbt_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsKamoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsKanidouseiInfoShubetu_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsKichi_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsLoVessel_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsLo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsNyukyoKamoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsPortalInfoShubetu_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsRole_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSenin_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsShoushuriItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsShrJouken_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiDaikoumoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiGetsujiShimeBi_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiHiyouKamoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiKamoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiKoushu_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiKyuyoTeateSet_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiKyuyoTeate_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiMeisai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiMenjouKind_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiMenjou_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiShokumeiShousai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiShokumei_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiShubetsuShousai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSiShubetsu_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsSsShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsTanaoroshiLo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsTani_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsTax_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsThiIraiSbt_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsThiIraiShousai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsThiIraiStatus_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsUserBumon_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsUser_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsVesselItemCategory_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsVesselItemVessel_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsVesselItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsVesselType_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\MsVessel_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\NbaseContractFunction_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdAttachFile_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdChozoShousai_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdChozo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdGaisanKeijo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdGetsujiShime_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdHachuTanka_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdJryItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdJryShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdJry_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMkItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMkShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMk_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMmItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMmShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdMm_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdNyukyoItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdNyukyoShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdShrItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdShrShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdShr_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdThiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdThiShousaiItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\OdThi_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtAlarmInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtAnzenHyouji_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtDmAlarmInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtHonsenkoushinInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtJimushokoushinInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtKanidouseiInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\PtPortalInfoFormat_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiCard_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiGetsujiShime_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiHaijouItem_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiHaijou_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiJunbikin_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiKazoku_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiKoushu_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiKyuyoTeate_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiLaborManagementRecordBook_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiLinkShokumeiCard_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiMenjou_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiNenjiShime_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiNightSetting_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiRequiredNumberOfDays_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiRireki_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiSoukin_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SnParameter_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SnTableInfo_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\WingMessage_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\状況確認一覧Row_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\貯蔵品リスト_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

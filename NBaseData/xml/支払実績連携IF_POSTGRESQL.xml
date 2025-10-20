@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    SINSEI_KANRI_NO	,
+    KIKAN_KISY_CD   ,
+    KIKAN_SINSEI_NO	,
+    DATA_STATUS	    ,
+    KEIJO_YMD	      ,
+    KIN_YMD
+    from
+    VAJSINSEISTATUS_WING
+  </sql>
+
+  <sql name="ByOdSinseiKanriNo">
+    Where SINSEI_KANRI_NO  = :SINSEI_KANRI_NO
+  </sql>
+
+</databaseConfig>

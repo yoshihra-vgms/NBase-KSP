@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		DM_KOUBUNSHO_KISOKU.DM_KOUBUNSHO_KISOKU_ID        ,
+		DM_KOUBUNSHO_KISOKU.MS_DM_BUNRUI_ID               ,
+		DM_KOUBUNSHO_KISOKU.MS_DM_SHOUBUNRUI_ID           ,
+		DM_KOUBUNSHO_KISOKU.BUNSHO_NO                     ,
+		DM_KOUBUNSHO_KISOKU.BUNSHO_NAME                   ,
+		DM_KOUBUNSHO_KISOKU.STATUS                        ,
+		DM_KOUBUNSHO_KISOKU.ISSUE_DATE                    ,
+		DM_KOUBUNSHO_KISOKU.FILE_NAME                     ,
+		DM_KOUBUNSHO_KISOKU.FILE_UPDATE_DATE              ,
+		DM_KOUBUNSHO_KISOKU.BIKOU                         ,
+
+		DM_KOUBUNSHO_KISOKU.DELETE_FLAG                   ,
+		DM_KOUBUNSHO_KISOKU.SEND_FLAG                     ,
+		DM_KOUBUNSHO_KISOKU.VESSEL_ID                     ,
+		DM_KOUBUNSHO_KISOKU.DATA_NO                       ,
+		DM_KOUBUNSHO_KISOKU.USER_KEY                      ,
+		DM_KOUBUNSHO_KISOKU.RENEW_DATE                    ,
+		DM_KOUBUNSHO_KISOKU.RENEW_USER_ID                 ,
+		DM_KOUBUNSHO_KISOKU.TS                            ,
+		MS_DM_BUNRUI.NAME AS MS_DM_BUNRUI_NAME         ,
+		MS_DM_SHOUBUNRUI.NAME AS MS_DM_SHOUBUNRUI_NAME
+
+		from
+		DM_KOUBUNSHO_KISOKU
+		INNER JOIN MS_DM_BUNRUI ON MS_DM_BUNRUI.MS_DM_BUNRUI_ID = DM_KOUBUNSHO_KISOKU.MS_DM_BUNRUI_ID
+		LEFT JOIN MS_DM_SHOUBUNRUI ON MS_DM_SHOUBUNRUI.MS_DM_SHOUBUNRUI_ID = DM_KOUBUNSHO_KISOKU.MS_DM_SHOUBUNRUI_ID
+
+		WHERE (DM_KOUBUNSHO_KISOKU.DELETE_FLAG = 0 or DM_KOUBUNSHO_KISOKU.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByMsDmBunruiID">
+		AND DM_KOUBUNSHO_KISOKU.MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID
+	</sql>
+
+	<sql name="ByMsDmShoubunruiID">
+		AND DM_KOUBUNSHO_KISOKU.MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID
+	</sql>
+
+	<sql name="LikeBunshoNo">
+		and DM_KOUBUNSHO_KISOKU.BUNSHO_NO LIKE :BUNSHO_NO
+	</sql>
+
+	<sql name="LikeBunshoName">
+		and DM_KOUBUNSHO_KISOKU.BUNSHO_NAME LIKE :BUNSHO_NAME
+	</sql>
+
+	<sql name="ByDmKoubunshoKisokuID">
+		AND DM_KOUBUNSHO_KISOKU.DM_KOUBUNSHO_KISOKU_ID like :DM_KOUBUNSHO_KISOKU_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By
+		MS_DM_BUNRUI.NAME,
+		MS_DM_SHOUBUNRUI.NAME,
+		DM_KOUBUNSHO_KISOKU.BUNSHO_NO,
+		DM_KOUBUNSHO_KISOKU.BUNSHO_NAME
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO DM_KOUBUNSHO_KISOKU
+	  (
+	  DM_KOUBUNSHO_KISOKU_ID ,
+	  MS_DM_BUNRUI_ID        ,
+	  MS_DM_SHOUBUNRUI_ID    ,
+	  BUNSHO_NO              ,
+	  BUNSHO_NAME            ,
+	  STATUS                 ,
+	  ISSUE_DATE             ,
+	  FILE_NAME              ,
+	  FILE_UPDATE_DATE       ,
+	  BIKOU                  ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :DM_KOUBUNSHO_KISOKU_ID ,
+	  :MS_DM_BUNRUI_ID        ,
+	  :MS_DM_SHOUBUNRUI_ID    ,
+	  :BUNSHO_NO              ,
+	  :BUNSHO_NAME            ,
+	  :STATUS                 ,
+	  :ISSUE_DATE             ,
+	  :FILE_NAME              ,
+	  :FILE_UPDATE_DATE       ,
+	  :BIKOU                  ,
+	  :DELETE_FLAG     , 
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE DM_KOUBUNSHO_KISOKU SET
+	  MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID         ,
+	  MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID ,
+	  BUNSHO_NO = :BUNSHO_NO                     ,
+	  BUNSHO_NAME = :BUNSHO_NAME                 ,
+	  STATUS = :STATUS                           ,
+	  ISSUE_DATE = :ISSUE_DATE                   ,
+	  FILE_NAME = :FILE_NAME                     ,
+	  FILE_UPDATE_DATE = :FILE_UPDATE_DATE       ,
+	  BIKOU = :BIKOU                             ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  DM_KOUBUNSHO_KISOKU_ID = :DM_KOUBUNSHO_KISOKU_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

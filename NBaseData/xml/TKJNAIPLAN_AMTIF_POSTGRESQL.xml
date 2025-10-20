@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+    select
+    FUNE_NO,
+    JIKO_NO,
+    SC_YMD,
+    KOMA_NO,
+    OPE_NO,
+    LINE_NO,
+    OPE_SET_KEY,
+    CAG_NO,
+    CHRTAIT_NO,
+    QTY,
+    KZTANI_CD,
+    USKJN_KBN,
+    KSN_KBN,
+    FRTANKA,
+    GAKYEN,
+    SYOHIZEI_KBN,
+    SYOHIZEI_GAK,
+    TTLGAKU,
+    K_KBN,
+    CREATE_DATE,
+    TRKM_TNTSY_CD,
+    TRKM_DATE,
+    SYORI_STATUS,
+    STATUS_REMARK,
+    EXT_SYSTEM_CD,
+    UPDPGMID,
+    UPDUSERID,
+    UPDDATE_YMDHMS
+
+    from TKJNAIPLAN_AMTIF
+    where FUNE_NO = :FUNE_NO
+    and JIKO_NO = :JIKO_NO
+    and SC_YMD = :SC_YMD
+    and KOMA_NO = :KOMA_NO
+    and LINE_NO = :LINE_NO
+    and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+
+    order by UPDDATE_YMDHMS desc
+  </sql>
+	
+	<sql name="GetRecords">
+		select
+		FUNE_NO,
+		JIKO_NO,
+		SC_YMD,
+		KOMA_NO,
+		OPE_NO,
+		LINE_NO,
+		OPE_SET_KEY,
+		CAG_NO,
+		CHRTAIT_NO,
+		QTY,
+		KZTANI_CD,
+		USKJN_KBN,
+		KSN_KBN,
+		FRTANKA,
+		GAKYEN,
+		SYOHIZEI_KBN,
+		SYOHIZEI_GAK,
+		TTLGAKU,
+		K_KBN,
+		CREATE_DATE,
+		TRKM_TNTSY_CD,
+		TRKM_DATE,
+		SYORI_STATUS,
+		STATUS_REMARK,
+		EXT_SYSTEM_CD,
+		UPDPGMID,
+		UPDUSERID,
+		UPDDATE_YMDHMS
+
+		from TKJNAIPLAN_AMTIF
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+		and SC_YMD = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+		and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+
+		order by TKJNAIPLAN_AMTIF.LINE_NO
+	</sql>
+
+	<sql name="GetRecordLineNo_OLD">
+		select CAST(max(LINE_NO) as number(2))
+		from TKJNAIPLAN_AMTIF
+
+		where FUNE_NO = :FUNE_NO
+		and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+
+		group by FUNE_NO,SC_YMD,KOMA_NO
+	</sql>
+
+  <sql name="GetRecordLineNo">
+    select CAST(max(LINE_NO) as number(2))
+    from TKJNAIPLAN_AMTIF
+
+    where FUNE_NO = :FUNE_NO
+    and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+    and KOMA_NO = :KOMA_NO
+    and TO_NUMBER(SYORI_STATUS) &lt; 90
+
+    group by FUNE_NO,SC_YMD,KOMA_NO
+  </sql>
+
+  <sql name="InsertRecord">
+	  insert into TKJNAIPLAN_AMTIF(
+	  FUNE_NO,
+	  JIKO_NO,
+	  SC_YMD,
+	  KOMA_NO,
+	  OPE_NO,
+	  LINE_NO,
+	  OPE_SET_KEY,
+	  CAG_NO,
+	  CHRTAIT_NO,
+	  QTY,
+	  KZTANI_CD,
+	  USKJN_KBN,
+	  KSN_KBN,
+	  FRTANKA,
+	  GAKYEN,
+	  SYOHIZEI_KBN,
+	  SYOHIZEI_GAK,
+	  TTLGAKU,
+	  K_KBN,
+	  CREATE_DATE,
+	  TRKM_TNTSY_CD,
+	  TRKM_DATE,
+	  SYORI_STATUS,
+	  STATUS_REMARK,
+	  EXT_SYSTEM_CD,
+	  UPDPGMID,
+	  UPDUSERID,
+	  UPDDATE_YMDHMS
+	  ) values(
+	  :FUNE_NO,
+	  :JIKO_NO,
+	  :SC_YMD,
+	  :KOMA_NO,
+	  :OPE_NO,
+	  :LINE_NO,
+	  :OPE_SET_KEY,
+	  :CAG_NO,
+	  :CHRTAIT_NO,
+	  :QTY,
+	  :KZTANI_CD,
+	  :USKJN_KBN,
+	  :KSN_KBN,
+	  :FRTANKA,
+	  :GAKYEN,
+	  :SYOHIZEI_KBN,
+	  :SYOHIZEI_GAK,
+	  :TTLGAKU,
+	  :K_KBN,
+	  :CREATE_DATE,
+	  :TRKM_TNTSY_CD,
+	  :TRKM_DATE,
+	  :SYORI_STATUS,
+	  :STATUS_REMARK,
+	  :EXT_SYSTEM_CD,
+	  :UPDPGMID,
+	  :UPDUSERID,
+	  :UPDDATE_YMDHMS)
+
+  </sql>
+
+	<sql name="DeleteRecord">
+		delete from TKJNAIPLAN_AMTIF
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+		and SC_YMD = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+		and LINE_NO = :LINE_NO
+		and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+	</sql>
+
+</databaseConfig>

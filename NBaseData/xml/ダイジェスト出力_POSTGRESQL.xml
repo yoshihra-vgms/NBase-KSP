@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords単月">
+	  SELECT YK.BUMON_CD
+	  ,MIN(B.BUMON_NM) FNAME
+	  ,SUM((DECODE(YOSANKMK_CD,'80030',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 運賃
+	  ,SUM((DECODE(YOSANKMK_CD,'80040',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 貸船料
+	  ,SUM((DECODE(YOSANKMK_CD,'80050',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 他船取扱手数料
+	  ,SUM((DECODE(YOSANKMK_CD,'80080',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 その他海運業収益
+	  ,SUM((DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 海運業収益
+	  ,SUM(DECODE(substr(YOSANKMK_CD,1,5),'80030',
+	  (DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL_C ,0)            ) * DECODE(K.TISYK_KBN,'2',1,-1),0)) /1000 ｳﾁ過月度分_収益
+	  ,SUM((DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_YEN,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',USD_USD,0)*J.SYONEN_RATE ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 ｳﾁ為替分_収益
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8061',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 運航費
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8062',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8063',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8064',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8065',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,5),'80660',YEN_TTL,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 船費
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,5),'80665',YEN_TTL,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 借船料
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8067',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  +(DECODE(substr(YOSANKMK_CD,1,4),'8068',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 その他海運業費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 海運業費用
+	  ,-(SUM(DECODE(substr(YOSANKMK_CD,1,4),'8061',
+	  (DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL_C,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1),0))) /1000 ｳﾁ過月度分_費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_YEN,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',USD_USD,0)*J.SYONEN_RATE ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 ｳﾁ為替分_費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,2),'83',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 販管費
+	  FROM (
+	  SELECT BUMON_CD,KISY_CD,YOSAN_YD,YOSAN_YM,'0' INPUT_KBN,SUBSTR(BUKKEN_NO,1,4) FUNE_NO,YOSAN_KMK YOSANKMK_CD
+	  ,'' ST_YM,'' ED_YM
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0))  YEN_TTL_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONENY_YOSAN,0)) YEN_YEN_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONENF_YOSAN,0)) USD_USD_Y
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONEN_YOSAN,0))  YEN_TTL_S
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONENY_YOSAN,0)) YEN_YEN_S
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONENF_YOSAN,0)) USD_USD_S
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0))  YEN_TTL
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONENY_YOSAN,0)) YEN_YEN
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONENF_YOSAN,0)) USD_USD
+	  ,0 YEN_TTL_C
+	  ,0 YEN_USD_C
+	  ,0 USD_TTL_C
+	  FROM VBRYOSANTB
+	  WHERE YOSAN_UTIKBN >= '1'
+	  AND (YOSAN_KBN > '09' or YOSAN_KBN = '00')
+	  GROUP BY KISY_CD,YOSAN_YD,YOSAN_YM,BUKKEN_NO,YOSAN_KMK,BUMON_CD
+	  UNION ALL
+	  SELECT B.BUMON_CD,YK.KISY_CD,YOSAN_YD,YOSAN_YM,YK.INPUT_KBN,YK.FUNE_NO,YK.YOSANKMK_CD
+	  ,TO_CHAR(YC.ST_YMDH,'YYYYMM') ST_YM,TO_CHAR(YC.ED_YMDH-(1/24/60),'YYYYMM') ED_YM
+	  ,0 YEN_TTL_Y
+	  ,0 YEN_YEN_Y
+	  ,0 USD_USD_Y
+	  ,0 YEN_TTL_S
+	  ,0 YEN_YEN_S
+	  ,0 USD_USD_S
+	  ,0 YEN_TTL
+	  ,0 YEN_YEN
+	  ,0 USD_USD
+	  ,SUM(YK.SYONEN_YOSAN)  YEN_TTL_C
+	  ,SUM(YK.SYONENY_YOSAN) YEN_YEN_C
+	  ,SUM(YK.SYONENF_YOSAN) USD_USD_C
+	  FROM VBRKAIYSKTB YK
+	  ,TKJCBHEAD YC
+	  ,(select substr(bkjh_cd,1,4) fune_no,min(kaikei_bumon_cd) bumon_cd from tajbumonms where kisy_cd = '180' and kaikei_bumon_cd like '1%' group by substr(bkjh_cd,1,4)) B
+	  WHERE YK.FUNE_NO                   = YC.FUNE_NO(+)
+	  AND SUBSTR(YK.KANRI_NO,1,4)      = YC.JIKO_NO(+)
+	  AND YK.YOSAN_KBN              LIKE '9%'
+	  AND YK.YOSANKMK_CD   LIKE '80%'
+	  AND YK.FUNE_NO = B.FUNE_NO
+	  GROUP BY YK.KISY_CD,YOSAN_YD,YOSAN_YM,YK.INPUT_KBN,YK.FUNE_NO,YK.YOSANKMK_CD
+	  ,TO_CHAR(YC.ST_YMDH,'YYYYMM'),TO_CHAR(YC.ED_YMDH-(1/24/60),'YYYYMM'),B.BUMON_CD
+	  UNION ALL
+	  SELECT BUMON_CD,KISY_CD,YOSAN_YD,YOSAN_YM,'0' INPUT_KBN,SUBSTR(BUKKEN_NO,1,4) FUNE_NO,'83701' YOSANKMK_CD
+	  ,'' ST_YM,'' ED_YM
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0)) YEN_TTL_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0)) YEN_YEN_Y
+	  ,0 USD_USD_Y
+	  ,0 YEN_TTL_S
+	  ,0 YEN_YEN_S
+	  ,0 USD_USD_S
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0)) YEN_TTL
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0)) YEN_YEN
+	  ,0 USD_USD
+	  ,0 YEN_TTL_C
+	  ,0 YEN_USD_C
+	  ,0 USD_TTL_C
+	  FROM VBRYOSANTB
+	  WHERE YOSAN_UTIKBN &lt; '1'
+           AND (YOSAN_KBN > '09' or YOSAN_KBN = '00') AND KNJ_KBN = '6'
+        GROUP BY KISY_CD,YOSAN_YD,YOSAN_YM,BUKKEN_NO,BUMON_CD
+       ) YK
+--年月を指定する--
+      ,(SELECT :YEAR YD, :YEARMONTH YM,'00' KBN) P
+------------------
+      ,TBRYSNJOKENMST J
+      ,TKYKNJKMKMST K
+      ,TKJSHIP S
+      ,(select kaikei_bumon_cd,min(kaikei_bumon_nm) bumon_nm from tajbumonms where kisy_cd = '180' and kaikei_bumon_cd like '1%' group by kaikei_bumon_cd) B
+ WHERE P.YD             = J.YOSAN_YD(+)
+   AND P.KBN            = J.YOSAN_KBN(+)
+   AND YK.KISY_CD       = K.KISY_CD(+)
+   AND YK.YOSANKMK_CD   = K.KNJKMK_CD(+)
+   AND YK.BUMON_CD      = B.KAIKEI_BUMON_CD
+   AND YK.FUNE_NO       = S.FUNE_NO(+)
+   AND YK.BUMON_CD      LIKE '14%'
+   AND YK.KISY_CD       = '180'
+   AND YK.YOSAN_YD = P.YD
+   AND YK.YOSAN_YM &lt;= P.YM
+   AND YK.YOSAN_YM = P.YM --単月のとき活かす
+   AND (YK.INPUT_KBN = '0' OR (YK.INPUT_KBN = '2' AND YK.YOSANKMK_CD = '80665') OR (ST_YM &lt;= YK.YOSAN_YM AND ED_YM >= YK.YOSAN_YM))
+GROUP BY YK.BUMON_CD
+HAVING SUM(ABS(YEN_TTL)+ABS(YEN_TTL_Y)+ABS(YEN_TTL_S)) &lt;> 0
+ORDER BY YK.BUMON_CD
+  </sql>
+  <sql name="GetRecords累計">
+	  SELECT YK.BUMON_CD
+	  ,MIN(B.BUMON_NM) FNAME
+	  ,SUM((DECODE(YOSANKMK_CD,'80030',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 運賃
+	  ,SUM((DECODE(YOSANKMK_CD,'80040',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 貸船料
+	  ,SUM((DECODE(YOSANKMK_CD,'80050',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 他船取扱手数料
+	  ,SUM((DECODE(YOSANKMK_CD,'80080',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 その他海運業収益
+	  ,SUM((DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 海運業収益
+	  ,SUM(DECODE(substr(YOSANKMK_CD,1,5),'80030',
+	  (DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL_C ,0)            ) * DECODE(K.TISYK_KBN,'2',1,-1),0)) /1000 ｳﾁ過月度分_収益
+	  ,SUM((DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',YEN_YEN,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'800',USD_USD,0)*J.SYONEN_RATE ) * DECODE(K.TISYK_KBN,'2',1,-1)) /1000 ｳﾁ為替分_収益
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8061',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 運航費
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8062',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8063',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8064',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,4),'8065',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))
+	  +SUM((DECODE(substr(YOSANKMK_CD,1,5),'80660',YEN_TTL,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 船費
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,5),'80665',YEN_TTL,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 借船料
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,4),'8067',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  +(DECODE(substr(YOSANKMK_CD,1,4),'8068',YEN_TTL,0)              ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 その他海運業費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 海運業費用
+	  ,-(SUM(DECODE(substr(YOSANKMK_CD,1,4),'8061',
+	  (DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL_C,0)             ) * DECODE(K.TISYK_KBN,'2',1,-1),0))) /1000 ｳﾁ過月度分_費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_TTL,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',YEN_YEN,0)               ) * DECODE(K.TISYK_KBN,'2',1,-1)
+	  -(DECODE(substr(YOSANKMK_CD,1,3),'806',USD_USD,0)*J.SYONEN_RATE ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 ｳﾁ為替分_費用
+	  ,-(SUM((DECODE(substr(YOSANKMK_CD,1,2),'83',YEN_TTL,0)                         ) * DECODE(K.TISYK_KBN,'2',1,-1))) /1000 販管費
+	  FROM (
+	  SELECT BUMON_CD,KISY_CD,YOSAN_YD,YOSAN_YM,'0' INPUT_KBN,SUBSTR(BUKKEN_NO,1,4) FUNE_NO,YOSAN_KMK YOSANKMK_CD
+	  ,'' ST_YM,'' ED_YM
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0))  YEN_TTL_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONENY_YOSAN,0)) YEN_YEN_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONENF_YOSAN,0)) USD_USD_Y
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONEN_YOSAN,0))  YEN_TTL_S
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONENY_YOSAN,0)) YEN_YEN_S
+	  ,SUM(DECODE(YOSAN_KBN,'80',SYONENF_YOSAN,0)) USD_USD_S
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0))  YEN_TTL
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONENY_YOSAN,0)) YEN_YEN
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONENF_YOSAN,0)) USD_USD
+	  ,0 YEN_TTL_C
+	  ,0 YEN_USD_C
+	  ,0 USD_TTL_C
+	  FROM VBRYOSANTB
+	  WHERE YOSAN_UTIKBN >= '1'
+	  AND (YOSAN_KBN > '09' or YOSAN_KBN = '00')
+	  GROUP BY KISY_CD,YOSAN_YD,YOSAN_YM,BUKKEN_NO,YOSAN_KMK,BUMON_CD
+	  UNION ALL
+	  SELECT B.BUMON_CD,YK.KISY_CD,YOSAN_YD,YOSAN_YM,YK.INPUT_KBN,YK.FUNE_NO,YK.YOSANKMK_CD
+	  ,TO_CHAR(YC.ST_YMDH,'YYYYMM') ST_YM,TO_CHAR(YC.ED_YMDH-(1/24/60),'YYYYMM') ED_YM
+	  ,0 YEN_TTL_Y
+	  ,0 YEN_YEN_Y
+	  ,0 USD_USD_Y
+	  ,0 YEN_TTL_S
+	  ,0 YEN_YEN_S
+	  ,0 USD_USD_S
+	  ,0 YEN_TTL
+	  ,0 YEN_YEN
+	  ,0 USD_USD
+	  ,SUM(YK.SYONEN_YOSAN)  YEN_TTL_C
+	  ,SUM(YK.SYONENY_YOSAN) YEN_YEN_C
+	  ,SUM(YK.SYONENF_YOSAN) USD_USD_C
+	  FROM VBRKAIYSKTB YK
+	  ,TKJCBHEAD YC
+	  ,(select substr(bkjh_cd,1,4) fune_no,min(kaikei_bumon_cd) bumon_cd from tajbumonms where kisy_cd = '180' and kaikei_bumon_cd like '1%' group by substr(bkjh_cd,1,4)) B
+	  WHERE YK.FUNE_NO                   = YC.FUNE_NO(+)
+	  AND SUBSTR(YK.KANRI_NO,1,4)      = YC.JIKO_NO(+)
+	  AND YK.YOSAN_KBN              LIKE '9%'
+	  AND YK.YOSANKMK_CD   LIKE '80%'
+	  AND YK.FUNE_NO = B.FUNE_NO
+	  GROUP BY YK.KISY_CD,YOSAN_YD,YOSAN_YM,YK.INPUT_KBN,YK.FUNE_NO,YK.YOSANKMK_CD
+	  ,TO_CHAR(YC.ST_YMDH,'YYYYMM'),TO_CHAR(YC.ED_YMDH-(1/24/60),'YYYYMM'),B.BUMON_CD
+	  UNION ALL
+	  SELECT BUMON_CD,KISY_CD,YOSAN_YD,YOSAN_YM,'0' INPUT_KBN,SUBSTR(BUKKEN_NO,1,4) FUNE_NO,'83701' YOSANKMK_CD
+	  ,'' ST_YM,'' ED_YM
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0)) YEN_TTL_Y
+	  ,SUM(DECODE(SUBSTR(YOSAN_KBN,1,1),'0',SYONEN_YOSAN,0)) YEN_YEN_Y
+	  ,0 USD_USD_Y
+	  ,0 YEN_TTL_S
+	  ,0 YEN_YEN_S
+	  ,0 USD_USD_S
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0)) YEN_TTL
+	  ,SUM(DECODE(YOSAN_KBN,'90',SYONEN_YOSAN,0)) YEN_YEN
+	  ,0 USD_USD
+	  ,0 YEN_TTL_C
+	  ,0 YEN_USD_C
+	  ,0 USD_TTL_C
+	  FROM VBRYOSANTB
+	  WHERE YOSAN_UTIKBN &lt; '1'
+           AND (YOSAN_KBN > '09' or YOSAN_KBN = '00') AND KNJ_KBN = '6'
+        GROUP BY KISY_CD,YOSAN_YD,YOSAN_YM,BUKKEN_NO,BUMON_CD
+       ) YK
+--年月を指定する--
+      ,(SELECT :YEAR YD, :YEARMONTH YM,'00' KBN) P
+------------------
+      ,TBRYSNJOKENMST J
+      ,TKYKNJKMKMST K
+      ,TKJSHIP S
+      ,(select kaikei_bumon_cd,min(kaikei_bumon_nm) bumon_nm from tajbumonms where kisy_cd = '180' and kaikei_bumon_cd like '1%' group by kaikei_bumon_cd) B
+ WHERE P.YD             = J.YOSAN_YD(+)
+   AND P.KBN            = J.YOSAN_KBN(+)
+   AND YK.KISY_CD       = K.KISY_CD(+)
+   AND YK.YOSANKMK_CD   = K.KNJKMK_CD(+)
+   AND YK.BUMON_CD      = B.KAIKEI_BUMON_CD
+   AND YK.FUNE_NO       = S.FUNE_NO(+)
+   AND YK.BUMON_CD      LIKE '14%'
+   AND YK.KISY_CD       = '180'
+   AND YK.YOSAN_YD = P.YD
+   AND YK.YOSAN_YM &lt;= P.YM
+   AND (YK.INPUT_KBN = '0' OR (YK.INPUT_KBN = '2' AND YK.YOSANKMK_CD = '80665') OR (ST_YM &lt;= YK.YOSAN_YM AND ED_YM >= YK.YOSAN_YM))
+GROUP BY YK.BUMON_CD
+HAVING SUM(ABS(YEN_TTL)+ABS(YEN_TTL_Y)+ABS(YEN_TTL_S)) &lt;> 0
+ORDER BY YK.BUMON_CD
+  </sql>
+</databaseConfig>

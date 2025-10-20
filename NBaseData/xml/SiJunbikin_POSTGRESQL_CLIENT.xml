@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_JUNBIKIN.SI_JUNBIKIN_ID                 ,
+
+    SI_JUNBIKIN.MS_VESSEL_ID                   ,
+    SI_JUNBIKIN.MS_SI_HIYOU_KAMOKU_ID          ,
+    SI_JUNBIKIN.MS_SI_DAIKOUMOKU_ID            ,
+    SI_JUNBIKIN.MS_SI_MEISAI_ID                ,
+    SI_JUNBIKIN.MS_SI_KAMOKU_ID                ,
+    SI_JUNBIKIN.TOUROKU_USER_ID                ,
+
+    SI_JUNBIKIN.JUNBIKIN_DATE                  ,
+    SI_JUNBIKIN.KINGAKU_OUT                    ,
+    SI_JUNBIKIN.TAX_OUT                        ,
+    SI_JUNBIKIN.KINGAKU_IN                     ,
+    SI_JUNBIKIN.TAX_IN                         ,
+    SI_JUNBIKIN.BIKOU                          ,
+    SI_JUNBIKIN.FURIKAE_FLAG                   ,
+
+    SI_JUNBIKIN.DELETE_FLAG                    ,
+    SI_JUNBIKIN.SEND_FLAG                      ,
+    SI_JUNBIKIN.VESSEL_ID                      ,
+    SI_JUNBIKIN.DATA_NO                        ,
+    SI_JUNBIKIN.USER_KEY                       ,
+    SI_JUNBIKIN.RENEW_DATE                     ,
+    SI_JUNBIKIN.RENEW_USER_ID                  ,
+    SI_JUNBIKIN.TS                             ,
+    SI_JUNBIKIN.MS_TAX_ID                      ,
+
+    U1.SEI || ' ' || U1.MEI AS TOUROKU_USER_NAME,
+    U2.SEI || ' ' || U2.MEI AS KOUSHIN_USER_NAME,
+
+    KAMOKU.KAMOKU_NAME,
+    KAMOKU.TAX_FLAG,
+    KAMOKU.HIYOU_KIND
+
+    FROM
+    SI_JUNBIKIN
+
+    LEFT JOIN
+    MS_USER U1 ON U1.MS_USER_ID = SI_JUNBIKIN.TOUROKU_USER_ID
+    LEFT JOIN
+    MS_USER U2 ON U2.MS_USER_ID = SI_JUNBIKIN.RENEW_USER_ID
+    LEFT JOIN
+    MS_SI_KAMOKU KAMOKU ON KAMOKU.MS_SI_KAMOKU_ID = SI_JUNBIKIN.MS_SI_KAMOKU_ID
+
+    WHERE
+    SI_JUNBIKIN.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiJunbikinID">
+    AND
+    SI_JUNBIKIN.SI_JUNBIKIN_ID = :SI_JUNBIKIN_ID
+  </sql>
+
+  <sql name="ByStartEnd">
+    AND
+    SI_JUNBIKIN.JUNBIKIN_DATE >= :START_DATE
+    AND
+    SI_JUNBIKIN.JUNBIKIN_DATE &lt; :END_DATE
+  </sql>
+
+  <sql name="ByMsVesselID">
+    AND
+    SI_JUNBIKIN.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="Get_先月末残高">
+    SELECT
+    SUM(KINGAKU_IN) +
+    SUM(TAX_IN) -
+    SUM(KINGAKU_OUT) -
+    SUM(TAX_OUT)
+    FROM
+    SI_JUNBIKIN
+    WHERE
+    MS_VESSEL_ID = :MS_VESSEL_ID
+    AND
+    JUNBIKIN_DATE &lt; :END_DATE
+    AND
+    SI_JUNBIKIN.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_JUNBIKIN(
+    SI_JUNBIKIN_ID                 ,
+
+    MS_VESSEL_ID                   ,
+    MS_SI_HIYOU_KAMOKU_ID          ,
+    MS_SI_DAIKOUMOKU_ID            ,
+    MS_SI_MEISAI_ID                ,
+    MS_SI_KAMOKU_ID                ,
+    TOUROKU_USER_ID                ,
+
+    JUNBIKIN_DATE                  ,
+    KINGAKU_OUT                    ,
+    TAX_OUT                        ,
+    KINGAKU_IN                     ,
+    TAX_IN                         ,
+    BIKOU                          ,
+    FURIKAE_FLAG                   ,
+    MS_TAX_ID                      ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_JUNBIKIN_ID                 ,
+
+    :MS_VESSEL_ID                   ,
+    :MS_SI_HIYOU_KAMOKU_ID          ,
+    :MS_SI_DAIKOUMOKU_ID            ,
+    :MS_SI_MEISAI_ID                ,
+    :MS_SI_KAMOKU_ID                ,
+    :TOUROKU_USER_ID                ,
+
+    :JUNBIKIN_DATE                  ,
+    :KINGAKU_OUT                    ,
+    :TAX_OUT                        ,
+    :KINGAKU_IN                     ,
+    :TAX_IN                         ,
+    :BIKOU                          ,
+    :FURIKAE_FLAG                   ,
+    :MS_TAX_ID                      ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_JUNBIKIN
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    MS_SI_HIYOU_KAMOKU_ID = :MS_SI_HIYOU_KAMOKU_ID   ,
+    MS_SI_DAIKOUMOKU_ID = :MS_SI_DAIKOUMOKU_ID       ,
+    MS_SI_MEISAI_ID = :MS_SI_MEISAI_ID               ,
+    MS_SI_KAMOKU_ID = :MS_SI_KAMOKU_ID               ,
+    TOUROKU_USER_ID = :TOUROKU_USER_ID               ,
+
+    JUNBIKIN_DATE = :JUNBIKIN_DATE                   ,
+    KINGAKU_OUT = :KINGAKU_OUT                       ,
+    TAX_OUT = :TAX_OUT                               ,
+    KINGAKU_IN = :KINGAKU_IN                         ,
+    TAX_IN = :TAX_IN                                 ,
+    BIKOU = :BIKOU                                   ,
+    FURIKAE_FLAG = :FURIKAE_FLAG                     ,
+    MS_TAX_ID = :MS_TAX_ID                           ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_JUNBIKIN_ID = :SI_JUNBIKIN_ID
+  </sql>
+
+</databaseConfig>

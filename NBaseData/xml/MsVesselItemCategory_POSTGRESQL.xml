@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VESSEL_ITEM_CATEGORY.MS_VESSEL_ITEM_CATEGORY_NUMBER ,
+    MS_VESSEL_ITEM_CATEGORY.CATEGORY_NAME                  ,
+    MS_VESSEL_ITEM_CATEGORY.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_CATEGORY.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_CATEGORY.DATA_NO                        ,
+    MS_VESSEL_ITEM_CATEGORY.USER_KEY                       ,
+    MS_VESSEL_ITEM_CATEGORY.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_CATEGORY.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_CATEGORY.TS
+    FROM
+    MS_VESSEL_ITEM_CATEGORY
+    WHERE DELETE_FLAG = 0
+    ORDER BY MS_VESSEL_ITEM_CATEGORY.MS_VESSEL_ITEM_CATEGORY_NUMBER
+  </sql>
+
+</databaseConfig>

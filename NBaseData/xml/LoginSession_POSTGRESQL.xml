@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+	<sql name="GetRecord">
+		select
+		SESSION_KEY ,
+		MS_USER_ID  ,
+		RENEW_DATE 
+
+		from
+		LOGIN_SESSION
+		where SESSION_KEY = :SESSION_KEY
+	</sql>
+
+	<sql name="InsertRecord">
+    insert into
+    LOGIN_SESSION
+    (SESSION_KEY,
+    MS_USER_ID,
+    RENEW_DATE
+    )
+    values
+    (:SESSION_KEY,
+    :MS_USER_ID,
+    now()
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+		update
+		LOGIN_SESSION
+		set
+		RENEW_DATE = now()
+		where
+		SESSION_KEY = :SESSION_KEY
+	</sql>
+</databaseConfig>

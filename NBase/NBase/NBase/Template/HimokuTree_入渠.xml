@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<HimokuTree>
+  <!--合計-->
+  <Himoku Name="合計" BgColor="HotPink">
+
+    <!--入渠費計-->
+    <Himoku Name="入渠費計" BgColor="Salmon">
+      <Himoku MsHimokuID="44" BgColor="KhaKi" />
+      <Himoku MsHimokuID="46" BgColor="PaleGreen" />
+      <Himoku MsHimokuID="47" BgColor="PaleTurquoise" />
+      <Himoku MsHimokuID="48" BgColor="LightSteelBlue" />
+      <Himoku MsHimokuID="79" BgColor="SteelBlue" />
+      <Himoku MsHimokuID="49" BgColor="Pink" />
+      <Himoku MsHimokuID="50" BgColor="Thistle" />
+      <Himoku MsHimokuID="51" BgColor="Gold" />
+      <Himoku MsHimokuID="52" BgColor="Plum" />
+      <Himoku MsHimokuID="53" BgColor="Violet" />
+    </Himoku>
+
+    <Himoku MsHimokuID="54" BgColor="LightBlue" />
+    <Himoku MsHimokuID="40" BgColor="LightBlue" />
+    <Himoku MsHimokuID="41" BgColor="LightBlue" />
+  </Himoku>
+
+  <!--備考-->
+  <Himoku Name="備考" BgColor="Yellow" />
+
+</HimokuTree>

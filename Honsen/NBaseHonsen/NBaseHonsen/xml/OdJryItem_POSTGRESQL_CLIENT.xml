@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_JRY_ITEM.OD_JRY_ITEM_ID                 ,
+    OD_JRY_ITEM.OD_JRY_ID                      ,
+    OD_JRY_ITEM.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME as MS_ITEM_SBT_NAME,
+    OD_JRY_ITEM.HEADER                         ,
+    OD_JRY_ITEM.ITEM_NAME                      ,
+    OD_JRY_ITEM.BIKOU                          ,
+
+    OD_JRY_ITEM.SEND_FLAG                      ,
+    OD_JRY_ITEM.VESSEL_ID                      ,
+    OD_JRY_ITEM.DATA_NO                        ,
+    OD_JRY_ITEM.USER_KEY                       ,
+    OD_JRY_ITEM.RENEW_DATE                     ,
+    OD_JRY_ITEM.RENEW_USER_ID                  ,
+    OD_JRY_ITEM.TS                             ,
+    OD_JRY_ITEM.CANCEL_FLAG                    ,
+    OD_JRY_ITEM.SHOW_ORDER
+    FROM
+    OD_JRY_ITEM
+    LEFT OUTER JOIN MS_ITEM_SBT ON MS_ITEM_SBT.MS_ITEM_SBT_ID = OD_JRY_ITEM.MS_ITEM_SBT_ID
+
+    WHERE OD_JRY_ITEM.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY OD_JRY_ITEM.SHOW_ORDER
+  </sql>
+
+  <sql name="ByOdJryID">
+    AND OD_JRY_ITEM.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+
+  <sql name="ByOdJryItemID">
+    AND OD_JRY_ITEM.OD_JRY_ITEM_ID = :OD_JRY_ITEM_ID
+  </sql>
+
+  <sql name="FilterByOdJryIDs">
+    AND OD_JRY_ITEM.OD_JRY_ID IN ( #INNER_SQL_OD_JRY_IDS# )
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_JRY_ITEM
+    (
+    OD_JRY_ITEM_ID                 ,
+    OD_JRY_ID                      ,
+    MS_ITEM_SBT_ID                 ,
+    HEADER                         ,
+    ITEM_NAME                      ,
+    BIKOU                          ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    CANCEL_FLAG                    ,
+    SHOW_ORDER
+    )
+    VALUES
+    (
+    :OD_JRY_ITEM_ID                 ,
+    :OD_JRY_ID                      ,
+    :MS_ITEM_SBT_ID                 ,
+    :HEADER                         ,
+    :ITEM_NAME                      ,
+    :BIKOU                          ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :CANCEL_FLAG                    ,
+    :SHOW_ORDER
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_JRY_ITEM
+    SET
+    OD_JRY_ID = :OD_JRY_ID                           ,
+    MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID               ,
+    HEADER = :HEADER                                 ,
+    ITEM_NAME = :ITEM_NAME                           ,
+    BIKOU = :BIKOU                                   ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    SHOW_ORDER = :SHOW_ORDER
+
+
+    WHERE
+    OD_JRY_ITEM_ID = :OD_JRY_ITEM_ID
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE FROM OD_JRY_ITEM
+    WHERE OD_JRY_ITEM_ID = :OD_JRY_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

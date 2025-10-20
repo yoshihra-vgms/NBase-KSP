@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+	<sql name="GetRecords">
+    select
+    MS_USER_ID    ,
+    USER_KBN      ,
+    LOGIN_ID      ,
+    PASSWORD      ,
+    MAIL_ADDRESS  ,
+    SEI,
+    MEI,
+    SEI_KANA,
+    MEI_KANA,
+    SEX,
+    ADMIN_FLAG    ,
+
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    
+    --DOC_FLAG_MSI_CARGO  ,
+    --DOC_FLAG_CREW_CARGO ,
+    --DOC_FLAG_TSI_CARGO  ,
+    --DOC_FLAG_SD_MANAGER ,
+
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    DATA_NO       ,
+    USER_KEY      ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    TS
+
+    from MS_USER
+    where (MS_USER.DELETE_FLAG = 0 or MS_USER.DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="GetAllRecords">
+    select
+    MS_USER_ID    ,
+    USER_KBN      ,
+    LOGIN_ID      ,
+    PASSWORD      ,
+    MAIL_ADDRESS  ,
+    SEI,
+    MEI,
+    SEI_KANA,
+    MEI_KANA,
+    SEX,
+    ADMIN_FLAG    ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    
+    --DOC_FLAG_MSI_CARGO  ,
+    --DOC_FLAG_CREW_CARGO ,
+    --DOC_FLAG_TSI_CARGO  ,
+    --DOC_FLAG_SD_MANAGER ,
+    
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    DATA_NO       ,
+    USER_KEY      ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    TS
+
+    from MS_USER
+  </sql>
+
+	<sql name="ByUserKbn事務所">
+    and USER_KBN = 0
+  </sql>
+
+  <sql name="ByUserKbn船員">
+    and USER_KBN = 1
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY USER_KBN, SEI_KANA, MEI_KANA, SEI, MEI
+  </sql>
+
+  <sql name="GetRecordsByUserID">
+    select
+    MS_USER.MS_USER_ID    ,
+    MS_USER.USER_KBN      ,
+    MS_USER.LOGIN_ID      ,
+    MS_USER.PASSWORD      ,
+    MS_USER.MAIL_ADDRESS  ,
+    MS_USER.SEI           ,
+    MS_USER.MEI           ,
+    MS_USER.SEI_KANA      ,
+    MS_USER.MEI_KANA      ,
+    MS_USER.SEX           ,
+    MS_USER.ADMIN_FLAG    ,
+    MS_USER.DOC_FLAG_CEO        ,
+    MS_USER.DOC_FLAG_ADMIN      ,
+    MS_USER.DOC_FLAG_MSI_FERRY  ,
+    MS_USER.DOC_FLAG_CREW_FERRY ,
+    MS_USER.DOC_FLAG_TSI_FERRY  ,
+    MS_USER.DOC_FLAG_OFFICER    ,
+    MS_USER.DOC_FLAG_GL         ,
+    MS_USER.DOC_FLAG_TL         ,
+    
+    --MS_USER.DOC_FLAG_MSI_CARGO  ,
+    --MS_USER.DOC_FLAG_CREW_CARGO ,
+    --MS_USER.DOC_FLAG_TSI_CARGO  ,
+    --MS_USER.DOC_FLAG_SD_MANAGER ,
+    
+    MS_USER.DELETE_FLAG   ,
+    MS_USER.SEND_FLAG     ,
+    MS_USER.VESSEL_ID     ,
+    MS_USER.DATA_NO       ,
+    MS_USER.USER_KEY      ,
+    MS_USER.RENEW_DATE    ,
+    MS_USER.RENEW_USER_ID ,
+    MS_USER.TS            ,
+    MS_BUMON.BUMON_NAME as MS_BUMON_BUMON_NAME
+
+    from MS_USER
+
+    inner join MS_USER_BUMON on MS_USER.MS_USER_ID = MS_USER_BUMON.MS_USER_ID
+    inner join MS_BUMON on MS_USER_BUMON.MS_BUMON_ID = MS_BUMON.MS_BUMON_ID
+
+    where MS_USER.MS_USER_ID = :MS_USER_ID
+    and (MS_USER.DELETE_FLAG = 0 or MS_USER.DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="GetRecordsByLoginIDPassword">
+    select
+    MS_USER_ID    ,
+    USER_KBN      ,
+    LOGIN_ID      ,
+    PASSWORD      ,
+    MAIL_ADDRESS  ,
+    SEI,
+    MEI,
+    SEI_KANA,
+    MEI_KANA,
+    SEX,
+    ADMIN_FLAG    ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    
+    --DOC_FLAG_MSI_CARGO  ,
+    --DOC_FLAG_CREW_CARGO ,
+    --DOC_FLAG_TSI_CARGO  ,
+    --DOC_FLAG_SD_MANAGER ,
+    
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    DATA_NO       ,
+    USER_KEY      ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    TS
+
+    from MS_USER
+    where LOGIN_ID = :LOGIN_ID
+    and PASSWORD = :PASSWORD
+    and (MS_USER.DELETE_FLAG = 0 or MS_USER.DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="GetRecordsByLoginID">
+    select
+    MS_USER_ID    ,
+    USER_KBN      ,
+    LOGIN_ID      ,
+    PASSWORD      ,
+    MAIL_ADDRESS  ,
+    SEI,
+    MEI,
+    SEI_KANA,
+    MEI_KANA,
+    SEX,
+    ADMIN_FLAG    ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_OFFICER    ,
+    
+    --DOC_FLAG_MSI_CARGO  ,
+    --DOC_FLAG_CREW_CARGO ,
+    --DOC_FLAG_TSI_CARGO  ,
+    --DOC_FLAG_SD_MANAGER ,
+    
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    DATA_NO       ,
+    USER_KEY      ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    TS
+
+    from MS_USER
+    where LOGIN_ID = :LOGIN_ID
+  </sql>
+	<sql name="SearchRecords">
+    select
+    MS_USER.MS_USER_ID    ,
+    MS_USER.USER_KBN      ,
+    MS_USER.LOGIN_ID      ,
+    MS_USER.PASSWORD      ,
+    MS_USER.MAIL_ADDRESS  ,
+    MS_USER.SEI,
+    MS_USER.MEI,
+    MS_USER.SEI_KANA,
+    MS_USER.MEI_KANA,
+    MS_USER.SEX,
+    MS_USER.ADMIN_FLAG    ,
+    MS_USER.DOC_FLAG_CEO        ,
+    MS_USER.DOC_FLAG_ADMIN      ,
+    MS_USER.DOC_FLAG_MSI_FERRY  ,
+    MS_USER.DOC_FLAG_CREW_FERRY ,
+    MS_USER.DOC_FLAG_TSI_FERRY  ,
+    MS_USER.DOC_FLAG_OFFICER    ,
+    
+    --MS_USER.DOC_FLAG_MSI_CARGO  ,
+    --MS_USER.DOC_FLAG_CREW_CARGO ,
+    --MS_USER.DOC_FLAG_TSI_CARGO  ,
+    --MS_USER.DOC_FLAG_SD_MANAGER ,
+    
+    MS_USER.DOC_FLAG_GL         ,
+    MS_USER.DOC_FLAG_TL         ,
+    MS_USER.DELETE_FLAG   ,
+    MS_USER.SEND_FLAG     ,
+    MS_USER.VESSEL_ID     ,
+    MS_USER.DATA_NO       ,
+    MS_USER.USER_KEY      ,
+    MS_USER.RENEW_DATE    ,
+    MS_USER.RENEW_USER_ID ,
+    MS_USER.TS            ,
+    MS_BUMON.BUMON_NAME as MS_BUMON_BUMON_NAME
+
+    from MS_USER
+    inner join MS_USER_BUMON on MS_USER.MS_USER_ID = MS_USER_BUMON.MS_USER_ID  		#INNER_JOIN_STR#
+    inner join MS_BUMON on MS_USER_BUMON.MS_BUMON_ID = MS_BUMON.MS_BUMON_ID
+
+    where (MS_USER.DELETE_FLAG = 0 or MS_USER.DELETE_FLAG is NULL)
+
+  </sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO MS_USER(
+    MS_USER_ID    ,
+    USER_KBN      ,
+    LOGIN_ID      ,
+    PASSWORD      ,
+    MAIL_ADDRESS  ,
+    SEI,
+    MEI,
+    SEI_KANA,
+    MEI_KANA,
+    SEX,
+    ADMIN_FLAG    ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    
+    --DOC_FLAG_MSI_CARGO  ,
+    --DOC_FLAG_CREW_CARGO ,
+    --DOC_FLAG_TSI_CARGO  ,
+    --DOC_FLAG_SD_MANAGER ,
+    
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    DATA_NO       ,
+    USER_KEY      ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    TS
+    )
+    VALUES(
+    :MS_USER_ID    ,
+    :USER_KBN      ,
+    :LOGIN_ID      ,
+    :PASSWORD      ,
+    :MAIL_ADDRESS  ,
+    :SEI,
+    :MEI,
+    :SEI_KANA,
+    :MEI_KANA,
+    :SEX,
+    :ADMIN_FLAG    ,
+    :DOC_FLAG_CEO        ,
+    :DOC_FLAG_ADMIN      ,
+    :DOC_FLAG_MSI_FERRY  ,
+    :DOC_FLAG_CREW_FERRY ,
+    :DOC_FLAG_TSI_FERRY  ,
+    :DOC_FLAG_OFFICER    ,
+    :DOC_FLAG_GL         ,
+    :DOC_FLAG_TL         ,
+    
+    --:DOC_FLAG_MSI_CARGO  ,
+    --:DOC_FLAG_CREW_CARGO ,
+    --:DOC_FLAG_TSI_CARGO  ,
+    --:DOC_FLAG_SD_MANAGER ,
+    
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :DATA_NO       ,
+    :USER_KEY      ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+    UPDATE MS_USER SET
+    USER_KBN = :USER_KBN,
+    LOGIN_ID = :LOGIN_ID,
+    PASSWORD = :PASSWORD,
+    MAIL_ADDRESS = :MAIL_ADDRESS,
+    SEI = :SEI,
+    MEI = :MEI,
+    SEI_KANA = :SEI_KANA,
+    MEI_KANA = :MEI_KANA,
+    SEX = :SEX,
+    ADMIN_FLAG = :ADMIN_FLAG,
+    
+    DOC_FLAG_CEO = :DOC_FLAG_CEO,
+    DOC_FLAG_ADMIN = :DOC_FLAG_ADMIN,
+    DOC_FLAG_MSI_FERRY = :DOC_FLAG_MSI_FERRY,
+    DOC_FLAG_CREW_FERRY = :DOC_FLAG_CREW_FERRY,
+    DOC_FLAG_TSI_FERRY = :DOC_FLAG_TSI_FERRY,
+    DOC_FLAG_OFFICER = :DOC_FLAG_OFFICER,
+    DOC_FLAG_GL = :DOC_FLAG_GL,
+    DOC_FLAG_TL = :DOC_FLAG_TL,
+    
+    --DOC_FLAG_MSI_CARGO = :DOC_FLAG_MSI_CARGO,
+    --DOC_FLAG_CREW_CARGO = :DOC_FLAG_CREW_CARGO,
+    --DOC_FLAG_TSI_CARGO = :DOC_FLAG_TSI_CARGO,
+    --DOC_FLAG_SD_MANAGER = :DOC_FLAG_SD_MANAGER,
+    
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+
+    where MS_USER_ID = :MS_USER_ID
+    AND TS = :TS
+
+  </sql>
+
+	<sql name="DeleteFlagRecord">
+		UPDATE MS_USER SET
+		DELETE_FLAG = 1
+
+		where MS_USER_ID = :MS_USER_ID
+		AND TS = :TS
+
+	</sql>
+</databaseConfig>

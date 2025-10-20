@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    SELECT
+    BG_YOSAN_HEAD.YOSAN_HEAD_ID,
+    BG_YOSAN_HEAD.YEAR,
+    BG_YOSAN_HEAD.YOSAN_SBT_ID,
+    BG_YOSAN_HEAD.REVISION,
+    BG_YOSAN_HEAD.FIX_DATE,
+    BG_YOSAN_HEAD.MS_USER_ID,
+    BG_YOSAN_HEAD.ZENTEI_JOUKEN,
+    BG_YOSAN_HEAD.REVISION_BIKOU,
+    BG_YOSAN_HEAD.RENEW_DATE,
+    BG_YOSAN_HEAD.RENEW_USER_ID,
+    BG_YOSAN_HEAD.TS
+    FROM
+    BG_YOSAN_HEAD
+  </sql>
+
+  <sql name="GetRecordsByMsUserID">
+    SELECT
+    BG_YOSAN_HEAD.YOSAN_HEAD_ID,
+    BG_YOSAN_HEAD.YEAR,
+    BG_YOSAN_HEAD.YOSAN_SBT_ID,
+    BG_YOSAN_HEAD.REVISION,
+    BG_YOSAN_HEAD.FIX_DATE,
+    BG_YOSAN_HEAD.MS_USER_ID,
+    BG_YOSAN_HEAD.ZENTEI_JOUKEN,
+    BG_YOSAN_HEAD.REVISION_BIKOU,
+    BG_YOSAN_HEAD.RENEW_DATE,
+    BG_YOSAN_HEAD.RENEW_USER_ID,
+    BG_YOSAN_HEAD.TS
+    FROM
+    BG_YOSAN_HEAD
+    WHERE
+    BG_YOSAN_HEAD.MS_USER_ID = :MS_USER_ID
+  </sql>
+  
+	<sql name="ByYosanHeadId">
+		WHERE
+		BG_YOSAN_HEAD.YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+	</sql>
+
+  <sql name="ByYear">
+    WHERE
+    YEAR = :YEAR
+    AND
+    BG_YOSAN_HEAD.REVISION =
+    (
+    SELECT
+    MAX(REVISION)
+    FROM BG_YOSAN_HEAD
+    WHERE
+    YEAR = :YEAR
+
+    AND
+    BG_YOSAN_HEAD.YOSAN_SBT_ID =
+    (
+    SELECT
+    MAX(YOSAN_SBT_ID)
+    FROM BG_YOSAN_HEAD
+    WHERE
+    YEAR = :YEAR
+    )
+    )
+    and
+    BG_YOSAN_HEAD.YOSAN_SBT_ID =
+    (
+    SELECT
+    MAX(YOSAN_SBT_ID)
+    FROM BG_YOSAN_HEAD
+    WHERE
+    YEAR = :YEAR
+    )
+  </sql>
+
+  <sql name="_直近_ORG">
+    WHERE
+    YOSAN_SBT_ID = :YOSAN_SBT_ID
+    AND
+    ROWNUM &lt;= 1
+  </sql>
+
+  <sql name="_直近_利用しない">
+    WHERE
+    ROWNUM &lt;= 1
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    YEAR DESC, YOSAN_SBT_ID DESC, REVISION DESC
+  </sql>
+  
+  <sql name="OrderBy_直近">
+    ORDER BY
+    YEAR DESC, YOSAN_SBT_ID DESC, REVISION DESC
+    LIMIT 1 OFFSET 0
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO BG_YOSAN_HEAD
+    (
+    YOSAN_HEAD_ID,
+    YEAR,
+    YOSAN_SBT_ID,
+    REVISION,
+    FIX_DATE,
+    MS_USER_ID,
+    ZENTEI_JOUKEN,
+    REVISION_BIKOU,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_BG_YOSAN_HEAD_ID'),
+    :YEAR,
+    :YOSAN_SBT_ID,
+    :REVISION,
+    :FIX_DATE,
+    :MS_USER_ID,
+    :ZENTEI_JOUKEN,
+    :REVISION_BIKOU,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+		UPDATE BG_YOSAN_HEAD SET
+		YEAR = :YEAR,
+		YOSAN_SBT_ID = :YOSAN_SBT_ID,
+		REVISION = :REVISION,
+		FIX_DATE = :FIX_DATE,
+		MS_USER_ID = :MS_USER_ID,
+		ZENTEI_JOUKEN = :ZENTEI_JOUKEN,
+		REVISION_BIKOU = :REVISION_BIKOU,
+		RENEW_DATE = :RENEW_DATE,
+		RENEW_USER_ID = :RENEW_USER_ID
+		WHERE
+		(YOSAN_HEAD_ID = :YOSAN_HEAD_ID) AND
+		(TS = :TS)
+	</sql>
+
+</databaseConfig>

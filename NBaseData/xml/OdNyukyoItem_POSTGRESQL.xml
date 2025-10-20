@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_NYUKYO_ITEM.OR_NYUKYO_ITEM_ID              ,
+    OD_NYUKYO_ITEM.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                         ,
+    OD_NYUKYO_ITEM.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME                     ,
+    OD_NYUKYO_ITEM.ITEN_NAME                      ,
+    OD_NYUKYO_ITEM.BIKOU                          ,
+    OD_NYUKYO_ITEM.SEND_FLAG                      ,
+    OD_NYUKYO_ITEM.VESSEL_ID                      ,
+    OD_NYUKYO_ITEM.DATA_NO                        ,
+    OD_NYUKYO_ITEM.USER_KEY                       ,
+    OD_NYUKYO_ITEM.RENEW_DATE                     ,
+    OD_NYUKYO_ITEM.RENEW_USER_ID                  ,
+    OD_NYUKYO_ITEM.TS
+    FROM
+    OD_NYUKYO_ITEM
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_NYUKYO_ITEM.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_ITEM_SBT ON MS_ITEM_SBT.MS_ITEM_SBT_ID = OD_NYUKYO_ITEM.MS_ITEM_SBT_ID
+
+  </sql>
+  
+
+  <sql name="GetRecord">
+    SELECT
+    OD_NYUKYO_ITEM.OR_NYUKYO_ITEM_ID              ,
+    OD_NYUKYO_ITEM.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                         ,
+    OD_NYUKYO_ITEM.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME                     ,
+    OD_NYUKYO_ITEM.ITEN_NAME                      ,
+    OD_NYUKYO_ITEM.BIKOU                          ,
+    OD_NYUKYO_ITEM.SEND_FLAG                      ,
+    OD_NYUKYO_ITEM.VESSEL_ID                      ,
+    OD_NYUKYO_ITEM.DATA_NO                        ,
+    OD_NYUKYO_ITEM.USER_KEY                       ,
+    OD_NYUKYO_ITEM.RENEW_DATE                     ,
+    OD_NYUKYO_ITEM.RENEW_USER_ID                  ,
+    OD_NYUKYO_ITEM.TS
+    FROM
+    OD_NYUKYO_ITEM
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = OD_NYUKYO_ITEM.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_ITEM_SBT ON MS_ITEM_SBT.MS_ITEM_SBT_ID = OD_NYUKYO_ITEM.MS_ITEM_SBT_ID
+    WHERE
+    OD_NYUKYO_ITEM.OR_NYUKYO_ITEM_ID = :OR_NYUKYO_ITEM_ID
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_NYUKYO_ITEM
+    (
+    OR_NYUKYO_ITEM_ID              ,
+    MS_VESSEL_ID                   ,
+    MS_ITEM_SBT_ID                 ,
+    ITEN_NAME                      ,
+    BIKOU                          ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OR_NYUKYO_ITEM_ID              ,
+    :MS_VESSEL_ID                   ,
+    :MS_ITEM_SBT_ID                 ,
+    :ITEN_NAME                      ,
+    :BIKOU                          ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_NYUKYO_ITEM
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID                 ,
+    ITEN_NAME = :ITEN_NAME                           ,
+    BIKOU = :BIKOU                                   ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    
+    WHERE
+    OR_NYUKYO_ITEM_ID = :OR_NYUKYO_ITEM_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

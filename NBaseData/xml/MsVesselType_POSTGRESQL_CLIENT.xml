@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_VESSEL_TYPE_ID,
+    VESSEL_TYPE_NAME,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from MS_VESSEL_TYPE
+    order by MS_VESSEL_TYPE_ID
+  </sql>
+
+  <sql name="GetRecord">
+    select
+    MS_VESSEL_TYPE_ID,
+    VESSEL_TYPE_NAME,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from MS_VESSEL_TYPE
+    where
+    MS_VESSEL_TYPE_ID = :MS_VESSEL_TYPE_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_VESSEL_TYPE(
+    MS_VESSEL_TYPE_ID,
+    VESSEL_TYPE_NAME,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES(
+    :MS_VESSEL_TYPE_ID,
+    :VESSEL_TYPE_NAME,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_VESSEL_TYPE SET
+    VESSEL_TYPE_NAME = :VESSEL_TYPE_NAME,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    where
+    MS_VESSEL_TYPE_ID = :MS_VESSEL_TYPE_ID
+
+  </sql>
+
+</databaseConfig>

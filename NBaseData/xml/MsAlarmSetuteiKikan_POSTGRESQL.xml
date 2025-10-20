@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_ALARM_SETUTEI_KIKAN.MS_ALARM_SETUTEI_KIKAN_ID  ,
+    MS_ALARM_SETUTEI_KIKAN.MS_PORTAL_INFO_SHUBETU_ID  ,
+    MS_ALARM_SETUTEI_KIKAN.MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_ALARM_SETUTEI_KIKAN.KIKAN                      ,
+    MS_ALARM_SETUTEI_KIKAN.DELETE_FLAG                ,
+    MS_ALARM_SETUTEI_KIKAN.SEND_FLAG                  ,
+    MS_ALARM_SETUTEI_KIKAN.VESSEL_ID                  ,
+    MS_ALARM_SETUTEI_KIKAN.DATA_NO                    ,
+    MS_ALARM_SETUTEI_KIKAN.USER_KEY                   ,
+    MS_ALARM_SETUTEI_KIKAN.RENEW_DATE                 ,
+    MS_ALARM_SETUTEI_KIKAN.RENEW_USER_ID              ,
+    MS_ALARM_SETUTEI_KIKAN.TS
+    from
+    MS_ALARM_SETUTEI_KIKAN
+    where (MS_ALARM_SETUTEI_KIKAN.DELETE_FLAG = 0 or MS_ALARM_SETUTEI_KIKAN.DELETE_FLAG is NULL)
+  </sql>
+
+  
+
+</databaseConfig>

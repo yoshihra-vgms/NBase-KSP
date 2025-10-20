@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_MEISAI_ID,
+
+    MS_SI_DAIKOUMOKU_ID,
+    MS_SI_KAMOKU_ID,
+
+    NAME,
+    NYUURYOKU_NO,
+    KASHIKARI_FLAG,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    MS_SI_MEISAI
+
+  </sql>
+
+  <sql name="_削除を除く">
+	where (MS_SI_MEISAI.DELETE_FLAG = 0 or MS_SI_MEISAI.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByMsSiMeisaiID">
+    where
+    MS_SI_MEISAI_ID = :MS_SI_MEISAI_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_MEISAI(
+    MS_SI_MEISAI_ID                ,
+
+    MS_SI_DAIKOUMOKU_ID            ,
+    MS_SI_KAMOKU_ID                ,
+
+    NAME                           ,
+    NYUURYOKU_NO                   ,
+    KASHIKARI_FLAG                 ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SI_MEISAI_ID                ,
+
+    :MS_SI_DAIKOUMOKU_ID            ,
+    :MS_SI_KAMOKU_ID                ,
+
+    :NAME                           ,
+    :NYUURYOKU_NO                   ,
+    :KASHIKARI_FLAG                 ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_MEISAI
+    SET
+    MS_SI_DAIKOUMOKU_ID = :MS_SI_DAIKOUMOKU_ID       ,
+    MS_SI_KAMOKU_ID = :MS_SI_KAMOKU_ID               ,
+
+    NAME = :NAME                                     ,
+    NYUURYOKU_NO = :NYUURYOKU_NO                     ,
+    KASHIKARI_FLAG = :KASHIKARI_FLAG                 ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_MEISAI_ID = :MS_SI_MEISAI_ID
+  </sql>
+
+</databaseConfig>

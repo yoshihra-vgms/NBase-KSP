@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SENIN_ETC.MS_SENIN_ID   ,
+
+    MS_SENIN_ETC.BANK_NAME1 ,
+    MS_SENIN_ETC.BRANCH_NAME1 ,
+    MS_SENIN_ETC.ACCOUNT_NO1 ,
+
+    MS_SENIN_ETC.BANK_NAME2 ,
+    MS_SENIN_ETC.BRANCH_NAME2 ,
+    MS_SENIN_ETC.ACCOUNT_NO2 ,
+
+    MS_SENIN_ETC.HEIGHT ,
+    MS_SENIN_ETC.WEIGHT   ,
+    MS_SENIN_ETC.WAIST ,
+    MS_SENIN_ETC.INSEAM   ,
+    MS_SENIN_ETC.SHOE_SIZE ,
+    MS_SENIN_ETC.WORKWEAR   ,
+
+    MS_SENIN_ETC.DELETE_FLAG   ,
+    MS_SENIN_ETC.SEND_FLAG     ,
+    MS_SENIN_ETC.VESSEL_ID     ,
+    MS_SENIN_ETC.DATA_NO       ,
+    MS_SENIN_ETC.USER_KEY      ,
+    MS_SENIN_ETC.RENEW_DATE    ,
+    MS_SENIN_ETC.RENEW_USER_ID ,
+    MS_SENIN_ETC.TS
+
+    FROM
+    MS_SENIN_ETC
+
+    WHERE
+    MS_SENIN_ETC.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    MS_SENIN_ETC.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SENIN_ETC(
+
+    MS_SENIN_ID    ,
+
+    BANK_NAME1,
+    BRANCH_NAME1,
+    ACCOUNT_NO1,
+    BANK_NAME2,
+    BRANCH_NAME2,
+    ACCOUNT_NO2,
+    HEIGHT,
+    WEIGHT,
+    WAIST,
+    INSEAM,
+    SHOE_SIZE,
+    WORKWEAR,
+
+    DELETE_FLAG    ,
+    SEND_FLAG      ,
+    VESSEL_ID      ,
+    DATA_NO        ,
+    USER_KEY       ,
+    RENEW_DATE     ,
+    RENEW_USER_ID  ,
+    TS
+    )
+    VALUES(
+
+    :MS_SENIN_ID   ,
+
+    :BANK_NAME1,
+    :BRANCH_NAME1,
+    :ACCOUNT_NO1,
+    :BANK_NAME2,
+    :BRANCH_NAME2,
+    :ACCOUNT_NO2,
+    :HEIGHT,
+    :WEIGHT,
+    :WAIST,
+    :INSEAM,
+    :SHOE_SIZE,
+    :WORKWEAR,
+
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :DATA_NO       ,
+    :USER_KEY      ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SENIN_ETC
+    SET
+
+    BANK_NAME1 = :BANK_NAME1
+    ,BRANCH_NAME1 = :BRANCH_NAME1
+    ,ACCOUNT_NO1 = :ACCOUNT_NO1
+    ,BANK_NAME2 = :BANK_NAME2
+    ,BRANCH_NAME2 = :BRANCH_NAME2
+    ,ACCOUNT_NO2 = :ACCOUNT_NO2
+    ,HEIGHT = :HEIGHT
+    ,WEIGHT = :WEIGHT
+    ,WAIST = :WAIST
+    ,INSEAM = :INSEAM
+    ,SHOE_SIZE = :SHOE_SIZE
+    ,WORKWEAR = :WORKWEAR
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MS_SENIN_ID = :MS_SENIN_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

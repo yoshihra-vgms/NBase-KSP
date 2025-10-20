@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VIQ_NO.VIQ_NO_ID,
+    MS_VIQ_NO.VIQ_CODE_ID,
+    MS_VIQ_NO.VIQ_NO,
+    MS_VIQ_NO.DESCRIPTION,
+    MS_VIQ_NO.DESCRIPTION_ENG,
+    MS_VIQ_NO.ORDER_NO,
+
+    MS_VIQ_NO.DELETE_FLAG,
+    MS_VIQ_NO.CREATE_DATE,
+    MS_VIQ_NO.UPDATE_DATE,
+    MS_VIQ_NO.CREATE_MS_USER_ID,
+    MS_VIQ_NO.UPDATE_MS_USER_ID
+
+    FROM
+    MS_VIQ_NO
+
+    INNER JOIN MS_VIQ_CODE ON MS_VIQ_CODE.VIQ_CODE_ID = MS_VIQ_NO.VIQ_CODE_ID
+    INNER JOIN MS_VIQ_CODE_NAME ON MS_VIQ_CODE_NAME.VIQ_CODE_NAME_ID = MS_VIQ_CODE.VIQ_CODE_NAME_ID
+
+    WHERE
+    MS_VIQ_NO.DELETE_FLAG = False
+  </sql>
+  
+  <sql name="SearchByCodeID">
+    AND
+    MS_VIQ_NO.VIQ_CODE_ID = :VIQ_CODE_ID
+  </sql>
+  
+  <sql name="SearchByDescription">
+    AND
+    MS_VIQ_NO.DESCRIPTION LIKE :DESCRIPTION
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY MS_VIQ_CODE_NAME.ORDER_NO, MS_VIQ_CODE.ORDER_NO, MS_VIQ_NO.ORDER_NO
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO MS_VIQ_NO(
+    VIQ_CODE_ID,
+    VIQ_NO,
+    DESCRIPTION,
+    DESCRIPTION_ENG,
+    ORDER_NO,
+    DELETE_FLAG,
+    UPDATE_MS_USER_ID,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :VIQ_CODE_ID,
+    :VIQ_NO,
+    :DESCRIPTION,
+    :DESCRIPTION_ENG,
+    :ORDER_NO,
+    :DELETE_FLAG,
+    :UPDATE_MS_USER_ID,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_VIQ_NO
+    SET
+    VIQ_CODE_ID = :VIQ_CODE_ID,
+    VIQ_NO = :VIQ_NO,
+    DESCRIPTION = :DESCRIPTION,
+    DESCRIPTION_ENG = :DESCRIPTION_ENG,
+    ORDER_NO = :ORDER_NO,
+    DELETE_FLAG = :DELETE_FLAG,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE VIQ_NO_ID = :VIQ_NO_ID
+  </sql>
+
+</databaseConfig>

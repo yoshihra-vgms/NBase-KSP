@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+	<sql name="GetRecords">
+		select
+		FUNE_NO               ,
+		JIKO_NO               ,
+		SC_YMD                ,
+		KOMA_NO               ,
+		PORT_NO               ,
+		BASE_NO               ,
+		SG_KBN                ,
+		AREA                  ,
+		AGENCY_CONTACT_FLG    ,
+		AGENCY_RE_CONTACT_FLG ,
+		CAPTAIN_CONTACT_FLG   ,
+		LD_DS_SET_NO          ,
+		TSENTORI_NM           ,
+		DS_INPUT_FLG          ,
+		UPDPGMID              ,
+		UPDUSERID             ,
+		UPDDATE_YMDHMS,
+		MS_BASHO.GAICHI_FLAG
+
+		from TKJNAIPLAN
+		inner join MS_BASHO on MS_BASHO.MS_BASHO_NO = TKJNAIPLAN.PORT_NO
+	</sql>
+
+	<sql name="GetRecordsByVesselVoyageNo">
+		select TKJNAIPLAN.FUNE_NO,TKJNAIPLAN.LD_DS_SET_NO from TKJNAIPLAN
+		inner join
+		(
+		select FUNE_NO,LD_DS_SET_NO from TKJNAIPLAN
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+
+		group by  FUNE_NO,LD_DS_SET_NO
+		)TBL on TBL.FUNE_NO = TKJNAIPLAN.FUNE_NO and TBL.LD_DS_SET_NO = TKJNAIPLAN.LD_DS_SET_NO
+
+		where TKJNAIPLAN.SG_KBN = '1'
+		order by TKJNAIPLAN.SC_YMD
+	</sql>
+	
+	
+	<sql name="GetRecordsByLdDsSetNo">
+		select
+		FUNE_NO               ,
+		JIKO_NO               ,
+		SC_YMD                ,
+		KOMA_NO               ,
+		PORT_NO               ,
+		BASE_NO               ,
+		SG_KBN                ,
+		AREA                  ,
+		AGENCY_CONTACT_FLG    ,
+		AGENCY_RE_CONTACT_FLG ,
+		CAPTAIN_CONTACT_FLG   ,
+		LD_DS_SET_NO          ,
+		TSENTORI_NM           ,
+		DS_INPUT_FLG          ,
+		UPDPGMID              ,
+		UPDUSERID             ,
+		UPDDATE_YMDHMS,
+		MS_BASHO.GAICHI_FLAG
+
+		from TKJNAIPLAN
+		inner join MS_BASHO on MS_BASHO.MS_BASHO_NO = TKJNAIPLAN.PORT_NO
+
+		where FUNE_NO = :FUNE_NO
+		and LD_DS_SET_NO = :LD_DS_SET_NO
+
+		order by SC_YMD
+
+	</sql>
+
+
+	<sql name="GetRecordBy前月港">
+		select
+		FUNE_NO               ,
+		JIKO_NO               ,
+		SC_YMD                ,
+		KOMA_NO               ,
+		PORT_NO               ,
+		BASE_NO               ,
+		SG_KBN                ,
+		AREA                  ,
+		AGENCY_CONTACT_FLG    ,
+		AGENCY_RE_CONTACT_FLG ,
+		CAPTAIN_CONTACT_FLG   ,
+		LD_DS_SET_NO          ,
+		TSENTORI_NM           ,
+		DS_INPUT_FLG          ,
+		UPDPGMID              ,
+		UPDUSERID             ,
+		UPDDATE_YMDHMS,
+		MS_BASHO.GAICHI_FLAG
+
+		from TKJNAIPLAN
+		inner join MS_BASHO on MS_BASHO.MS_BASHO_NO = TKJNAIPLAN.PORT_NO
+
+		where FUNE_NO = :FUNE_NO
+		and SG_KBN = '1'
+		and JIKO_NO = :JIKO_NO
+
+		order by SC_YMD desc
+	</sql>
+
+	<sql name="GetRecordsByAllVesselJikoNo">
+		select TKJNAIPLAN.FUNE_NO,TKJNAIPLAN.JIKO_NO,TKJNAIPLAN.LD_DS_SET_NO from TKJNAIPLAN
+
+		where TKJNAIPLAN.JIKO_NO = :JIKO_NO
+		group by TKJNAIPLAN.FUNE_NO,TKJNAIPLAN.JIKO_NO,TKJNAIPLAN.LD_DS_SET_NO
+
+		--外航の港が入っているのを削除する
+		minus
+
+		select TKJNAIPLAN.FUNE_NO,TKJNAIPLAN.JIKO_NO,TKJNAIPLAN.LD_DS_SET_NO from TKJNAIPLAN
+
+		where TKJNAIPLAN.JIKO_NO = :JIKO_NO
+		and exists(select a.LD_DS_SET_NO from TKJNAIPLAN a
+		inner join MS_BASHO on MS_BASHO.MS_BASHO_NO = a.PORT_NO
+		where a.FUNE_NO = TKJNAIPLAN.FUNE_NO
+		and a.LD_DS_SET_NO = TKJNAIPLAN.LD_DS_SET_NO
+		and MS_BASHO.GAICHI_FLAG = 1)
+
+		group by TKJNAIPLAN.FUNE_NO,TKJNAIPLAN.JIKO_NO,TKJNAIPLAN.LD_DS_SET_NO
+	</sql>
+
+
+
+</databaseConfig>

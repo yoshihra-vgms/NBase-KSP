@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_ROLE.MS_ROLE_ID,
+
+    MS_ROLE.MS_BUMON_ID,
+
+    MS_ROLE.ADMIN_FLAG,
+    MS_ROLE.NAME1,
+    MS_ROLE.NAME2,
+    MS_ROLE.NAME3,
+    MS_ROLE.ENABLE_FLAG,
+
+    MS_ROLE.RENEW_DATE,
+    MS_ROLE.RENEW_USER_ID,
+    MS_ROLE.TS
+
+    FROM
+    MS_ROLE
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    MS_ROLE.NAME1, MS_ROLE.NAME2, MS_ROLE.NAME3, MS_ROLE.MS_BUMON_ID, MS_ROLE.ADMIN_FLAG DESC
+  </sql>
+    
+  <sql name="InsertRecord">
+    INSERT INTO MS_ROLE(
+    MS_ROLE_ID                     ,
+
+    MS_BUMON_ID                    ,
+
+    ADMIN_FLAG                     ,
+    NAME1                          ,
+    NAME2                          ,
+    NAME3                          ,
+    ENABLE_FLAG                    ,
+
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_ROLE_ID ,
+
+    :MS_BUMON_ID ,
+
+    :ADMIN_FLAG,
+    :NAME1,
+    :NAME2,
+    :NAME3,
+    :ENABLE_FLAG,
+
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_ROLE
+    SET
+    MS_BUMON_ID = :MS_BUMON_ID               ,
+
+    ADMIN_FLAG = :ADMIN_FLAG                 ,
+    NAME1 = :NAME1                           ,
+    NAME2 = :NAME2                           ,
+    NAME3 = :NAME3                           ,
+    ENABLE_FLAG = :ENABLE_FLAG               ,
+
+    RENEW_DATE = :RENEW_DATE                 ,
+    RENEW_USER_ID = :RENEW_USER_ID           ,
+    TS = :TS
+
+    WHERE MS_ROLE_ID = :MS_ROLE_ID
+\  </sql>
+
+</databaseConfig>

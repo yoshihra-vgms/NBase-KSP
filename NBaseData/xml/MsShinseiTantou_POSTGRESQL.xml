@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+	<sql name="GetShinseiTantou">
+    select
+    MS_USER.MS_USER_ID    ,
+    MS_USER.USER_KBN      ,
+    MS_USER.LOGIN_ID      ,
+    MS_USER.PASSWORD      ,
+    MS_USER.MAIL_ADDRESS  ,
+    MS_USER.SEI,
+    MS_USER.MEI,
+    MS_USER.SEI_KANA,
+    MS_USER.MEI_KANA,
+    MS_USER.SEX,
+    MS_USER.ADMIN_FLAG    ,
+    MS_USER.DELETE_FLAG   ,
+    MS_USER.SEND_FLAG     ,
+    MS_USER.VESSEL_ID     ,
+    MS_USER.DATA_NO       ,
+    MS_USER.USER_KEY      ,
+    MS_USER.RENEW_DATE    ,
+    MS_USER.RENEW_USER_ID ,
+    MS_USER.TS
+
+    from MS_USER
+    inner join MS_SHINSEI_TANTOU ON MS_SHINSEI_TANTOU.MS_USER_ID = MS_USER.MS_USER_ID
+    inner join MS_USER_BUMON ON MS_USER_BUMON.MS_BUMON_ID = MS_SHINSEI_TANTOU.MS_BUMON_ID
+    and MS_USER_BUMON.MS_USER_ID = :MS_USER_ID
+
+    where (MS_USER.DELETE_FLAG = 0 or MS_USER.DELETE_FLAG is NULL)
+  </sql>
+  
+</databaseConfig>

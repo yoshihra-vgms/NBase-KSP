@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_CARGO_YUSO_ITEM.MS_CARGO_YUSO_ITEM_ID ,
+		MS_CARGO_YUSO_ITEM.START_DAY             ,
+		MS_CARGO_YUSO_ITEM.END_DAY               ,
+		MS_CARGO_YUSO_ITEM.MS_CARGO_ID           ,
+		MS_CARGO_YUSO_ITEM.MS_YUSO_ITEM_ID       ,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_CODE        ,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_NAME        ,
+		MS_CARGO_YUSO_ITEM.SENSHU_CODE           ,
+		MS_CARGO_YUSO_ITEM.SENSHU_NAME           ,
+		MS_CARGO_YUSO_ITEM.RENEW_DATE            ,
+		MS_CARGO_YUSO_ITEM.RENEW_USER_ID         ,
+		MS_CARGO_YUSO_ITEM.TS                    ,
+		MS_CARGO_YUSO_ITEM.DELETE_FLAG           ,
+		MS_CARGO_YUSO_ITEM.SEND_FLAG             ,
+		MS_CARGO_YUSO_ITEM.VESSEL_ID             ,
+		MS_CARGO_YUSO_ITEM.DATA_NO               ,
+		MS_CARGO_YUSO_ITEM.USER_KEY
+
+		from MS_CARGO_YUSO_ITEM
+		where DELETE_FLAG = 0
+	</sql>
+	
+	<sql name="ByMsCargoYusoItemID">
+		and MS_CARGO_YUSO_ITEM.MS_CARGO_YUSO_ITEM_ID = :MS_CARGO_YUSO_ITEM_ID
+	</sql>
+	
+	<sql name="ByMsCargoID">
+		and MS_CARGO_YUSO_ITEM.MS_CARGO_ID = :MS_CARGO_ID
+		and MS_CARGO_YUSO_ITEM.END_DAY IS NULL
+	</sql>
+
+	<sql name="GetRecordsByJikoNo">
+		select
+		MS_CARGO_YUSO_ITEM.MS_CARGO_YUSO_ITEM_ID ,
+		MS_CARGO_YUSO_ITEM.START_DAY             ,
+		MS_CARGO_YUSO_ITEM.END_DAY               ,
+		MS_CARGO_YUSO_ITEM.MS_CARGO_ID           ,
+		MS_CARGO_YUSO_ITEM.MS_YUSO_ITEM_ID       ,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_CODE        ,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_NAME        ,
+		MS_CARGO_YUSO_ITEM.SENSHU_CODE           ,
+		MS_CARGO_YUSO_ITEM.SENSHU_NAME           ,
+		MS_CARGO_YUSO_ITEM.RENEW_DATE            ,
+		MS_CARGO_YUSO_ITEM.RENEW_USER_ID         ,
+		MS_CARGO_YUSO_ITEM.TS                    ,
+		MS_CARGO_YUSO_ITEM.DELETE_FLAG           ,
+		MS_CARGO_YUSO_ITEM.SEND_FLAG             ,
+		MS_CARGO_YUSO_ITEM.VESSEL_ID             ,
+		MS_CARGO_YUSO_ITEM.DATA_NO               ,
+		MS_CARGO_YUSO_ITEM.USER_KEY              ,
+		MS_CARGO.CARGO_NO
+
+		from MS_CARGO_YUSO_ITEM
+		inner join MS_CARGO on MS_CARGO.MS_CARGO_ID = MS_CARGO_YUSO_ITEM.MS_CARGO_ID
+
+		where MS_CARGO_YUSO_ITEM.DELETE_FLAG = 0
+		and (TO_CHAR(MS_CARGO_YUSO_ITEM.START_DAY,'YYMM') &lt;= :JIKO_NO and (MS_CARGO_YUSO_ITEM.END_DAY IS NULL or TO_CHAR(MS_CARGO_YUSO_ITEM.END_DAY,'YYMM') >= :JIKO_NO) )
+	</sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO MS_CARGO_YUSO_ITEM
+    (
+    MS_CARGO_YUSO_ITEM_ID ,
+    START_DAY             ,
+    END_DAY               ,
+    MS_CARGO_ID           ,
+    MS_YUSO_ITEM_ID       ,
+    YUSO_ITEM_CODE        ,
+    YUSO_ITEM_NAME        ,
+    SENSHU_CODE           ,
+    SENSHU_NAME           ,
+    RENEW_DATE            ,
+    RENEW_USER_ID         ,
+    DELETE_FLAG           ,
+    SEND_FLAG             ,
+    VESSEL_ID             ,
+    USER_KEY
+    )
+    VALUES
+    (
+    nextval('SEQ_MS_CARGO_YUSO_ITEM_ID'),
+    :START_DAY           ,
+    :END_DAY             ,
+    :MS_CARGO_ID         ,
+    :MS_YUSO_ITEM_ID     ,
+    :YUSO_ITEM_CODE      ,
+    :YUSO_ITEM_NAME      ,
+    :SENSHU_CODE         ,
+    :SENSHU_NAME         ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    0                    ,
+    0                    ,
+    :VESSEL_ID           ,
+    :USER_KEY
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+		UPDATE MS_CARGO_YUSO_ITEM SET
+		START_DAY = :START_DAY,
+		END_DAY = :END_DAY,
+		MS_CARGO_ID = :MS_CARGO_ID,
+		MS_YUSO_ITEM_ID = :MS_YUSO_ITEM_ID,
+		YUSO_ITEM_CODE = :YUSO_ITEM_CODE,
+		YUSO_ITEM_NAME = :YUSO_ITEM_NAME,
+		SENSHU_CODE = :SENSHU_CODE,
+		SENSHU_NAME = :SENSHU_NAME,
+		RENEW_DATE = :RENEW_DATE,
+		RENEW_USER_ID = :RENEW_USER_ID,
+		DELETE_FLAG = :DELETE_FLAG,
+		VESSEL_ID = :VESSEL_ID,
+		USER_KEY = :USER_KEY
+
+		WHERE
+		MS_CARGO_YUSO_ITEM_ID = :MS_CARGO_YUSO_ITEM_ID
+		AND TS = :TS
+	</sql>
+
+
+</databaseConfig>

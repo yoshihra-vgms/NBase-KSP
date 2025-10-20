@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+		select
+		MS_CARGO.MS_CARGO_ID   ,
+		MS_CARGO.CARGO_NO      ,
+		MS_CARGO.CARGO_NAME    ,
+		MS_CARGO.RENEW_DATE    ,
+		MS_CARGO.RENEW_USER_ID ,
+		MS_CARGO.TS            ,
+		MS_CARGO.DELETE_FLAG   ,
+		MS_CARGO.SEND_FLAG     ,
+		MS_CARGO.VESSEL_ID     ,
+		MS_CARGO.DATA_NO       ,
+		MS_CARGO.USER_KEY,
+		MS_CARGO.NINUSHI,
+    
+		MS_CARGO.MS_CARGO_GROUP_ID,
+		MS_CARGO_GROUP.CARGO_GROUP_NAME
+
+		from MS_CARGO
+    left join MS_CARGO_GROUP on MS_CARGO_GROUP.MS_CARGO_GROUP_ID = MS_CARGO.MS_CARGO_GROUP_ID
+		where DELETE_FLAG = 0
+		and MS_CARGO.CARGO_NO = :CARGO_NO
+		
+	</sql>
+	
+	<sql name="ExistCargo">
+		select
+		MS_CARGO.MS_CARGO_ID   ,
+		MS_CARGO.CARGO_NO      ,
+		MS_CARGO.CARGO_NAME    ,
+		MS_CARGO.RENEW_DATE    ,
+		MS_CARGO.RENEW_USER_ID ,
+		MS_CARGO.TS            ,
+		MS_CARGO.DELETE_FLAG   ,
+		MS_CARGO.SEND_FLAG     ,
+		MS_CARGO.VESSEL_ID     ,
+		MS_CARGO.DATA_NO       ,
+		MS_CARGO.USER_KEY,
+		MS_CARGO.NINUSHI,
+    
+		MS_CARGO.MS_CARGO_GROUP_ID,
+		MS_CARGO_GROUP.CARGO_GROUP_NAME
+
+		from MS_CARGO
+    left join MS_CARGO_GROUP on MS_CARGO_GROUP.MS_CARGO_GROUP_ID = MS_CARGO.MS_CARGO_GROUP_ID
+		where MS_CARGO.CARGO_NO = :CARGO_NO
+
+	</sql>
+
+	<sql name="GetRecords">
+		select
+		MS_CARGO.MS_CARGO_ID   ,
+		MS_CARGO.CARGO_NO      ,
+		MS_CARGO.CARGO_NAME    ,
+		MS_CARGO.RENEW_DATE    ,
+		MS_CARGO.RENEW_USER_ID ,
+		MS_CARGO.TS            ,
+		MS_CARGO.DELETE_FLAG   ,
+		MS_CARGO.SEND_FLAG     ,
+		MS_CARGO.VESSEL_ID     ,
+		MS_CARGO.DATA_NO       ,
+		MS_CARGO.USER_KEY,
+		MS_CARGO.NINUSHI,
+    
+		MS_CARGO.MS_CARGO_GROUP_ID,
+		MS_CARGO_GROUP.CARGO_GROUP_NAME
+
+		from MS_CARGO
+    left join MS_CARGO_GROUP on MS_CARGO_GROUP.MS_CARGO_GROUP_ID = MS_CARGO.MS_CARGO_GROUP_ID
+		where MS_CARGO.DELETE_FLAG = 0
+	</sql>
+	<sql name="WhereCargoNoAndCargoName">
+		and MS_CARGO.CARGO_NO like :CARGO_NO
+		and MS_CARGO.CARGO_NAME like :CARGO_NAME
+	</sql>
+
+	<sql name="SearchRecords1">
+		select
+		MS_CARGO.MS_CARGO_ID   ,
+		MS_CARGO.CARGO_NO      ,
+		MS_CARGO.CARGO_NAME    ,
+		MS_CARGO.RENEW_DATE    ,
+		MS_CARGO.RENEW_USER_ID ,
+		MS_CARGO.TS            ,
+		MS_CARGO.DELETE_FLAG   ,
+		MS_CARGO.SEND_FLAG     ,
+		MS_CARGO.VESSEL_ID     ,
+		MS_CARGO.DATA_NO       ,
+		MS_CARGO.USER_KEY      ,
+		MS_CARGO.NINUSHI       ,
+		MS_CARGO_YUSO_ITEM.MS_YUSO_ITEM_ID,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_NAME
+
+		from MS_CARGO
+		
+		inner join MS_CARGO_YUSO_ITEM on MS_CARGO_YUSO_ITEM.MS_CARGO_ID = MS_CARGO.MS_CARGO_ID
+		and MS_CARGO_YUSO_ITEM.END_DAY IS NULL
+		and MS_CARGO_YUSO_ITEM.MS_YUSO_ITEM_ID = :MS_YUSO_ITEM_ID
+		
+		where MS_CARGO_YUSO_ITEM.DELETE_FLAG = 0
+	</sql>
+	<sql name="SearchRecords2">
+		select
+		MS_CARGO.MS_CARGO_ID   ,
+		MS_CARGO.CARGO_NO      ,
+		MS_CARGO.CARGO_NAME    ,
+		MS_CARGO.RENEW_DATE    ,
+		MS_CARGO.RENEW_USER_ID ,
+		MS_CARGO.TS            ,
+		MS_CARGO.DELETE_FLAG   ,
+		MS_CARGO.SEND_FLAG     ,
+		MS_CARGO.VESSEL_ID     ,
+		MS_CARGO.DATA_NO       ,
+		MS_CARGO.USER_KEY      ,
+		MS_CARGO.NINUSHI       ,
+		MS_CARGO_YUSO_ITEM.MS_YUSO_ITEM_ID,
+		MS_CARGO_YUSO_ITEM.YUSO_ITEM_NAME
+
+		from MS_CARGO
+		
+		left join MS_CARGO_YUSO_ITEM on MS_CARGO_YUSO_ITEM.MS_CARGO_ID = MS_CARGO.MS_CARGO_ID 
+		and MS_CARGO_YUSO_ITEM.END_DAY IS NULL
+		
+		where MS_CARGO.DELETE_FLAG = 0
+	</sql>
+	<sql name="WhereCargoNoAndCargoName">
+		and MS_CARGO.CARGO_NO like :CARGO_NO
+		and MS_CARGO.CARGO_NAME like :CARGO_NAME
+	</sql>
+
+
+	<sql name="OrderBy">
+	  order by MS_CARGO.CARGO_NO
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_CARGO
+    (
+    MS_CARGO_ID   ,
+    CARGO_NO      ,
+    CARGO_NAME    ,
+    NINUSHI       ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    USER_KEY,
+    DATA_NO,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_MS_CARGO_ID'),
+    :CARGO_NO      ,
+    :CARGO_NAME    ,
+    :NINUSHI       ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :USER_KEY      ,
+    :DATA_NO,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_CARGO SET
+    CARGO_NO = :CARGO_NO,
+    CARGO_NAME = :CARGO_NAME  ,
+    NINUSHI = :NINUSHI,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    DELETE_FLAG = :DELETE_FLAG   ,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY
+
+    WHERE
+    MS_CARGO_ID = :MS_CARGO_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

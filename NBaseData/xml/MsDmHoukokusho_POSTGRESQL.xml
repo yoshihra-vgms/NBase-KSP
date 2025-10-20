@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_DM_HOUKOKUSHO.MS_DM_HOUKOKUSHO_ID           ,
+		MS_DM_HOUKOKUSHO.MS_DM_BUNRUI_ID               ,
+		MS_DM_HOUKOKUSHO.MS_DM_SHOUBUNRUI_ID           ,
+		MS_DM_HOUKOKUSHO.BUNSHO_NO                     ,
+		MS_DM_HOUKOKUSHO.BUNSHO_NAME                   ,
+		MS_DM_HOUKOKUSHO.SHUKI                         ,
+		MS_DM_HOUKOKUSHO.JIKI                          ,
+		MS_DM_HOUKOKUSHO.CHECK_TARGET                  ,
+		MS_DM_HOUKOKUSHO.TEMPLATE_FILE_NAME            ,
+		MS_DM_HOUKOKUSHO.FILE_UPDATE_DATE              ,
+
+		MS_DM_HOUKOKUSHO.DELETE_FLAG                   ,
+		MS_DM_HOUKOKUSHO.SEND_FLAG                     ,
+		MS_DM_HOUKOKUSHO.VESSEL_ID                     ,
+		MS_DM_HOUKOKUSHO.DATA_NO                       ,
+		MS_DM_HOUKOKUSHO.USER_KEY                      ,
+		MS_DM_HOUKOKUSHO.RENEW_DATE                    ,
+		MS_DM_HOUKOKUSHO.RENEW_USER_ID                 ,
+		MS_DM_HOUKOKUSHO.TS                            ,
+		MS_DM_BUNRUI.NAME AS MS_DM_BUNRUI_NAME         ,
+		MS_DM_SHOUBUNRUI.NAME AS MS_DM_SHOUBUNRUI_NAME
+
+		from
+		MS_DM_HOUKOKUSHO
+		INNER JOIN MS_DM_BUNRUI ON MS_DM_BUNRUI.MS_DM_BUNRUI_ID = MS_DM_HOUKOKUSHO.MS_DM_BUNRUI_ID
+		LEFT JOIN MS_DM_SHOUBUNRUI ON MS_DM_SHOUBUNRUI.MS_DM_SHOUBUNRUI_ID = MS_DM_HOUKOKUSHO.MS_DM_SHOUBUNRUI_ID
+
+		WHERE (MS_DM_HOUKOKUSHO.DELETE_FLAG = 0 or MS_DM_HOUKOKUSHO.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByMsDmBunruiID">
+		AND MS_DM_HOUKOKUSHO.MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID
+	</sql>
+
+	<sql name="ByMsDmShoubunruiID">
+		AND MS_DM_HOUKOKUSHO.MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID
+	</sql>
+
+	<sql name="LikeBunshoNo">
+		and MS_DM_HOUKOKUSHO.BUNSHO_NO LIKE :BUNSHO_NO
+	</sql>
+
+	<sql name="LikeBunshoName">
+		and MS_DM_HOUKOKUSHO.BUNSHO_NAME LIKE :BUNSHO_NAME
+	</sql>
+
+	<sql name="ByMsDmHoukokushoID">
+		AND MS_DM_HOUKOKUSHO.MS_DM_HOUKOKUSHO_ID like :MS_DM_HOUKOKUSHO_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By
+		MS_DM_BUNRUI.CODE,
+		MS_DM_BUNRUI.NAME,
+		MS_DM_SHOUBUNRUI.CODE,
+		MS_DM_SHOUBUNRUI.NAME,
+		MS_DM_HOUKOKUSHO.BUNSHO_NO,
+		MS_DM_HOUKOKUSHO.BUNSHO_NAME
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO MS_DM_HOUKOKUSHO
+	  (
+	  MS_DM_HOUKOKUSHO_ID ,
+	  MS_DM_BUNRUI_ID     ,
+	  MS_DM_SHOUBUNRUI_ID ,
+	  BUNSHO_NO           ,
+	  BUNSHO_NAME         ,
+	  SHUKI               ,
+	  JIKI                ,
+	  CHECK_TARGET        ,
+	  TEMPLATE_FILE_NAME  ,
+	  FILE_UPDATE_DATE    ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :MS_DM_HOUKOKUSHO_ID ,
+	  :MS_DM_BUNRUI_ID     ,
+	  :MS_DM_SHOUBUNRUI_ID ,
+	  :BUNSHO_NO           ,
+	  :BUNSHO_NAME         ,
+	  :SHUKI               ,
+	  :JIKI                ,
+	  :CHECK_TARGET        ,
+	  :TEMPLATE_FILE_NAME  ,
+	  :FILE_UPDATE_DATE    ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_DM_HOUKOKUSHO SET
+	  MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID         ,
+	  MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID ,
+	  BUNSHO_NO = :BUNSHO_NO                     ,
+	  BUNSHO_NAME = :BUNSHO_NAME                 ,
+	  SHUKI = :SHUKI                             ,
+	  JIKI = :JIKI                               ,
+	  CHECK_TARGET = :CHECK_TARGET               ,
+	  TEMPLATE_FILE_NAME = :TEMPLATE_FILE_NAME   ,
+	  FILE_UPDATE_DATE = :FILE_UPDATE_DATE       ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

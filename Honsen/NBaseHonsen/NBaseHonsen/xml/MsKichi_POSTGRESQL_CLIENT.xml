@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_KICHI_ID     ,
+    KICHI_NO        ,
+    KICHI_NAME      ,
+    DELETE_FLAG     ,
+    USER_KEY        ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    SEND_FLAG       ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    from
+    MS_KICHI
+    where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+  <sql name="OrderBy">
+
+    order by KICHI_NO
+
+  </sql>
+
+  <sql name="ByKichiName">
+    and KICHI_NAME  = :KICHI_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_KICHI
+    (
+    MS_KICHI_ID     ,
+    KICHI_NO        ,
+    KICHI_NAME      ,
+    DELETE_FLAG     ,
+    USER_KEY        ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    SEND_FLAG       ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    )
+    VALUES
+    (
+    :MS_KICHI_ID     ,
+    :KICHI_NO        ,
+    :KICHI_NAME      ,
+    :DELETE_FLAG     ,
+    :USER_KEY        ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :SEND_FLAG       ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_KICHI
+    SET
+    KICHI_NO = :KICHI_NO            ,
+    KICHI_NAME = :KICHI_NAME        ,
+    DELETE_FLAG = :DELETE_FLAG      ,
+    USER_KEY = :USER_KEY            ,
+    VESSEL_ID = :VESSEL_ID          ,
+    DATA_NO = :DATA_NO              ,
+    SEND_FLAG = :SEND_FLAG          ,
+    RENEW_DATE = :RENEW_DATE        ,
+    RENEW_USER_ID = :RENEW_USER_ID  ,
+    TS = :TS
+
+    WHERE
+    MS_KICHI_ID = :MS_KICHI_ID
+
+  </sql>
+
+</databaseConfig>

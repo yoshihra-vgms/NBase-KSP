@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="72d8664b-6395-4231-8356-b35939e7060b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56353/ServiceDeficiency.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceDeficiency4.xsd" MetadataType="Schema" ID="75042d5f-3482-4082-a8cf-4c2ffb5b5908" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd6" />
+    <MetadataFile FileName="ServiceDeficiency5.xsd" MetadataType="Schema" ID="6255e8bb-2b51-4811-87a7-4d2e04914914" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd7" />
+    <MetadataFile FileName="ServiceDeficiency6.xsd" MetadataType="Schema" ID="be886ab7-a384-4126-996c-c669a04c6f56" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServiceDeficiency61.xsd" MetadataType="Schema" ID="0cd41762-564c-4f50-b070-c56febb2949f" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" />
+    <MetadataFile FileName="ServiceDeficiency62.xsd" MetadataType="Schema" ID="a6b1cfa5-dc4e-4f77-8b61-d0d2046ff435" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceDeficiency63.xsd" MetadataType="Schema" ID="c1efd86e-6243-4a75-938a-a0c6a8b420aa" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceDeficiency64.xsd" MetadataType="Schema" ID="4ec0b5dd-b875-40f6-9919-89a6cf4c1427" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceDeficiency65.xsd" MetadataType="Schema" ID="699a7caf-bc9f-43ee-9c94-fc9790066ef8" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceDeficiency.wsdl" MetadataType="Wsdl" ID="f1ead102-beb4-45aa-a999-a37892908d28" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?wsdl" />
+    <MetadataFile FileName="ServiceDeficiency7.xsd" MetadataType="Schema" ID="25c95c8c-a92b-4830-afca-4b770b577baa" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd8" />
+    <MetadataFile FileName="ServiceDeficiency8.xsd" MetadataType="Schema" ID="66b2b97b-1782-49d9-be53-a04264e65778" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd9" />
+    <MetadataFile FileName="ServiceDeficiency1.disco" MetadataType="Disco" ID="2338c0ec-1fe0-4016-9673-0ca7ae1d7b0d" SourceId="1" SourceUrl="http://localhost:56353/ServiceDeficiency.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

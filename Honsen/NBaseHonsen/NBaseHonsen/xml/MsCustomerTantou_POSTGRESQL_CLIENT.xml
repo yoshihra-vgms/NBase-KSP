@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_CUSTOMER_TANTOU.MS_CUSTOMER_TANTOU_ID          ,
+    MS_CUSTOMER_TANTOU.MS_CUSTOMER_ID                 ,
+    MS_CUSTOMER_TANTOU.NAME                           ,
+    MS_CUSTOMER_TANTOU.MAIL_ADDRESS                   ,
+    MS_CUSTOMER_TANTOU.RENEW_USER_ID                  ,
+    MS_CUSTOMER_TANTOU.RENEW_DATE                     ,
+    MS_CUSTOMER_TANTOU.TS                             ,
+    MS_CUSTOMER_TANTOU.TEL                            ,
+    MS_CUSTOMER_TANTOU.FAX
+    FROM
+    MS_CUSTOMER_TANTOU
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_CUSTOMER_TANTOU.MS_CUSTOMER_TANTOU_ID          ,
+    MS_CUSTOMER_TANTOU.MS_CUSTOMER_ID                 ,
+    MS_CUSTOMER_TANTOU.NAME                           ,
+    MS_CUSTOMER_TANTOU.MAIL_ADDRESS                   ,
+    MS_CUSTOMER_TANTOU.RENEW_USER_ID                  ,
+    MS_CUSTOMER_TANTOU.RENEW_DATE                     ,
+    MS_CUSTOMER_TANTOU.TS                             ,
+    MS_CUSTOMER_TANTOU.TEL                            ,
+    MS_CUSTOMER_TANTOU.FAX
+    FROM
+    MS_CUSTOMER_TANTOU
+    WHERE
+    MS_CUSTOMER_TANTOU.MS_CUSTOMER_TANTOU_ID = :MS_CUSTOMER_TANTOU_ID
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_CUSTOMER_TANTOU
+    (
+    MS_CUSTOMER_TANTOU_ID          ,
+    MS_CUSTOMER_ID                 ,
+    NAME                           ,
+    MAIL_ADDRESS                   ,
+    TEL                            ,
+    FAX                            ,
+    RENEW_USER_ID                  ,
+    RENEW_DATE                     ,
+    TS
+    )
+    VALUES
+    (
+    :MS_CUSTOMER_TANTOU_ID          ,
+    :MS_CUSTOMER_ID                 ,
+    :NAME                           ,
+    :MAIL_ADDRESS                   ,
+    :TEL                            ,
+    :FAX                            ,
+    :RENEW_USER_ID                  ,
+    :RENEW_DATE                     ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_CUSTOMER_TANTOU
+    SET
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID    ,
+    NAME = :NAME                        ,
+    MAIL_ADDRESS = :MAIL_ADDRESS        ,
+    TEL = :TEL,
+    FAX = :FAX,
+    RENEW_DATE = :RENEW_DATE            ,
+    RENEW_USER_ID = :RENEW_USER_ID      ,
+    TS = :TS
+
+    WHERE
+    MS_CUSTOMER_TANTOU_ID = :MS_CUSTOMER_TANTOU_ID
+  </sql>
+
+</databaseConfig>

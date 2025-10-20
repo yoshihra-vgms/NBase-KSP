@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+  <sql name="ByDjDouseiHoukokuID">
+    and DJ_DOUSEI_HOUKOKU_ID = :DJ_DOUSEI_HOUKOKU_ID
+  </sql>
+
+  <sql name="ByHoukokuDateFromTo">
+    and to_char(HOUKOKU_DATE,'yyyy/mm/dd') >= :FROM_DATE
+    and to_char(HOUKOKU_DATE,'yyyy/mm/dd') &lt;= :TO_DATE
+  </sql>
+  <sql name="ByHoukokuDateFrom">
+    and to_char(HOUKOKU_DATE,'yyyy/mm/dd') >= :FROM_DATE
+  </sql>
+  <sql name="ByHoukokuDateTo">
+    and to_char(HOUKOKU_DATE,'yyyy/mm/dd') &lt;= :TO_DATE
+  </sql>
+
+  <sql name="ByVessel">
+	  and VESSEL_ID = :VESSEL_ID
+  </sql>
+
+  <sql name="OrderBy">
+	  order by VESSEL_ID, HOUKOKU_DATE DESC
+  </sql>
+
+
+  <sql name="GetRecords">
+    select
+    DJ_DOUSEI_HOUKOKU_ID        ,
+    HOUKOKU_DATE,
+    LEAVE_PORT_ID     ,
+    LEAVE_DATE,
+    DESTINATION_PORT_ID,
+    ARRIVAL_DATE            ,
+    CURRENT_PLACE         ,
+    MS_DJ_TENKOU_ID         ,
+    MS_DJ_KAZAMUKI_ID,
+    FUSOKU          ,
+    NAMI       ,
+    UNERI   ,
+    SITEI     ,
+    SINRO          ,
+    SOKURYOKU         ,
+    MS_DJ_SENTAISETSUBI_ID        ,
+    MS_DJ_KENKOUJYOUTAI_ID     ,
+    NORIKUMIINSU ,
+    BIKOU   ,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    from DJ_DOUSEI_HOUKOKU
+
+    where DELETE_FLAG = 0
+
+  </sql>
+	
+	
+  <sql name="InsertRecord">
+    insert into DJ_DOUSEI_HOUKOKU(
+    DJ_DOUSEI_HOUKOKU_ID                  ,
+    HOUKOKU_DATE                  ,
+    LEAVE_PORT_ID ,
+    LEAVE_DATE                     ,
+    DESTINATION_PORT_ID             ,
+    ARRIVAL_DATE                      ,
+    CURRENT_PLACE                   ,
+    MS_DJ_TENKOU_ID                   ,
+    MS_DJ_KAZAMUKI_ID                   ,
+    FUSOKU                    ,
+    NAMI                 ,
+    UNERI             ,
+    SITEI               ,
+    SINRO                    ,
+    SOKURYOKU                   ,
+    MS_DJ_SENTAISETSUBI_ID                  ,
+    MS_DJ_KENKOUJYOUTAI_ID               ,
+    NORIKUMIINSU           ,
+    BIKOU             ,
+
+    DELETE_FLAG     ,
+    SEND_FLAG       ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    USER_KEY        ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+
+    )values(
+    :DJ_DOUSEI_HOUKOKU_ID			      ,
+    :HOUKOKU_DATE                  ,
+    :LEAVE_PORT_ID ,
+    :LEAVE_DATE                     ,
+    :DESTINATION_PORT_ID             ,
+    :ARRIVAL_DATE                      ,
+    :CURRENT_PLACE                   ,
+    :MS_DJ_TENKOU_ID                   ,
+    :MS_DJ_KAZAMUKI_ID                   ,
+    :FUSOKU                    ,
+    :NAMI                 ,
+    :UNERI             ,
+    :SITEI               ,
+    :SINRO                    ,
+    :SOKURYOKU                   ,
+    :MS_DJ_SENTAISETSUBI_ID                  ,
+    :MS_DJ_KENKOUJYOUTAI_ID               ,
+    :NORIKUMIINSU           ,
+    :BIKOU             ,
+
+    :DELETE_FLAG     ,
+    :SEND_FLAG       ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :USER_KEY        ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    update DJ_DOUSEI_HOUKOKU set
+    HOUKOKU_DATE = :HOUKOKU_DATE,
+    LEAVE_PORT_ID = :LEAVE_PORT_ID,
+    LEAVE_DATE = :LEAVE_DATE,
+    DESTINATION_PORT_ID = :DESTINATION_PORT_ID,
+    ARRIVAL_DATE = :ARRIVAL_DATE,
+    CURRENT_PLACE = :CURRENT_PLACE,
+    MS_DJ_TENKOU_ID = :MS_DJ_TENKOU_ID,
+    MS_DJ_KAZAMUKI_ID = :MS_DJ_KAZAMUKI_ID,
+    FUSOKU = :FUSOKU,
+    NAMI = :NAMI,
+    UNERI = :UNERI,
+    SITEI = :SITEI,
+    SINRO = :SINRO,
+    SOKURYOKU = :SOKURYOKU,
+    MS_DJ_SENTAISETSUBI_ID = :MS_DJ_SENTAISETSUBI_ID,
+    MS_DJ_KENKOUJYOUTAI_ID = :MS_DJ_KENKOUJYOUTAI_ID,
+    NORIKUMIINSU = :NORIKUMIINSU,
+    BIKOU = :BIKOU,
+
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    where DJ_DOUSEI_HOUKOKU_ID = :DJ_DOUSEI_HOUKOKU_ID
+  </sql>
+
+</databaseConfig>

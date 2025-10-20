@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_JRY_SHOUSAI_ITEM.OD_JRY_SHOUSAI_ITEM_ID         ,
+    OD_JRY_SHOUSAI_ITEM.OD_JRY_ITEM_ID                 ,
+    OD_JRY_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME              ,
+    OD_JRY_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME     as MS_VESSEL_ITEM_NAME,
+    OD_JRY_SHOUSAI_ITEM.MS_LO_ID                       ,
+    MS_LO.LO_NAME                       as MS_LO_NAME,
+    OD_JRY_SHOUSAI_ITEM.COUNT                          ,
+    OD_JRY_SHOUSAI_ITEM.JRY_COUNT                      ,
+    OD_JRY_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                   as MS_TANI_NAME,
+    OD_JRY_SHOUSAI_ITEM.TANKA                          ,
+    OD_JRY_SHOUSAI_ITEM.BIKOU                          ,
+    OD_JRY_SHOUSAI_ITEM.NOUHINBI                       ,
+    OD_JRY_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_JRY_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_JRY_SHOUSAI_ITEM.DATA_NO                        ,
+    OD_JRY_SHOUSAI_ITEM.USER_KEY                       ,
+    OD_JRY_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_JRY_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_JRY_SHOUSAI_ITEM.TS                             ,
+    OD_JRY_SHOUSAI_ITEM.CANCEL_FLAG                    ,
+    OD_JRY_SHOUSAI_ITEM.SHOW_ORDER                     ,
+    OD_JRY_ITEM.OD_JRY_ID
+    FROM
+    OD_JRY_SHOUSAI_ITEM
+    INNER JOIN OD_JRY_ITEM ON OD_JRY_ITEM.OD_JRY_ITEM_ID = OD_JRY_SHOUSAI_ITEM.OD_JRY_ITEM_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = OD_JRY_SHOUSAI_ITEM.MS_TANI_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_JRY_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_JRY_SHOUSAI_ITEM.MS_LO_ID
+
+    WHERE OD_JRY_SHOUSAI_ITEM.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY OD_JRY_SHOUSAI_ITEM.SHOW_ORDER
+  </sql>
+
+  <sql name="ByOdJryID">
+    AND OD_JRY_ITEM.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+
+  <sql name="ByOdJryItemID">
+    AND OD_JRY_ITEM.OD_JRY_ITEM_ID = :OD_JRY_ITEM_ID
+  </sql>
+
+  <sql name="ByOdJryShousaiItemID">
+    AND OD_JRY_SHOUSAI_ITEM.OD_JRY_SHOUSAI_ITEM_ID = :OD_JRY_SHOUSAI_ITEM_ID
+  </sql>
+
+	<sql name="GetRecordsByMsVesselID_JryStatus_ShousaiID_Date">
+    SELECT
+    OD_JRY_SHOUSAI_ITEM.OD_JRY_SHOUSAI_ITEM_ID         ,
+    OD_JRY_SHOUSAI_ITEM.OD_JRY_ITEM_ID                 ,
+    OD_JRY_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME              ,
+    OD_JRY_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME                    ,
+    OD_JRY_SHOUSAI_ITEM.MS_LO_ID                       ,
+    MS_LO.LO_NAME                                      ,
+    OD_JRY_SHOUSAI_ITEM.COUNT                          ,
+    OD_JRY_SHOUSAI_ITEM.JRY_COUNT                      ,
+    OD_JRY_SHOUSAI_ITEM.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                                  ,
+    OD_JRY_SHOUSAI_ITEM.TANKA                          ,
+    OD_JRY_SHOUSAI_ITEM.BIKOU                          ,
+    OD_JRY_SHOUSAI_ITEM.NOUHINBI                       ,
+    OD_JRY_SHOUSAI_ITEM.SEND_FLAG                      ,
+    OD_JRY_SHOUSAI_ITEM.VESSEL_ID                      ,
+    OD_JRY_SHOUSAI_ITEM.DATA_NO                        ,
+    OD_JRY_SHOUSAI_ITEM.USER_KEY                       ,
+    OD_JRY_SHOUSAI_ITEM.RENEW_DATE                     ,
+    OD_JRY_SHOUSAI_ITEM.RENEW_USER_ID                  ,
+    OD_JRY_SHOUSAI_ITEM.TS                             ,
+    OD_JRY_SHOUSAI_ITEM.CANCEL_FLAG                    ,
+    OD_JRY_SHOUSAI_ITEM.SHOW_ORDER
+    FROM
+    OD_JRY_SHOUSAI_ITEM
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = OD_JRY_SHOUSAI_ITEM.MS_TANI_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_JRY_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_JRY_SHOUSAI_ITEM.MS_LO_ID
+
+    LEFT OUTER JOIN OD_JRY_ITEM ON OD_JRY_ITEM.OD_JRY_ITEM_ID = OD_JRY_SHOUSAI_ITEM.OD_JRY_ITEM_ID AND OD_JRY_ITEM.CANCEL_FLAG = 0 /*受領品目*/
+    LEFT OUTER JOIN OD_JRY ON OD_JRY.OD_JRY_ID = OD_JRY_ITEM.OD_JRY_ID AND OD_JRY.CANCEL_FLAG = 0 /*受領*/
+    LEFT OUTER JOIN OD_MK ON OD_MK.OD_MK_ID = OD_JRY.OD_MK_ID	AND OD_MK.CANCEL_FLAG = 0 /*見積回答*/
+    LEFT OUTER JOIN OD_MM ON OD_MM.OD_MM_ID = OD_MK.OD_MM_ID AND OD_MM.CANCEL_FLAG = 0 /*見積依頼*/
+    LEFT OUTER JOIN OD_THI ON OD_THI.OD_THI_ID = OD_MM.OD_THI_ID AND OD_THI.CANCEL_FLAG = 0 /*手配以来*/
+
+
+    WHERE
+    (OD_JRY_SHOUSAI_ITEM.CANCEL_FLAG = 0) AND
+    (OD_JRY.STATUS >= :OD_JRY_STATUS) AND
+    (OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID) AND
+    (OD_THI.MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID) AND
+    (OD_JRY.JRY_DATE BETWEEN :START_DATE AND :END_DATE)
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_JRY_SHOUSAI_ITEM
+    (
+    OD_JRY_SHOUSAI_ITEM_ID         ,
+    OD_JRY_ITEM_ID                 ,
+    SHOUSAI_ITEM_NAME              ,
+    MS_VESSEL_ITEM_ID              ,
+    MS_LO_ID                       ,
+    COUNT                          ,
+    JRY_COUNT                      ,
+    MS_TANI_ID                     ,
+    TANKA                          ,
+    BIKOU                          ,
+    NOUHINBI                       ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    CANCEL_FLAG                    ,
+    SHOW_ORDER
+    )
+    VALUES
+    (
+    :OD_JRY_SHOUSAI_ITEM_ID         ,
+    :OD_JRY_ITEM_ID                 ,
+    :SHOUSAI_ITEM_NAME              ,
+    :MS_VESSEL_ITEM_ID              ,
+    :MS_LO_ID                       ,
+    :COUNT                          ,
+    :JRY_COUNT                      ,
+    :MS_TANI_ID                     ,
+    :TANKA                          ,
+    :BIKOU                          ,
+    :NOUHINBI                       ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :CANCEL_FLAG                    ,
+    :SHOW_ORDER
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_JRY_SHOUSAI_ITEM
+    SET
+    OD_JRY_ITEM_ID = :OD_JRY_ITEM_ID                 ,
+    SHOUSAI_ITEM_NAME = :SHOUSAI_ITEM_NAME           ,
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID           ,
+    MS_LO_ID = :MS_LO_ID                             ,
+    COUNT = :COUNT                                   ,
+    JRY_COUNT = :JRY_COUNT                           ,
+    MS_TANI_ID = :MS_TANI_ID                         ,
+    TANKA = :TANKA                                   ,
+    BIKOU = :BIKOU                                   ,
+    NOUHINBI = :NOUHINBI                             ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    SHOW_ORDER = :SHOW_ORDER
+
+    WHERE
+    OD_JRY_SHOUSAI_ITEM_ID = :OD_JRY_SHOUSAI_ITEM_ID
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE FROM OD_JRY_SHOUSAI_ITEM
+    WHERE OD_JRY_SHOUSAI_ITEM_ID = :OD_JRY_SHOUSAI_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

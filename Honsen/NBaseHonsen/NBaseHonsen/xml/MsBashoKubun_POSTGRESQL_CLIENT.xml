@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_BASHO_KUBUN_ID             ,
+    BASHO_KUBUN_NAME              ,
+    DELETE_FLAG                   ,
+    SEND_FLAG                     ,
+    VESSEL_ID                     ,
+    DATA_NO                       ,
+    USER_KEY                      ,
+    RENEW_DATE                    ,
+    RENEW_USER_ID                 ,
+    TS
+    from
+    MS_BASHO_KUBUN
+    where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_BASHO_KUBUN
+    (
+    MS_BASHO_KUBUN_ID             ,
+    BASHO_KUBUN_NAME              ,
+    DELETE_FLAG                   ,
+    SEND_FLAG                     ,
+    VESSEL_ID                     ,
+    DATA_NO                       ,
+    USER_KEY                      ,
+    RENEW_DATE                    ,
+    RENEW_USER_ID                 ,
+    TS
+    )
+    VALUES(
+    :MS_BASHO_KUBUN_ID             ,
+    :BASHO_KUBUN_NAME              ,
+    :DELETE_FLAG                   ,
+    :SEND_FLAG                     ,
+    :VESSEL_ID                     ,
+    :DATA_NO                       ,
+    :USER_KEY                      ,
+    :RENEW_DATE                    ,
+    :RENEW_USER_ID                 ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_BASHO_KUBUN
+    SET
+    MS_BASHO_KUBUN_ID = :MS_BASHO_KUBUN_ID      ,
+    BASHO_KUBUN_NAME = :BASHO_KUBUN_NAME        ,
+    DELETE_FLAG = :DELETE_FLAG                  ,
+    SEND_FLAG = :SEND_FLAG                      ,
+    VESSEL_ID = :VESSEL_ID                      ,
+    DATA_NO = :DATA_NO                          ,
+    USER_KEY = :USER_KEY                        ,
+    RENEW_DATE = :RENEW_DATE                    ,
+    RENEW_USER_ID = :RENEW_USER_ID              ,
+    TS = :TS
+
+    WHERE
+    MS_BASHO_KUBUN_ID = :MS_BASHO_KUBUN_ID
+  </sql>
+
+</databaseConfig>

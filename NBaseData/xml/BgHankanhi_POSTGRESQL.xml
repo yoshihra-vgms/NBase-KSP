@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    BG_HANKANHI.BG_HANKANHI_ID,
+    BG_HANKANHI.YOSAN_HEAD_ID,
+    BG_HANKANHI.YEAR,
+    BG_HANKANHI.EIGYO_KISO,
+    BG_HANKANHI.KANRI_KISO,
+    BG_HANKANHI.NENDO_HANKANHI,
+    BG_HANKANHI.KEIEISHIDOURYOU,
+    BG_HANKANHI.RENEW_DATE,
+    BG_HANKANHI.RENEW_USER_ID,
+    BG_HANKANHI.TS
+
+    FROM
+    BG_HANKANHI
+  </sql>
+
+  <sql name="ByAll">
+    WHERE 1 = 1
+  </sql>
+
+  <sql name="ByHankanhiID">
+    WHERE
+    BG_HANKANHI.BG_HANKANHI_ID = :BG_HANKANHI_ID
+  </sql>
+
+  <sql name="ByYosanHeadID">
+    AND BG_KADOU_VESSEL.YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+  </sql>
+
+  <sql name="ByByYosanHeadIDYear">
+    WHERE 
+    BG_HANKANHI.YOSAN_HEAD_ID = :YOSAN_HEAD_ID AND
+    BG_HANKANHI.YEAR = :YEAR
+  </sql>
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO BG_HANKANHI
+    (
+    BG_HANKANHI_ID,
+    YOSAN_HEAD_ID,
+    YEAR,
+    EIGYO_KISO,
+    KANRI_KISO,
+    NENDO_HANKANHI,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    ,KEIEISHIDOURYOU
+    )
+    VALUES
+    (
+    nextval('SEQ_BG_HANKANHI_ID'),
+    :YOSAN_HEAD_ID,
+    :YEAR,
+    :EIGYO_KISO,
+    :KANRI_KISO,
+    :NENDO_HANKANHI,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    ,:KEIEISHIDOURYOU
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE BG_HANKANHI SET
+
+    YOSAN_HEAD_ID = :YOSAN_HEAD_ID,
+    YEAR = :YEAR,
+    EIGYO_KISO = :EIGYO_KISO,
+    KANRI_KISO = :KANRI_KISO,
+    NENDO_HANKANHI = :NENDO_HANKANHI,
+    KEIEISHIDOURYOU = :KEIEISHIDOURYOU,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (BG_HANKANHI_ID = :BG_HANKANHI_ID) AND
+    (TS = :TS)
+  </sql>
+
+  <sql name="InsertRecords_コピー">
+    INSERT INTO BG_HANKANHI
+    (
+    BG_HANKANHI_ID,
+    YOSAN_HEAD_ID,
+    YEAR,
+    EIGYO_KISO,
+    KANRI_KISO,
+    NENDO_HANKANHI,
+    KEIEISHIDOURYOU,
+    RENEW_DATE,
+    RENEW_USER_ID
+    )
+
+    SELECT
+    nextval('SEQ_BG_HANKANHI_ID'),
+    :YOSAN_HEAD_ID,
+    YEAR,
+    EIGYO_KISO,
+    KANRI_KISO,
+    NENDO_HANKANHI,
+    KEIEISHIDOURYOU,
+    :RENEW_DATE,
+    :RENEW_USER_ID
+
+    FROM BG_HANKANHI
+
+    WHERE
+    YOSAN_HEAD_ID = :LAST_YOSAN_HEAD_ID
+  </sql>
+
+  <sql name="ByYear">
+    AND
+    YEAR >= :MIN_YEAR
+  </sql>
+
+</databaseConfig>

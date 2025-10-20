@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecordByYosanHeadIDAndMsVesselID">
+    SELECT
+    BG_YOSAN_BIKOU_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    BIKOU,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    BG_YOSAN_BIKOU
+
+    WHERE
+    YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+    AND
+    MS_VESSEL_ID = :MS_VESSEL_ID
+
+    AND
+    DELETE_FLAG = 0
+  </sql>
+
+  <sql name="GetRecordsByMsVesselID">
+    SELECT
+    BG_YOSAN_BIKOU_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    BIKOU,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    BG_YOSAN_BIKOU
+
+    WHERE
+    MS_VESSEL_ID = :MS_VESSEL_ID
+
+    AND
+    DELETE_FLAG = 0
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO BG_YOSAN_BIKOU
+    (
+    BG_YOSAN_BIKOU_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    BIKOU,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_BG_YOSAN_BIKOU_ID'),
+    :YOSAN_HEAD_ID,
+    :MS_VESSEL_ID,
+    :BIKOU,
+    :DELETE_FLAG,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE BG_YOSAN_BIKOU SET
+
+    YOSAN_HEAD_ID = :YOSAN_HEAD_ID,
+    MS_VESSEL_ID = :MS_VESSEL_ID,
+    BIKOU = :BIKOU,
+    DELETE_FLAG = :DELETE_FLAG,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (BG_YOSAN_BIKOU_ID = :BG_YOSAN_BIKOU_ID) AND
+    (TS = :TS)
+  </sql>
+
+  <sql name="InsertRecords_コピー">
+    INSERT INTO BG_YOSAN_BIKOU
+    (
+    BG_YOSAN_BIKOU_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    BIKOU,
+    DELETE_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID
+    )
+
+    SELECT
+    nextval('SEQ_BG_YOSAN_BIKOU_ID'),
+    :YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    BIKOU,
+    DELETE_FLAG,
+    :RENEW_DATE,
+    :RENEW_USER_ID
+
+    FROM
+    BG_YOSAN_BIKOU
+
+    JOIN
+    BG_YOSAN_HEAD
+    ON BG_YOSAN_HEAD.YOSAN_HEAD_ID = BG_YOSAN_BIKOU.YOSAN_HEAD_ID
+
+    WHERE
+    BG_YOSAN_HEAD.YOSAN_HEAD_ID = :LAST_YOSAN_HEAD_ID
+    AND
+    BG_YOSAN_BIKOU.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+</databaseConfig>

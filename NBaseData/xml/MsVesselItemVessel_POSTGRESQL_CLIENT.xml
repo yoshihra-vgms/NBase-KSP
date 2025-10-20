@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_VESSEL_ID       ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                                ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME                      ,
+    MS_VESSEL_ITEM.MS_TANI_ID                            ,
+
+    MS_VESSEL_ITEM_VESSEL.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM_VESSEL.BIKOU                          ,
+    MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG                  ,
+
+    MS_VESSEL_ITEM_VESSEL.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_VESSEL.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_VESSEL.DATA_NO                        ,
+    MS_VESSEL_ITEM_VESSEL.USER_KEY                       ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_VESSEL.TS
+    FROM
+    MS_VESSEL_ITEM_VESSEL
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID
+
+  </sql>
+
+  <sql name="GetRecordsByMsVesselID">
+    SELECT
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_VESSEL_ID       ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                                ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME                      ,
+    MS_VESSEL_ITEM.CATEGORY_NUMBER                       ,
+    MS_VESSEL_ITEM.MS_TANI_ID                            ,
+
+    MS_VESSEL_ITEM_VESSEL.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM_VESSEL.BIKOU                          ,
+    MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG                  ,
+
+    MS_VESSEL_ITEM_VESSEL.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_VESSEL.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_VESSEL.DATA_NO                        ,
+    MS_VESSEL_ITEM_VESSEL.USER_KEY                       ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_VESSEL.TS                             ,
+    MS_TANI.TANI_NAME as MS_TANI_NAME
+    FROM
+    MS_VESSEL_ITEM_VESSEL
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID
+    LEFT JOIN MS_TANI ON MS_VESSEL_ITEM.MS_TANI_ID = MS_TANI.MS_TANI_ID
+    WHERE
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="ByCategoryNumber">
+    AND MS_VESSEL_ITEM.CATEGORY_NUMBER = :CATEGORY_NUMBER
+  </sql>
+
+  <sql name="GetRecordsByMsVesselIDVesselItemName">
+    SELECT
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_VESSEL_ID       ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                                ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME                      ,
+    MS_VESSEL_ITEM.MS_TANI_ID                            ,
+
+    MS_VESSEL_ITEM_VESSEL.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM_VESSEL.BIKOU                          ,
+    MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG                  ,
+
+    MS_VESSEL_ITEM_VESSEL.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_VESSEL.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_VESSEL.DATA_NO                        ,
+    MS_VESSEL_ITEM_VESSEL.USER_KEY                       ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_VESSEL.TS
+    FROM
+    MS_VESSEL_ITEM_VESSEL
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID
+    WHERE
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID = :MS_VESSEL_ID
+    AND
+    MS_VESSEL_ITEM.CATEGORY_NUMBER = :CATEGORY_NUMBER
+  </sql>
+  <sql name="ByMsVesselItemName">
+    AND
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME LIKE :VESSEL_ITEM_NAME
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY MS_VESSEL_ITEM.CATEGORY_NUMBER, MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_VESSEL_ID       ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID                   ,
+    MS_VESSEL.VESSEL_NAME                                ,
+    MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID              ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME                      ,
+    MS_VESSEL_ITEM.MS_TANI_ID                            ,
+
+    MS_VESSEL_ITEM_VESSEL.ZAIKO_COUNT                    ,
+    MS_VESSEL_ITEM_VESSEL.BIKOU                          ,
+    MS_VESSEL_ITEM_VESSEL.SPECIFIC_FLAG                  ,
+
+    MS_VESSEL_ITEM_VESSEL.SEND_FLAG                      ,
+    MS_VESSEL_ITEM_VESSEL.VESSEL_ID                      ,
+    MS_VESSEL_ITEM_VESSEL.DATA_NO                        ,
+    MS_VESSEL_ITEM_VESSEL.USER_KEY                       ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_DATE                     ,
+    MS_VESSEL_ITEM_VESSEL.RENEW_USER_ID                  ,
+    MS_VESSEL_ITEM_VESSEL.TS
+    FROM
+    MS_VESSEL_ITEM_VESSEL
+    LEFT OUTER JOIN MS_VESSEL ON MS_VESSEL.MS_VESSEL_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_ID
+
+    WHERE MS_VESSEL_ITEM_VESSEL.MS_VESSEL_ITEM_VESSEL_ID = :MS_VESSEL_ITEM_VESSEL_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_VESSEL_ITEM_VESSEL
+    (
+    MS_VESSEL_ITEM_VESSEL_ID       ,
+    MS_VESSEL_ID                   ,
+    MS_VESSEL_ITEM_ID              ,
+
+    ZAIKO_COUNT                    ,
+    BIKOU                          ,
+    SPECIFIC_FLAG                  ,
+
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :MS_VESSEL_ITEM_VESSEL_ID       ,
+    :MS_VESSEL_ID                   ,
+    :MS_VESSEL_ITEM_ID              ,
+
+    :ZAIKO_COUNT                    ,
+    :BIKOU                          ,
+    :SPECIFIC_FLAG                  ,
+
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_VESSEL_ITEM_VESSEL
+    SET
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID           ,
+
+    ZAIKO_COUNT = :ZAIKO_COUNT                       ,
+    BIKOU = :BIKOU                                   ,
+    SPECIFIC_FLAG = :SPECIFIC_FLAG                   ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    MS_VESSEL_ITEM_VESSEL_ID = :MS_VESSEL_ITEM_VESSEL_ID
+
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+	<sql name="GetRecords">
+    select
+    MS_BUMON_ID                ,
+    BUMON_NAME                 ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+
+    from
+    MS_BUMON
+    ORDER BY
+    MS_BUMON_ID
+  </sql>
+
+	<sql name="GetRecordsByBumonID">
+    select
+    MS_BUMON_ID                ,
+    BUMON_NAME                 ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+
+    from
+    MS_BUMON
+    where MS_BUMON_ID = :MS_BUMON_ID
+  </sql>
+
+	<sql name="InsertRecord">
+    insert into
+    MS_BUMON
+    (
+    MS_BUMON_ID                ,
+    BUMON_NAME                 ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+    )
+    values
+    (
+    :MS_BUMON_ID                ,
+    :BUMON_NAME                 ,
+    :SEND_FLAG                  ,
+    :VESSEL_ID                  ,
+    :DATA_NO                    ,
+    :USER_KEY                   ,
+    :RENEW_DATE                 ,
+    :RENEW_USER_ID              ,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+    update
+    MS_BUMON
+    set
+    BUMON_NAME = :BUMON_NAME               ,
+
+    SEND_FLAG = :SEND_FLAG                 ,
+    VESSEL_ID = :VESSEL_ID                 ,
+    DATA_NO = :DATA_NO                     ,
+    USER_KEY = :USER_KEY                   ,
+    RENEW_DATE = :RENEW_DATE               ,
+    RENEW_USER_ID = :RENEW_USER_ID         ,
+    TS = :TS
+    
+    where
+    MS_BUMON_ID = :MS_BUMON_ID
+    AND TS = :TS
+  </sql>
+</databaseConfig>

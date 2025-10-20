@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_GETSUJI_SHIME_BI.MS_SI_GETSUJI_SHIME_BI_ID      ,
+    
+    MS_SI_GETSUJI_SHIME_BI.MONTH                          ,
+    MS_SI_GETSUJI_SHIME_BI.SHIME_BI                       ,
+    
+    MS_SI_GETSUJI_SHIME_BI.SEND_FLAG                      ,
+    MS_SI_GETSUJI_SHIME_BI.VESSEL_ID                      ,
+    MS_SI_GETSUJI_SHIME_BI.DATA_NO                        ,
+    MS_SI_GETSUJI_SHIME_BI.USER_KEY                       ,
+    MS_SI_GETSUJI_SHIME_BI.RENEW_DATE                     ,
+    MS_SI_GETSUJI_SHIME_BI.RENEW_USER_ID                  ,
+    MS_SI_GETSUJI_SHIME_BI.TS
+    FROM
+    MS_SI_GETSUJI_SHIME_BI
+    
+    WHERE
+    1 = 1
+  </sql>
+
+  <sql name="ByMonth">
+    AND
+    MS_SI_GETSUJI_SHIME_BI.MONTH = :MONTH
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_SI_GETSUJI_SHIME_BI
+    (
+    MS_SI_GETSUJI_SHIME_BI_ID      ,
+
+    MONTH                          ,
+    SHIME_BI                       ,
+
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :MS_SI_GETSUJI_SHIME_BI_ID      ,
+
+    :MONTH                          ,
+    :SHIME_BI                       ,
+    
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_GETSUJI_SHIME_BI
+    SET
+    MONTH =:MONTH                                    ,
+    SHIME_BI =:SHIME_BI                              ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    MS_SI_GETSUJI_SHIME_BI_ID  =:MS_SI_GETSUJI_SHIME_BI_ID
+  </sql>
+
+</databaseConfig>

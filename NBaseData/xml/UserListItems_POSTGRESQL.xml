@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    USER_LIST_ITEMS_ID,
+
+    KIND,
+    USER_ID,
+    TITLE,
+    MS_LIST_ITEM_ID,
+    DISPLAY_ORDER,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    USER_LIST_ITEMS
+
+    WHERE
+    DELETE_FLAG = 0
+    AND
+    KIND = :KIND
+    AND
+    USER_ID = :USER_ID
+
+    ORDER BY
+    TITLE, DISPLAY_ORDER
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO USER_LIST_ITEMS(
+    USER_LIST_ITEMS_ID    ,
+
+    KIND                  ,
+    USER_ID               ,
+    TITLE                 ,
+    MS_LIST_ITEM_ID       ,
+    DISPLAY_ORDER         ,
+
+    DELETE_FLAG           ,
+    SEND_FLAG             ,
+    VESSEL_ID             ,
+    DATA_NO               ,
+    USER_KEY              ,
+    RENEW_DATE            ,
+    RENEW_USER_ID         ,
+    TS
+    )
+    VALUES(
+    Nextval( 'SEQ_USER_LIST_ITEMS_ID' ),
+
+    :KIND,
+    :USER_ID              ,
+    :TITLE                ,
+    :MS_LIST_ITEM_ID      ,
+    :DISPLAY_ORDER        ,
+
+    :DELETE_FLAG          ,
+    :SEND_FLAG            ,
+    :VESSEL_ID            ,
+    :DATA_NO              ,
+    :USER_KEY             ,
+    :RENEW_DATE           ,
+    :RENEW_USER_ID        ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    USER_LIST_ITEMS
+    SET
+    KIND = :KIND                           ,
+    USER_ID = :USER_ID                     ,
+    TITLE = :TITLE                         ,
+    MS_LIST_ITEM_ID = :MS_LIST_ITEM_ID     ,
+    DISPLAY_ORDER = :DISPLAY_ORDER         ,
+
+    DELETE_FLAG = :DELETE_FLAG             ,
+    SEND_FLAG = :SEND_FLAG                 ,
+    VESSEL_ID = :VESSEL_ID                 ,
+    DATA_NO = :DATA_NO                     ,
+    USER_KEY = :USER_KEY                   ,
+    RENEW_DATE = :RENEW_DATE               ,
+    RENEW_USER_ID = :RENEW_USER_ID         ,
+    TS = :TS
+
+    WHERE USER_LIST_ITEMS_ID = :USER_LIST_ITEMS_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

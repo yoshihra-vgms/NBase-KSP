@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_ATTACH_FILE.OD_ATTACH_FILE_ID              ,
+    OD_ATTACH_FILE.FILE_NAME                      ,
+    OD_ATTACH_FILE.DATA                           ,
+    OD_ATTACH_FILE.DELETE_FLAG                    ,
+    OD_ATTACH_FILE.SEND_FLAG                      ,
+    OD_ATTACH_FILE.VESSEL_ID                      ,
+    OD_ATTACH_FILE.DATA_NO                        ,
+    OD_ATTACH_FILE.USER_KEY                       ,
+    OD_ATTACH_FILE.RENEW_DATE                     ,
+    OD_ATTACH_FILE.RENEW_USER_ID                  ,
+    OD_ATTACH_FILE.TS
+
+    FROM
+    OD_ATTACH_FILE
+
+  </sql>
+
+	<sql name="ByOdAttachFileID">
+    WHERE OD_ATTACH_FILE.DELETE_FLAG = 0
+    AND OD_ATTACH_FILE.OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+  </sql>
+  
+  <sql name="ByOdThiId">
+    WHERE OD_ATTACH_FILE.DELETE_FLAG = 0
+    AND
+    (OD_ATTACH_FILE.OD_ATTACH_FILE_ID IN
+    (SELECT OD_ATTACH_FILE_ID FROM OD_THI_ITEM
+    WHERE OD_THI_ITEM.CANCEL_FLAG = 0
+    AND OD_THI_ITEM.OD_ATTACH_FILE_ID IS NOT NULL
+    AND OD_THI_ITEM.OD_THI_ID = :OD_THI_ID)
+    OR
+    OD_ATTACH_FILE.OD_ATTACH_FILE_ID IN
+    (SELECT OD_THI_SHOUSAI_ITEM.OD_ATTACH_FILE_ID FROM OD_THI_SHOUSAI_ITEM
+    INNER JOIN OD_THI_ITEM ON OD_THI_ITEM.CANCEL_FLAG = 0 AND OD_THI_ITEM.OD_THI_ITEM_ID = OD_THI_SHOUSAI_ITEM.OD_THI_ITEM_ID AND OD_THI_ITEM.OD_THI_ID = :OD_THI_ID
+    WHERE OD_THI_SHOUSAI_ITEM.CANCEL_FLAG = 0
+    AND OD_THI_SHOUSAI_ITEM.OD_ATTACH_FILE_ID IS NOT NULL))
+  </sql>
+
+  <sql name="ByOdMmID">
+    WHERE OD_ATTACH_FILE.DELETE_FLAG = 0
+    AND OD_ATTACH_FILE.OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+  </sql>
+  
+  <sql name="ByOdMkID">
+    WHERE OD_ATTACH_FILE.DELETE_FLAG = 0
+    AND OD_ATTACH_FILE.OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_ATTACH_FILE
+    (
+    OD_ATTACH_FILE_ID              ,
+    FILE_NAME                      ,
+    DATA                           ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :OD_ATTACH_FILE_ID              ,
+    :FILE_NAME                      ,
+    :DATA                           ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_ATTACH_FILE
+    SET
+    FILE_NAME = :FILE_NAME                           ,
+    DATA = :DATA                                     ,
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+  </sql>
+
+  <sql name="GetTargetRecords">
+    SELECT DISTINCT OD_ATTACH_FILE_ID
+
+    FROM
+    (
+    SELECT OD_ATTACH_FILE_ID FROM OD_THI_ITEM
+    WHERE CANCEL_FLAG = 0 AND OD_ATTACH_FILE_ID IS NOT NULL
+    AND OD_THI_ITEM.VESSEL_ID = :MS_VESSEL_ID
+
+    UNION
+
+    SELECT OD_ATTACH_FILE_ID FROM OD_THI_SHOUSAI_ITEM
+    WHERE CANCEL_FLAG = 0 AND OD_ATTACH_FILE_ID IS NOT NULL
+    AND OD_THI_SHOUSAI_ITEM.VESSEL_ID = :MS_VESSEL_ID
+    ) ID_TBL
+
+  </sql>
+
+  <sql name="AndFileNotFoundRecords">
+    WHERE NOT EXISTS (SELECT * FROM OD_ATTACH_FILE WHERE OD_ATTACH_FILE.OD_ATTACH_FILE_ID = ID_TBL.OD_ATTACH_FILE_ID)
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    SELECT
+    MS_HIMOKU_ID,
+    HIMOKU_NAME,
+    MS_BUMON_ID,
+    KIKAN_HIMOKU_ID,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    FROM MS_HIMOKU
+  </sql>
+
+	<sql name="GetRecord">
+    SELECT
+    MS_HIMOKU_ID,
+    HIMOKU_NAME,
+    MS_BUMON_ID,
+    KIKAN_HIMOKU_ID,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    FROM MS_HIMOKU
+    WHERE
+    MS_HIMOKU.MS_HIMOKU_ID = :MS_HIMOKU_ID
+  </sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO MS_HIMOKU
+    (
+    MS_HIMOKU_ID,
+    HIMOKU_NAME,
+    MS_BUMON_ID,
+    KIKAN_HIMOKU_ID,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    :MS_HIMOKU_ID,
+    :HIMOKU_NAME,
+    :MS_BUMON_ID,
+    :KIKAN_HIMOKU_ID,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+    UPDATE MS_HIMOKU SET
+    HIMOKU_NAME = :HIMOKU_NAME,
+    MS_BUMON_ID = :MS_BUMON_ID,
+    KIKAN_HIMOKU_ID = :KIKAN_HIMOKU_ID,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (MS_HIMOKU_ID = :MS_HIMOKU_ID)
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_ALLOWANCE.SI_ALLOWANCE_ID         ,
+    SI_ALLOWANCE.MS_SI_ALLOWANCE_ID      ,
+    SI_ALLOWANCE.MS_VESSEL_ID            ,
+    SI_ALLOWANCE.CAPTAIN_SENIN_ID        ,
+    SI_ALLOWANCE.YEAR_MONTH              ,
+    SI_ALLOWANCE.CONTENTS                ,
+    SI_ALLOWANCE.QUANTITY                ,
+    SI_ALLOWANCE.ALLOWANCE               ,
+    SI_ALLOWANCE.PERSON_IN_CHARGE        ,
+    SI_ALLOWANCE.DELETE_FLAG             ,
+    SI_ALLOWANCE.SEND_FLAG               ,
+    SI_ALLOWANCE.VESSEL_ID               ,
+    SI_ALLOWANCE.DATA_NO                 ,
+    SI_ALLOWANCE.USER_KEY                ,
+    SI_ALLOWANCE.RENEW_DATE              ,
+    SI_ALLOWANCE.RENEW_USER_ID           ,
+    SI_ALLOWANCE.TS
+
+    FROM
+    SI_ALLOWANCE
+
+    INNER JOIN MS_SI_ALLOWANCE on MS_SI_ALLOWANCE.MS_SI_ALLOWANCE_ID = SI_ALLOWANCE.MS_SI_ALLOWANCE_ID
+    INNER JOIN MS_VESSEL on MS_VESSEL.MS_VESSEL_ID = SI_ALLOWANCE.MS_VESSEL_ID
+
+    WHERE SI_ALLOWANCE.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiAllowanceID">
+    AND SI_ALLOWANCE_ID = :SI_ALLOWANCE_ID
+  </sql>
+  <sql name="ByFrom">
+    AND cast(YEAR_MONTH as integer) >= :FROM_YEAR_MONTH
+  </sql>
+  <sql name="ByTo">
+    AND cast(YEAR_MONTH as integer)  &lt;= :TO_YEAR_MONTH
+  </sql>
+  <sql name="ByVesselID">
+    AND SI_ALLOWANCE.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="ByAllowanceName">
+    AND MS_SI_ALLOWANCE.NAME LIKE :ALLOWANCE_NAME
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY YEAR_MONTH, MS_VESSEL.SHOW_ORDER,  SI_ALLOWANCE.MS_SI_ALLOWANCE_ID
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_ALLOWANCE(
+    SI_ALLOWANCE_ID             ,
+    MS_SI_ALLOWANCE_ID          ,
+    MS_VESSEL_ID                ,
+    CAPTAIN_SENIN_ID            ,
+    YEAR_MONTH                  ,
+    CONTENTS                    ,
+    QUANTITY                    ,
+    ALLOWANCE                   ,
+    PERSON_IN_CHARGE            ,
+    DELETE_FLAG                 ,
+    SEND_FLAG                   ,
+    VESSEL_ID                   ,
+    DATA_NO                     ,
+    USER_KEY                    ,
+    RENEW_DATE                  ,
+    RENEW_USER_ID               ,
+    TS
+    )
+    VALUES(
+    :SI_ALLOWANCE_ID             ,
+    :MS_SI_ALLOWANCE_ID          ,
+    :MS_VESSEL_ID                ,
+    :CAPTAIN_SENIN_ID            ,
+    :YEAR_MONTH                  ,
+    :CONTENTS                    ,
+    :QUANTITY                    ,
+    :ALLOWANCE                   ,
+    :PERSON_IN_CHARGE            ,
+    :DELETE_FLAG                 ,
+    :SEND_FLAG                   ,
+    :VESSEL_ID                   ,
+    :DATA_NO                     ,
+    :USER_KEY                    ,
+    :RENEW_DATE                  ,
+    :RENEW_USER_ID               ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_ALLOWANCE
+    SET
+    MS_SI_ALLOWANCE_ID = :MS_SI_ALLOWANCE_ID ,
+    MS_VESSEL_ID = :MS_VESSEL_ID ,
+    CAPTAIN_SENIN_ID = :CAPTAIN_SENIN_ID ,
+    YEAR_MONTH = :YEAR_MONTH ,
+    CONTENTS = :CONTENTS ,
+    QUANTITY = :QUANTITY ,
+    ALLOWANCE = :ALLOWANCE ,
+    PERSON_IN_CHARGE = :PERSON_IN_CHARGE ,
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    SI_ALLOWANCE_ID = :SI_ALLOWANCE_ID
+  </sql>
+
+</databaseConfig>

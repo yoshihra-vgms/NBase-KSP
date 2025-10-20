@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_SCHOOL_ID                   ,
+    MS_CUSTOMER_ID                 ,
+    DEPARTMENT_OF                  ,
+    MS_SI_MENJOU_ID                ,
+    MS_SI_MENJOU_KIND_ID           ,
+    
+    DELETE_FLAG                    ,
+    USER_KEY                       ,
+    DATA_NO	                       ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    from MS_SCHOOL
+
+  </sql>
+
+　<sql name="_削除を除く">
+	 where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+　</sql>
+
+　<sql name="OrderBy">
+   ORDER BY MS_SCHOOL.MS_SI_MENJOU_ID, MS_SCHOOL.MS_SI_MENJOU_KIND_ID
+ </sql>
+
+  <sql name="ByCustomer">
+    AND
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID
+  </sql>
+
+
+  <sql name="InsertRecord">
+      INSERT INTO MS_SCHOOL(
+      MS_CUSTOMER_ID                 ,
+      MS_SCHOOL_ID                   ,
+      DEPARTMENT_OF                  ,
+      MS_SI_MENJOU_ID                ,
+      MS_SI_MENJOU_KIND_ID           ,
+      DELETE_FLAG                    ,
+      SEND_FLAG                      ,
+      VESSEL_ID                      ,
+      DATA_NO	                       ,
+      USER_KEY                       ,
+      RENEW_DATE                     ,
+      RENEW_USER_ID                  ,
+      TS
+      )
+      VALUES(
+      :MS_CUSTOMER_ID                 ,
+      :MS_SCHOOL_ID                   ,
+      :DEPARTMENT_OF                  ,
+      :MS_SI_MENJOU_ID                ,
+      :MS_SI_MENJOU_KIND_ID           ,
+      :DELETE_FLAG                    ,
+      :SEND_FLAG                      ,
+      :VESSEL_ID                      ,
+      :DATA_NO	                      ,
+      :USER_KEY                       ,
+      :RENEW_DATE                     ,
+      :RENEW_USER_ID                  ,
+      :TS
+      )
+
+    </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_SCHOOL SET
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID,
+    DEPARTMENT_OF = :DEPARTMENT_OF,
+    MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID,
+    MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY                       ,
+    RENEW_DATE = :RENEW_DATE                   ,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+    where
+    MS_SCHOOL_ID = :MS_SCHOOL_ID
+    and
+    TS = :TS
+  </sql>
+
+	<sql name="DeleteFlagRecord">
+		UPDATE MS_SCHOOL SET
+		DELETE_FLAG = 1
+		,RENEW_DATE = :RENEW_DATE
+		,RENEW_USER_ID = :RENEW_USER_ID
+
+		where MS_SCHOOL_ID = :MS_SCHOOL_ID
+		AND TS = :TS
+	</sql>
+
+</databaseConfig>

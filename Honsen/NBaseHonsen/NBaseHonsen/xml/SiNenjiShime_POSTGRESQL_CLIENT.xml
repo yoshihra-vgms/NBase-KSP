@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_NENJI_SHIME.SI_NENJI_SHIME_ID            ,
+    SI_NENJI_SHIME.NEN                      ,
+    SI_NENJI_SHIME.MS_USER_ID                     ,
+    SI_NENJI_SHIME.SEND_FLAG                      ,
+    SI_NENJI_SHIME.VESSEL_ID                      ,
+    SI_NENJI_SHIME.DATA_NO                        ,
+    SI_NENJI_SHIME.USER_KEY                       ,
+    SI_NENJI_SHIME.RENEW_DATE                     ,
+    SI_NENJI_SHIME.RENEW_USER_ID                  ,
+    SI_NENJI_SHIME.TS
+    FROM
+    SI_NENJI_SHIME
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    SI_NENJI_SHIME.SI_NENJI_SHIME_ID            ,
+    SI_NENJI_SHIME.NEN                      ,
+    SI_NENJI_SHIME.MS_USER_ID                     ,
+    SI_NENJI_SHIME.SEND_FLAG                      ,
+    SI_NENJI_SHIME.VESSEL_ID                      ,
+    SI_NENJI_SHIME.DATA_NO                        ,
+    SI_NENJI_SHIME.USER_KEY                       ,
+    SI_NENJI_SHIME.RENEW_DATE                     ,
+    SI_NENJI_SHIME.RENEW_USER_ID                  ,
+    SI_NENJI_SHIME.TS
+    FROM
+    SI_NENJI_SHIME
+    WHERE
+    SI_NENJI_SHIME.SI_NENJI_SHIME_ID = :SI_NENJI_SHIME_ID
+
+  </sql>
+
+
+
+	<sql name="GetRecordByLastDate">
+    SELECT
+    SI_NENJI_SHIME.SI_NENJI_SHIME_ID            ,
+    SI_NENJI_SHIME.NEN                      ,
+    SI_NENJI_SHIME.MS_USER_ID                     ,
+    SI_NENJI_SHIME.SEND_FLAG                      ,
+    SI_NENJI_SHIME.VESSEL_ID                      ,
+    SI_NENJI_SHIME.DATA_NO                        ,
+    SI_NENJI_SHIME.USER_KEY                       ,
+    SI_NENJI_SHIME.RENEW_DATE                     ,
+    SI_NENJI_SHIME.RENEW_USER_ID                  ,
+    SI_NENJI_SHIME.TS
+    FROM
+    SI_NENJI_SHIME
+    WHERE NEN IN
+    (
+    SELECT max(NEN)
+    FROM SI_NENJI_SHIME
+    )
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    SI_NENJI_SHIME
+    (
+    SI_NENJI_SHIME_ID            ,
+    NEN                      ,
+    MS_USER_ID                     ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :SI_NENJI_SHIME_ID            ,
+    :NEN                      ,
+    :MS_USER_ID                     ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_NENJI_SHIME
+    SET
+    NEN =:NEN                            ,
+    MS_USER_ID =:MS_USER_ID                          ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE
+    SI_NENJI_SHIME_ID =:SI_NENJI_SHIME_ID
+
+  </sql>
+
+</databaseConfig>

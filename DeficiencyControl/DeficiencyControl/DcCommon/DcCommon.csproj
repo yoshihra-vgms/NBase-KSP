@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04DA8DE3-B718-4B48-957F-508C34BE3EC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DcCommon</RootNamespace>
+    <AssemblyName>DcCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql">
+      <HintPath>..\lib\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDBCache.cs" />
+    <Compile Include="CommonLogic.cs" />
+    <Compile Include="DB\AccidentData.cs" />
+    <Compile Include="DB\AccidentProgressData.cs" />
+    <Compile Include="DB\AccidentReportsData.cs" />
+    <Compile Include="DB\AlarmData.cs" />
+    <Compile Include="DB\CommentData.cs" />
+    <Compile Include="DB\CommentItemData.cs" />
+    <Compile Include="DB\DAC\DcAccident.cs" />
+    <Compile Include="DB\DAC\DcAccidentAttachment.cs" />
+    <Compile Include="DB\DAC\DcAccidentProgress.cs" />
+    <Compile Include="DB\DAC\DcAccidentProgressAttachment.cs" />
+    <Compile Include="DB\DAC\DcAccidentReports.cs" />
+    <Compile Include="DB\DAC\DcAccidentReportsAttachment.cs" />
+    <Compile Include="DB\DAC\DcActionCodeHistory.cs" />
+    <Compile Include="DB\DAC\DcAttachment.cs" />
+    <Compile Include="DB\DAC\DcCiPscInspection.cs" />
+    <Compile Include="DB\DAC\DcComment.cs" />
+    <Compile Include="DB\DAC\DcCommentItemAttachment.cs" />
+    <Compile Include="DB\DAC\DcCommentItem.cs" />
+    <Compile Include="DB\DAC\DcCommentAttachment.cs" />
+    <Compile Include="DB\DAC\DcMoi.cs" />
+    <Compile Include="DB\DAC\DcMoiAttachment.cs" />
+    <Compile Include="DB\DAC\DcMoiObservation.cs" />
+    <Compile Include="DB\DAC\DcMoiObservationAttachment.cs" />
+    <Compile Include="DB\DAC\DcOperationHistory.cs" />
+    <Compile Include="DB\DAC\DcSchedule.cs" />
+    <Compile Include="DB\DAC\DcScheduleCompany.cs" />
+    <Compile Include="DB\DAC\DcScheduleOther.cs" />
+    <Compile Include="DB\DAC\DcSchedulePlan.cs" />
+    <Compile Include="DB\DAC\MsAccidentStatus.cs" />
+    <Compile Include="DB\DAC\MsAlarmColor.cs" />
+    <Compile Include="DB\DAC\MsAttachmentType.cs" />
+    <Compile Include="DB\DAC\MsMoiStatus.cs" />
+    <Compile Include="DB\DAC\MsSeq.cs" />
+    <Compile Include="DB\DAC\MsStatus.cs" />
+    <Compile Include="DB\DAC\MsUserOperationKind.cs" />
+    <Compile Include="DB\DAC\MsYear.cs" />
+    <Compile Include="DB\DAC\Search\AccidentSearchData.cs" />
+    <Compile Include="DB\DAC\Search\CommentItemSearchData.cs" />
+    <Compile Include="DB\DAC\Search\MoiSearchData.cs" />
+    <Compile Include="DB\DAC\Search\PscInspectionSearchData.cs" />
+    <Compile Include="DB\DAC\Search\ScheduleCompanySearchData.cs" />
+    <Compile Include="DB\DAC\Search\ScheduleOtherSearchData.cs" />
+    <Compile Include="DB\DAC\Search\SchedulePlanSearchData.cs" />
+    <Compile Include="DB\DBEtc.cs" />
+    <Compile Include="DB\DeficiencyCategoryData.cs" />
+    <Compile Include="DB\MoiData.cs" />
+    <Compile Include="DB\MoiHeaderData.cs" />
+    <Compile Include="DB\MoiObservationData.cs" />
+    <Compile Include="DB\PSCInspectionData.cs" />
+    <Compile Include="DB\RegistCountData.cs" />
+    <Compile Include="DB\UserData.cs" />
+    <Compile Include="Files\BaseCsvFile.cs" />
+    <Compile Include="Files\BaseFile.cs" />
+    <Compile Include="Files\CommentListFileData.cs" />
+    <Compile Include="KeywordSearch.cs" />
+    <Compile Include="Output\AccidentOutputData.cs" />
+    <Compile Include="Output\MoiExcelOutputData.cs" />
+    <Compile Include="Output\MoiReportOutputData.cs" />
+    <Compile Include="Output\PscOutputData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CISL\CIsl\CIsl\CIsl.csproj">
+      <Project>{07daade2-4885-457f-9cf1-80ed6f68bec0}</Project>
+      <Name>CIsl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

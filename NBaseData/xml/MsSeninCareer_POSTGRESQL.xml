@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SENIN_CAREER.MS_SENIN_ID   ,
+
+    MS_SENIN_CAREER.ACADEMIC_BACKGROUND ,
+    MS_SENIN_CAREER.YEAR_OF_GRADUATION ,
+
+    MS_SENIN_CAREER.COMPANY ,
+    MS_SENIN_CAREER.JOINED ,
+    MS_SENIN_CAREER.LEAVE ,
+
+    MS_SENIN_CAREER.DELETE_FLAG   ,
+    MS_SENIN_CAREER.SEND_FLAG     ,
+    MS_SENIN_CAREER.VESSEL_ID     ,
+    MS_SENIN_CAREER.DATA_NO       ,
+    MS_SENIN_CAREER.USER_KEY      ,
+    MS_SENIN_CAREER.RENEW_DATE    ,
+    MS_SENIN_CAREER.RENEW_USER_ID ,
+    MS_SENIN_CAREER.TS
+
+    FROM
+    MS_SENIN_CAREER
+
+    WHERE
+    MS_SENIN_CAREER.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    MS_SENIN_CAREER.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SENIN_CAREER(
+
+    MS_SENIN_ID    ,
+
+    ACADEMIC_BACKGROUND,
+    YEAR_OF_GRADUATION,
+    COMPANY,
+    JOINED,
+    LEAVE,
+
+    DELETE_FLAG    ,
+    SEND_FLAG      ,
+    VESSEL_ID      ,
+    DATA_NO        ,
+    USER_KEY       ,
+    RENEW_DATE     ,
+    RENEW_USER_ID  ,
+    TS
+    )
+    VALUES(
+
+    :MS_SENIN_ID   ,
+
+    :ACADEMIC_BACKGROUND,
+    :YEAR_OF_GRADUATION,
+    :COMPANY,
+    :JOINED,
+    :LEAVE,
+
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :DATA_NO       ,
+    :USER_KEY      ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SENIN_CAREER
+    SET
+
+    ACADEMIC_BACKGROUND = :ACADEMIC_BACKGROUND
+    ,YEAR_OF_GRADUATION = :YEAR_OF_GRADUATION
+    ,COMPANY = :COMPANY
+    ,JOINED = :JOINED
+    ,LEAVE = :LEAVE
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MS_SENIN_ID = :MS_SENIN_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

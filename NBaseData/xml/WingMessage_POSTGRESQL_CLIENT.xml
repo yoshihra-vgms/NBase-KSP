@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    WING_MESSAGE.MESSAGE_ID ,
+    WING_MESSAGE.MESSAGE ,
+    WING_MESSAGE.SEND_FLAG ,
+    WING_MESSAGE.VESSEL_ID ,
+    WING_MESSAGE.DATA_NO ,
+    WING_MESSAGE.USER_KEY ,
+    WING_MESSAGE.RENEW_DATE ,
+    WING_MESSAGE.RENEW_USER_ID ,
+    WING_MESSAGE.TS ,
+    WING_MESSAGE.DELETE_FLAG
+
+    FROM
+    WING_MESSAGE
+
+    WHERE DELETE_FLAG = 0
+    
+    ORDER BY RENEW_DATE DESC
+  </sql>
+ 
+  <sql name="InsertRecord">
+    INSERT INTO WING_MESSAGE(
+    MESSAGE_ID
+    ,MESSAGE
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    ,DELETE_FLAG
+    )
+    VALUES(
+    :MESSAGE_ID
+    ,:MESSAGE
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    ,:DELETE_FLAG
+    )
+  </sql>
+  
+  <sql name="UpdateRecord">
+    UPDATE
+    WING_MESSAGE
+    SET
+    MESSAGE = :MESSAGE
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MESSAGE_ID = :MESSAGE_ID
+  </sql>
+
+</databaseConfig>

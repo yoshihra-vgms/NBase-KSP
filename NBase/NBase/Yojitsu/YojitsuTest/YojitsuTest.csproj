@@ -1,0 +1,179 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67EABF9D-A1EB-461D-9E7F-9DDE614B8A91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YojitsuTest</RootNamespace>
+    <AssemblyName>YojitsuTest</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator, Version=5.0.0.3522, Culture=neutral, PublicKeyToken=97d207c7dd0b8e91">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\ExcelCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.XlsCrt, Version=5.0.0.3522, Culture=neutral, PublicKeyToken=cf9444a2eda782e2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\ExcelCreator.XlsCrt.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.XlsPDF, Version=5.0.0.3522, Culture=neutral, PublicKeyToken=8ca261be8eaece38">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\ExcelCreator.XlsPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fc068d52871330d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\LidorSystems.IntegralUI.DLL</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f0a7ab6b4f7a5dd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\LidorSystems.IntegralUI.Lists.DLL</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists.TreeListView, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db703db380f7965b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Wing\LidorSystems.IntegralUI.Lists.TreeListView.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HimokuTreeReaderTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="販菅費処理Test.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuthoringTests.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WingData\WingData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>WingData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WingData\WingDataTest\WingDataTest.csproj">
+      <Project>{215F3AFE-83AA-4241-B8D6-93EA34A0C03B}</Project>
+      <Name>WingDataTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WingUtil\WingUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>WingUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WingServer\WingServer.csproj">
+      <Project>{A0C01C40-B1F0-43F2-8C92-77F2EE0ABEA7}</Project>
+      <Name>WingServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WingCommon\WingCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>WingCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WingServiceReferences\WingServiceReferences.csproj">
+      <Project>{1FBA14B8-00E7-4EE1-B9B0-7DF5737248EF}</Project>
+      <Name>WingServiceReferences</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yojitsu.csproj">
+      <Project>{99D84C3F-4DDA-46DD-AB09-C43517B98B74}</Project>
+      <Name>Yojitsu</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanHead.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomer.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomerTantou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsHimoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsItemSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLoVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsNyukyoKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShoushuriItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShrJouken.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSsShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsTani.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiStatus.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUserBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselType.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozoShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdGetsujiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdHachuTanka.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJry.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMk.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMm.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShr.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiShousaiItem.datasource" />
+    <Shadow Include="テストの参照\Yojitsu.accessor" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

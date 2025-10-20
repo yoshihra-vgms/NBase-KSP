@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_SENIN_COMPANY_ID      ,
+    COMPANY_NAME             ,
+    DELETE_FLAG              ,
+    SEND_FLAG                ,
+    VESSEL_ID                ,
+    DATA_NO	                 ,
+    USER_KEY                 ,
+    RENEW_DATE               ,
+    RENEW_USER_ID            ,
+    TS
+    
+    from MS_SENIN_COMPANY
+
+	 where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+　<sql name="OrderBy">
+   ORDER BY MS_SENIN_COMPANY.MS_SENIN_COMPANY_ID
+ </sql>
+
+  <sql name="InsertRecord">
+      INSERT INTO MS_SENIN_COMPANY(
+      MS_SENIN_COMPANY_ID            ,
+      COMPANY_NAME                   ,
+      DELETE_FLAG                    ,
+      SEND_FLAG                      ,
+      VESSEL_ID                      ,
+      DATA_NO	                       ,
+      USER_KEY                       ,
+      RENEW_DATE                     ,
+      RENEW_USER_ID                  ,
+      TS
+      )
+      VALUES(
+      :MS_SENIN_COMPANY_ID            ,
+      :COMPANY_NAME                   ,
+      :DELETE_FLAG                    ,
+      :SEND_FLAG                      ,
+      :VESSEL_ID                      ,
+      :DATA_NO	                      ,
+      :USER_KEY                       ,
+      :RENEW_DATE                     ,
+      :RENEW_USER_ID                  ,
+      :TS
+      )
+
+    </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_SENIN_COMPANY SET
+    COMPANY_NAME = :COMPANY_NAME,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY                       ,
+    RENEW_DATE = :RENEW_DATE                   ,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+    where
+    MS_SENIN_COMPANY_ID = :MS_SENIN_COMPANY_ID
+    and
+    TS = :TS
+  </sql>
+
+</databaseConfig>

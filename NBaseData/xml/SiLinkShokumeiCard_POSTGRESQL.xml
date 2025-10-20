@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_LINK_SHOKUMEI_CARD.SI_LINK_SHOKUMEI_CARD_ID       ,
+
+    SI_LINK_SHOKUMEI_CARD.MS_SI_SHOKUMEI_ID              ,
+    SI_LINK_SHOKUMEI_CARD.MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+    SI_LINK_SHOKUMEI_CARD.SI_CARD_ID                     ,
+
+    SI_LINK_SHOKUMEI_CARD.DELETE_FLAG                    ,
+    SI_LINK_SHOKUMEI_CARD.SEND_FLAG                      ,
+    SI_LINK_SHOKUMEI_CARD.VESSEL_ID                      ,
+    SI_LINK_SHOKUMEI_CARD.DATA_NO                        ,
+    SI_LINK_SHOKUMEI_CARD.USER_KEY                       ,
+    SI_LINK_SHOKUMEI_CARD.RENEW_DATE                     ,
+    SI_LINK_SHOKUMEI_CARD.RENEW_USER_ID                  ,
+    SI_LINK_SHOKUMEI_CARD.TS                             ,
+
+    MS_SI_SHOKUMEI.SHOW_ORDER
+
+    FROM
+    SI_LINK_SHOKUMEI_CARD
+
+    JOIN
+    MS_SI_SHOKUMEI
+    ON
+    MS_SI_SHOKUMEI.MS_SI_SHOKUMEI_ID = SI_LINK_SHOKUMEI_CARD.MS_SI_SHOKUMEI_ID
+
+    WHERE
+    SI_LINK_SHOKUMEI_CARD.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiCardID">
+    AND
+    SI_LINK_SHOKUMEI_CARD.SI_CARD_ID = :SI_CARD_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_LINK_SHOKUMEI_CARD(
+    SI_LINK_SHOKUMEI_CARD_ID       ,
+
+    MS_SI_SHOKUMEI_ID              ,
+    MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+    SI_CARD_ID                     ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_LINK_SHOKUMEI_CARD_ID       ,
+
+    :MS_SI_SHOKUMEI_ID              ,
+    :MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+    :SI_CARD_ID                     ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_LINK_SHOKUMEI_CARD
+    SET
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+    MS_SI_SHOKUMEI_SHOUSAI_ID = :MS_SI_SHOKUMEI_SHOUSAI_ID ,
+    SI_CARD_ID = :SI_CARD_ID                         ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_LINK_SHOKUMEI_CARD_ID = :SI_LINK_SHOKUMEI_CARD_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

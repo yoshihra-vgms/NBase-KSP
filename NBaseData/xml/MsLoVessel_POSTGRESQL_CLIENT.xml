@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_LO_VESSEL.MS_LO_VESSEL_ID,
+    MS_LO_VESSEL.MS_VESSEL_ID,
+    MS_LO_VESSEL.MS_LO_ID,
+    MS_LO.LO_NAME as MS_LO_NAME,
+    MS_LO_VESSEL.SEND_FLAG,
+    MS_LO_VESSEL.VESSEL_ID,
+    MS_LO_VESSEL.DATA_NO,
+    MS_LO_VESSEL.USER_KEY,
+    MS_LO_VESSEL.RENEW_DATE,
+    MS_LO_VESSEL.RENEW_USER_ID,
+    MS_LO_VESSEL.TS,
+    MS_TANI.MS_TANI_ID,
+    MS_TANI.TANI_NAME as MS_TANI_NAME
+
+    FROM MS_LO_VESSEL
+    inner join MS_LO on MS_LO_VESSEL.MS_LO_ID = MS_LO.MS_LO_ID
+    inner join MS_TANI on MS_LO.MS_TANI_ID = MS_TANI.MS_TANI_ID
+  </sql>
+  
+  <sql name="OrderBy">
+    ORDER BY SUBSTRING(MS_LO_VESSEL.MS_LO_ID,0,1) DESC, MS_LO_VESSEL.MS_LO_ID
+  </sql>
+
+  <sql name="GetRecordsByMsVesselID">
+    SELECT
+    MS_LO_VESSEL.MS_LO_VESSEL_ID,
+    MS_LO_VESSEL.MS_VESSEL_ID,
+    MS_LO_VESSEL.MS_LO_ID,
+    MS_LO.LO_NAME as MS_LO_NAME,
+    MS_LO_VESSEL.SEND_FLAG,
+    MS_LO_VESSEL.VESSEL_ID,
+    MS_LO_VESSEL.DATA_NO,
+    MS_LO_VESSEL.USER_KEY,
+    MS_LO_VESSEL.RENEW_DATE,
+    MS_LO_VESSEL.RENEW_USER_ID,
+    MS_LO_VESSEL.TS,
+    MS_TANI.MS_TANI_ID,
+    MS_TANI.TANI_NAME as MS_TANI_NAME
+
+    FROM MS_LO_VESSEL
+    LEFT JOIN MS_VESSEL on MS_LO_VESSEL.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID
+    inner join MS_LO on MS_LO_VESSEL.MS_LO_ID = MS_LO.MS_LO_ID
+    inner join MS_TANI on MS_LO.MS_TANI_ID = MS_TANI.MS_TANI_ID
+
+    WHERE
+    (MS_LO_VESSEL.MS_VESSEL_ID = :MS_VESSEL_ID)
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_LO_VESSEL.MS_LO_VESSEL_ID,
+    MS_LO_VESSEL.MS_VESSEL_ID,
+    MS_VESSEL.VESSEL_NAME,
+    MS_LO_VESSEL.MS_LO_ID,
+    MS_LO.LO_NAME as MS_LO_NAME,
+    MS_LO_VESSEL.SEND_FLAG,
+    MS_LO_VESSEL.VESSEL_ID,
+    MS_LO_VESSEL.DATA_NO,
+    MS_LO_VESSEL.USER_KEY,
+    MS_LO_VESSEL.RENEW_DATE,
+    MS_LO_VESSEL.RENEW_USER_ID,
+    MS_LO_VESSEL.TS
+    FROM (MS_LO_VESSEL
+    left join MS_VESSEL on MS_LO_VESSEL.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID)
+    left join MS_LO on MS_LO_VESSEL.MS_LO_ID = MS_LO.MS_LO_ID
+
+    where MS_LO_VESSEL_ID = :MS_LO_VESSEL_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_LO_VESSEL(
+    MS_LO_VESSEL_ID,
+    MS_VESSEL_ID,
+    MS_LO_ID,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO             ,
+    USER_KEY            ,
+    RENEW_DATE          ,
+    RENEW_USER_ID       ,
+    TS
+    )
+    VALUES
+    (
+    :MS_LO_VESSEL_ID,
+    :MS_VESSEL_ID,
+    :MS_LO_ID,
+    :SEND_FLAG,
+    :VESSEL_ID,
+    :DATA_NO             ,
+    :USER_KEY            ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_LO_VESSEL SET
+    MS_VESSEL_ID = :MS_VESSEL_ID,
+    MS_LO_ID = :MS_LO_ID,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    WHERE
+    MS_LO_VESSEL_ID = :MS_LO_VESSEL_ID
+  </sql>
+
+</databaseConfig>

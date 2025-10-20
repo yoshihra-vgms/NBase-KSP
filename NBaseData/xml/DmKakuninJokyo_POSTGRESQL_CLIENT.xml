@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    SELECT
+    DM_KAKUNIN_JOKYO.DM_KAKUNIN_JOKYO_ID          ,
+    DM_KAKUNIN_JOKYO.VIEW_DATE                    ,
+    DM_KAKUNIN_JOKYO.KAKUNIN_DATE                 ,
+    DM_KAKUNIN_JOKYO.MS_USER_ID                   ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_CEO        ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_ADMIN      ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_MSI_FERRY  ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_CREW_FERRY ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_TSI_FERRY  ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_MSI_CARGO  ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_CREW_CARGO ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_TSI_CARGO  ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_OFFICER    ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_SD_MANAGER ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_GL         ,
+    DM_KAKUNIN_JOKYO.DOC_FLAG_TL         ,
+    DM_KAKUNIN_JOKYO.KOUKAI_SAKI                  ,
+    DM_KAKUNIN_JOKYO.MS_VESSEL_ID                 ,
+    DM_KAKUNIN_JOKYO.MS_BUMON_ID                  ,
+    DM_KAKUNIN_JOKYO.LINK_SAKI                    ,
+    DM_KAKUNIN_JOKYO.LINK_SAKI_ID                 ,
+    DM_KAKUNIN_JOKYO.SHOW_ORDER                   ,
+
+    DM_KAKUNIN_JOKYO.DELETE_FLAG                   ,
+    DM_KAKUNIN_JOKYO.SEND_FLAG                     ,
+    DM_KAKUNIN_JOKYO.VESSEL_ID                     ,
+    DM_KAKUNIN_JOKYO.DATA_NO                       ,
+    DM_KAKUNIN_JOKYO.USER_KEY                      ,
+    DM_KAKUNIN_JOKYO.RENEW_DATE                    ,
+    DM_KAKUNIN_JOKYO.RENEW_USER_ID                 ,
+    DM_KAKUNIN_JOKYO.TS
+    ,MS_USER.SEI
+    ,MS_USER.MEI
+
+    FROM
+    DM_KAKUNIN_JOKYO
+
+    LEFT JOIN MS_USER ON MS_USER.MS_USER_ID = DM_KAKUNIN_JOKYO.MS_USER_ID
+
+    WHERE (DM_KAKUNIN_JOKYO.DELETE_FLAG = 0 or DM_KAKUNIN_JOKYO.DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="ByLinkSaki">
+		AND DM_KAKUNIN_JOKYO.LINK_SAKI = :LINK_SAKI
+		AND DM_KAKUNIN_JOKYO.LINK_SAKI_ID = :LINK_SAKI_ID
+	</sql>
+  
+  <sql name="ByLinkSakiIDs">
+    AND DM_KAKUNIN_JOKYO.LINK_SAKI = :LINK_SAKI_KUBUN
+    AND DM_KAKUNIN_JOKYO.LINK_SAKI_ID  in (#INNER_SELECT_STR#)
+  </sql>
+
+  <sql name="ByKoukaiSaki">
+		AND DM_KAKUNIN_JOKYO.KOUKAI_SAKI = :KOUKAI_SAKI
+	</sql>
+
+	<sql name="ByUserID">
+		AND DM_KAKUNIN_JOKYO.MS_USER_ID = :MS_USER_ID
+	</sql>
+
+	<sql name="ByDmKakuninJokyoID">
+		AND DM_KAKUNIN_JOKYO.DM_KAKUNIN_JOKYO_ID = :DM_KAKUNIN_JOKYO_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By
+		DM_KAKUNIN_JOKYO.KOUKAI_SAKI,
+		DM_KAKUNIN_JOKYO.MS_VESSEL_ID,
+		DM_KAKUNIN_JOKYO.MS_BUMON_ID,
+		DM_KAKUNIN_JOKYO.MS_USER_ID
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+    INSERT INTO DM_KAKUNIN_JOKYO
+    (
+    DM_KAKUNIN_JOKYO_ID ,
+    VIEW_DATE       ,
+    KAKUNIN_DATE    ,
+    MS_USER_ID      ,
+    DOC_FLAG_CEO        ,
+    DOC_FLAG_ADMIN      ,
+    DOC_FLAG_MSI_FERRY  ,
+    DOC_FLAG_CREW_FERRY ,
+    DOC_FLAG_TSI_FERRY  ,
+    DOC_FLAG_MSI_CARGO  ,
+    DOC_FLAG_CREW_CARGO ,
+    DOC_FLAG_TSI_CARGO  ,
+    DOC_FLAG_OFFICER    ,
+    DOC_FLAG_SD_MANAGER ,
+    DOC_FLAG_GL         ,
+    DOC_FLAG_TL         ,
+    KOUKAI_SAKI     ,
+    MS_VESSEL_ID    ,
+    MS_BUMON_ID     ,
+    LINK_SAKI       ,
+    LINK_SAKI_ID    ,
+    SHOW_ORDER      ,
+
+    DELETE_FLAG     ,
+    SEND_FLAG       ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    USER_KEY        ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    )
+    VALUES(
+    :DM_KAKUNIN_JOKYO_ID ,
+    :VIEW_DATE       ,
+    :KAKUNIN_DATE    ,
+    :MS_USER_ID      ,
+    :DOC_FLAG_CEO        ,
+    :DOC_FLAG_ADMIN      ,
+    :DOC_FLAG_MSI_FERRY  ,
+    :DOC_FLAG_CREW_FERRY ,
+    :DOC_FLAG_TSI_FERRY  ,
+    :DOC_FLAG_MSI_CARGO  ,
+    :DOC_FLAG_CREW_CARGO ,
+    :DOC_FLAG_TSI_CARGO  ,
+    :DOC_FLAG_OFFICER    ,
+    :DOC_FLAG_SD_MANAGER ,
+    :DOC_FLAG_GL         ,
+    :DOC_FLAG_TL         ,
+    :KOUKAI_SAKI     ,
+    :MS_VESSEL_ID    ,
+    :MS_BUMON_ID     ,
+    :LINK_SAKI       ,
+    :LINK_SAKI_ID    ,
+    :SHOW_ORDER      ,
+    :DELETE_FLAG     ,
+    :SEND_FLAG       ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :USER_KEY        ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE DM_KAKUNIN_JOKYO SET
+    VIEW_DATE = :VIEW_DATE          ,
+    KAKUNIN_DATE = :KAKUNIN_DATE    ,
+    MS_USER_ID = :MS_USER_ID        ,
+    DOC_FLAG_CEO = :DOC_FLAG_CEO,
+    DOC_FLAG_ADMIN = :DOC_FLAG_ADMIN,
+    DOC_FLAG_MSI_FERRY = :DOC_FLAG_MSI_FERRY,
+    DOC_FLAG_CREW_FERRY = :DOC_FLAG_CREW_FERRY,
+    DOC_FLAG_TSI_FERRY = :DOC_FLAG_TSI_FERRY,
+    DOC_FLAG_MSI_CARGO = :DOC_FLAG_MSI_CARGO,
+    DOC_FLAG_CREW_CARGO = :DOC_FLAG_CREW_CARGO,
+    DOC_FLAG_TSI_CARGO = :DOC_FLAG_TSI_CARGO,
+    DOC_FLAG_OFFICER = :DOC_FLAG_OFFICER,
+    DOC_FLAG_SD_MANAGER = :DOC_FLAG_SD_MANAGER ,
+    DOC_FLAG_GL = :DOC_FLAG_GL         ,
+    DOC_FLAG_TL = :DOC_FLAG_TL         ,
+    KOUKAI_SAKI = :KOUKAI_SAKI      ,
+    MS_VESSEL_ID = :MS_VESSEL_ID    ,
+    MS_BUMON_ID = :MS_BUMON_ID      ,
+    LINK_SAKI = :LINK_SAKI          ,
+    LINK_SAKI_ID = :LINK_SAKI_ID    ,
+    SHOW_ORDER = :SHOW_ORDER        ,
+    DELETE_FLAG = :DELETE_FLAG      ,
+    SEND_FLAG = :SEND_FLAG          ,
+    VESSEL_ID = :VESSEL_ID          ,
+    DATA_NO = :DATA_NO              ,
+    USER_KEY = :USER_KEY            ,
+    RENEW_DATE = :RENEW_DATE        ,
+    RENEW_USER_ID = :RENEW_USER_ID  ,
+    TS = :TS
+
+    WHERE
+    DM_KAKUNIN_JOKYO_ID = :DM_KAKUNIN_JOKYO_ID
+  </sql>
+
+	<sql name="LogicalDelete">
+		UPDATE DM_KAKUNIN_JOKYO SET
+		DELETE_FLAG = 1,           
+		RENEW_DATE = :RENEW_DATE
+
+		WHERE
+		LINK_SAKI_ID = :LINK_SAKI_ID    ,
+	</sql>
+
+</databaseConfig>

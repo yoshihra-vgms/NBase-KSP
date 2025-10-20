@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_KYUYO_TEATE_SET.MS_SI_KYUYO_TEATE_SET_ID   ,
+    MS_SI_KYUYO_TEATE_SET.MS_SI_KYUYO_TEATE_ID       ,
+    MS_SI_KYUYO_TEATE_SET.MS_SI_SHOKUMEI_ID          ,
+    MS_SI_KYUYO_TEATE_SET.TANKA                      ,
+    MS_SI_KYUYO_TEATE_SET.DELETE_FLAG                ,
+    MS_SI_KYUYO_TEATE_SET.SEND_FLAG                  ,
+    MS_SI_KYUYO_TEATE_SET.VESSEL_ID                  ,
+    MS_SI_KYUYO_TEATE_SET.DATA_NO                    ,
+    MS_SI_KYUYO_TEATE_SET.USER_KEY                   ,
+    MS_SI_KYUYO_TEATE_SET.RENEW_DATE                 ,
+    MS_SI_KYUYO_TEATE_SET.RENEW_USER_ID              ,
+    MS_SI_KYUYO_TEATE_SET.TS                         ,
+
+    MS_SI_KYUYO_TEATE.SHOW_ORDER,
+    MS_SI_SHOKUMEI.SHOW_ORDER
+
+    FROM
+    MS_SI_KYUYO_TEATE_SET
+
+    INNER JOIN MS_SI_KYUYO_TEATE ON MS_SI_KYUYO_TEATE.MS_SI_KYUYO_TEATE_ID = MS_SI_KYUYO_TEATE_SET.MS_SI_KYUYO_TEATE_ID
+    INNER JOIN MS_SI_SHOKUMEI ON MS_SI_SHOKUMEI.MS_SI_SHOKUMEI_ID = MS_SI_KYUYO_TEATE_SET.MS_SI_SHOKUMEI_ID
+
+    WHERE MS_SI_KYUYO_TEATE_SET.DELETE_FLAG = 0
+    ORDER BY MS_SI_KYUYO_TEATE.SHOW_ORDER, MS_SI_KYUYO_TEATE_SET.MS_SI_KYUYO_TEATE_ID, MS_SI_SHOKUMEI.SHOW_ORDER
+  </sql>
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_KYUYO_TEATE_SET(
+    MS_SI_KYUYO_TEATE_SET_ID       ,
+    MS_SI_KYUYO_TEATE_ID           ,
+    MS_SI_SHOKUMEI_ID              ,
+    TANKA                          ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    nextval('SEQ_MS_SI_KYUYO_TEATE_SET_ID')    ,
+    :MS_SI_KYUYO_TEATE_ID           ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :TANKA                          ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_KYUYO_TEATE_SET
+    SET
+    MS_SI_KYUYO_TEATE_ID = :MS_SI_KYUYO_TEATE_ID ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID       ,
+    TANKA = :TANKA                               ,
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    MS_SI_KYUYO_TEATE_SET_ID = :MS_SI_KYUYO_TEATE_SET_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

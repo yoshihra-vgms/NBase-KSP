@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_LABOR_MANAGEMENT_RECORD_BOOK_ID,
+
+    OVERTIME_WORK_AGREEMENT,
+    COMPENSATION_HOLIDAY_LABOR_AGREEMENT,
+    BREAK_TIME_DIVISION_AGREEMENT,
+
+    STANDARD_WORKING_PERIOD,
+    START_STANDARD_WORKING_PERIOD,
+    LAST_STANDARD_WORKING_PERIOD,
+
+    USER_KEY,
+    DATA_NO,
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    SI_LABOR_MANAGEMENT_RECORD_BOOK
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO SI_LABOR_MANAGEMENT_RECORD_BOOK(
+    SI_LABOR_MANAGEMENT_RECORD_BOOK_ID,
+
+    OVERTIME_WORK_AGREEMENT,
+    COMPENSATION_HOLIDAY_LABOR_AGREEMENT,
+    BREAK_TIME_DIVISION_AGREEMENT,
+
+    STANDARD_WORKING_PERIOD,
+    START_STANDARD_WORKING_PERIOD,
+    LAST_STANDARD_WORKING_PERIOD,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_LABOR_MANAGEMENT_RECORD_BOOK_ID,
+
+    :OVERTIME_WORK_AGREEMENT,
+    :COMPENSATION_HOLIDAY_LABOR_AGREEMENT,
+    :BREAK_TIME_DIVISION_AGREEMENT,
+
+    :STANDARD_WORKING_PERIOD,
+    :START_STANDARD_WORKING_PERIOD,
+    :LAST_STANDARD_WORKING_PERIOD,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_LABOR_MANAGEMENT_RECORD_BOOK
+    SET
+    OVERTIME_WORK_AGREEMENT = :OVERTIME_WORK_AGREEMENT,
+    COMPENSATION_HOLIDAY_LABOR_AGREEMENT = :COMPENSATION_HOLIDAY_LABOR_AGREEMENT,
+    BREAK_TIME_DIVISION_AGREEMENT = :BREAK_TIME_DIVISION_AGREEMENT,
+    STANDARD_WORKING_PERIOD = :STANDARD_WORKING_PERIOD,
+    START_STANDARD_WORKING_PERIOD = :START_STANDARD_WORKING_PERIOD,
+    LAST_STANDARD_WORKING_PERIOD = :LAST_STANDARD_WORKING_PERIOD,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_LABOR_MANAGEMENT_RECORD_BOOK_ID = :SI_LABOR_MANAGEMENT_RECORD_BOOK_ID
+  </sql>
+
+</databaseConfig>

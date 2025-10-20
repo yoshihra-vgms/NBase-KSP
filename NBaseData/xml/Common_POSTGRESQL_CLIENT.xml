@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+  <sql name="Exists">
+    SELECT
+      COUNT(*)
+    FROM
+      #tableName#
+    WHERE
+      #pk# = :PK
+  </sql>
+</databaseConfig>

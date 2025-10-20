@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E1F6C34-0091-4569-8513-8A426D756407}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Senin</RootNamespace>
+    <AssemblyName>Senin</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SeninPortalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeninPortalForm.Designer.cs">
+      <DependentUpon>SeninPortalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tek手当一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tek手当一覧Form.Designer.cs">
+      <DependentUpon>tek手当一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tek手当帳票出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tek手当帳票出力Form.Designer.cs">
+      <DependentUpon>Tek手当帳票出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tek手当詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tek手当詳細Form.Designer.cs">
+      <DependentUpon>tek手当詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\AdvancedConditionItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="util\AdvancedConditionItem.Designer.cs">
+      <DependentUpon>AdvancedConditionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\AdvancedConditionTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="util\AdvancedConditionTitle.Designer.cs">
+      <DependentUpon>AdvancedConditionTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\AlarmReceiver.cs" />
+    <Compile Include="util\MonthPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="util\NightSettingDetailUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="util\NightSettingDetailUserControl.Designer.cs">
+      <DependentUpon>NightSettingDetailUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\NightSettingPanelUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="util\NightSettingPanelUserControl.Designer.cs">
+      <DependentUpon>NightSettingPanelUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\SeninUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="util\SeninUserControl.Designer.cs">
+      <DependentUpon>SeninUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\TreeListViewDelegateCrewMatrix.cs" />
+    <Compile Include="util\TreeListViewDelegate健康診断.cs" />
+    <Compile Include="util\TreeListViewDelegate基本給.cs" />
+    <Compile Include="util\TreeListViewDelegate特記事項.cs" />
+    <Compile Include="util\TreeListViewDelegate賞罰.cs" />
+    <Compile Include="util\TreeListViewDelegate免許免状一覧.cs" />
+    <Compile Include="util\TreeListViewDelegate傷病.cs" />
+    <Compile Include="util\WcfSeninDacProxy.cs" />
+    <Compile Include="util\TreeListViewDelegate配乗表.cs" />
+    <Compile Include="util\TreeListViewDelegate船員カード.cs" />
+    <Compile Include="util\TreeListViewDelegate免状免許.cs" />
+    <Compile Include="util\TreeListViewDelegate船内収支.cs" />
+    <Compile Include="util\TreeListViewDelegate船用金送金.cs" />
+    <Compile Include="util\TreeListViewDelegate船用金送金配乗情報.cs" />
+    <Compile Include="util\TreeListViewDelegate家族情報.cs" />
+    <Compile Include="util\TreeListViewDelegate履歴.cs" />
+    <Compile Include="util\TreeListViewDelegate講習.cs" />
+    <Compile Include="util\TreeListViewDelegate職名一覧.cs" />
+    <Compile Include="util\交代者検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="util\交代者検索Form.Designer.cs">
+      <DependentUpon>交代者検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\場所検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="util\場所検索Form.Designer.cs">
+      <DependentUpon>場所検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗船履歴詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗船履歴詳細Form.Designer.cs">
+      <DependentUpon>乗船履歴詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="労務管理記録簿出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="労務管理記録簿出力Form.Designer.cs">
+      <DependentUpon>労務管理記録簿出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤怠管理情報Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤怠管理情報Form.Designer.cs">
+      <DependentUpon>勤怠管理情報Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="役職変更Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="役職変更Form.Designer.cs">
+      <DependentUpon>役職変更Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="特記事項詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="特記事項詳細Form.Designer.cs">
+      <DependentUpon>特記事項詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form_MsSeninCareer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiRemarks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="配乗計画BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗計画BaseForm.Designer.cs">
+      <DependentUpon>配乗計画BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗計画出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗計画出力Form.Designer.cs">
+      <DependentUpon>配乗計画出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗計画短期Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗計画短期Form.Designer.cs">
+      <DependentUpon>配乗計画短期Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗計画詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗計画詳細Form.Designer.cs">
+      <DependentUpon>配乗計画詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="休暇一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="休暇一覧Form.Designer.cs">
+      <DependentUpon>休暇一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗り合わせ一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗り合わせ一覧Form.Designer.cs">
+      <DependentUpon>乗り合わせ一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="個人予定一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="個人予定一覧Form.Designer.cs">
+      <DependentUpon>個人予定一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗り合わせ詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗り合わせ詳細Form.Designer.cs">
+      <DependentUpon>乗り合わせ詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="個人予定詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="個人予定詳細Form.Designer.cs">
+      <DependentUpon>個人予定詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="健康診断詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="健康診断詳細Form.Designer.cs">
+      <DependentUpon>健康診断詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本給新規作成Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本給新規作成Form.Designer.cs">
+      <DependentUpon>基本給新規作成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="家族表示順設定Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="家族表示順設定Form.Designer.cs">
+      <DependentUpon>家族表示順設定Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本給詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本給詳細Form.Designer.cs">
+      <DependentUpon>基本給詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="履歴詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="履歴詳細Form.Designer.cs">
+      <DependentUpon>履歴詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form_MsSeninAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiKenshinPmhKa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiRireki.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiSalary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="賞罰詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="賞罰詳細Form.Designer.cs">
+      <DependentUpon>賞罰詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="免状免許詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="免状免許詳細Form.Designer.cs">
+      <DependentUpon>免状免許詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="免許免状一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="免許免状一覧Form.Designer.cs">
+      <DependentUpon>免許免状一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="傷病詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="傷病詳細Form.Designer.cs">
+      <DependentUpon>傷病詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="未受講者抽出Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="未受講者抽出Form.Designer.cs">
+      <DependentUpon>未受講者抽出Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="傷病検診一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="傷病検診一覧Form.Designer.cs">
+      <DependentUpon>傷病検診一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="職別海技免許等資格一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="職別海技免許等資格一覧Form.Designer.cs">
+      <DependentUpon>職別海技免許等資格一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form_SiCrewMatrix.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiKoushu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiKenshin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiShobatsu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiShobyo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員詳細検索Form.Designer.cs">
+      <DependentUpon>船員詳細検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="講習管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="講習管理詳細Form.Designer.cs">
+      <DependentUpon>講習管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form_SiKazoku.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form_SiMenjou.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="年月日指定出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="年月日指定出力Form.Designer.cs">
+      <DependentUpon>年月日指定出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="年度指定出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="年度指定出力Form.Designer.cs">
+      <DependentUpon>年度指定出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="家族情報Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="家族情報Form.Designer.cs">
+      <DependentUpon>家族情報Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="年月指定出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="年月指定出力Form.Designer.cs">
+      <DependentUpon>年月指定出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船内収支Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船内収支Form.Designer.cs">
+      <DependentUpon>船内収支Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船内収支詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船内収支詳細Form.Designer.cs">
+      <DependentUpon>船内収支詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form_SiCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船用金送金Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船用金送金Form.Designer.cs">
+      <DependentUpon>船用金送金Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船用金送金詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船用金送金詳細Form.Designer.cs">
+      <DependentUpon>船用金送金詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員Form.Designer.cs">
+      <DependentUpon>船員Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員詳細Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="船員詳細Form.Designer.cs">
+      <DependentUpon>船員詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="講習管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="講習管理Form.Designer.cs">
+      <DependentUpon>講習管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗シミュレーションForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗シミュレーションForm.Designer.cs">
+      <DependentUpon>配乗シミュレーションForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗表Form.Designer.cs">
+      <DependentUpon>配乗表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗計画長期Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="配乗計画長期Form.Designer.cs">
+      <DependentUpon>配乗計画長期Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeninPortalForm.resx">
+      <DependentUpon>SeninPortalForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tek手当一覧Form.resx">
+      <DependentUpon>tek手当一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tek手当帳票出力Form.resx">
+      <DependentUpon>Tek手当帳票出力Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tek手当詳細Form.resx">
+      <DependentUpon>tek手当詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\AdvancedConditionItem.resx">
+      <DependentUpon>AdvancedConditionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\AdvancedConditionTitle.resx">
+      <DependentUpon>AdvancedConditionTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\NightSettingDetailUserControl.resx">
+      <DependentUpon>NightSettingDetailUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\NightSettingPanelUserControl.resx">
+      <DependentUpon>NightSettingPanelUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\SeninUserControl.resx">
+      <DependentUpon>SeninUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\交代者検索Form.resx">
+      <DependentUpon>交代者検索Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\場所検索Form.resx">
+      <DependentUpon>場所検索Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗船履歴詳細Form.resx">
+      <DependentUpon>乗船履歴詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="休暇一覧Form.resx">
+      <DependentUpon>休暇一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗り合わせ一覧Form.resx">
+      <DependentUpon>乗り合わせ一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="個人予定一覧Form.resx">
+      <DependentUpon>個人予定一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗り合わせ詳細Form.resx">
+      <DependentUpon>乗り合わせ詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="個人予定詳細Form.resx">
+      <DependentUpon>個人予定詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="健康診断詳細Form.resx">
+      <DependentUpon>健康診断詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="労務管理記録簿出力Form.resx">
+      <DependentUpon>労務管理記録簿出力Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤怠管理情報Form.resx">
+      <DependentUpon>勤怠管理情報Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本給新規作成Form.resx">
+      <DependentUpon>基本給新規作成Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="家族表示順設定Form.resx">
+      <DependentUpon>家族表示順設定Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本給詳細Form.resx">
+      <DependentUpon>基本給詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="履歴詳細Form.resx">
+      <DependentUpon>履歴詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="役職変更Form.resx">
+      <DependentUpon>役職変更Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="特記事項詳細Form.resx">
+      <DependentUpon>特記事項詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="賞罰詳細Form.resx">
+      <DependentUpon>賞罰詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="免状免許詳細Form.resx">
+      <DependentUpon>免状免許詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="免許免状一覧Form.resx">
+      <DependentUpon>免許免状一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="傷病詳細Form.resx">
+      <DependentUpon>傷病詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="未受講者抽出Form.resx">
+      <DependentUpon>未受講者抽出Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="傷病検診一覧Form.resx">
+      <DependentUpon>傷病検診一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="職別海技免許等資格一覧Form.resx">
+      <DependentUpon>職別海技免許等資格一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員詳細検索Form.resx">
+      <DependentUpon>船員詳細検索Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="講習管理詳細Form.resx">
+      <DependentUpon>講習管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="年月日指定出力Form.resx">
+      <DependentUpon>年月日指定出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="年度指定出力Form.resx">
+      <DependentUpon>年度指定出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="家族情報Form.resx">
+      <DependentUpon>家族情報Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="年月指定出力Form.resx">
+      <DependentUpon>年月指定出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船内収支Form.resx">
+      <DependentUpon>船内収支Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船内収支詳細Form.resx">
+      <DependentUpon>船内収支詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船用金送金Form.resx">
+      <DependentUpon>船用金送金Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船用金送金詳細Form.resx">
+      <DependentUpon>船用金送金詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員Form.resx">
+      <DependentUpon>船員Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員詳細Form.resx">
+      <DependentUpon>船員詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="講習管理Form.resx">
+      <DependentUpon>講習管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗シミュレーションForm.resx">
+      <DependentUpon>配乗シミュレーションForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗表Form.resx">
+      <DependentUpon>配乗表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗計画BaseForm.resx">
+      <DependentUpon>配乗計画BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗計画出力Form.resx">
+      <DependentUpon>配乗計画出力Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗計画短期Form.resx">
+      <DependentUpon>配乗計画短期Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗計画詳細Form.resx">
+      <DependentUpon>配乗計画詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="配乗計画長期Form.resx">
+      <DependentUpon>配乗計画長期Form.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GrapeCity.Framework.CalendarGrid.v24, Version=2.4.4003.2012, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\GrapeCity.Framework.CalendarGrid.v24.dll</HintPath>
+    </Reference>
+    <Reference Include="GrapeCity.Win.CalendarGrid.v20, Version=2.0.4003.2012, Culture=neutral, PublicKeyToken=f4c1eb1dac5d2351, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\GrapeCity.Win.CalendarGrid.v20.dll</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fc068d52871330d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f0a7ab6b4f7a5dd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists.TreeListView, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db703db380f7965b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.TreeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Wing\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Wing\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NBaseService\NBaseService.csproj">
+      <Project>{A0C01C40-B1F0-43F2-8C92-77F2EE0ABEA7}</Project>
+      <Name>NBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseMaster\NBaseMaster.csproj">
+      <Project>{f7267cf2-c3ef-4657-8941-8f5e3a37839a}</Project>
+      <Name>NBaseMaster</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReferences\ServiceReferences.csproj">
+      <Project>{1FBA14B8-00E7-4EE1-B9B0-7DF5737248EF}</Project>
+      <Name>ServiceReferences</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.BgHankanhi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgJiseki.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgKadouVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgNrkKanryou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgRate.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanHead.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanMemo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsKensa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShousho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBasho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBerth.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomer.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomerTantou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsHimoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsItemSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKanidouseiInfoShubetu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKensa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKichi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKiti.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLoVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsNyukyoKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSenin.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShousho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShoushuriItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShrJouken.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiMenjou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShokumei.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShubetsu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSsShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsTani.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiStatus.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUserBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemCategory.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselType.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozoShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdGetsujiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdHachuTanka.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJry.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMk.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMm.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShr.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtAlarmInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtHonsenkoushinInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtKanidouseiInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.KsKensen.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKensen.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKichi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSenin.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiMenjou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShokumei.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShubetsu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtHonsenkoushinInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>

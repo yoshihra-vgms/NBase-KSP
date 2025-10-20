@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_SHUBETSU_ID              ,
+
+    NAME                           ,
+    KYUUKA_FLAG                    ,
+    SHOW_ORDER                     ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    MS_SI_SHUBETSU
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByName">
+    AND
+    NAME = :NAME
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY SHOW_ORDER
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_SHUBETSU(
+    MS_SI_SHUBETSU_ID              ,
+
+    NAME                           ,
+    KYUUKA_FLAG                    ,
+    SHOW_ORDER                     ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    nextval('SEQ_MS_SI_SHUBETSU_ID'),
+
+    :NAME                           ,
+    :KYUUKA_FLAG                    ,
+    :SHOW_ORDER                     ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_SHUBETSU
+    SET
+    NAME = :NAME                                     ,
+    KYUUKA_FLAG = :KYUUKA_FLAG                       ,
+    SHOW_ORDER = :SHOW_ORDER                         ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_SHUBETSU_ID = :MS_SI_SHUBETSU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

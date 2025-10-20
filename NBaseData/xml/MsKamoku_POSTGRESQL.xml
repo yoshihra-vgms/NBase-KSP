@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_KAMOKU.MS_KAMOKU_ID,
+    MS_KAMOKU.KAMOKU_NO,
+    MS_KAMOKU.KAMOKU_NAME,
+    MS_KAMOKU.UTIWAKE_KAMOKU_NO,
+    MS_KAMOKU.UTIWAKE_KAMOKU_NAME,
+    MS_KAMOKU.FUGOU,
+    MS_KAMOKU.KIKAN_FLAG,
+    MS_KAMOKU.RENEW_DATE,
+    MS_KAMOKU.RENEW_USER_ID,
+    MS_KAMOKU.TS
+    FROM MS_KAMOKU
+  </sql>
+	
+  <sql name="GetRecordsBy予実連携">
+	  SELECT DISTINCT
+	  MS_KAMOKU.MS_KAMOKU_ID,
+	  MS_KAMOKU.KAMOKU_NO,
+	  MS_KAMOKU.KAMOKU_NAME,
+	  MS_KAMOKU.UTIWAKE_KAMOKU_NO,
+	  MS_KAMOKU.UTIWAKE_KAMOKU_NAME,
+	  MS_KAMOKU.FUGOU,
+	  MS_KAMOKU.KIKAN_FLAG,
+	  MS_KAMOKU.RENEW_DATE,
+	  MS_KAMOKU.RENEW_USER_ID,
+	  MS_KAMOKU.TS
+	  FROM MS_KAMOKU
+	  INNER JOIN MS_HIMOKU_KAMOKU ON MS_HIMOKU_KAMOKU.MS_KAMOKU_ID = MS_KAMOKU.MS_KAMOKU_ID
+  </sql>
+
+  <sql name="ByKamokuNo">
+    WHERE
+    MS_KAMOKU.KAMOKU_NO = :KAMOKU_NO
+  </sql>
+  <sql name="ByKamokuNoPlus1">
+    AND
+    MS_KAMOKU.UTIWAKE_KAMOKU_NO IS NULL
+  </sql>
+  <sql name="ByKamokuNoPlus2">
+    AND
+    MS_KAMOKU.UTIWAKE_KAMOKU_NO = :UTIWAKE_KAMOKU_NO
+  </sql>
+  <sql name="ByMsKamokuID">
+    WHERE
+    MS_KAMOKU.MS_KAMOKU_ID = :MS_KAMOKU_ID
+  </sql>
+
+  <sql name="ByHachuKamoku">
+    INNER JOIN MS_HACHU_KAMOKU ON MS_HACHU_KAMOKU.MS_KAMOKU_ID = MS_KAMOKU.MS_KAMOKU_ID
+    AND
+    MS_HACHU_KAMOKU.MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+  </sql>
+
+	<sql name="UsedByHachuKamoku">
+		WHERE MS_KAMOKU_ID IN (SELECT DISTINCT MS_KAMOKU_ID FROM MS_HACHU_KAMOKU)
+	</sql>
+	
+  <sql name="ByHachuKamokuPlus1">
+    AND
+    MS_HACHU_KAMOKU.MS_THI_IRAI_SHOUSAI_ID IS NULL
+  </sql>
+  <sql name="ByHachuKamokuPlus2">
+    AND
+    MS_HACHU_KAMOKU.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+  </sql>
+	<sql name="ByHachuKamokuPlus3">
+		AND
+		MS_HACHU_KAMOKU.MS_NYUKYO_KAMOKU_ID IS NULL
+	</sql>
+	<sql name="ByHachuKamokuPlus4">
+		AND
+		MS_HACHU_KAMOKU.MS_NYUKYO_KAMOKU_ID = :MS_NYUKYO_KAMOKU_ID
+	</sql>
+
+	<sql name="ByFurikaeKamoku">
+    INNER JOIN MS_FURIKAE_KAMOKU ON MS_FURIKAE_KAMOKU.AITE_KAMOKU_ID = MS_KAMOKU.MS_KAMOKU_ID
+    AND MS_FURIKAE_KAMOKU.MS_KAMOKU_ID = :MS_KAMOKU_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_KAMOKU
+    (
+    MS_KAMOKU_ID,
+    KAMOKU_NO,
+    KAMOKU_NAME,
+    UTIWAKE_KAMOKU_NO,
+    UTIWAKE_KAMOKU_NAME,
+    FUGOU,
+    KIKAN_FLAG,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    :MS_KAMOKU_ID,
+    :KAMOKU_NO,
+    :KAMOKU_NAME,
+    :UTIWAKE_KAMOKU_NO,
+    :UTIWAKE_KAMOKU_NAME,
+    :FUGOU,
+    :KIKAN_FLAG,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+    UPDATE MS_KAMOKU SET
+    KAMOKU_NO = :KAMOKU_NO,
+    KAMOKU_NAME = :KAMOKU_NAME,
+    UTIWAKE_KAMOKU_NO = :UTIWAKE_KAMOKU_NO,
+    UTIWAKE_KAMOKU_NAME = :UTIWAKE_KAMOKU_NAME,
+    FUGOU = :FUGOU,
+    KIKAN_FLAG = :KIKAN_FLAG,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (MS_KAMOKU_ID = :MS_KAMOKU_ID) AND
+    (TS = :TS)
+  </sql>
+
+</databaseConfig>

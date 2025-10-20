@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07DAADE2-4885-457F-9CF1-80ED6F68BEC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CIsl</RootNamespace>
+    <AssemblyName>CIsl</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="DB\BaseDac.cs" />
+    <Compile Include="DB\DacBase.cs" />
+    <Compile Include="DB\BaseSearchData.cs" />
+    <Compile Include="DB\BaseWingDac.cs" />
+    <Compile Include="DB\DBConnect.cs" />
+    <Compile Include="DB\WingDAC\MsAccidentImportance.cs" />
+    <Compile Include="DB\WingDAC\MsAccidentKind.cs" />
+    <Compile Include="DB\WingDAC\MsAccidentSituation.cs" />
+    <Compile Include="DB\WingDAC\MsActionCode.cs" />
+    <Compile Include="DB\WingDAC\MsBasho.cs" />
+    <Compile Include="DB\WingDAC\MsBumon.cs" />
+    <Compile Include="DB\WingDAC\MsCrewMatrixType.cs" />
+    <Compile Include="DB\WingDAC\MsCustomer.cs" />
+    <Compile Include="DB\WingDAC\MsDeficiencyCategory.cs" />
+    <Compile Include="DB\WingDAC\MsDeficiencyCode.cs" />
+    <Compile Include="DB\WingDAC\MsInspectionCategory.cs" />
+    <Compile Include="DB\WingDAC\MsItemKind.cs" />
+    <Compile Include="DB\WingDAC\MsKindOfAccident.cs" />
+    <Compile Include="DB\WingDAC\MsRegional.cs" />
+    <Compile Include="DB\WingDAC\MsRole.cs" />
+    <Compile Include="DB\WingDAC\MsScheduleCategory.cs" />
+    <Compile Include="DB\WingDAC\MsScheduleKind.cs" />
+    <Compile Include="DB\WingDAC\MsScheduleKindDetail.cs" />
+    <Compile Include="DB\WingDAC\MsUser.cs" />
+    <Compile Include="DB\WingDAC\MsVessel.cs" />
+    <Compile Include="CILog.cs" />
+    <Compile Include="CIMes.cs" />
+    <Compile Include="DB\WingDAC\MsVesselCategory.cs" />
+    <Compile Include="DB\WingDAC\MsVesselKind.cs" />
+    <Compile Include="DB\WingDAC\MsVesselScheduleKindDetailEnable.cs" />
+    <Compile Include="DB\WingDAC\MsVesselType.cs" />
+    <Compile Include="DB\WingDAC\MsViqCode.cs" />
+    <Compile Include="DB\WingDAC\MsViqCodeName.cs" />
+    <Compile Include="DB\WingDAC\MsViqNo.cs" />
+    <Compile Include="DB\WingDAC\MsViqVersion.cs" />
+    <Compile Include="Files\BaseCsvFile.cs" />
+    <Compile Include="Files\BaseFile.cs" />
+    <Compile Include="Files\MessageFile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

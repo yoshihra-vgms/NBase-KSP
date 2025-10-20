@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SHR_JOUKEN.MS_SHR_JOUKEN_ID               ,
+    MS_SHR_JOUKEN.SHIHARAI_JOUKEN_NAME           ,
+    MS_SHR_JOUKEN.SEND_FLAG                      ,
+    MS_SHR_JOUKEN.VESSEL_ID                      ,
+    MS_SHR_JOUKEN.DATA_NO                        ,
+    MS_SHR_JOUKEN.USER_KEY                       ,
+    MS_SHR_JOUKEN.RENEW_DATE                     ,
+    MS_SHR_JOUKEN.RENEW_USER_ID                  ,
+    MS_SHR_JOUKEN.TS
+    FROM
+    MS_SHR_JOUKEN
+
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_SHR_JOUKEN.MS_SHR_JOUKEN_ID               ,
+    MS_SHR_JOUKEN.SHIHARAI_JOUKEN_NAME           ,
+    MS_SHR_JOUKEN.SEND_FLAG                      ,
+    MS_SHR_JOUKEN.VESSEL_ID                      ,
+    MS_SHR_JOUKEN.DATA_NO                        ,
+    MS_SHR_JOUKEN.USER_KEY                       ,
+    MS_SHR_JOUKEN.RENEW_DATE                     ,
+    MS_SHR_JOUKEN.RENEW_USER_ID                  ,
+    MS_SHR_JOUKEN.TS
+    FROM
+    MS_SHR_JOUKEN
+    WHERE
+    MS_SHR_JOUKEN.MS_SHR_JOUKEN_ID = :MS_SHR_JOUKEN_ID
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_SHR_JOUKEN
+    (
+    MS_SHR_JOUKEN_ID               ,
+    SHIHARAI_JOUKEN_NAME           ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :MS_SHR_JOUKEN_ID               ,
+    :SHIHARAI_JOUKEN_NAME           ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SHR_JOUKEN
+    SET
+    SHIHARAI_JOUKEN_NAME  = :SHIHARAI_JOUKEN_NAME    ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    WHERE
+    MS_SHR_JOUKEN_ID = :MS_SHR_JOUKEN_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

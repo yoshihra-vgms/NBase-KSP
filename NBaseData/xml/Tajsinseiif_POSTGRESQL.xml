@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SUM_KANRI_NO                   ,
+    SINSEI_KANRI_NO                ,
+    SUBSYSTEM_CD                   ,
+    GYOMU_CD                       ,
+    TRHK_CD                        ,
+    SYORI_CD                       ,
+    KISY_CD                        ,
+    DATAMK_TNTSY_CD                ,
+    FUNE_NO                        ,
+    TNTSY_CD                       ,
+    TATESK_CD                      ,
+    TATESK_TNTSY_CD                ,
+    KEIJO_YMD                      ,
+    KIN_YOTEI_YMD                  ,
+    TRHKSK_CD                      ,
+    TRHKSK_TNTSY_CD                ,
+    TUKA_CD                        ,
+    KIHON_TEKIYO                   ,
+    SEIKYU_YMD                     ,
+    SYONIN_PATTERN_CD              ,
+    LINE_NO                        ,
+    KEIYAKU_NO                     ,
+    FUND_KBN                       ,
+    HIMOKU_KBN                     ,
+    KANJO_KMK_CD                   ,
+    UTIWAKE_KMK_CD                 ,
+    AITE_KANJO_KMK_CD              ,
+    AITE_UTIWAKE_KMK_CD            ,
+    SYHZ_CD                        ,
+    GAK                            ,
+    SYOHIZEI_GAK                   ,
+    MEISAI_TEKIYO                  ,
+    SURYO                          ,
+    TANKA                          ,
+    TANI                           ,
+    HSI_KIKAN_FROM                 ,
+    HSI_KIKAN_TO                   ,
+    CREATE_DATE                    ,
+    TRKM_TNTSY_CD                  ,
+    TRKM_DATE                      ,
+    OPE_NO                         ,
+    KIKAN_KISY_CD                  ,
+    KIKAN_SINSEI_NO                ,
+    KIKAN_MEISAI_NO                ,
+    SYORI_STATUS                   ,
+    STATUS_REMARK                  ,
+    EXT_SYSTEM_CD                  ,
+    UPDPGMID                       ,
+    UPDUSERID                      ,
+    UPDDATE_YMDHMS
+    FROM
+    TAJSINSEIIF
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    SUM_KANRI_NO                   ,
+    SINSEI_KANRI_NO                ,
+    SUBSYSTEM_CD                   ,
+    GYOMU_CD                       ,
+    TRHK_CD                        ,
+    SYORI_CD                       ,
+    KISY_CD                        ,
+    DATAMK_TNTSY_CD                ,
+    FUNE_NO                        ,
+    TNTSY_CD                       ,
+    TATESK_CD                      ,
+    TATESK_TNTSY_CD                ,
+    KEIJO_YMD                      ,
+    KIN_YOTEI_YMD                  ,
+    TRHKSK_CD                      ,
+    TRHKSK_TNTSY_CD                ,
+    TUKA_CD                        ,
+    KIHON_TEKIYO                   ,
+    SEIKYU_YMD                     ,
+    SYONIN_PATTERN_CD              ,
+    LINE_NO                        ,
+    KEIYAKU_NO                     ,
+    FUND_KBN                       ,
+    HIMOKU_KBN                     ,
+    KANJO_KMK_CD                   ,
+    UTIWAKE_KMK_CD                 ,
+    AITE_KANJO_KMK_CD              ,
+    AITE_UTIWAKE_KMK_CD            ,
+    SYHZ_CD                        ,
+    GAK                            ,
+    SYOHIZEI_GAK                   ,
+    MEISAI_TEKIYO                  ,
+    SURYO                          ,
+    TANKA                          ,
+    TANI                           ,
+    HSI_KIKAN_FROM                 ,
+    HSI_KIKAN_TO                   ,
+    CREATE_DATE                    ,
+    TRKM_TNTSY_CD                  ,
+    TRKM_DATE                      ,
+    OPE_NO                         ,
+    KIKAN_KISY_CD                  ,
+    KIKAN_SINSEI_NO                ,
+    KIKAN_MEISAI_NO                ,
+    SYORI_STATUS                   ,
+    STATUS_REMARK                  ,
+    EXT_SYSTEM_CD                  ,
+    UPDPGMID                       ,
+    UPDUSERID                      ,
+    UPDDATE_YMDHMS
+    FROM
+    TAJSINSEIIF
+    WHERE
+    SUM_KANRI_NO = :SUM_KANRI_NO
+    AND
+    SINSEI_KANRI_NO = :SINSEI_KANRI_NO
+    AND
+    SUBSYSTEM_CD = :SUBSYSTEM_CD
+    AND
+    GYOMU_CD = :GYOMU_CD
+    AND
+    TRHK_CD = :TRHK_CD
+    AND
+    SYORI_CD = :SYORI_CD
+    AND
+    LINE_NO = :LINE_NO
+    AND
+    EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO TAJSINSEIIF
+    (
+    SUM_KANRI_NO                   ,
+    SINSEI_KANRI_NO                ,
+    SUBSYSTEM_CD                   ,
+    GYOMU_CD                       ,
+    TRHK_CD                        ,
+    SYORI_CD                       ,
+    KISY_CD                        ,
+    DATAMK_TNTSY_CD                ,
+    FUNE_NO                        ,
+    TNTSY_CD                       ,
+    TATESK_CD                      ,
+    TATESK_TNTSY_CD                ,
+    KEIJO_YMD                      ,
+    KIN_YOTEI_YMD                  ,
+    TRHKSK_CD                      ,
+    TRHKSK_TNTSY_CD                ,
+    TUKA_CD                        ,
+    KIHON_TEKIYO                   ,
+    SEIKYU_YMD                     ,
+    SYONIN_PATTERN_CD              ,
+    LINE_NO                        ,
+    KEIYAKU_NO                     ,
+    FUND_KBN                       ,
+    HIMOKU_KBN                     ,
+    KANJO_KMK_CD                   ,
+    UTIWAKE_KMK_CD                 ,
+    AITE_KANJO_KMK_CD              ,
+    AITE_UTIWAKE_KMK_CD            ,
+    SYHZ_CD                        ,
+    GAK                            ,
+    SYOHIZEI_GAK                   ,
+    MEISAI_TEKIYO                  ,
+    SURYO                          ,
+    TANKA                          ,
+    TANI                           ,
+    HSI_KIKAN_FROM                 ,
+    HSI_KIKAN_TO                   ,
+    CREATE_DATE                    ,
+    TRKM_TNTSY_CD                  ,
+    TRKM_DATE                      ,
+    OPE_NO                         ,
+    KIKAN_KISY_CD                  ,
+    KIKAN_SINSEI_NO                ,
+    KIKAN_MEISAI_NO                ,
+    SYORI_STATUS                   ,
+    STATUS_REMARK                  ,
+    EXT_SYSTEM_CD                  ,
+    UPDPGMID                       ,
+    UPDUSERID                      ,
+    UPDDATE_YMDHMS
+    )
+    VALUES
+    (
+    :SUM_KANRI_NO                   ,
+    :SINSEI_KANRI_NO                ,
+    :SUBSYSTEM_CD                   ,
+    :GYOMU_CD                       ,
+    :TRHK_CD                        ,
+    :SYORI_CD                       ,
+    :KISY_CD                        ,
+    :DATAMK_TNTSY_CD                ,
+    :FUNE_NO                        ,
+    :TNTSY_CD                       ,
+    :TATESK_CD                      ,
+    :TATESK_TNTSY_CD                ,
+    :KEIJO_YMD                      ,
+    :KIN_YOTEI_YMD                  ,
+    :TRHKSK_CD                      ,
+    :TRHKSK_TNTSY_CD                ,
+    :TUKA_CD                        ,
+    :KIHON_TEKIYO                   ,
+    :SEIKYU_YMD                     ,
+    :SYONIN_PATTERN_CD              ,
+    :LINE_NO                        ,
+    :KEIYAKU_NO                     ,
+    :FUND_KBN                       ,
+    :HIMOKU_KBN                     ,
+    :KANJO_KMK_CD                   ,
+    :UTIWAKE_KMK_CD                 ,
+    :AITE_KANJO_KMK_CD              ,
+    :AITE_UTIWAKE_KMK_CD            ,
+    :SYHZ_CD                        ,
+    :GAK                            ,
+    :SYOHIZEI_GAK                   ,
+    :MEISAI_TEKIYO                  ,
+    :SURYO                          ,
+    :TANKA                          ,
+    :TANI                           ,
+    :HSI_KIKAN_FROM                 ,
+    :HSI_KIKAN_TO                   ,
+    :CREATE_DATE                    ,
+    :TRKM_TNTSY_CD                  ,
+    :TRKM_DATE                      ,
+    :OPE_NO                         ,
+    :KIKAN_KISY_CD                  ,
+    :KIKAN_SINSEI_NO                ,
+    :KIKAN_MEISAI_NO                ,
+    :SYORI_STATUS                   ,
+    :STATUS_REMARK                  ,
+    :EXT_SYSTEM_CD                  ,
+    :UPDPGMID                       ,
+    :UPDUSERID                      ,
+    :UPDDATE_YMDHMS
+    )
+  </sql>
+
+  <sql name="GetMaxSumKanriNo">
+    select
+    max(SUM_KANRI_NO) as SUM_KANRI_NO
+    from
+    TAJSINSEIIF
+    where
+    SUM_KANRI_NO like :SUM_KANRI_NO
+  </sql>
+
+  <sql name="CallSP1">
+    call SP_TAJSINSEIIF_RENKEIKAKIKOMI()
+  </sql>
+
+</databaseConfig>

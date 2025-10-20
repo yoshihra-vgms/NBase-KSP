@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57670/ServiceDeficiency.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMsMediaResponce">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsMediaResponce" nillable="true" type="tns:MsMediaResponce" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsMediaResponce" nillable="true" type="tns:ArrayOfMsMediaResponce" />
+  <xs:complexType name="MsMediaResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="media_responce_id" type="xs:int" />
+          <xs:element minOccurs="0" name="media_responce_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsMediaResponce" nillable="true" type="tns:MsMediaResponce" />
+  <xs:complexType name="BaseDac">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DacBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="create_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="create_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="delete_flag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="update_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="update_user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseDac" nillable="true" type="tns:BaseDac" />
+  <xs:complexType name="DacBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DacBase" nillable="true" type="tns:DacBase" />
+  <xs:complexType name="ArrayOfMsEtasResponce">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsEtasResponce" nillable="true" type="tns:MsEtasResponce" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsEtasResponce" nillable="true" type="tns:ArrayOfMsEtasResponce" />
+  <xs:complexType name="MsEtasResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="etas_responce_id" type="xs:int" />
+          <xs:element minOccurs="0" name="etas_responce_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsEtasResponce" nillable="true" type="tns:MsEtasResponce" />
+  <xs:complexType name="ArrayOfMsManningAgency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsManningAgency" nillable="true" type="tns:MsManningAgency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsManningAgency" nillable="true" type="tns:ArrayOfMsManningAgency" />
+  <xs:complexType name="MsManningAgency">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="manning_agency_id" type="xs:int" />
+          <xs:element minOccurs="0" name="manning_agency_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsManningAgency" nillable="true" type="tns:MsManningAgency" />
+  <xs:complexType name="ArrayOfMsSireMemberKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSireMemberKind" nillable="true" type="tns:MsSireMemberKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSireMemberKind" nillable="true" type="tns:ArrayOfMsSireMemberKind" />
+  <xs:complexType name="MsSireMemberKind">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sire_member_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSireMemberKind" nillable="true" type="tns:MsSireMemberKind" />
+  <xs:complexType name="ArrayOfMsAccidentReportStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentReportStatus" nillable="true" type="tns:MsAccidentReportStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentReportStatus" nillable="true" type="tns:ArrayOfMsAccidentReportStatus" />
+  <xs:complexType name="MsAccidentReportStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentReportStatus" nillable="true" type="tns:MsAccidentReportStatus" />
+  <xs:complexType name="ArrayOfMsAccidentReportPendingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentReportPendingStatus" nillable="true" type="tns:MsAccidentReportPendingStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentReportPendingStatus" nillable="true" type="tns:ArrayOfMsAccidentReportPendingStatus" />
+  <xs:complexType name="MsAccidentReportPendingStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_pending_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentReportPendingStatus" nillable="true" type="tns:MsAccidentReportPendingStatus" />
+  <xs:complexType name="ArrayOfMsKindOfNcn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsKindOfNcn" nillable="true" type="tns:MsKindOfNcn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsKindOfNcn" nillable="true" type="tns:ArrayOfMsKindOfNcn" />
+  <xs:complexType name="MsKindOfNcn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kind_of_ncn_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_ncn_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsKindOfNcn" nillable="true" type="tns:MsKindOfNcn" />
+  <xs:complexType name="MsPlanColor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="color_b" type="xs:int" />
+          <xs:element minOccurs="0" name="color_g" type="xs:int" />
+          <xs:element minOccurs="0" name="color_r" type="xs:int" />
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="day_count" type="xs:int" />
+          <xs:element minOccurs="0" name="plan_color_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsPlanColor" nillable="true" type="tns:MsPlanColor" />
+  <xs:complexType name="MsUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mail_adress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="user_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_name_kana" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsUser" nillable="true" type="tns:MsUser" />
+  <xs:complexType name="ArrayOfMsCategory1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCategory1" nillable="true" type="tns:MsCategory1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCategory1" nillable="true" type="tns:ArrayOfMsCategory1" />
+  <xs:complexType name="MsCategory1">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="category1_id" type="xs:int" />
+          <xs:element minOccurs="0" name="category1_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCategory1" nillable="true" type="tns:MsCategory1" />
+  <xs:complexType name="ArrayOfMsCategory2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCategory2" nillable="true" type="tns:MsCategory2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCategory2" nillable="true" type="tns:ArrayOfMsCategory2" />
+  <xs:complexType name="MsCategory2">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="category2_id" type="xs:int" />
+          <xs:element minOccurs="0" name="category2_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCategory2" nillable="true" type="tns:MsCategory2" />
+  <xs:complexType name="ArrayOfMsLawyerAppointment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsLawyerAppointment" nillable="true" type="tns:MsLawyerAppointment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsLawyerAppointment" nillable="true" type="tns:ArrayOfMsLawyerAppointment" />
+  <xs:complexType name="MsLawyerAppointment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lawyer_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="lawyer_appointment_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsLawyerAppointment" nillable="true" type="tns:MsLawyerAppointment" />
+  <xs:complexType name="ArrayOfMsEnteringCourt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsEnteringCourt" nillable="true" type="tns:MsEnteringCourt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsEnteringCourt" nillable="true" type="tns:ArrayOfMsEnteringCourt" />
+  <xs:complexType name="MsEnteringCourt">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="entering_court_id" type="xs:int" />
+          <xs:element minOccurs="0" name="entering_court_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsEnteringCourt" nillable="true" type="tns:MsEnteringCourt" />
+  <xs:complexType name="ArrayOfMsInsuranceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsInsuranceStatus" nillable="true" type="tns:MsInsuranceStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsInsuranceStatus" nillable="true" type="tns:ArrayOfMsInsuranceStatus" />
+  <xs:complexType name="MsInsuranceStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="insurance_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsInsuranceStatus" nillable="true" type="tns:MsInsuranceStatus" />
+  <xs:complexType name="ArrayOfMsCargo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCargo" nillable="true" type="tns:MsCargo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCargo" nillable="true" type="tns:ArrayOfMsCargo" />
+  <xs:complexType name="MsCargo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cargo_id" type="xs:int" />
+          <xs:element minOccurs="0" name="cargo_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cargo_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCargo" nillable="true" type="tns:MsCargo" />
+  <xs:complexType name="ArrayOfMsDeductibleKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeductibleKind" nillable="true" type="tns:MsDeductibleKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeductibleKind" nillable="true" type="tns:ArrayOfMsDeductibleKind" />
+  <xs:complexType name="MsDeductibleKind">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deductible_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deductible_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeductibleKind" nillable="true" type="tns:MsDeductibleKind" />
+  <xs:complexType name="ArrayOfMsCorrespondentFeeKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCorrespondentFeeKind" nillable="true" type="tns:MsCorrespondentFeeKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCorrespondentFeeKind" nillable="true" type="tns:ArrayOfMsCorrespondentFeeKind" />
+  <xs:complexType name="MsCorrespondentFeeKind">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="correspondent_fee_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_fee_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCorrespondentFeeKind" nillable="true" type="tns:MsCorrespondentFeeKind" />
+  <xs:complexType name="ArrayOfMsInsurancePendingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsInsurancePendingStatus" nillable="true" type="tns:MsInsurancePendingStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsInsurancePendingStatus" nillable="true" type="tns:ArrayOfMsInsurancePendingStatus" />
+  <xs:complexType name="MsInsurancePendingStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="insurance_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_pending_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsInsurancePendingStatus" nillable="true" type="tns:MsInsurancePendingStatus" />
+  <xs:complexType name="ArrayOfMsDeductibleUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeductibleUnit" nillable="true" type="tns:MsDeductibleUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeductibleUnit" nillable="true" type="tns:ArrayOfMsDeductibleUnit" />
+  <xs:complexType name="MsDeductibleUnit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deductible_unit_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deductible_unit_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeductibleUnit" nillable="true" type="tns:MsDeductibleUnit" />
+  <xs:complexType name="ArrayOfMsCorrespondentFeeUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCorrespondentFeeUnit" nillable="true" type="tns:MsCorrespondentFeeUnit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCorrespondentFeeUnit" nillable="true" type="tns:ArrayOfMsCorrespondentFeeUnit" />
+  <xs:complexType name="MsCorrespondentFeeUnit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="correspondent_fee_unit_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_fee_unit_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCorrespondentFeeUnit" nillable="true" type="tns:MsCorrespondentFeeUnit" />
+  <xs:complexType name="ArrayOfMsSurveyorAppointment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSurveyorAppointment" nillable="true" type="tns:MsSurveyorAppointment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSurveyorAppointment" nillable="true" type="tns:ArrayOfMsSurveyorAppointment" />
+  <xs:complexType name="MsSurveyorAppointment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="surveyor_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="surveyor_appointment_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSurveyorAppointment" nillable="true" type="tns:MsSurveyorAppointment" />
+  <xs:complexType name="ArrayOfMsCorrespondentAppointment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCorrespondentAppointment" nillable="true" type="tns:MsCorrespondentAppointment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCorrespondentAppointment" nillable="true" type="tns:ArrayOfMsCorrespondentAppointment" />
+  <xs:complexType name="MsCorrespondentAppointment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="correspondent_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_appointment_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCorrespondentAppointment" nillable="true" type="tns:MsCorrespondentAppointment" />
+  <xs:complexType name="ArrayOfMsSiMemoStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSiMemoStatus" nillable="true" type="tns:MsSiMemoStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSiMemoStatus" nillable="true" type="tns:ArrayOfMsSiMemoStatus" />
+  <xs:complexType name="MsSiMemoStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="si_memo_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSiMemoStatus" nillable="true" type="tns:MsSiMemoStatus" />
+  <xs:complexType name="ArrayOfMsSiMemoPendingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSiMemoPendingStatus" nillable="true" type="tns:MsSiMemoPendingStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSiMemoPendingStatus" nillable="true" type="tns:ArrayOfMsSiMemoPendingStatus" />
+  <xs:complexType name="MsSiMemoPendingStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="si_memo_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_pending_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSiMemoPendingStatus" nillable="true" type="tns:MsSiMemoPendingStatus" />
+  <xs:complexType name="ArrayOfMsSiMemoType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSiMemoType" nillable="true" type="tns:MsSiMemoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSiMemoType" nillable="true" type="tns:ArrayOfMsSiMemoType" />
+  <xs:complexType name="MsSiMemoType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="si_memo_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSiMemoType" nillable="true" type="tns:MsSiMemoType" />
+  <xs:complexType name="ArrayOfMsComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsComponent" nillable="true" type="tns:MsComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsComponent" nillable="true" type="tns:ArrayOfMsComponent" />
+  <xs:complexType name="MsComponent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="component_id" type="xs:int" />
+          <xs:element minOccurs="0" name="component_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="component_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsComponent" nillable="true" type="tns:MsComponent" />
+  <xs:complexType name="ArrayOfDcAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcAttachment" nillable="true" type="tns:DcAttachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcAttachment" nillable="true" type="tns:ArrayOfDcAttachment" />
+  <xs:complexType name="DcAttachment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttachmentTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="attachment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="attachment_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="file_data" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="icon_data" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAttachment" nillable="true" type="tns:DcAttachment" />
+  <xs:complexType name="ArrayOfDcSiMemoProgressPending">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcSiMemoProgressPending" nillable="true" type="tns:DcSiMemoProgressPending" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcSiMemoProgressPending" nillable="true" type="tns:ArrayOfDcSiMemoProgressPending" />
+  <xs:complexType name="DcSiMemoProgressPending">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complete_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_pending_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_progress_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSiMemoProgressPending" nillable="true" type="tns:DcSiMemoProgressPending" />
+  <xs:complexType name="DcSiMemoProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="progress_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_memo_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_progress_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSiMemoProgress" nillable="true" type="tns:DcSiMemoProgress" />
+  <xs:complexType name="ArrayOfMsDefectStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDefectStatus" nillable="true" type="tns:MsDefectStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDefectStatus" nillable="true" type="tns:ArrayOfMsDefectStatus" />
+  <xs:complexType name="MsDefectStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defect_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDefectStatus" nillable="true" type="tns:MsDefectStatus" />
+  <xs:complexType name="ArrayOfMsDefectPendingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDefectPendingStatus" nillable="true" type="tns:MsDefectPendingStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDefectPendingStatus" nillable="true" type="tns:ArrayOfMsDefectPendingStatus" />
+  <xs:complexType name="MsDefectPendingStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defect_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_pending_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDefectPendingStatus" nillable="true" type="tns:MsDefectPendingStatus" />
+  <xs:complexType name="ArrayOfMsDefectComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDefectComponent" nillable="true" type="tns:MsDefectComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDefectComponent" nillable="true" type="tns:ArrayOfMsDefectComponent" />
+  <xs:complexType name="MsDefectComponent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defect_component_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_component_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="defect_component_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDefectComponent" nillable="true" type="tns:MsDefectComponent" />
+  <xs:complexType name="ArrayOfMsDefectReportedBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDefectReportedBy" nillable="true" type="tns:MsDefectReportedBy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDefectReportedBy" nillable="true" type="tns:ArrayOfMsDefectReportedBy" />
+  <xs:complexType name="MsDefectReportedBy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defect_reported_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_reported_by_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDefectReportedBy" nillable="true" type="tns:MsDefectReportedBy" />
+  <xs:complexType name="ArrayOfMsNeedsOfImproving">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsNeedsOfImproving" nillable="true" type="tns:MsNeedsOfImproving" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsNeedsOfImproving" nillable="true" type="tns:ArrayOfMsNeedsOfImproving" />
+  <xs:complexType name="MsNeedsOfImproving">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="needs_of_improving_id" type="xs:int" />
+          <xs:element minOccurs="0" name="needs_of_improving_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsNeedsOfImproving" nillable="true" type="tns:MsNeedsOfImproving" />
+  <xs:complexType name="ArrayOfMsAssciatedRisk">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAssciatedRisk" nillable="true" type="tns:MsAssciatedRisk" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAssciatedRisk" nillable="true" type="tns:ArrayOfMsAssciatedRisk" />
+  <xs:complexType name="MsAssciatedRisk">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="assciated_risk_id" type="xs:int" />
+          <xs:element minOccurs="0" name="assciated_risk_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAssciatedRisk" nillable="true" type="tns:MsAssciatedRisk" />
+  <xs:complexType name="ArrayOfMsNavStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsNavStatus" nillable="true" type="tns:MsNavStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsNavStatus" nillable="true" type="tns:ArrayOfMsNavStatus" />
+  <xs:complexType name="MsNavStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nav_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="nav_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsNavStatus" nillable="true" type="tns:MsNavStatus" />
+  <xs:complexType name="ArrayOfMsKindOfAccident">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsKindOfAccident" nillable="true" type="tns:MsKindOfAccident" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsKindOfAccident" nillable="true" type="tns:ArrayOfMsKindOfAccident" />
+  <xs:complexType name="MsKindOfAccident">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kind_of_accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_accident_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsKindOfAccident" nillable="true" type="tns:MsKindOfAccident" />
+  <xs:complexType name="ArrayOfMsAccidentCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentCategory" nillable="true" type="tns:MsAccidentCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentCategory" nillable="true" type="tns:ArrayOfMsAccidentCategory" />
+  <xs:complexType name="MsAccidentCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_category_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentCategory" nillable="true" type="tns:MsAccidentCategory" />
+  <xs:complexType name="ArrayOfMsLocalAgentInvolved">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsLocalAgentInvolved" nillable="true" type="tns:MsLocalAgentInvolved" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsLocalAgentInvolved" nillable="true" type="tns:ArrayOfMsLocalAgentInvolved" />
+  <xs:complexType name="MsLocalAgentInvolved">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="local_agent_involved_id" type="xs:int" />
+          <xs:element minOccurs="0" name="local_agent_involved_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsLocalAgentInvolved" nillable="true" type="tns:MsLocalAgentInvolved" />
+  <xs:complexType name="ArrayOfMsFlagStateReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsFlagStateReporting" nillable="true" type="tns:MsFlagStateReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsFlagStateReporting" nillable="true" type="tns:ArrayOfMsFlagStateReporting" />
+  <xs:complexType name="MsFlagStateReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="flag_state_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_state_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsFlagStateReporting" nillable="true" type="tns:MsFlagStateReporting" />
+  <xs:complexType name="ArrayOfMsFlagStateReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsFlagStateReportingResult" nillable="true" type="tns:MsFlagStateReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsFlagStateReportingResult" nillable="true" type="tns:ArrayOfMsFlagStateReportingResult" />
+  <xs:complexType name="MsFlagStateReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="flag_state_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_state_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsFlagStateReportingResult" nillable="true" type="tns:MsFlagStateReportingResult" />
+  <xs:complexType name="ArrayOfMsCoastalStateReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsCoastalStateReporting" nillable="true" type="tns:MsCoastalStateReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsCoastalStateReporting" nillable="true" type="tns:ArrayOfMsCoastalStateReporting" />
+  <xs:complexType name="MsCoastalStateReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="coastal_state_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="coastal_state_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsCoastalStateReporting" nillable="true" type="tns:MsCoastalStateReporting" />
+  <xs:complexType name="ArrayOfMsActionCodeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsActionCodeType" nillable="true" type="tns:MsActionCodeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsActionCodeType" nillable="true" type="tns:ArrayOfMsActionCodeType" />
+  <xs:complexType name="MsActionCodeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_code_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_type_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_code_type_text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsActionCodeType" nillable="true" type="tns:MsActionCodeType" />
+  <xs:complexType name="ArrayOfMsPendingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsPendingStatus" nillable="true" type="tns:MsPendingStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsPendingStatus" nillable="true" type="tns:ArrayOfMsPendingStatus" />
+  <xs:complexType name="MsPendingStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="pending_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsPendingStatus" nillable="true" type="tns:MsPendingStatus" />
+  <xs:complexType name="ArrayOfMsAuditType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAuditType" nillable="true" type="tns:MsAuditType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAuditType" nillable="true" type="tns:ArrayOfMsAuditType" />
+  <xs:complexType name="MsAuditType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAuditType" nillable="true" type="tns:MsAuditType" />
+  <xs:complexType name="ArrayOfMsClassReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsClassReporting" nillable="true" type="tns:MsClassReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsClassReporting" nillable="true" type="tns:ArrayOfMsClassReporting" />
+  <xs:complexType name="MsClassReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="class_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="class_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsClassReporting" nillable="true" type="tns:MsClassReporting" />
+  <xs:complexType name="ArrayOfMsClassReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsClassReportingResult" nillable="true" type="tns:MsClassReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsClassReportingResult" nillable="true" type="tns:ArrayOfMsClassReportingResult" />
+  <xs:complexType name="MsClassReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="class_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="class_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsClassReportingResult" nillable="true" type="tns:MsClassReportingResult" />
+  <xs:complexType name="ArrayOfMsAuditClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAuditClass" nillable="true" type="tns:MsAuditClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAuditClass" nillable="true" type="tns:ArrayOfMsAuditClass" />
+  <xs:complexType name="MsAuditClass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_class_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_class_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAuditClass" nillable="true" type="tns:MsAuditClass" />
+  <xs:complexType name="ArrayOfMsInternalAuditType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsInternalAuditType" nillable="true" type="tns:MsInternalAuditType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsInternalAuditType" nillable="true" type="tns:ArrayOfMsInternalAuditType" />
+  <xs:complexType name="MsInternalAuditType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="internal_audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsInternalAuditType" nillable="true" type="tns:MsInternalAuditType" />
+  <xs:complexType name="ArrayOfMsSmsDpaReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSmsDpaReporting" nillable="true" type="tns:MsSmsDpaReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSmsDpaReporting" nillable="true" type="tns:ArrayOfMsSmsDpaReporting" />
+  <xs:complexType name="MsSmsDpaReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sms_dpa_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sms_dpa_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSmsDpaReporting" nillable="true" type="tns:MsSmsDpaReporting" />
+  <xs:complexType name="ArrayOfMsSmsDpaReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSmsDpaReportingResult" nillable="true" type="tns:MsSmsDpaReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSmsDpaReportingResult" nillable="true" type="tns:ArrayOfMsSmsDpaReportingResult" />
+  <xs:complexType name="MsSmsDpaReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sms_dpa_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sms_dpa_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSmsDpaReportingResult" nillable="true" type="tns:MsSmsDpaReportingResult" />
+  <xs:complexType name="ArrayOfMsIspsCsoReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsIspsCsoReporting" nillable="true" type="tns:MsIspsCsoReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsIspsCsoReporting" nillable="true" type="tns:ArrayOfMsIspsCsoReporting" />
+  <xs:complexType name="MsIspsCsoReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="isps_cso_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="isps_cso_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsIspsCsoReporting" nillable="true" type="tns:MsIspsCsoReporting" />
+  <xs:complexType name="ArrayOfMsIspsCsoReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsIspsCsoReportingResult" nillable="true" type="tns:MsIspsCsoReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsIspsCsoReportingResult" nillable="true" type="tns:ArrayOfMsIspsCsoReportingResult" />
+  <xs:complexType name="MsIspsCsoReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="isps_cso_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="isps_cso_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsIspsCsoReportingResult" nillable="true" type="tns:MsIspsCsoReportingResult" />
+  <xs:complexType name="ArrayOfMsKindOfNc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsKindOfNc" nillable="true" type="tns:MsKindOfNc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsKindOfNc" nillable="true" type="tns:ArrayOfMsKindOfNc" />
+  <xs:complexType name="MsKindOfNc">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kind_of_nc_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_nc_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsKindOfNc" nillable="true" type="tns:MsKindOfNc" />
+  <xs:complexType name="ArrayOfMsNcOfEachChapter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsNcOfEachChapter" nillable="true" type="tns:MsNcOfEachChapter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsNcOfEachChapter" nillable="true" type="tns:ArrayOfMsNcOfEachChapter" />
+  <xs:complexType name="MsNcOfEachChapter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nc_of_eachchapter_id" type="xs:int" />
+          <xs:element minOccurs="0" name="nc_of_eachchapter_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsNcOfEachChapter" nillable="true" type="tns:MsNcOfEachChapter" />
+  <xs:complexType name="ArrayOfMsTerminalResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsTerminalResult" nillable="true" type="tns:MsTerminalResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsTerminalResult" nillable="true" type="tns:ArrayOfMsTerminalResult" />
+  <xs:complexType name="MsTerminalResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="terminal_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="terminal_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsTerminalResult" nillable="true" type="tns:MsTerminalResult" />
+  <xs:complexType name="ArrayOfMsClassInvolved">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsClassInvolved" nillable="true" type="tns:MsClassInvolved" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsClassInvolved" nillable="true" type="tns:ArrayOfMsClassInvolved" />
+  <xs:complexType name="MsClassInvolved">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="class_involved_id" type="xs:int" />
+          <xs:element minOccurs="0" name="class_involved_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsClassInvolved" nillable="true" type="tns:MsClassInvolved" />
+  <xs:complexType name="ArrayOfMsOcimfVirUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsOcimfVirUpload" nillable="true" type="tns:MsOcimfVirUpload" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsOcimfVirUpload" nillable="true" type="tns:ArrayOfMsOcimfVirUpload" />
+  <xs:complexType name="MsOcimfVirUpload">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsOcimfVirUpload" nillable="true" type="tns:MsOcimfVirUpload" />
+  <xs:complexType name="ArrayOfMsOcimfDownloadBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsOcimfDownloadBy" nillable="true" type="tns:MsOcimfDownloadBy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsOcimfDownloadBy" nillable="true" type="tns:ArrayOfMsOcimfDownloadBy" />
+  <xs:complexType name="MsOcimfDownloadBy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ocimf_download_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_download_by_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsOcimfDownloadBy" nillable="true" type="tns:MsOcimfDownloadBy" />
+  <xs:complexType name="ArrayOfMsUscgCoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsUscgCoc" nillable="true" type="tns:MsUscgCoc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsUscgCoc" nillable="true" type="tns:ArrayOfMsUscgCoc" />
+  <xs:complexType name="MsUscgCoc">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uscg_coc_id" type="xs:int" />
+          <xs:element minOccurs="0" name="uscg_coc_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsUscgCoc" nillable="true" type="tns:MsUscgCoc" />
+  <xs:complexType name="ArrayOfMsDeficiencyCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeficiencyCategory" nillable="true" type="tns:MsDeficiencyCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeficiencyCategory" nillable="true" type="tns:ArrayOfMsDeficiencyCategory" />
+  <xs:complexType name="MsDeficiencyCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deficiency_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_category_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeficiencyCategory" nillable="true" type="tns:MsDeficiencyCategory" />
+  <xs:complexType name="ArrayOfMsPlanStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsPlanStatus" nillable="true" type="tns:MsPlanStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsPlanStatus" nillable="true" type="tns:ArrayOfMsPlanStatus" />
+  <xs:complexType name="MsPlanStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="plan_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="plan_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsPlanStatus" nillable="true" type="tns:MsPlanStatus" />
+  <xs:complexType name="ArrayOfMsExpiryDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsExpiryDate" nillable="true" type="tns:MsExpiryDate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsExpiryDate" nillable="true" type="tns:ArrayOfMsExpiryDate" />
+  <xs:complexType name="MsExpiryDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="expiry_date_id" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="interval_month" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsExpiryDate" nillable="true" type="tns:MsExpiryDate" />
+  <xs:complexType name="ArrayOfMsPlanPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsPlanPeriod" nillable="true" type="tns:MsPlanPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsPlanPeriod" nillable="true" type="tns:ArrayOfMsPlanPeriod" />
+  <xs:complexType name="MsPlanPeriod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="plan_period_id" type="xs:int" />
+          <xs:element minOccurs="0" name="plan_period_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsPlanPeriod" nillable="true" type="tns:MsPlanPeriod" />
+  <xs:complexType name="ArrayOfMsAuditBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAuditBy" nillable="true" type="tns:MsAuditBy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAuditBy" nillable="true" type="tns:ArrayOfMsAuditBy" />
+  <xs:complexType name="MsAuditBy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_by_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAuditBy" nillable="true" type="tns:MsAuditBy" />
+  <xs:complexType name="ArrayOfMsPlanColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsPlanColor" nillable="true" type="tns:MsPlanColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsPlanColor" nillable="true" type="tns:ArrayOfMsPlanColor" />
+  <xs:complexType name="DcComment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcComment" nillable="true" type="tns:DcComment" />
+  <xs:complexType name="ArrayOfDcOcimfDownloadBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcOcimfDownloadBy" nillable="true" type="tns:DcOcimfDownloadBy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcOcimfDownloadBy" nillable="true" type="tns:ArrayOfDcOcimfDownloadBy" />
+  <xs:complexType name="DcOcimfDownloadBy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dc_ocimf_download_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_download_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcOcimfDownloadBy" nillable="true" type="tns:DcOcimfDownloadBy" />
+  <xs:complexType name="DcPlan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="estimate_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="last_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="last_date_comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="plan_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcPlan" nillable="true" type="tns:DcPlan" />
+  <xs:complexType name="DcSireMemberReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dc_sire_member_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sire_member_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_result_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSireMemberReporting" nillable="true" type="tns:DcSireMemberReporting" />
+  <xs:complexType name="ArrayOfDcTerminalResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcTerminalResult" nillable="true" type="tns:DcTerminalResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcTerminalResult" nillable="true" type="tns:ArrayOfDcTerminalResult" />
+  <xs:complexType name="DcTerminalResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dc_terminal_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="terminal_result_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcTerminalResult" nillable="true" type="tns:DcTerminalResult" />
+  <xs:complexType name="ArrayOfDcProgressPending">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcProgressPending" nillable="true" type="tns:DcProgressPending" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcProgressPending" nillable="true" type="tns:ArrayOfDcProgressPending" />
+  <xs:complexType name="DcProgressPending">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complete_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="pending_id" type="xs:int" />
+          <xs:element minOccurs="0" name="pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remark_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcProgressPending" nillable="true" type="tns:DcProgressPending" />
+  <xs:complexType name="DcProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcProgress" nillable="true" type="tns:DcProgress" />
+  <xs:complexType name="DcCiNonConformity">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_taken_by_company_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved_id" type="xs:int" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_reported_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_ncn_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ncn_details" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ncn_details_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="needs_of_improving_id" type="xs:int" />
+          <xs:element minOccurs="0" name="office_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="office_comment_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="preventive_measures" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="preventive_measures_date" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiNonConformity" nillable="true" type="tns:DcCiNonConformity" />
+  <xs:complexType name="DcCommentItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="alarm_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="auditor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="control_no" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_count" type="xs:int" />
+          <xs:element minOccurs="0" name="dp_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="dp_check_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="file_close" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file_close_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="flag_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="gm_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="gm_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspector_id" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="non_conformity_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="si_visiting" type="xs:boolean" />
+          <xs:element minOccurs="0" name="status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="to_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="to_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="truble_report" type="xs:boolean" />
+          <xs:element minOccurs="0" name="uscg_coc_id" type="xs:int" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="vessel_type_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCommentItem" nillable="true" type="tns:DcCommentItem" />
+  <xs:complexType name="ArrayOfMsVessel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVessel" nillable="true" type="tns:MsVessel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVessel" nillable="true" type="tns:ArrayOfMsVessel" />
+  <xs:complexType name="MsVessel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_vessel_type_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="senin_enabled" type="xs:decimal" />
+          <xs:element minOccurs="0" name="show_order" type="xs:decimal" />
+          <xs:element minOccurs="0" name="vessel_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_no" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVessel" nillable="true" type="tns:MsVessel" />
+  <xs:complexType name="BaseWingDac">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DacBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="delete_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="renew_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="renew_user_id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseWingDac" nillable="true" type="tns:BaseWingDac" />
+  <xs:complexType name="ArrayOfMsUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsUser" nillable="true" type="tns:MsUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsUser" nillable="true" type="tns:ArrayOfMsUser" />
+  <xs:complexType name="ArrayOfMsItemKind">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsItemKind" nillable="true" type="tns:MsItemKind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsItemKind" nillable="true" type="tns:ArrayOfMsItemKind" />
+  <xs:complexType name="MsItemKind">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsItemKind" nillable="true" type="tns:MsItemKind" />
+  <xs:complexType name="ArrayOfMsStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsStatus" nillable="true" type="tns:MsStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsStatus" nillable="true" type="tns:ArrayOfMsStatus" />
+  <xs:complexType name="MsStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsStatus" nillable="true" type="tns:MsStatus" />
+  <xs:complexType name="ArrayOfMsAlarmColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAlarmColor" nillable="true" type="tns:MsAlarmColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAlarmColor" nillable="true" type="tns:ArrayOfMsAlarmColor" />
+  <xs:complexType name="MsAlarmColor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="alarm_color_id" type="xs:int" />
+          <xs:element minOccurs="0" name="color_b" type="xs:int" />
+          <xs:element minOccurs="0" name="color_g" type="xs:int" />
+          <xs:element minOccurs="0" name="color_r" type="xs:int" />
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="day_count" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAlarmColor" nillable="true" type="tns:MsAlarmColor" />
+  <xs:complexType name="ArrayOfMsInspector">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsInspector" nillable="true" type="tns:MsInspector" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsInspector" nillable="true" type="tns:ArrayOfMsInspector" />
+  <xs:complexType name="MsInspector">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="inspector_id" type="xs:int" />
+          <xs:element minOccurs="0" name="inspector_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsInspector" nillable="true" type="tns:MsInspector" />
+  <xs:complexType name="ArrayOfMsImportance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsImportance" nillable="true" type="tns:MsImportance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsImportance" nillable="true" type="tns:ArrayOfMsImportance" />
+  <xs:complexType name="MsImportance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="importance_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsImportance" nillable="true" type="tns:MsImportance" />
+  <xs:complexType name="ArrayOfMsActionCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsActionCode" nillable="true" type="tns:MsActionCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsActionCode" nillable="true" type="tns:ArrayOfMsActionCode" />
+  <xs:complexType name="MsActionCode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_code_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mou_other_visible_flag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="mou_uscg_visible_flag" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsActionCode" nillable="true" type="tns:MsActionCode" />
+  <xs:complexType name="ArrayOfMsDeficiencyCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsDeficiencyCode" nillable="true" type="tns:MsDeficiencyCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsDeficiencyCode" nillable="true" type="tns:ArrayOfMsDeficiencyCode" />
+  <xs:complexType name="MsDeficiencyCode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defective_item" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_code_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsDeficiencyCode" nillable="true" type="tns:MsDeficiencyCode" />
+  <xs:complexType name="ArrayOfMsViqCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsViqCode" nillable="true" type="tns:MsViqCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsViqCode" nillable="true" type="tns:ArrayOfMsViqCode" />
+  <xs:complexType name="MsViqCode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_code_text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsViqCode" nillable="true" type="tns:MsViqCode" />
+  <xs:complexType name="ArrayOfMsVesselType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsVesselType" nillable="true" type="tns:MsVesselType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsVesselType" nillable="true" type="tns:ArrayOfMsVesselType" />
+  <xs:complexType name="MsVesselType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="vessel_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="vessel_type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsVesselType" nillable="true" type="tns:MsVesselType" />
+  <xs:complexType name="ArrayOfMsBasho">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsBasho" nillable="true" type="tns:MsBasho" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsBasho" nillable="true" type="tns:ArrayOfMsBasho" />
+  <xs:complexType name="MsBasho">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="akasaka_port_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="basho_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="data_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="gaichi_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_kubun_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="send_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsBasho" nillable="true" type="tns:MsBasho" />
+  <xs:complexType name="ArrayOfMsRegional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsRegional" nillable="true" type="tns:MsRegional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsRegional" nillable="true" type="tns:ArrayOfMsRegional" />
+  <xs:complexType name="MsRegional">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseWingDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="data_no" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="regional_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="send_flag" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsRegional" nillable="true" type="tns:MsRegional" />
+  <xs:complexType name="ArrayOfMsFlagReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsFlagReporting" nillable="true" type="tns:MsFlagReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsFlagReporting" nillable="true" type="tns:ArrayOfMsFlagReporting" />
+  <xs:complexType name="MsFlagReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="flag_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsFlagReporting" nillable="true" type="tns:MsFlagReporting" />
+  <xs:complexType name="ArrayOfMsFlagReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsFlagReportingResult" nillable="true" type="tns:MsFlagReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsFlagReportingResult" nillable="true" type="tns:ArrayOfMsFlagReportingResult" />
+  <xs:complexType name="MsFlagReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="flag_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsFlagReportingResult" nillable="true" type="tns:MsFlagReportingResult" />
+  <xs:complexType name="ArrayOfMsSireMemberReporting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSireMemberReporting" nillable="true" type="tns:MsSireMemberReporting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSireMemberReporting" nillable="true" type="tns:ArrayOfMsSireMemberReporting" />
+  <xs:complexType name="MsSireMemberReporting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sire_member_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSireMemberReporting" nillable="true" type="tns:MsSireMemberReporting" />
+  <xs:complexType name="ArrayOfMsSireMemberReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSireMemberReportingResult" nillable="true" type="tns:MsSireMemberReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSireMemberReportingResult" nillable="true" type="tns:ArrayOfMsSireMemberReportingResult" />
+  <xs:complexType name="MsSireMemberReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsSireMemberReportingResult" nillable="true" type="tns:MsSireMemberReportingResult" />
+  <xs:complexType name="ArrayOfMsRightShipReportingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsRightShipReportingResult" nillable="true" type="tns:MsRightShipReportingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsRightShipReportingResult" nillable="true" type="tns:ArrayOfMsRightShipReportingResult" />
+  <xs:complexType name="MsRightShipReportingResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsRightShipReportingResult" nillable="true" type="tns:MsRightShipReportingResult" />
+  <xs:complexType name="ArrayOfMsMou">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsMou" nillable="true" type="tns:MsMou" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsMou" nillable="true" type="tns:ArrayOfMsMou" />
+  <xs:complexType name="MsMou">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mou_id" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsMou" nillable="true" type="tns:MsMou" />
+  <xs:complexType name="MsLogin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="login_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsLogin" nillable="true" type="tns:MsLogin" />
+  <xs:complexType name="MsUserRole">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report" type="xs:boolean" />
+          <xs:element minOccurs="0" name="accident_report_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="comment_create" type="xs:boolean" />
+          <xs:element minOccurs="0" name="comment_list" type="xs:boolean" />
+          <xs:element minOccurs="0" name="comment_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="defect" type="xs:boolean" />
+          <xs:element minOccurs="0" name="defect_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="fleet_status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="fleet_status_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="insurance" type="xs:boolean" />
+          <xs:element minOccurs="0" name="insurance_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="master" type="xs:boolean" />
+          <xs:element minOccurs="0" name="master_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_memo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_memo_regist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsUserRole" nillable="true" type="tns:MsUserRole" />
+  <xs:complexType name="DcSiMemo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="component_id" type="xs:int" />
+          <xs:element minOccurs="0" name="corrective_action_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="corrective_action_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dp_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="dp_check_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="file_close" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file_close_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="gm_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="gm_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_memo_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="si_memo_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_memo_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="si_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSiMemo" nillable="true" type="tns:DcSiMemo" />
+  <xs:complexType name="DcDefect">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="assciated_risk_id" type="xs:int" />
+          <xs:element minOccurs="0" name="corrective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corrective_action_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_component_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_detail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="defect_detail_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_reported_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_reported_of_machinery" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="defect_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dp_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="dp_check_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="file_close" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file_close_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="gm_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="gm_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="nav_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="needs_of_improving_id" type="xs:int" />
+          <xs:element minOccurs="0" name="office_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="office_comment_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="prevention_measures" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="prevention_measures_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcDefect" nillable="true" type="tns:DcDefect" />
+  <xs:complexType name="ArrayOfDcDefectProgressPending">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcDefectProgressPending" nillable="true" type="tns:DcDefectProgressPending" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcDefectProgressPending" nillable="true" type="tns:ArrayOfDcDefectProgressPending" />
+  <xs:complexType name="DcDefectProgressPending">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complete_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_pending_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcDefectProgressPending" nillable="true" type="tns:DcDefectProgressPending" />
+  <xs:complexType name="DcDefectProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="defect_id" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcDefectProgress" nillable="true" type="tns:DcDefectProgress" />
+  <xs:complexType name="DcAccidentReport">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_detail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accident_detail_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="accident_report_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="accident_report_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accident_report_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved_id" type="xs:int" />
+          <xs:element minOccurs="0" name="class_involved_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="coastal_state_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="coastal_state_reporting_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corrective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dp_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="dp_check_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="etas_responce_id" type="xs:int" />
+          <xs:element minOccurs="0" name="etas_responce_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="file_close" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file_close_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="flag_state_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_state_reporting_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="flag_state_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="follow_up_report" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="gm_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="gm_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="initial_report" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="investigation_report_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="kind_of_accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="local_agent_contact_detail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="local_agent_involved_id" type="xs:int" />
+          <xs:element minOccurs="0" name="local_agent_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="manning_agency_id" type="xs:int" />
+          <xs:element minOccurs="0" name="manning_agency_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="media_responce_id" type="xs:int" />
+          <xs:element minOccurs="0" name="media_responce_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="needs_of_improving_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_measures" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="root_cause" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="si_verification" type="xs:boolean" />
+          <xs:element minOccurs="0" name="si_verification_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="sire_member_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sire_member_reporting_remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sire_member_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentReport" nillable="true" type="tns:DcAccidentReport" />
+  <xs:complexType name="ArrayOfDcAccidentReportOcimfDownloadBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcAccidentReportOcimfDownloadBy" nillable="true" type="tns:DcAccidentReportOcimfDownloadBy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcAccidentReportOcimfDownloadBy" nillable="true" type="tns:ArrayOfDcAccidentReportOcimfDownloadBy" />
+  <xs:complexType name="DcAccidentReportOcimfDownloadBy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dc_accident_report_ocimf_download_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_download_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentReportOcimfDownloadBy" nillable="true" type="tns:DcAccidentReportOcimfDownloadBy" />
+  <xs:complexType name="ArrayOfDcAccidentReportProgressPending">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcAccidentReportProgressPending" nillable="true" type="tns:DcAccidentReportProgressPending" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcAccidentReportProgressPending" nillable="true" type="tns:ArrayOfDcAccidentReportProgressPending" />
+  <xs:complexType name="DcAccidentReportProgressPending">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report_pending_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="complete_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentReportProgressPending" nillable="true" type="tns:DcAccidentReportProgressPending" />
+  <xs:complexType name="DcAccidentReportProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_report_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentReportProgress" nillable="true" type="tns:DcAccidentReportProgress" />
+  <xs:complexType name="DcTerminalHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="terminal_history_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcTerminalHistory" nillable="true" type="tns:DcTerminalHistory" />
+  <xs:complexType name="DcCiTerminalInspection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_without_alarm" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="terminal_inspection_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiTerminalInspection" nillable="true" type="tns:DcCiTerminalInspection" />
+  <xs:complexType name="DcCiFlagInspection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="convention" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="flag_inspection_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="flag_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiFlagInspection" nillable="true" type="tns:DcCiFlagInspection" />
+  <xs:complexType name="DcCiNavigationalAudit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="audit_by_id" type="xs:int" />
+          <xs:element minOccurs="0" name="audit_by_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="auditor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="last_audit_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="navigational_audit_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiNavigationalAudit" nillable="true" type="tns:DcCiNavigationalAudit" />
+  <xs:simpleType name="EPlanStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="未">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="完了">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MAX">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EPlanStatus" nillable="true" type="tns:EPlanStatus" />
+  <xs:complexType name="ArrayOfDcCommentItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcCommentItem" nillable="true" type="tns:DcCommentItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcCommentItem" nillable="true" type="tns:ArrayOfDcCommentItem" />
+  <xs:complexType name="DcCiClassAudit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_class_id" type="xs:int" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_audit_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="class_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="smc_issc_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="smc_issc_code_text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiClassAudit" nillable="true" type="tns:DcCiClassAudit" />
+  <xs:complexType name="DcCiInternalAudit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="auditor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="isps_cso_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="isps_cso_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_nc_id" type="xs:int" />
+          <xs:element minOccurs="0" name="nc_of_eachchapter_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sms_dpa_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sms_dpa_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="sms_isps_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sms_isps_code_text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiInternalAudit" nillable="true" type="tns:DcCiInternalAudit" />
+  <xs:complexType name="ArrayOfDcActionCodeHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcActionCodeHistory" nillable="true" type="tns:DcActionCodeHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcActionCodeHistory" nillable="true" type="tns:ArrayOfDcActionCodeHistory" />
+  <xs:complexType name="DcActionCodeHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_code_history_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_code_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcActionCodeHistory" nillable="true" type="tns:DcActionCodeHistory" />
+  <xs:complexType name="DcCiPscInspection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="convention" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="due_date_of_intermediate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date_of_renewel" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="flag_reporting_id" type="xs:int" />
+          <xs:element minOccurs="0" name="flag_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ocimf_vir_upload_id" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="psc_inspection_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="right_ship_reporting_result_id" type="xs:int" />
+          <xs:element minOccurs="0" name="uscg_coc_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiPscInspection" nillable="true" type="tns:DcCiPscInspection" />
+  <xs:complexType name="DcInsurance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accrued_unpaid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cargo_id" type="xs:int" />
+          <xs:element minOccurs="0" name="category1_id" type="xs:int" />
+          <xs:element minOccurs="0" name="category2_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_fee_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="correspondent_fee_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="correspondent_fee_unit_id" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="deductible_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deductible_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deductible_unit_id" type="xs:int" />
+          <xs:element minOccurs="0" name="discharging1_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="discharging2_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="discharging3_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="entering_court_id" type="xs:int" />
+          <xs:element minOccurs="0" name="file_close" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file_close_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ims_memo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="incident_summary" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="insurance_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="insurance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="lawyer_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="loading_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ref_number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="repair_place" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="surveyor_appointment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="trouble_place" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcInsurance" nillable="true" type="tns:DcInsurance" />
+  <xs:complexType name="ArrayOfDcInsuranceProgressPending">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcInsuranceProgressPending" nillable="true" type="tns:DcInsuranceProgressPending" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcInsuranceProgressPending" nillable="true" type="tns:ArrayOfDcInsuranceProgressPending" />
+  <xs:complexType name="DcInsuranceProgressPending">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="complete_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="due_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="insurance_pending_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_pending_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remark_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="resp_user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcInsuranceProgressPending" nillable="true" type="tns:DcInsuranceProgressPending" />
+  <xs:complexType name="DcInsuranceProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="insurance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="insurance_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remark_user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcInsuranceProgress" nillable="true" type="tns:DcInsuranceProgress" />
+  <xs:complexType name="DcAlarm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommentItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="DataID" type="xs:int" />
+          <xs:element minOccurs="0" name="TableID" type="xs:int" />
+          <xs:element minOccurs="0" name="alarm_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="alarm_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="enable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAlarm" nillable="true" type="tns:DcAlarm" />
+  <xs:complexType name="ArrayOfDcTerminalHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcTerminalHistory" nillable="true" type="tns:DcTerminalHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcTerminalHistory" nillable="true" type="tns:ArrayOfDcTerminalHistory" />
+</xs:schema>

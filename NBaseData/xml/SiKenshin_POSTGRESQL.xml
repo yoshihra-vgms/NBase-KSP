@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_KENSHIN.SI_KENSHIN_ID     ,
+
+    SI_KENSHIN.MS_SENIN_ID       ,
+
+    SI_KENSHIN.MS_SI_OPTIONS_ID  ,
+    SI_KENSHIN.KENSA_NAME        ,
+    SI_KENSHIN.KENSA_DAY         ,
+    SI_KENSHIN.EXPIRY_DATE       ,
+    SI_KENSHIN.HOSPITAL          ,
+    SI_KENSHIN.DIAGNOSIS         ,
+    SI_KENSHIN.RESULTS           ,
+    SI_KENSHIN.REMARKS           ,
+
+    SI_KENSHIN.DELETE_FLAG      ,
+    SI_KENSHIN.SEND_FLAG        ,
+    SI_KENSHIN.VESSEL_ID        ,
+    SI_KENSHIN.DATA_NO          ,
+    SI_KENSHIN.USER_KEY         ,
+    SI_KENSHIN.RENEW_DATE       ,
+    SI_KENSHIN.RENEW_USER_ID    ,
+    SI_KENSHIN.TS
+
+    FROM
+    SI_KENSHIN
+  </sql>
+
+  <sql name="By有効データ">
+    WHERE
+    SI_KENSHIN.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_KENSHIN.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="BySiKenshinID">
+    AND
+    SI_KENSHIN.SI_KENSHIN_ID = :SI_KENSHIN_ID
+  </sql>
+
+  <sql name="ByDataNo">
+    WHERE
+    SI_KENSHIN.DATA_NO > :DATA_NO
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_KENSHIN(
+    SI_KENSHIN_ID    ,
+
+    MS_SENIN_ID      ,
+
+    MS_SI_OPTIONS_ID ,
+    KENSA_NAME       ,
+    HOSPITAL         ,
+    KENSA_DAY        ,
+    EXPIRY_DATE      ,
+    DIAGNOSIS        ,
+    RESULTS          ,
+    REMARKS          ,
+
+    DELETE_FLAG      ,
+    SEND_FLAG        ,
+    VESSEL_ID        ,
+    DATA_NO          ,
+    USER_KEY         ,
+    RENEW_DATE       ,
+    RENEW_USER_ID    ,
+    TS
+    )
+    VALUES(
+    :SI_KENSHIN_ID    ,
+
+    :MS_SENIN_ID      ,
+
+    :MS_SI_OPTIONS_ID ,
+    :KENSA_NAME       ,
+    :HOSPITAL         ,
+    :KENSA_DAY        ,
+    :EXPIRY_DATE      ,
+    :DIAGNOSIS        ,
+    :RESULTS          ,
+    :REMARKS          ,
+
+    :DELETE_FLAG      ,
+    :SEND_FLAG        ,
+    :VESSEL_ID        ,
+    :DATA_NO          ,
+    :USER_KEY         ,
+    :RENEW_DATE       ,
+    :RENEW_USER_ID    ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_KENSHIN
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID           ,
+
+    MS_SI_OPTIONS_ID = :MS_SI_OPTIONS_ID ,
+    KENSA_NAME = :KENSA_NAME             ,
+    HOSPITAL = :HOSPITAL                 ,
+    KENSA_DAY = :KENSA_DAY               ,
+    EXPIRY_DATE = :EXPIRY_DATE           ,
+    DIAGNOSIS = :DIAGNOSIS               ,
+    RESULTS = :RESULTS                   ,
+    REMARKS = :REMARKS                   ,
+
+    DELETE_FLAG = :DELETE_FLAG           ,
+    SEND_FLAG = :SEND_FLAG               ,
+    VESSEL_ID = :VESSEL_ID               ,
+    DATA_NO = :DATA_NO                   ,
+    USER_KEY = :USER_KEY                 ,
+    RENEW_DATE = :RENEW_DATE             ,
+    RENEW_USER_ID = :RENEW_USER_ID       ,
+    TS = :TS
+
+    WHERE SI_KENSHIN_ID = :SI_KENSHIN_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

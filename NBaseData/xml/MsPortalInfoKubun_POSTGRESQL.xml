@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_PORTAL_INFO_KUBUN.MS_PORTAL_INFO_KUBUN_ID    ,
+    MS_PORTAL_INFO_KUBUN.MS_PORTAL_INFO_KUBUN_NAME  ,
+    MS_PORTAL_INFO_KUBUN.DELETE_FLAG                ,
+    MS_PORTAL_INFO_KUBUN.SEND_FLAG                  ,
+    MS_PORTAL_INFO_KUBUN.VESSEL_ID                  ,
+    MS_PORTAL_INFO_KUBUN.DATA_NO                    ,
+    MS_PORTAL_INFO_KUBUN.USER_KEY                   ,
+    MS_PORTAL_INFO_KUBUN.RENEW_DATE                 ,
+    MS_PORTAL_INFO_KUBUN.RENEW_USER_ID              ,
+    MS_PORTAL_INFO_KUBUN.TS
+    from
+    MS_PORTAL_INFO_KUBUN
+    where (MS_PORTAL_INFO_KUBUN.DELETE_FLAG = 0 or MS_PORTAL_INFO_KUBUN.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByPortalInfoKubunName">
+    and MS_PORTAL_INFO_KUBUN.MS_PORTAL_INFO_KUBUN_NAME  = :MS_PORTAL_INFO_KUBUN_NAME
+  </sql>
+
+</databaseConfig>
+

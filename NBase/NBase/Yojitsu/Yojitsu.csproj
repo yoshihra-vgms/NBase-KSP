@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99D84C3F-4DDA-46DD-AB09-C43517B98B74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yojitsu</RootNamespace>
+    <AssemblyName>Yojitsu</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Shared.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Core.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Creator.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.View.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fc068d52871330d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f0a7ab6b4f7a5dd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists.TreeListView, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db703db380f7965b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.TreeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\(JOB)IGT\WING\Main\Wing\Wing\Wing\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\(JOB)IGT\WING\Main\Wing\Wing\Wing\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DA\DbAccessorFactory.cs" />
+    <Compile Include="DA\ExcelObject_タリフ表.cs" />
+    <Compile Include="DA\ExcelObject_人員配置表.cs" />
+    <Compile Include="DA\ExcelObject_貸船借船料.cs" />
+    <Compile Include="DA\ExcelSource_共通割掛船員.cs" />
+    <Compile Include="DA\ExcelSource_貸船借船料.cs" />
+    <Compile Include="DA\HimokuTreeReader_入渠.cs" />
+    <Compile Include="DA\IExcelSource.cs" />
+    <Compile Include="DA\WcfAccessorFactory.cs" />
+    <Compile Include="DA\DirectAccessorFactory.cs" />
+    <Compile Include="Excelファイル読込Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Excelファイル読込Form.Designer.cs">
+      <DependentUpon>Excelファイル読込Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetsujiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetsujiForm.Designer.cs">
+      <DependentUpon>GetsujiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HimokuTreeNode.cs" />
+    <Compile Include="DA\HimokuTreeReader.cs" />
+    <Compile Include="DA\DbTableCache.cs" />
+    <Compile Include="util\CellItem.cs" />
+    <Compile Include="util\CellItem_入渠.cs" />
+    <Compile Include="util\CurrencyFactory.cs" />
+    <Compile Include="util\JisekiBuilder.cs" />
+    <Compile Include="util\NenjiTreeListViewDelegate.cs">
+    </Compile>
+    <Compile Include="util\GetsujiTreeListViewDelegate.cs">
+    </Compile>
+    <Compile Include="util\RateBuilder.cs" />
+    <Compile Include="util\TopTreeListViewDelegate.cs">
+    </Compile>
+    <Compile Include="util\TreeListViewDelegateExcelファイル読込.cs" />
+    <Compile Include="util\TreeListViewDelegateドルレート.cs" />
+    <Compile Include="util\TreeListViewDelegate入力完了.cs" />
+    <Compile Include="util\TreeListViewDelegate入渠.cs" />
+    <Compile Include="util\TreeListViewDelegate船稼働設定.cs" />
+    <Compile Include="util\YojitsuTreeListViewDelegate.cs" />
+    <Compile Include="util\YosanItemBuilder.cs" />
+    <Compile Include="util\経常収支管理表出力処理.cs" />
+    <Compile Include="util\経常収支管理表出力処理定義.cs" />
+    <Compile Include="NenjiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NenjiForm.Designer.cs">
+      <DependentUpon>NenjiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EditTableTitleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditTableTitleControl.Designer.cs">
+      <DependentUpon>EditTableTitleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopForm.Designer.cs">
+      <DependentUpon>TopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DA\Constants.cs" />
+    <Compile Include="util\販管費TreeListManager.cs" />
+    <Compile Include="util\販菅費処理.cs" />
+    <Compile Include="予算対比表出力2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算対比表出力2Form.Designer.cs">
+      <DependentUpon>予算対比表出力2Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="運航費入力Control_単数項.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="運航費入力Control_単数項.Designer.cs">
+      <DependentUpon>運航費入力Control_単数項.cs</DependentUpon>
+    </Compile>
+    <Compile Include="月次収支資料出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="月次収支資料出力Form.Designer.cs">
+      <DependentUpon>月次収支資料出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="予算対比表出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算対比表出力Form.Designer.cs">
+      <DependentUpon>予算対比表出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="予算表出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算表出力Form.Designer.cs">
+      <DependentUpon>予算表出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="修繕費出力選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="修繕費出力選択Form.Designer.cs">
+      <DependentUpon>修繕費出力選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ドルレートForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ドルレートForm.Designer.cs">
+      <DependentUpon>ドルレートForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="予算コピーForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算コピーForm.Designer.cs">
+      <DependentUpon>予算コピーForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="入渠Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="入渠Form.Designer.cs">
+      <DependentUpon>入渠Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="特別修繕引当金入力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="特別修繕引当金入力Form.Designer.cs">
+      <DependentUpon>特別修繕引当金入力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="販管割掛入力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="販管割掛入力Form.Designer.cs">
+      <DependentUpon>販管割掛入力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="メモ編集閲覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="メモ編集閲覧Form.Designer.cs">
+      <DependentUpon>メモ編集閲覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船稼働設定Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船稼働設定Form.Designer.cs">
+      <DependentUpon>船稼働設定Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船稼働設定日時Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船稼働設定日時Form.Designer.cs">
+      <DependentUpon>船稼働設定日時Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="予算作成Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算作成Form.Designer.cs">
+      <DependentUpon>予算作成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="予算RevアップForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="予算RevアップForm.Designer.cs">
+      <DependentUpon>予算RevアップForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="運航費入力Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="運航費入力Control.Designer.cs">
+      <DependentUpon>運航費入力Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="運航費入力Control_単数.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="運航費入力Control_単数.Designer.cs">
+      <DependentUpon>運航費入力Control_単数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="運航費入力Control_単数航.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="運航費入力Control_単数航.Designer.cs">
+      <DependentUpon>運航費入力Control_単数航.cs</DependentUpon>
+    </Compile>
+    <Compile Include="運航費入力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="運航費入力Form.Designer.cs">
+      <DependentUpon>運航費入力Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Excelファイル読込Form.resx">
+      <DependentUpon>Excelファイル読込Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetsujiForm.resx">
+      <DependentUpon>GetsujiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NenjiForm.resx">
+      <DependentUpon>NenjiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="EditTableTitleControl.resx">
+      <DependentUpon>EditTableTitleControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopForm.resx">
+      <DependentUpon>TopForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算対比表出力2Form.resx">
+      <DependentUpon>予算対比表出力2Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="運航費入力Control_単数項.resx">
+      <DependentUpon>運航費入力Control_単数項.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="月次収支資料出力Form.resx">
+      <DependentUpon>月次収支資料出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算対比表出力Form.resx">
+      <DependentUpon>予算対比表出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算表出力Form.resx">
+      <DependentUpon>予算表出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="修繕費出力選択Form.resx">
+      <DependentUpon>修繕費出力選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ドルレートForm.resx">
+      <DependentUpon>ドルレートForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算コピーForm.resx">
+      <DependentUpon>予算コピーForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="入渠Form.resx">
+      <DependentUpon>入渠Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="特別修繕引当金入力Form.resx">
+      <DependentUpon>特別修繕引当金入力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="販管割掛入力Form.resx">
+      <DependentUpon>販管割掛入力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="メモ編集閲覧Form.resx">
+      <DependentUpon>メモ編集閲覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船稼働設定Form.resx">
+      <DependentUpon>船稼働設定Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船稼働設定日時Form.resx">
+      <DependentUpon>船稼働設定日時Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算作成Form.resx">
+      <DependentUpon>予算作成Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="予算RevアップForm.resx">
+      <DependentUpon>予算RevアップForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="運航費入力Control.resx">
+      <DependentUpon>運航費入力Control.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="運航費入力Control_単数.resx">
+      <DependentUpon>運航費入力Control_単数.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="運航費入力Control_単数航.resx">
+      <DependentUpon>運航費入力Control_単数航.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="運航費入力Form.resx">
+      <DependentUpon>運航費入力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NBaseService\NBaseService.csproj">
+      <Project>{A0C01C40-B1F0-43F2-8C92-77F2EE0ABEA7}</Project>
+      <Name>NBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReferences\ServiceReferences.csproj">
+      <Project>{1FBA14B8-00E7-4EE1-B9B0-7DF5737248EF}</Project>
+      <Name>ServiceReferences</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

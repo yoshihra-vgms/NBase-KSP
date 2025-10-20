@@ -1,0 +1,1506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7267CF2-C3EF-4657-8941-8F5E3A37839A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBaseMaster</RootNamespace>
+    <AssemblyName>NBaseMaster</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GrapeCity.Framework.CalendarGrid.v24, Version=2.4.4003.2012, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Framework.MultiRow.v24, Version=2.4.4006.2012, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Win.CalendarGrid.v20, Version=2.0.4003.2012, Culture=neutral, PublicKeyToken=f4c1eb1dac5d2351, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Win.MultiRow.v100, Version=10.0.4006.2012, Culture=neutral, PublicKeyToken=0f7a722ee3c2bdd9, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase">
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels">
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Doc\ドキュメント分類管理\ドキュメント分類管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\ドキュメント分類管理\ドキュメント分類管理Form.Designer.cs">
+      <DependentUpon>ドキュメント分類管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\ドキュメント分類管理\ドキュメント分類管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\ドキュメント分類管理\ドキュメント分類管理詳細Form.Designer.cs">
+      <DependentUpon>ドキュメント分類管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理Form.Designer.cs">
+      <DependentUpon>ドキュメント小分類管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理詳細Form.Designer.cs">
+      <DependentUpon>ドキュメント小分類管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\乗船者登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\乗船者登録Form.Designer.cs">
+      <DependentUpon>乗船者登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\乗船者登録詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\乗船者登録詳細Form.Designer.cs">
+      <DependentUpon>乗船者登録詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\船員検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\乗船者登録\船員検索Form.Designer.cs">
+      <DependentUpon>船員検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\報告書管理\報告書管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\報告書管理\報告書管理詳細Form.Designer.cs">
+      <DependentUpon>報告書管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doc\報告書管理\報告書管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doc\報告書管理\報告書管理Form.Designer.cs">
+      <DependentUpon>報告書管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\審査管理\審査管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\審査管理\審査管理Form.Designer.cs">
+      <DependentUpon>審査管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\審査管理\審査管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\審査管理\審査管理詳細Form.Designer.cs">
+      <DependentUpon>審査管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\救命設備管理\救命設備管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\救命設備管理\救命設備管理Form.Designer.cs">
+      <DependentUpon>救命設備管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\救命設備管理\救命設備管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\救命設備管理\救命設備管理詳細Form.Designer.cs">
+      <DependentUpon>救命設備管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\検査管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\検査管理Form.Designer.cs">
+      <DependentUpon>検査管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\検査管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\検査管理詳細Form.Designer.cs">
+      <DependentUpon>検査管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\検船管理\検船管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\検船管理\検船管理Form.Designer.cs">
+      <DependentUpon>検船管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\検船管理\検船管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\検船管理\検船管理詳細Form.Designer.cs">
+      <DependentUpon>検船管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\荷役安全設備管理\荷役安全設備管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\荷役安全設備管理\荷役安全設備管理Form.Designer.cs">
+      <DependentUpon>荷役安全設備管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\荷役安全設備管理\荷役安全設備管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\荷役安全設備管理\荷役安全設備管理詳細Form.Designer.cs">
+      <DependentUpon>荷役安全設備管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\証書管理\証書管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\証書管理\証書管理Form.Designer.cs">
+      <DependentUpon>証書管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kensa\証書管理\証書管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kensa\証書管理\証書管理詳細Form.Designer.cs">
+      <DependentUpon>証書管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs" />
+    <Compile Include="MsCustomer\免許Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsCustomer\免許Form.Designer.cs">
+      <DependentUpon>免許Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsCustomer\学科Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsCustomer\学科Form.Designer.cs">
+      <DependentUpon>学科Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船新規登録Form.Designer.cs">
+      <DependentUpon>潤滑油船新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船管理一覧Form.Designer.cs">
+      <DependentUpon>潤滑油船管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLoVessel\潤滑油船詳細Form.Designer.cs">
+      <DependentUpon>潤滑油船詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLo\潤滑油新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLo\潤滑油新規登録Form.Designer.cs">
+      <DependentUpon>潤滑油新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLo\潤滑油管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLo\潤滑油管理一覧Form.Designer.cs">
+      <DependentUpon>潤滑油管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsLo\潤滑油詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsLo\潤滑油詳細Form.Designer.cs">
+      <DependentUpon>潤滑油詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船新規登録Form.Designer.cs">
+      <DependentUpon>船用品船新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船管理一覧Form.Designer.cs">
+      <DependentUpon>船用品船管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItemVessel\船用品船詳細Form.Designer.cs">
+      <DependentUpon>船用品船詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品新規登録Form.Designer.cs">
+      <DependentUpon>船用品新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品管理一覧Form.Designer.cs">
+      <DependentUpon>船用品管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVesselItem\船用品詳細Form.Designer.cs">
+      <DependentUpon>船用品詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVessel\Template1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MsVessel\Template1.Designer.cs">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVessel\ユーザー検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVessel\ユーザー検索Form.Designer.cs">
+      <DependentUpon>ユーザー検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVessel\船管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVessel\船管理一覧Form.Designer.cs">
+      <DependentUpon>船管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVessel\船管理新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVessel\船管理新規登録Form.Designer.cs">
+      <DependentUpon>船管理新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsVessel\船管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsVessel\船管理詳細Form.Designer.cs">
+      <DependentUpon>船管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WP\WorkContentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WP\WorkContentPanel.Designer.cs">
+      <DependentUpon>WorkContentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WP\労働パターンForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WP\労働パターンForm.Designer.cs">
+      <DependentUpon>労働パターンForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WP\労働パターン詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WP\労働パターン詳細Form.Designer.cs">
+      <DependentUpon>労働パターン詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="アラーム管理\アラーム管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="アラーム管理\アラーム管理Form.Designer.cs">
+      <DependentUpon>アラーム管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="バース管理\バース管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="バース管理\バース管理Form.Designer.cs">
+      <DependentUpon>バース管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="バース管理\バース管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="バース管理\バース管理詳細Form.Designer.cs">
+      <DependentUpon>バース管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗船資格Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗船資格Form.Designer.cs">
+      <DependentUpon>乗船資格Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗船経験詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗船経験詳細Form.Designer.cs">
+      <DependentUpon>乗船経験詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗船資格詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗船資格詳細Form.Designer.cs">
+      <DependentUpon>乗船資格詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="共通メニューForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="共通メニューForm.Designer.cs">
+      <DependentUpon>共通メニューForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsCustomer\顧客管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsCustomer\顧客管理詳細Form.Designer.cs">
+      <DependentUpon>顧客管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsCustomer\顧客管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsCustomer\顧客管理一覧Form.Designer.cs">
+      <DependentUpon>顧客管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理詳細Form.Designer.cs">
+      <DependentUpon>ユーザー管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理一覧Form.Designer.cs">
+      <DependentUpon>ユーザー管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理新規登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsUser\ユーザー管理新規登録Form.Designer.cs">
+      <DependentUpon>ユーザー管理新規登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Doc\ドキュメント分類管理\ドキュメント分類管理Form.resx">
+      <DependentUpon>ドキュメント分類管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\ドキュメント分類管理\ドキュメント分類管理詳細Form.resx">
+      <DependentUpon>ドキュメント分類管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理Form.resx">
+      <DependentUpon>ドキュメント小分類管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\ドキュメント小分類管理\ドキュメント小分類管理詳細Form.resx">
+      <DependentUpon>ドキュメント小分類管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\乗船者登録\乗船者登録Form.resx">
+      <DependentUpon>乗船者登録Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\乗船者登録\乗船者登録詳細Form.resx">
+      <DependentUpon>乗船者登録詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\乗船者登録\船員検索Form.resx">
+      <DependentUpon>船員検索Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\報告書管理\報告書管理詳細Form.resx">
+      <DependentUpon>報告書管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doc\報告書管理\報告書管理Form.resx">
+      <DependentUpon>報告書管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\審査管理\審査管理Form.resx">
+      <DependentUpon>審査管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\審査管理\審査管理詳細Form.resx">
+      <DependentUpon>審査管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\救命設備管理\救命設備管理Form.resx">
+      <DependentUpon>救命設備管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\救命設備管理\救命設備管理詳細Form.resx">
+      <DependentUpon>救命設備管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\検査管理Form.resx">
+      <DependentUpon>検査管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\検査管理詳細Form.resx">
+      <DependentUpon>検査管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\検船管理\検船管理Form.resx">
+      <DependentUpon>検船管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\検船管理\検船管理詳細Form.resx">
+      <DependentUpon>検船管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\荷役安全設備管理\荷役安全設備管理Form.resx">
+      <DependentUpon>荷役安全設備管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\荷役安全設備管理\荷役安全設備管理詳細Form.resx">
+      <DependentUpon>荷役安全設備管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\証書管理\証書管理Form.resx">
+      <DependentUpon>証書管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kensa\証書管理\証書管理詳細Form.resx">
+      <DependentUpon>証書管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsCustomer\免許Form.resx">
+      <DependentUpon>免許Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsCustomer\学科Form.resx">
+      <DependentUpon>学科Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLoVessel\潤滑油船新規登録Form.resx">
+      <DependentUpon>潤滑油船新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLoVessel\潤滑油船管理一覧Form.resx">
+      <DependentUpon>潤滑油船管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLoVessel\潤滑油船詳細Form.resx">
+      <DependentUpon>潤滑油船詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLo\潤滑油新規登録Form.resx">
+      <DependentUpon>潤滑油新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLo\潤滑油管理一覧Form.resx">
+      <DependentUpon>潤滑油管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsLo\潤滑油詳細Form.resx">
+      <DependentUpon>潤滑油詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItemVessel\船用品船新規登録Form.resx">
+      <DependentUpon>船用品船新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItemVessel\船用品船管理一覧Form.resx">
+      <DependentUpon>船用品船管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItemVessel\船用品船詳細Form.resx">
+      <DependentUpon>船用品船詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItem\船用品新規登録Form.resx">
+      <DependentUpon>船用品新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItem\船用品管理一覧Form.resx">
+      <DependentUpon>船用品管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVesselItem\船用品詳細Form.resx">
+      <DependentUpon>船用品詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVessel\Template1.resx">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVessel\ユーザー検索Form.resx">
+      <DependentUpon>ユーザー検索Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVessel\船管理一覧Form.resx">
+      <DependentUpon>船管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVessel\船管理新規登録Form.resx">
+      <DependentUpon>船管理新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsVessel\船管理詳細Form.resx">
+      <DependentUpon>船管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WP\WorkContentPanel.resx">
+      <DependentUpon>WorkContentPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WP\労働パターンForm.resx">
+      <DependentUpon>労働パターンForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WP\労働パターン詳細Form.resx">
+      <DependentUpon>労働パターン詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="アラーム管理\アラーム管理Form.resx">
+      <DependentUpon>アラーム管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="バース管理\バース管理Form.resx">
+      <DependentUpon>バース管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="バース管理\バース管理詳細Form.resx">
+      <DependentUpon>バース管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗船経験Form.resx">
+      <DependentUpon>乗船経験Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗船資格Form.resx">
+      <DependentUpon>乗船資格Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗船経験詳細Form.resx">
+      <DependentUpon>乗船経験詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="乗船資格詳細Form.resx">
+      <DependentUpon>乗船資格詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="共通メニューForm.resx">
+      <DependentUpon>共通メニューForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsCustomer\顧客管理詳細Form.resx">
+      <DependentUpon>顧客管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsCustomer\顧客管理一覧Form.resx">
+      <DependentUpon>顧客管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsUser\ユーザー管理詳細Form.resx">
+      <DependentUpon>ユーザー管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsUser\ユーザー管理一覧Form.resx">
+      <DependentUpon>ユーザー管理一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsUser\ユーザー管理新規登録Form.resx">
+      <DependentUpon>ユーザー管理新規登録Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="国管理\国管理Form.resx">
+      <DependentUpon>国管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="国管理\国管理詳細Form.resx">
+      <DependentUpon>国管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基地管理\Template1.resx">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基地管理\基地管理Form.resx">
+      <DependentUpon>基地管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基地管理\基地管理詳細Form.resx">
+      <DependentUpon>基地管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所区分管理\場所区分管理Form.resx">
+      <DependentUpon>場所区分管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所区分管理\場所区分管理詳細Form.resx">
+      <DependentUpon>場所区分管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所管理\場所管理Form.resx">
+      <DependentUpon>場所管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所管理\場所管理詳細Form.resx">
+      <DependentUpon>場所管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所距離管理\場所距離管理Form.resx">
+      <DependentUpon>場所距離管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="場所距離管理\場所距離管理詳細Form.resx">
+      <DependentUpon>場所距離管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqVersion管理詳細Form.resx">
+      <DependentUpon>ViqVersion管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqVersion管理Form.resx">
+      <DependentUpon>ViqVersion管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\スケジュール種別詳細管理Form.resx">
+      <DependentUpon>スケジュール種別詳細管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\スケジュール種別管理Form.resx">
+      <DependentUpon>スケジュール種別管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\スケジュール種別詳細管理詳細Form.resx">
+      <DependentUpon>スケジュール種別詳細管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\スケジュール種別管理詳細Form.resx">
+      <DependentUpon>スケジュール種別管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqNo管理詳細Form.resx">
+      <DependentUpon>ViqNo管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqNo管理Form.resx">
+      <DependentUpon>ViqNo管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqCode管理Form.resx">
+      <DependentUpon>ViqCode管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqCodeName管理Form.resx">
+      <DependentUpon>ViqCodeName管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqCode管理詳細Form.resx">
+      <DependentUpon>ViqCode管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ViqCodeName管理詳細Form.resx">
+      <DependentUpon>ViqCodeName管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\検船種別管理Form.resx">
+      <DependentUpon>検船種別管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\検船種別管理詳細Form.resx">
+      <DependentUpon>検船種別管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\発生状況管理Form.resx">
+      <DependentUpon>発生状況管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\発生状況管理詳細Form.resx">
+      <DependentUpon>発生状況管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\KindOfAccident管理Form.resx">
+      <DependentUpon>KindOfAccident管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\KindOfAccident管理詳細Form.resx">
+      <DependentUpon>KindOfAccident管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\DeficiencyCode管理詳細Form.resx">
+      <DependentUpon>DeficiencyCode管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\DeficiencyCode管理Form.resx">
+      <DependentUpon>DeficiencyCode管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\DeficiencyCategory管理詳細Form.resx">
+      <DependentUpon>DeficiencyCategory管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\DeficiencyCategory管理Form.resx">
+      <DependentUpon>DeficiencyCategory管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ActionCode管理Form.resx">
+      <DependentUpon>ActionCode管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\Accident種類管理Form.resx">
+      <DependentUpon>Accident種類管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\検査種別管理Form.resx">
+      <DependentUpon>検査種別管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\ActionCode管理詳細Form.resx">
+      <DependentUpon>ActionCode管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\Accident種類管理詳細Form.resx">
+      <DependentUpon>Accident種類管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="指摘事項管理\検査種別管理詳細Form.resx">
+      <DependentUpon>検査種別管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="権限管理\権限管理Form.resx">
+      <DependentUpon>権限管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\Tek手当管理Form.resx">
+      <DependentUpon>Tek手当管理Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\Tek手当管理詳細Form.resx">
+      <DependentUpon>Tek手当管理詳細Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\免許免状未取得除外対象Form.resx">
+      <DependentUpon>免許免状未取得除外対象Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\標令給Form.resx">
+      <DependentUpon>標令給Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\基本給管理一覧Form.resx">
+      <DependentUpon>基本給管理一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\基本給複製作成Form.resx">
+      <DependentUpon>基本給複製作成Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\基本給新規作成Form.resx">
+      <DependentUpon>基本給新規作成Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\基本給管理詳細Form1.resx">
+      <DependentUpon>基本給管理詳細Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\基本給管理詳細Form2.resx">
+      <DependentUpon>基本給管理詳細Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\職務給Form2.resx">
+      <DependentUpon>職務給Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\職務給Form1.resx">
+      <DependentUpon>職務給Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\講習管理Form.resx">
+      <DependentUpon>講習管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\講習管理詳細Form.resx">
+      <DependentUpon>講習管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\明細科目管理Form.resx">
+      <DependentUpon>明細科目管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\明細科目管理詳細Form.resx">
+      <DependentUpon>明細科目管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\明細管理Form.resx">
+      <DependentUpon>明細管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\明細管理詳細Form.resx">
+      <DependentUpon>明細管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\大項目管理Form.resx">
+      <DependentUpon>大項目管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\大項目管理詳細Form.resx">
+      <DependentUpon>大項目管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\費用科目管理詳細Form.resx">
+      <DependentUpon>費用科目管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\費用科目管理Form.resx">
+      <DependentUpon>費用科目管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\免許免状種別管理詳細Form.resx">
+      <DependentUpon>免許免状種別管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\免許免状種別管理Form.resx">
+      <DependentUpon>免許免状種別管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\免許免状管理Form.resx">
+      <DependentUpon>免許免状管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員管理\免許免状管理詳細Form.resx">
+      <DependentUpon>免許免状管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="貨物管理\貨物管理Form.resx">
+      <DependentUpon>貨物管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="貨物管理\貨物管理詳細Form.resx">
+      <DependentUpon>貨物管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="輸送品目管理\輸送品目管理Form.resx">
+      <DependentUpon>輸送品目管理Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="輸送品目管理\輸送品目管理詳細Form.resx">
+      <DependentUpon>輸送品目管理詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="国管理\国管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="国管理\国管理Form.Designer.cs">
+      <DependentUpon>国管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="国管理\国管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="国管理\国管理詳細Form.Designer.cs">
+      <DependentUpon>国管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基地管理\Template1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="基地管理\Template1.Designer.cs">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基地管理\基地管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基地管理\基地管理Form.Designer.cs">
+      <DependentUpon>基地管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基地管理\基地管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基地管理\基地管理詳細Form.Designer.cs">
+      <DependentUpon>基地管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所区分管理\場所区分管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所区分管理\場所区分管理Form.Designer.cs">
+      <DependentUpon>場所区分管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所区分管理\場所区分管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所区分管理\場所区分管理詳細Form.Designer.cs">
+      <DependentUpon>場所区分管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所管理\場所管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所管理\場所管理Form.Designer.cs">
+      <DependentUpon>場所管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所管理\場所管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所管理\場所管理詳細Form.Designer.cs">
+      <DependentUpon>場所管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所距離管理\場所距離管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所距離管理\場所距離管理Form.Designer.cs">
+      <DependentUpon>場所距離管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="場所距離管理\場所距離管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="場所距離管理\場所距離管理詳細Form.Designer.cs">
+      <DependentUpon>場所距離管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqVersion管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqVersion管理詳細Form.Designer.cs">
+      <DependentUpon>ViqVersion管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqVersion管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqVersion管理Form.Designer.cs">
+      <DependentUpon>ViqVersion管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別詳細管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別詳細管理Form.Designer.cs">
+      <DependentUpon>スケジュール種別詳細管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別管理Form.Designer.cs">
+      <DependentUpon>スケジュール種別管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別詳細管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別詳細管理詳細Form.Designer.cs">
+      <DependentUpon>スケジュール種別詳細管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\スケジュール種別管理詳細Form.Designer.cs">
+      <DependentUpon>スケジュール種別管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqNo管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqNo管理詳細Form.Designer.cs">
+      <DependentUpon>ViqNo管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqNo管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqNo管理Form.Designer.cs">
+      <DependentUpon>ViqNo管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCode管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCode管理Form.Designer.cs">
+      <DependentUpon>ViqCode管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCodeName管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCodeName管理Form.Designer.cs">
+      <DependentUpon>ViqCodeName管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCode管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCode管理詳細Form.Designer.cs">
+      <DependentUpon>ViqCode管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCodeName管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ViqCodeName管理詳細Form.Designer.cs">
+      <DependentUpon>ViqCodeName管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\検船種別管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\検船種別管理Form.Designer.cs">
+      <DependentUpon>検船種別管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\検船種別管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\検船種別管理詳細Form.Designer.cs">
+      <DependentUpon>検船種別管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\発生状況管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\発生状況管理Form.Designer.cs">
+      <DependentUpon>発生状況管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\発生状況管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\発生状況管理詳細Form.Designer.cs">
+      <DependentUpon>発生状況管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\KindOfAccident管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\KindOfAccident管理Form.Designer.cs">
+      <DependentUpon>KindOfAccident管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\KindOfAccident管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\KindOfAccident管理詳細Form.Designer.cs">
+      <DependentUpon>KindOfAccident管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCode管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCode管理詳細Form.Designer.cs">
+      <DependentUpon>DeficiencyCode管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCode管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCode管理Form.Designer.cs">
+      <DependentUpon>DeficiencyCode管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCategory管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCategory管理詳細Form.Designer.cs">
+      <DependentUpon>DeficiencyCategory管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCategory管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\DeficiencyCategory管理Form.Designer.cs">
+      <DependentUpon>DeficiencyCategory管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ActionCode管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ActionCode管理Form.Designer.cs">
+      <DependentUpon>ActionCode管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\Accident種類管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\Accident種類管理Form.Designer.cs">
+      <DependentUpon>Accident種類管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\検査種別管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\検査種別管理Form.Designer.cs">
+      <DependentUpon>検査種別管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\ActionCode管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\ActionCode管理詳細Form.Designer.cs">
+      <DependentUpon>ActionCode管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\Accident種類管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\Accident種類管理詳細Form.Designer.cs">
+      <DependentUpon>Accident種類管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="指摘事項管理\検査種別管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="指摘事項管理\検査種別管理詳細Form.Designer.cs">
+      <DependentUpon>検査種別管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="権限管理\権限管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="権限管理\権限管理Form.Designer.cs">
+      <DependentUpon>権限管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="乗船経験Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="乗船経験Form.Designer.cs">
+      <DependentUpon>乗船経験Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\Tek手当管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\Tek手当管理Form.Designer.cs">
+      <DependentUpon>Tek手当管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\Tek手当管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\Tek手当管理詳細Form.Designer.cs">
+      <DependentUpon>Tek手当管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\免許免状未取得除外対象Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\免許免状未取得除外対象Form.Designer.cs">
+      <DependentUpon>免許免状未取得除外対象Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\標令給Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\標令給Form.Designer.cs">
+      <DependentUpon>標令給Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\基本給管理一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\基本給管理一覧Form.Designer.cs">
+      <DependentUpon>基本給管理一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\基本給複製作成Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\基本給複製作成Form.Designer.cs">
+      <DependentUpon>基本給複製作成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\基本給新規作成Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\基本給新規作成Form.Designer.cs">
+      <DependentUpon>基本給新規作成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\基本給管理詳細Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\基本給管理詳細Form1.Designer.cs">
+      <DependentUpon>基本給管理詳細Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\基本給管理Common.cs" />
+    <Compile Include="船員管理\基本給管理詳細Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\基本給管理詳細Form2.Designer.cs">
+      <DependentUpon>基本給管理詳細Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\職務給Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\職務給Form2.Designer.cs">
+      <DependentUpon>職務給Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\職務給Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\職務給Form1.Designer.cs">
+      <DependentUpon>職務給Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\講習管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\講習管理Form.Designer.cs">
+      <DependentUpon>講習管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\講習管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\講習管理詳細Form.Designer.cs">
+      <DependentUpon>講習管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\明細科目管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\明細科目管理Form.Designer.cs">
+      <DependentUpon>明細科目管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\明細科目管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\明細科目管理詳細Form.Designer.cs">
+      <DependentUpon>明細科目管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\明細管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\明細管理Form.Designer.cs">
+      <DependentUpon>明細管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\明細管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\明細管理詳細Form.Designer.cs">
+      <DependentUpon>明細管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\大項目管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\大項目管理Form.Designer.cs">
+      <DependentUpon>大項目管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\大項目管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\大項目管理詳細Form.Designer.cs">
+      <DependentUpon>大項目管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\費用科目管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\費用科目管理詳細Form.Designer.cs">
+      <DependentUpon>費用科目管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\費用科目管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\費用科目管理Form.Designer.cs">
+      <DependentUpon>費用科目管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\免許免状種別管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\免許免状種別管理詳細Form.Designer.cs">
+      <DependentUpon>免許免状種別管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\免許免状種別管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\免許免状種別管理Form.Designer.cs">
+      <DependentUpon>免許免状種別管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\免許免状管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\免許免状管理Form.Designer.cs">
+      <DependentUpon>免許免状管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員管理\免許免状管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員管理\免許免状管理詳細Form.Designer.cs">
+      <DependentUpon>免許免状管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="貨物管理\貨物管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="貨物管理\貨物管理Form.Designer.cs">
+      <DependentUpon>貨物管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="貨物管理\貨物管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="貨物管理\貨物管理詳細Form.Designer.cs">
+      <DependentUpon>貨物管理詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="輸送品目管理\輸送品目管理Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="輸送品目管理\輸送品目管理Form.Designer.cs">
+      <DependentUpon>輸送品目管理Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="輸送品目管理\輸送品目管理詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="輸送品目管理\輸送品目管理詳細Form.Designer.cs">
+      <DependentUpon>輸送品目管理詳細Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{acdbd951-2c1f-4155-93c1-56ab4212123a}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1d9a87fb-1ba0-49ef-a5ba-94934a590ae0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SqlMapper\SqlMapper.csproj">
+      <Project>{e99efcad-a268-4b46-a6d8-396775c922d3}</Project>
+      <Name>SqlMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReferences\ServiceReferences.csproj">
+      <Project>{1fba14b8-00e7-4ee1-b9b0-7df5737248ef}</Project>
+      <Name>ServiceReferences</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.DataNo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomer.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomerTantou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsItemSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLoVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsNyukyoKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShoushuriItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShrJouken.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSsShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsTani.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiStatus.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUserBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozoShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdGetsujiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdHachuTanka.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJry.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMk.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMm.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShr.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiShousaiItem.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanHead.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsHimoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselType.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanItem.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanItem.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.MsKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemCategory.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.BgHankanhi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgJiseki.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgKadouVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgNrkKanryou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgRate.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanMemo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItem.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.MsBasho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBerth.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKanidouseiInfoShubetu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtKanidouseiInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

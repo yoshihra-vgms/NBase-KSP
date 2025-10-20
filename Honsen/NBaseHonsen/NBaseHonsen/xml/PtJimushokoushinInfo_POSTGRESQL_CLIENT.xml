@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    PT_JIMUSHOKOUSHIN_INFO.PT_JIMUSHOKOUSHIN_INFO_ID   ,
+    PT_JIMUSHOKOUSHIN_INFO.MS_PORTAL_INFO_SHUBETU_ID  ,
+    PT_JIMUSHOKOUSHIN_INFO.MS_PORTAL_INFO_KOUMOKU_ID  ,
+    PT_JIMUSHOKOUSHIN_INFO.MS_PORTAL_INFO_KUBUN_ID    ,
+    PT_JIMUSHOKOUSHIN_INFO.SANSHOUMOTO_ID             ,
+    PT_JIMUSHOKOUSHIN_INFO.EVENT_DATE                 ,
+    PT_JIMUSHOKOUSHIN_INFO.MS_VESSEL_ID               ,
+    PT_JIMUSHOKOUSHIN_INFO.JIMUSHOKOUSHIN_INFO_USER   ,
+    PT_JIMUSHOKOUSHIN_INFO.SHUBETSU                   ,
+    PT_JIMUSHOKOUSHIN_INFO.NAIYOU                     ,
+    PT_JIMUSHOKOUSHIN_INFO.KOUSHIN_NAIYOU             ,
+    PT_JIMUSHOKOUSHIN_INFO.DELETE_FLAG                ,
+    PT_JIMUSHOKOUSHIN_INFO.SEND_FLAG                  ,
+    PT_JIMUSHOKOUSHIN_INFO.VESSEL_ID                  ,
+    PT_JIMUSHOKOUSHIN_INFO.DATA_NO                    ,
+    PT_JIMUSHOKOUSHIN_INFO.USER_KEY                   ,
+    PT_JIMUSHOKOUSHIN_INFO.RENEW_DATE                 ,
+    PT_JIMUSHOKOUSHIN_INFO.RENEW_USER_ID              ,
+    PT_JIMUSHOKOUSHIN_INFO.TS                         ,
+    MS_USER.SEI || ' ' || MS_USER.MEI AS JIMUSHOKOUSHIN_INFO_USER_NAME  ,
+    MS_PORTAL_INFO_SHUBETU.PORTAL_INFO_SYUBETU_NAME
+    from
+    PT_JIMUSHOKOUSHIN_INFO
+    LEFT OUTER JOIN  MS_VESSEL ON PT_JIMUSHOKOUSHIN_INFO.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID
+    LEFT OUTER JOIN  MS_USER ON PT_JIMUSHOKOUSHIN_INFO.JIMUSHOKOUSHIN_INFO_USER = MS_USER.MS_USER_ID
+    LEFT OUTER JOIN  MS_PORTAL_INFO_SHUBETU ON PT_JIMUSHOKOUSHIN_INFO.MS_PORTAL_INFO_SHUBETU_ID = MS_PORTAL_INFO_SHUBETU.MS_PORTAL_INFO_SHUBETU_ID
+    where
+    (PT_JIMUSHOKOUSHIN_INFO.DELETE_FLAG = 0 or PT_JIMUSHOKOUSHIN_INFO.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByEventDate">
+    and
+    PT_JIMUSHOKOUSHIN_INFO.EVENT_DATE between :EVENT_DATE_From and :EVENT_DATE_To
+  </sql>
+
+  <sql name="BySanshoumotoId">
+    and
+    PT_JIMUSHOKOUSHIN_INFO.SANSHOUMOTO_ID = :SANSHOUMOTO_ID
+  </sql>
+
+  <sql name="OrderByEventDateDesc">
+    ORDER BY
+    PT_JIMUSHOKOUSHIN_INFO.EVENT_DATE DESC
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO PT_JIMUSHOKOUSHIN_INFO
+    (
+    PT_JIMUSHOKOUSHIN_INFO_ID   ,
+    MS_PORTAL_INFO_SHUBETU_ID  ,
+    MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_PORTAL_INFO_KUBUN_ID    ,
+    SANSHOUMOTO_ID             ,
+    EVENT_DATE                 ,
+    MS_VESSEL_ID               ,
+    JIMUSHOKOUSHIN_INFO_USER   ,
+    SHUBETSU                   ,
+    NAIYOU                     ,
+    KOUSHIN_NAIYOU             ,
+    DELETE_FLAG                ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+    )
+    VALUES(
+    :PT_JIMUSHOKOUSHIN_INFO_ID   ,
+    :MS_PORTAL_INFO_SHUBETU_ID  ,
+    :MS_PORTAL_INFO_KOUMOKU_ID  ,
+    :MS_PORTAL_INFO_KUBUN_ID    ,
+    :SANSHOUMOTO_ID             ,
+    :EVENT_DATE                 ,
+    :MS_VESSEL_ID               ,
+    :JIMUSHOKOUSHIN_INFO_USER   ,
+    :SHUBETSU                   ,
+    :NAIYOU                     ,
+    :KOUSHIN_NAIYOU             ,
+    :DELETE_FLAG                ,
+    :SEND_FLAG                  ,
+    :VESSEL_ID                  ,
+    :DATA_NO                    ,
+    :USER_KEY                   ,
+    :RENEW_DATE                 ,
+    :RENEW_USER_ID              ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE PT_JIMUSHOKOUSHIN_INFO
+    SET
+    MS_PORTAL_INFO_SHUBETU_ID = :MS_PORTAL_INFO_SHUBETU_ID  ,
+    MS_PORTAL_INFO_KOUMOKU_ID = :MS_PORTAL_INFO_KOUMOKU_ID  ,
+    MS_PORTAL_INFO_KUBUN_ID = :MS_PORTAL_INFO_KUBUN_ID      ,
+    SANSHOUMOTO_ID = :SANSHOUMOTO_ID                        ,
+    EVENT_DATE = :EVENT_DATE                                ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                            ,
+    JIMUSHOKOUSHIN_INFO_USER = :JIMUSHOKOUSHIN_INFO_USER    ,
+    SHUBETSU = :SHUBETSU                                    ,
+    NAIYOU = :NAIYOU                                        ,
+    KOUSHIN_NAIYOU = :KOUSHIN_NAIYOU                        ,
+    DELETE_FLAG = :DELETE_FLAG                              ,
+    SEND_FLAG = :SEND_FLAG                                  ,
+    VESSEL_ID = :VESSEL_ID                                  ,
+    DATA_NO = :DATA_NO                                      ,
+    USER_KEY = :USER_KEY                                    ,
+    RENEW_DATE = :RENEW_DATE                                ,
+    RENEW_USER_ID = :RENEW_USER_ID                          ,
+    TS = :TS
+
+    WHERE
+    PT_JIMUSHOKOUSHIN_INFO_ID = :PT_JIMUSHOKOUSHIN_INFO_ID
+  </sql>
+
+</databaseConfig>

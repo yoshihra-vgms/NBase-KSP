@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		SELECT
+		BG_YOSAN_SBT.YOSAN_SBT_ID,
+		BG_YOSAN_SBT.YOSAN_SBT_NAME,
+		BG_YOSAN_SBT.RENEW_DATE,
+		BG_YOSAN_SBT.RENEW_USER_ID,
+		BG_YOSAN_SBT.TS
+		FROM BG_YOSAN_SBT
+	</sql>
+	
+	<sql name="GetRecord">
+		SELECT
+		BG_YOSAN_SBT.YOSAN_SBT_ID,
+		BG_YOSAN_SBT.YOSAN_SBT_NAME,
+		BG_YOSAN_SBT.RENEW_DATE,
+		BG_YOSAN_SBT.RENEW_USER_ID,
+		BG_YOSAN_SBT.TS
+		FROM BG_YOSAN_SBT
+		WHERE
+		BG_YOSAN_SBT.YOSAN_SBT_ID = :YOSAN_SBT_ID
+	</sql>
+
+	<sql name="InsertRecord">
+		INSERT INTO BG_YOSAN_SBT
+		(
+		YOSAN_SBT_ID,
+		YOSAN_SBT_NAME,
+		RENEW_DATE,
+		RENEW_USER_ID,
+		TS
+		)
+		VALUES
+		(
+		:YOSAN_SBT_ID,
+		:YOSAN_SBT_NAME,
+		:RENEW_DATE,
+		:RENEW_USER_ID,
+		:TS
+		)
+	</sql>
+
+
+	<sql name="UpdateRecord">
+		UPDATE BG_YOSAN_SBT SET
+		YOSAN_SBT_NAME = :YOSAN_SBT_NAME,
+		RENEW_DATE = :RENEW_DATE,
+		RENEW_USER_ID = :RENEW_USER_ID
+
+		WHERE
+		(YOSAN_SBT_ID = :YOSAN_SBT_ID) AND
+		(TS = :TS)
+	</sql>
+
+
+</databaseConfig>

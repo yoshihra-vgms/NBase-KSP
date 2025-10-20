@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_REQUIRED_NUMBER_OF_DAYS_ID,
+    
+    KIND,
+    MS_SENIN_COMPANY_ID,
+    DAYS,
+
+    USER_KEY,
+    DATA_NO,
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    SI_REQUIRED_NUMBER_OF_DAYS
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+  
+
+  <sql name="OrderBy">
+    ORDER BY
+    KIND, MS_SENIN_COMPANY_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_REQUIRED_NUMBER_OF_DAYS(
+    SI_REQUIRED_NUMBER_OF_DAYS_ID,
+    
+    KIND,
+    MS_SENIN_COMPANY_ID,
+    DAYS,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_REQUIRED_NUMBER_OF_DAYS_ID,
+    
+    :KIND,
+    :MS_SENIN_COMPANY_ID,
+    :DAYS,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_REQUIRED_NUMBER_OF_DAYS
+    SET
+    KIND = :KIND,
+    MS_SENIN_COMPANY_ID = :MS_SENIN_COMPANY_ID,
+    DAYS = :DAYS,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_REQUIRED_NUMBER_OF_DAYS_ID = :SI_REQUIRED_NUMBER_OF_DAYS_ID
+  </sql>
+
+</databaseConfig>

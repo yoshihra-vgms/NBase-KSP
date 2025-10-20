@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_MENJOU.SI_MENJOU_ID                   ,
+
+    SI_MENJOU.MS_SENIN_ID                    ,
+    SI_MENJOU.MS_SI_MENJOU_ID                ,
+    SI_MENJOU.MS_SI_MENJOU_KIND_ID           ,
+
+    SI_MENJOU.NO                             ,
+    SI_MENJOU.KIGEN                          ,
+    SI_MENJOU.SHUTOKU_DATE                   ,
+    SI_MENJOU.CHOUHYOU_FLAG                  ,
+    SI_MENJOU.WRITTEN_TEST,
+    SI_MENJOU.BIKOU ,
+
+    SI_MENJOU.DELETE_FLAG,
+    SI_MENJOU.SEND_FLAG,
+    SI_MENJOU.VESSEL_ID,
+    SI_MENJOU.DATA_NO,
+    SI_MENJOU.USER_KEY,
+    SI_MENJOU.RENEW_DATE,
+    SI_MENJOU.RENEW_USER_ID,
+    SI_MENJOU.TS
+
+    FROM
+    SI_MENJOU
+
+    JOIN
+    MS_SI_MENJOU ON MS_SI_MENJOU.MS_SI_MENJOU_ID = SI_MENJOU.MS_SI_MENJOU_ID
+    LEFT JOIN
+    MS_SI_MENJOU_KIND ON MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = SI_MENJOU.MS_SI_MENJOU_KIND_ID
+
+    WHERE
+    SI_MENJOU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="GetRecordsByMsSiMenjouKindID">
+    SELECT
+    SI_MENJOU.SI_MENJOU_ID                   ,
+
+    SI_MENJOU.MS_SENIN_ID                    ,
+    SI_MENJOU.MS_SI_MENJOU_ID                ,
+    SI_MENJOU.MS_SI_MENJOU_KIND_ID           ,
+
+    SI_MENJOU.NO                             ,
+    SI_MENJOU.KIGEN                          ,
+    SI_MENJOU.SHUTOKU_DATE                   ,
+    SI_MENJOU.CHOUHYOU_FLAG                  ,
+    SI_MENJOU.WRITTEN_TEST,
+    SI_MENJOU.BIKOU ,
+
+    SI_MENJOU.DELETE_FLAG,
+    SI_MENJOU.SEND_FLAG,
+    SI_MENJOU.VESSEL_ID,
+    SI_MENJOU.DATA_NO,
+    SI_MENJOU.USER_KEY,
+    SI_MENJOU.RENEW_DATE,
+    SI_MENJOU.RENEW_USER_ID,
+    SI_MENJOU.TS
+
+    FROM
+    SI_MENJOU
+
+    JOIN
+    MS_SI_MENJOU ON MS_SI_MENJOU.MS_SI_MENJOU_ID = SI_MENJOU.MS_SI_MENJOU_ID
+    LEFT JOIN
+    MS_SI_MENJOU_KIND ON MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = SI_MENJOU.MS_SI_MENJOU_KIND_ID
+
+    WHERE
+    SI_MENJOU.DELETE_FLAG = 0 AND
+    SI_MENJOU.MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID
+  </sql>
+
+  <sql name="GetRecordsByMsSiMenjouID">
+    SELECT
+    SI_MENJOU.SI_MENJOU_ID                   ,
+
+    SI_MENJOU.MS_SENIN_ID                    ,
+    SI_MENJOU.MS_SI_MENJOU_ID                ,
+    SI_MENJOU.MS_SI_MENJOU_KIND_ID           ,
+
+    SI_MENJOU.NO                             ,
+    SI_MENJOU.KIGEN                          ,
+    SI_MENJOU.SHUTOKU_DATE                   ,
+    SI_MENJOU.CHOUHYOU_FLAG                  ,
+    SI_MENJOU.WRITTEN_TEST,
+    SI_MENJOU.BIKOU ,
+
+    SI_MENJOU.DELETE_FLAG,
+    SI_MENJOU.SEND_FLAG,
+    SI_MENJOU.VESSEL_ID,
+    SI_MENJOU.DATA_NO,
+    SI_MENJOU.USER_KEY,
+    SI_MENJOU.RENEW_DATE,
+    SI_MENJOU.RENEW_USER_ID,
+    SI_MENJOU.TS
+
+    FROM
+    SI_MENJOU
+
+    JOIN
+    MS_SI_MENJOU ON MS_SI_MENJOU.MS_SI_MENJOU_ID = SI_MENJOU.MS_SI_MENJOU_ID
+    LEFT JOIN
+    MS_SI_MENJOU_KIND ON MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = SI_MENJOU.MS_SI_MENJOU_KIND_ID
+
+    WHERE
+    SI_MENJOU.DELETE_FLAG = 0 AND
+    SI_MENJOU.MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID
+  </sql>
+
+  <sql name="GetRecordsByFilter">
+    SELECT
+    SI_MENJOU.SI_MENJOU_ID,
+
+    SI_MENJOU.MS_SENIN_ID,
+    SI_MENJOU.MS_SI_MENJOU_ID,
+    SI_MENJOU.MS_SI_MENJOU_KIND_ID,
+    SI_MENJOU.NO,
+    SI_MENJOU.KIGEN,
+    SI_MENJOU.SHUTOKU_DATE,
+    SI_MENJOU.CHOUHYOU_FLAG,
+    SI_MENJOU.WRITTEN_TEST,
+    SI_MENJOU.BIKOU ,
+
+    SI_MENJOU.DELETE_FLAG,
+    SI_MENJOU.SEND_FLAG,
+    SI_MENJOU.VESSEL_ID,
+    SI_MENJOU.DATA_NO,
+    SI_MENJOU.USER_KEY,
+    SI_MENJOU.RENEW_DATE,
+    SI_MENJOU.RENEW_USER_ID,
+    SI_MENJOU.TS,
+
+    MS_SENIN.SEI_KANA || ' ' || MS_SENIN.MEI_KANA AS SENIN_NAME_KANA,
+    MS_SENIN.MS_SI_SHOKUMEI_ID AS SENIN_SHOKUMEI_ID
+
+    FROM
+    SI_MENJOU
+
+    INNER JOIN
+    MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_MENJOU.MS_SENIN_ID
+
+    WHERE
+    SI_MENJOU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="BySiMenjouID">
+    AND
+    SI_MENJOU.SI_MENJOU_ID = :SI_MENJOU_ID
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_MENJOU.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="ByMsSiMenjouID">
+    AND
+    SI_MENJOU.MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY
+    MS_SI_MENJOU.SHOW_ORDER,
+    MS_SI_MENJOU_KIND.SHOW_ORDER
+  </sql>
+
+  <sql name="FilterBySeninName">
+    AND
+    (
+    MS_SENIN.SEI || ' ' || MS_SENIN.MEI
+    LIKE
+    :SENIN_NAME
+    )
+  </sql>
+
+  <sql name="FilterByShimeiCode">
+    AND
+    TRIM(MS_SENIN.SHIMEI_CODE) = :SHIMEI_CODE
+  </sql>
+
+  <sql name="FilterByMsSiShokumeiIDs">
+    AND MS_SENIN.MS_SI_SHOKUMEI_ID IN ( #INNER_SQL_SHOKUMEIS# )
+  </sql>
+
+  <sql name="FilterByRetireFlag">
+    AND MS_SENIN.RETIRE_FLAG = 0
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_MENJOU(
+    SI_MENJOU_ID                   ,
+
+    MS_SENIN_ID                    ,
+    MS_SI_MENJOU_ID                ,
+    MS_SI_MENJOU_KIND_ID           ,
+
+    NO                             ,
+    KIGEN                          ,
+    SHUTOKU_DATE                   ,
+    CHOUHYOU_FLAG                  ,
+    WRITTEN_TEST                   ,
+    BIKOU                          ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_MENJOU_ID                   ,
+
+    :MS_SENIN_ID                    ,
+    :MS_SI_MENJOU_ID                ,
+    :MS_SI_MENJOU_KIND_ID           ,
+
+    :NO                             ,
+    :KIGEN                          ,
+    :SHUTOKU_DATE                   ,
+    :CHOUHYOU_FLAG                  ,
+    :WRITTEN_TEST                   ,
+    :BIKOU                          ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_MENJOU
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    MS_SI_MENJOU_ID = :MS_SI_MENJOU_ID               ,
+    MS_SI_MENJOU_KIND_ID = :MS_SI_MENJOU_KIND_ID     ,
+
+    NO = :NO                                         ,
+    KIGEN = :KIGEN                                   ,
+    SHUTOKU_DATE = :SHUTOKU_DATE                     ,
+    CHOUHYOU_FLAG = :CHOUHYOU_FLAG                   ,
+    WRITTEN_TEST = :WRITTEN_TEST                     ,
+    BIKOU = :BIKOU                                   ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_MENJOU_ID = :SI_MENJOU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

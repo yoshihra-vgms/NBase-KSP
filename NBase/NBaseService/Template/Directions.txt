@@ -1,0 +1,17 @@
+[Tos]=yoshihara.vgms@maritimedisplay.co.jp[Ccs]=[Header]==?iso-2022-jp?B?VEVTVA==?=[Body]=取引先9999
+担当者様
+
+いつもお世話になっています。
+
+下記URLに記載のページより見積を宜しくお願い致します。
+
+見積依頼番号:220601021
+
+
+以下のＵＲＬをクリックしてください。
+<http://localhost:3949/NBaseVendor/default.aspx?WebKey=a0a98ef9-79a6-4d8b-9693-f2f083d8e918>
+
+○×海運株式会社
+TEL:03-1111-xxxx, FAX:03-2222-xxxx
+システム 管理
+[AttachFileName]=[AttachFilePath]=

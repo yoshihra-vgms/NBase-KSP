@@ -1,0 +1,697 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using GrapeCity.Win.CalendarGrid;
+using NBaseData.DAC;
+using NBaseData.DS;
+using NBaseUtil;
+using WtmData;
+using WtmModelBase;
+
+namespace NBaseMaster.WP
+{
+    public partial class 労働パターンForm : Form
+    {
+        /// <summary>
+        /// インスタンスを格納するフィールド変数
+        /// </summary>
+        private static 労働パターンForm instance = null;
+
+        /// <summary>
+        /// インスタンスを取得するためのメソッド
+        /// Windows フォームをシングルトン対応にするコード
+        /// </summary>
+        /// <returns></returns>
+        public static 労働パターンForm GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new 労働パターンForm();
+            }
+            return instance;
+        }
+        private void 労働パターンForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            instance = null;
+        }
+
+
+
+
+
+
+        //Renderと作業内容を関連付ける
+        private CalendarRectangleShapeRenderer RenderWhite;
+        private List<CalendarRender> RenderList = new List<CalendarRender>();
+
+
+        private List<MsSiShokumei> ShokumeiList = new List<MsSiShokumei>();
+
+        private List<労働パターンForm_Appointment> AppointmentList = new List<労働パターンForm_Appointment>();
+
+
+        private int NumperH = 4;// 1時間を4分割 
+        private DateTime DefBaseDate = new DateTime(1900, 1, 1);
+        private DateTime DefDateTime = new DateTime(1900, 1, 1);
+
+
+        private List<WorkContent> WorkContentList = null;
+        private List<WorkPattern> WorkPatternList = null;
+
+        public NBaseData.DAC.MsVessel Vessel { set; get; }
+        public int EventIndex { set; get; }
+
+        private 労働パターン詳細Form 詳細form = null;
+
+        //
+        //Renderのドラッギングで使用する変数
+        //
+        int CellDraggingFlg = 0;//バーを伸ばしている時=1
+        労働パターンForm_Appointment CellDraggingAppointment = null;//ドラッギングを始めた時のRenderと関連するAppointmentを保持
+
+        HandlePosition DrDragging;//ドラッキングの方向
+
+
+        private 労働パターンForm()
+        {
+            InitializeComponent();
+
+            SearchVessel();
+        }
+
+        private void SearchVessel()
+        {
+            var vesselList = (List<NBaseData.DAC.MsVessel>)null;
+
+            using (ServiceReferences.NBaseService.ServiceClient serviceClient = ServiceReferences.WcfServiceWrapper.GetInstance().GetServiceClient())
+            {
+                vesselList = serviceClient.MsVessel_GetRecordsBySeninEnabled(NBaseCommon.Common.LoginUser);
+
+            }
+            comboBox_Vessel.Items.Clear();
+            vesselList.ForEach(o => { comboBox_Vessel.Items.Add(o); });
+        }
+
+
+        private void 労働パターンForm_Load(object sender, EventArgs e)
+        {
+            gcCalendarGrid1.FirstDateInView = DefDateTime;
+            if (Vessel == null)
+            {
+                comboBox_Vessel.SelectedIndex = 0;
+                Vessel = (comboBox_Vessel.SelectedItem as NBaseData.DAC.MsVessel); 
+            }
+
+            SearchWorkContent();
+            MakeRender();
+
+            #region 表のヘッダを作成
+
+            int colwidth = 15;
+
+            gcCalendarGrid1.Template.AddColumn(NumperH * 24);
+
+            int mperH = 60 / NumperH;
+
+            int indexH = 0;
+            int indexM = 0;
+            for (int i = 0; i < 24; i++)
+            {
+                indexH = i * NumperH;
+                gcCalendarGrid1.Template.ColumnHeader.Columns[indexH].Width = colwidth * NumperH;
+                gcCalendarGrid1.Template.ColumnHeader[0, indexH].Value = i.ToString();
+                gcCalendarGrid1.Template.ColumnHeader[0, indexH].ColumnSpan = NumperH;
+
+                for (int j = 0; j < NumperH; j++)
+                {
+                    indexM = indexH + j;
+
+                    int num = j * mperH;
+                    gcCalendarGrid1.Template.ColumnHeader.Columns[indexM].Width = colwidth;
+                    gcCalendarGrid1.Template.ColumnHeader[1, indexM].Value = num.ToString();
+                    gcCalendarGrid1.Template.ColumnHeader[1, indexM].CellStyle.Alignment = CalendarGridContentAlignment.MiddleCenter;
+
+                    if (j == 0)
+                    {
+                        gcCalendarGrid1.Template.ColumnHeader[1, indexM].CellStyle.LeftBorder = new CalendarBorderLine(Color.Gray, BorderLineStyle.Thin);
+                        gcCalendarGrid1.Template.Content.Columns[indexM].CellStyle.LeftBorder = new CalendarBorderLine(Color.Gray, BorderLineStyle.Thin);
+                    }
+                }
+
+                if (i != 0)
+                {
+                    gcCalendarGrid1.Template.ColumnHeader[0, indexH].CellStyle.LeftBorder = new CalendarBorderLine(Color.Gray, BorderLineStyle.Thin);
+
+                }
+            }
+            #endregion
+
+            var shokumeiList = SeninTableCache.instance().GetMsSiShokumeiList(NBaseCommon.Common.LoginUser);
+
+            //職名分行を追加
+            gcCalendarGrid1.Template.AddRow(shokumeiList.Count);
+
+            //職名セット
+            int idx = 0;
+            foreach(MsSiShokumei s in shokumeiList)
+            {
+                gcCalendarGrid1.RowHeader[0][idx, 0].Value = s;
+                idx++;
+
+                ShokumeiList.Add(s);
+            }
+
+
+            //詳細form = new 労働パターン詳細Form(WorkContentList, DefDateTime);
+            詳細form = new 労働パターン詳細Form(WorkContentList);
+        }
+
+        private void 労働パターンForm_Activated(object sender, EventArgs e)
+        {
+            comboBox_Vessel.SelectedItem = 0;
+        }
+
+        private void SearchWorkPattern()
+        {
+            int m = 60 / NumperH;
+
+            AppointmentList.Clear();
+
+            // 労働パターン
+            using (ServiceReferences.NBaseService.ServiceClient serviceClient = ServiceReferences.WcfServiceWrapper.GetInstance().GetServiceClient())
+            {
+                var eKind = comboBox_Vessel.SelectedItem as WorkPattern.WorkPatternEventKind;
+                WorkPatternList = serviceClient.WorkPattern_GetRecords(NBaseCommon.Common.LoginUser, WorkPattern.WorkPatternEventKind.Kind航海中, Vessel.MsVesselID);
+            }
+
+            foreach (MsSiShokumei s in ShokumeiList)
+            {
+                foreach (WorkContent wc in WorkContentList)
+                {
+                    //職名、作業日、作業内容でわける
+                    List<WorkPattern> wklist = WorkPatternList.Where(obj => obj.MsSiShokuemiID == s.MsSiShokumeiID && obj.WorkContentID == wc.WorkContentID).
+                        OrderBy(obj => obj.WorkDate).ToList();
+
+                    if (wklist.Count == 0) continue;
+
+
+                    DateTime wd = DateTime.MinValue;
+                    労働パターンForm_Appointment apo = null;
+
+                    foreach (WorkPattern wp in wklist)
+                    {
+                        if (wp.WorkDate != wd)
+                        {
+                            if (apo != null)
+                            {
+                                AppointmentList.Add(apo);
+                            }
+                            apo = new 労働パターンForm_Appointment();
+                            apo.MsSiShokumeiID = s.MsSiShokumeiID;
+                            apo.WorkContentID = wc.WorkContentID;
+                            apo.WorkDay = DateTimeUtils.ToFrom(wp.WorkDate);
+                        }
+
+                        労働パターンForm_DateID di = new 労働パターンForm_DateID(wp.WorkDate, wp.WorkPatternID, wp.GID);
+                        apo.DateIDList.Add(di);
+
+                        wd = wp.WorkDate.AddMinutes(m);
+                    }
+                    if (apo != null)
+                    {
+                        AppointmentList.Add(apo);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 作業内容検索
+        /// </summary>
+        #region private void SearchWorkContent()
+        private void SearchWorkContent()
+        {
+            ProgressDialog progressDialog = new ProgressDialog(delegate
+            {
+                using (ServiceReferences.NBaseService.ServiceClient serviceClient = ServiceReferences.WcfServiceWrapper.GetInstance().GetServiceClient())
+                {
+                    //ワークコンテンツ
+                    WorkContentList = WtmAccessor.Instance().GetWorkContents();
+                }
+            }, "データ取得中です...");
+
+            progressDialog.ShowDialog();
+
+
+            foreach (WorkContent wc in WorkContentList)
+            {
+                WorkContentPanel wcp = new WorkContentPanel(wc);
+                flowLayoutPanel1.Controls.Add(wcp);
+            }
+
+        }
+        #endregion
+
+        #region private void MakeRender()
+        private void MakeRender()
+        {
+            //RenderWhite = new CalendarRoundedRectangleShapeRenderer();
+            //RenderWhite.RoundedRadius = 0.4f;
+            RenderWhite = new CalendarRectangleShapeRenderer();
+            RenderWhite.FillColor = Color.White;
+            RenderWhite.LineColor = Color.DarkGray;
+            RenderWhite.LineStyle = CalendarShapeLineStyle.Thin;
+            RenderWhite.LineWidth = 1;
+
+            foreach (WorkContent wc in WorkContentList)
+            {
+                CalendarRender rend = new CalendarRender();
+
+                Color f = ColorTranslator.FromHtml(wc.FgColor);
+                Color b = ColorTranslator.FromHtml(wc.BgColor);
+
+                rend.RendarD = new CalendarRoundedRectangleShapeRenderer();
+                //rend.RendarD.RoundedRadius = 0.4f;
+                rend.RendarD.FillColor = b;
+                rend.RendarD.LineColor = b;
+                rend.RendarD.LineStyle = CalendarShapeLineStyle.Thin;
+                rend.RendarD.LineWidth = 1;
+
+                rend.RendarL = new CalendarRoundedRectangleShapeRenderer();
+                //rend.RendarL.RoundedRadius = 0.4f;
+                rend.RendarL.FillColor = ColorExtension.GetLightColor(b);
+                rend.RendarL.LineColor = ColorExtension.GetLightColor(b);
+                rend.RendarL.LineStyle = CalendarShapeLineStyle.Thin;
+                rend.RendarL.LineWidth = 1;
+
+                rend.WorkContentId = wc.WorkContentID;
+
+                RenderList.Add(rend);
+            }
+        }
+        #endregion
+
+        #region private void gcCalendarGrid1_CellMouseClick(object sender, CalendarCellMouseEventArgs e)
+        private void gcCalendarGrid1_CellMouseClick(object sender, CalendarCellMouseEventArgs e)
+        {
+            //Renderをドラッギングしていた場合
+            if (CellDraggingFlg == 1)
+                return;
+
+            //セル位置
+            CalendarCellPosition cp = e.CellPosition;
+            DateTime dt = cp.Date;
+
+            //クリックされた場所がコンテンツ以外は抜ける
+            if (!(cp.Scope == CalendarTableScope.Content)) return;
+            
+            //既にアポイントがあれば抜ける
+            if (gcCalendarGrid1.Content[dt][cp.RowIndex, cp.ColumnIndex].Value is 労働パターンForm_Appointment)
+            {
+                return;
+            }
+
+            #region Appointment新規作成
+            労働パターンForm_Appointment newap = new 労働パターンForm_Appointment();
+            
+            //職名
+            if (!(gcCalendarGrid1.RowHeader[0][cp.RowIndex, 0].Value is MsSiShokumei)) return;
+            MsSiShokumei shokumei = gcCalendarGrid1.RowHeader[0][cp.RowIndex, 0].Value as MsSiShokumei;
+            
+            //時間
+            if (!(gcCalendarGrid1.ColumnHeader[0][1, cp.ColumnIndex].Value is string)) return;
+            string t = gcCalendarGrid1.ColumnHeader[0][1, cp.ColumnIndex].Value as string;
+
+            //時間とデフォIDを入れる
+            労働パターンForm_DateID di = new 労働パターンForm_DateID(GetDateTime(cp.ColumnIndex, t), -1, null);
+            newap.DateIDList.Add(di);
+            newap.MsSiShokumeiID = shokumei.MsSiShokumeiID;
+            
+            #endregion
+
+            //仮置き
+            PutAppointment(newap, cp.RowIndex, true);
+        }
+        #endregion
+
+        #region private void gcCalendarGrid1_CellMouseDoubleClick(object sender, CalendarCellMouseEventArgs e)
+        private void gcCalendarGrid1_CellMouseDoubleClick(object sender, CalendarCellMouseEventArgs e)
+        {
+            //セル位置
+            CalendarCellPosition cp = e.CellPosition;
+            DateTime dt = cp.Date;
+
+            //クリックされた場所がコンテンツ以外は抜ける
+            if (!(cp.Scope == CalendarTableScope.Content)) return;
+
+            //アポインが無いならぬける
+            if (!(gcCalendarGrid1.Content[dt][cp.RowIndex, cp.ColumnIndex].Value is 労働パターンForm_Appointment))
+            {
+                return;
+            }
+
+            労働パターンForm_Appointment ap = gcCalendarGrid1.Content[dt][cp.RowIndex, cp.ColumnIndex].Value as 労働パターンForm_Appointment;
+
+            詳細画面を開く(ap, "DoubleClick");
+        }
+        #endregion
+
+
+        /// <summary>
+        /// Renderのドラッギング アポイントメント伸ばしている時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region protected void gcCalendarGrid1_AppointmentCellDragging(object sender, AppointmentCellDraggingEventArgs e)
+        protected void gcCalendarGrid1_AppointmentCellDragging(object sender, AppointmentCellDraggingEventArgs e)
+        {
+
+            //最初にRenderをつかんだ時に、Appointmentをキープしておく
+            if (CellDraggingFlg == 0)
+            {
+                DateTime dt = e.StartCellPosition.Date;
+                int colindex = e.StartCellPosition.ColumnIndex;
+                int rowindex = e.StartCellPosition.RowIndex;
+
+                //string t = gcCalendarGrid1.Content[startdt][rowindex, colindex].Value.GetType().ToString();
+                //System.Diagnostics.Debug.WriteLine("gcCalendarGrid1_AppointmentCellDragging():" + t);
+
+                if (gcCalendarGrid1.Content[dt][rowindex, colindex].Value is 労働パターンForm_Appointment)
+                    CellDraggingAppointment = gcCalendarGrid1.Content[dt][rowindex, colindex].Value as 労働パターンForm_Appointment;
+                else
+                    CellDraggingAppointment = new 労働パターンForm_Appointment();
+            }
+
+            if (e.DraggingHandle == HandlePosition.Left)
+            {
+                DrDragging = HandlePosition.Left;
+            }
+            else if (e.DraggingHandle == HandlePosition.Right)
+            {
+                DrDragging = HandlePosition.Right;
+            }
+
+            CellDraggingFlg = 1;
+
+        }
+        #endregion
+
+        /// <summary>
+        /// カレンダーのセルマウスアップ  Appointmentを離した時に詳細開く
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region protected void gcCalendarGrid1_CellMouseUp(object sender, CalendarCellMouseEventArgs e)
+        protected void gcCalendarGrid1_CellMouseUp(object sender, CalendarCellMouseEventArgs e)
+        {
+            //Renderをドラッギングしていた場合
+            if (CellDraggingFlg == 1)
+            {
+                詳細画面を開く(CellDraggingAppointment, "MouseUp");
+            }
+            CellDraggingFlg = 0;
+            CellDraggingAppointment = null;
+        }
+        #endregion
+
+        private void gcCalendarGrid1_CellContentClick(object sender, CalendarCellEventArgs e)
+        {
+        }
+
+
+        #region private void 詳細画面を開く(労働パターンForm_Appointment ap, string strmode)
+        private void 詳細画面を開く(労働パターンForm_Appointment ap, string strmode)
+        {
+            //選択されているAppointmentSimの情報
+            int rowindex = this.gcCalendarGrid1.SelectedCells[0].RowIndex;
+            int colindex = this.gcCalendarGrid1.SelectedCells[0].ColumnIndex;
+            int span = this.gcCalendarGrid1[DefDateTime][rowindex, colindex].ColumnSpan - 1;
+
+            //ドラッギング終わりのmouseUpは期間を書き換える
+            if (strmode == "MouseUp")
+            {
+                var gid = ap.DateIDList.Where(o => o.GID != null).Select(o => o.GID).FirstOrDefault();
+
+                if (DrDragging == HandlePosition.Left)
+                {
+                    //始まり時間の変更
+                    string obj1 = (string)gcCalendarGrid1.ColumnHeader[0][1, colindex].Value;
+                    DateTime time1 = GetDateTime(colindex, obj1);
+
+                    if (time1 < ap.DateIDList[0].WorkDate)
+                    {
+                        労働パターンForm_DateID di = new 労働パターンForm_DateID(time1, -1, gid);
+                        ap.DateIDList.Add(di);
+                    }
+                    else
+                    {
+                        var list = new List<労働パターンForm_DateID>();
+                        foreach(労働パターンForm_DateID p in ap.DateIDList)
+                        {
+                            if (p.WorkDate >= time1)
+                                list.Add(p);
+                        }
+                        ap.DateIDList = list;
+                    }
+                }
+                else if (DrDragging == HandlePosition.Right)
+                {
+                    //終わり時間の変更
+                    string obj2 = (string)gcCalendarGrid1.ColumnHeader[0][1, colindex + span].Value;
+                    DateTime time2 = GetDateTime(colindex + span, obj2);
+                    int last = ap.DateIDList.Count - 1;
+                    if (time2 > ap.DateIDList[last].WorkDate)
+                    {
+                        労働パターンForm_DateID di = new 労働パターンForm_DateID(time2, -1, gid);
+                        ap.DateIDList.Add(di);
+                    }
+                    else
+                    {
+                        var list = new List<労働パターンForm_DateID>();
+                        foreach (労働パターンForm_DateID p in ap.DateIDList)
+                        {
+                            if (p.WorkDate <= time2)
+                                list.Add(p);
+                        }
+                        ap.DateIDList = list;
+                    }
+                }
+                ap.DateIDList = ap.DateIDList.OrderBy(obj => obj.WorkDate).ToList();
+
+                ap.WorkDay = DefDateTime;
+            }
+
+            //職名
+            if (!(gcCalendarGrid1.RowHeader[0][rowindex, 0].Value is MsSiShokumei)) return;
+            MsSiShokumei shokumei = gcCalendarGrid1.RowHeader[0][rowindex, 0].Value as MsSiShokumei;
+
+            詳細form.SetAppointment(ap, shokumei, Vessel, EventIndex);
+            DialogResult dialogResult = 詳細form.ShowDialog();
+
+            //再検索、表示
+            DrawCalenderGrid();
+
+            //セル選択解除
+            if (gcCalendarGrid1.SelectedCells.Count > 0)
+            {
+                CalendarCellPosition p = gcCalendarGrid1.SelectedCells[0];
+                gcCalendarGrid1.RemoveSelection(p.Date);
+            }
+
+        }
+        #endregion
+
+
+        /// <summary>
+        /// Appointmentをカレンダーに表示
+        /// </summary>
+        /// <param name="ap"></param>
+        /// <param name="仮"></param>
+        public void PutAppointment(労働パターンForm_Appointment ap, int rowIndex, bool 仮)
+        {
+            //時間からカラムを割り出す
+            int lastindex = ap.DateIDList.Count - 1;
+            int startColIndex = ap.DateIDList[0].WorkDate.Hour * NumperH + (ap.DateIDList[0].WorkDate.Minute / (60 / NumperH));
+            int endColIndex = ap.DateIDList[lastindex].WorkDate.Hour * NumperH + (ap.DateIDList[lastindex].WorkDate.Minute / (60 / NumperH));
+            int colspan = endColIndex - startColIndex + 1;
+
+            if (colspan <= 0) return;
+
+
+            //セルタイプクローン、必須。おやくそく
+            CalendarAppointmentCellType cactype1 = new CalendarAppointmentCellType();
+            gcCalendarGrid1.Content[DefDateTime][rowIndex, startColIndex].CellType = cactype1.Clone();
+
+            if (!仮)
+            {
+                //太字
+                Font baseFont = gcCalendarGrid1.Font;
+                Font fnt = new Font(baseFont.FontFamily, baseFont.Size, baseFont.Style | FontStyle.Bold);
+                gcCalendarGrid1.Content[DefDateTime][rowIndex, startColIndex].CellStyle.Font = fnt;
+            }
+
+            //計画とAppointmentの紐づけ
+            this.gcCalendarGrid1.Content[DefDateTime][rowIndex, startColIndex].Value = ap;
+
+            //期間
+            this.gcCalendarGrid1[DefDateTime][rowIndex, startColIndex].ColumnSpan = colspan;
+
+            gcCalendarGrid1.Content[DefDateTime][rowIndex, startColIndex].CellStyle.ForeColor = Color.Black;
+
+
+            if (仮)//Appointment仮置き 登録されていない白ぬきの
+            {
+                (this.gcCalendarGrid1[DefDateTime][rowIndex, startColIndex].CellType as CalendarAppointmentCellType).Renderer = RenderWhite;
+            }
+            else
+            {
+                (this.gcCalendarGrid1[DefDateTime][rowIndex, startColIndex].CellType as CalendarAppointmentCellType).Renderer = RenderList.Where(o => o.WorkContentId == ap.WorkContentID).FirstOrDefault().RendarD;
+            }
+        }
+
+        private DateTime GetDateTime(int startindex, string value)
+        {
+            int wky =DefDateTime.Year;
+            int wkM = DefDateTime.Month;
+            int wkd = 1;
+            int wkh = startindex / NumperH;
+            int wkm = int.Parse(value);
+
+            DateTime ret = new DateTime(wky, wkM, wkd, wkh, wkm, 0);
+
+            return ret;
+
+        }
+
+        private void SetData()
+        {
+            gcCalendarGrid1.Content.ClearAll();
+
+            var list = AppointmentList.Where(o => o.WorkDay == DateTimeUtils.ToFrom(DefDateTime));
+
+            for (int i = 0; i < gcCalendarGrid1.RowHeader[0].RowCount; i++) 
+            {
+                if (!(gcCalendarGrid1.RowHeader[0][i, 0].Value is MsSiShokumei)) return;
+                MsSiShokumei shokumei = gcCalendarGrid1.RowHeader[0][i, 0].Value as MsSiShokumei;
+
+                //List<労働パターンForm_Appointment> wklist = AppointmentList.Where(obj => obj.MsSiShokumeiID == shokumei.MsSiShokumeiID).ToList();
+                List<労働パターンForm_Appointment> wklist = list.Where(obj => obj.MsSiShokumeiID == shokumei.MsSiShokumeiID).ToList();
+
+                foreach (労働パターンForm_Appointment ap in wklist)
+                {
+                    PutAppointment(ap, i, false);
+                }
+            }
+        }
+
+        private void DrawCalenderGrid()
+        {
+            SearchWorkPattern();
+            SetData();
+        }
+
+        private void comboBox_Vessel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Vessel = (comboBox_Vessel.SelectedItem as NBaseData.DAC.MsVessel);
+
+            DrawCalenderGrid();
+        }
+
+        private void radioButton_Day1_CheckedChanged(object sender, EventArgs e)
+        {
+            DefDateTime = DefBaseDate;
+            gcCalendarGrid1.FirstDateInView = DefDateTime;
+            DrawCalenderGrid();
+        }
+
+        private void radioButton_Day2_CheckedChanged(object sender, EventArgs e)
+        {
+            DefDateTime = DefBaseDate.AddDays(1);
+            gcCalendarGrid1.FirstDateInView = DefDateTime;
+            DrawCalenderGrid();
+        }
+
+        private void radioButton_Day3_CheckedChanged(object sender, EventArgs e)
+        {
+            DefDateTime = DefBaseDate.AddDays(2);
+            gcCalendarGrid1.FirstDateInView = DefDateTime;
+            DrawCalenderGrid();
+        }
+
+        private void radioButton_Day4_CheckedChanged(object sender, EventArgs e)
+        {
+            DefDateTime = DefBaseDate.AddDays(3);
+            gcCalendarGrid1.FirstDateInView = DefDateTime;
+            DrawCalenderGrid();
+        }
+    }
+
+
+
+
+
+
+    public class 労働パターンForm_DateID
+    {
+        public DateTime WorkDate = DateTime.MinValue;
+        public int WorkPatternID = -1;
+        public string GID = null;
+
+        public 労働パターンForm_DateID(DateTime dt, int id, string gid = null)
+        {
+            WorkDate = dt;
+            WorkPatternID = id;
+            GID = gid;
+        }
+    }
+
+    public class 労働パターンForm_Appointment
+    {
+        public int MsSiShokumeiID { get; set; }
+
+        /// <summary>
+        /// 作業内容ID
+        /// </summary>
+        public string WorkContentID = null;
+
+        /// <summary>
+        /// 作業日
+        /// </summary>
+        public DateTime WorkDay;
+
+        /// <summary>
+        /// 時間とID
+        /// </summary>
+        public List<労働パターンForm_DateID> DateIDList = new List<労働パターンForm_DateID>();
+
+        /// <summary>
+        /// 場所ID
+        /// </summary>
+        public int MsBashoID = 0; 
+
+
+        public override string ToString()
+        {
+            return "";
+        }
+    }
+
+
+    /// <summary>
+    /// Renderと種別の関連付けクラス
+    /// </summary>
+    public class CalendarRender
+    {
+        public CalendarRoundedRectangleShapeRenderer RendarD;
+        public CalendarRoundedRectangleShapeRenderer RendarL;
+        public string WorkContentId;
+    }
+
+}
+

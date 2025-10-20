@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_THI_IRAI_SBT_ID,
+    THI_IRAI_SBT_NAME,
+    SHOW_ORDER,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    FROM MS_THI_IRAI_SBT
+    ORDER BY SHOW_ORDER
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_THI_IRAI_SBT_ID,
+    THI_IRAI_SBT_NAME,
+    SHOW_ORDER,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    FROM MS_THI_IRAI_SBT
+
+    where MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_THI_IRAI_SBT(
+    MS_THI_IRAI_SBT_ID,
+    THI_IRAI_SBT_NAME,
+    SHOW_ORDER,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO             ,
+    USER_KEY            ,
+    RENEW_DATE          ,
+    RENEW_USER_ID       ,
+    TS
+    )
+    VALUES(
+    :MS_THI_IRAI_SBT_ID,
+    :THI_IRAI_SBT_NAME,
+    :SHOW_ORDER,
+    :SEND_FLAG,
+    :VESSEL_ID,
+    :DATA_NO             ,
+    :USER_KEY            ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_THI_IRAI_SBT SET
+    THI_IRAI_SBT_NAME = :THI_IRAI_SBT_NAME,
+    SHOW_ORDER = :SHOW_ORDER,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    WHERE
+    MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+
+  </sql>
+
+</databaseConfig>

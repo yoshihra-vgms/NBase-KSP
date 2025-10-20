@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		DM_KANRYO_INFO.DM_KANRYO_INFO_ID          ,
+		DM_KANRYO_INFO.KANRYO_DATE                     ,
+		DM_KANRYO_INFO.MS_USER_ID                   , 
+		DM_KANRYO_INFO.LINK_SAKI                    ,
+		DM_KANRYO_INFO.LINK_SAKI_ID                 ,
+
+		DM_KANRYO_INFO.DELETE_FLAG                   ,
+		DM_KANRYO_INFO.SEND_FLAG                     ,
+		DM_KANRYO_INFO.VESSEL_ID                     ,
+		DM_KANRYO_INFO.DATA_NO                       ,
+		DM_KANRYO_INFO.USER_KEY                      ,
+		DM_KANRYO_INFO.RENEW_DATE                    ,
+		DM_KANRYO_INFO.RENEW_USER_ID                 ,
+		DM_KANRYO_INFO.TS
+
+		from
+		DM_KANRYO_INFO
+		WHERE (DM_KANRYO_INFO.DELETE_FLAG = 0 or DM_KANRYO_INFO.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByLinkSaki">
+		AND DM_KANRYO_INFO.LINK_SAKI = :LINK_SAKI
+		AND DM_KANRYO_INFO.LINK_SAKI_ID = :LINK_SAKI_ID
+	</sql>
+
+	<sql name="ByDmDocCommentID">
+		AND DM_KANRYO_INFO.DM_KANRYO_INFO_ID = :DM_KANRYO_INFO_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		DM_KANRYO_INFO.KOUKAI_SAKI,
+		DM_KANRYO_INFO.KANRYO_DATE,
+		DM_KANRYO_INFO.MS_USER_ID
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO DM_KANRYO_INFO
+	  (
+	  DM_KANRYO_INFO_ID ,
+	  KANRYO_DATE    ,
+	  MS_USER_ID      ,
+	  LINK_SAKI       ,
+	  LINK_SAKI_ID    ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :DM_KANRYO_INFO_ID ,
+	  :KANRYO_DATE    ,
+	  :MS_USER_ID      ,
+	  :LINK_SAKI       ,
+	  :LINK_SAKI_ID    ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE DM_KANRYO_INFO SET
+	  KANRYO_DATE = :KANRYO_DATE    ,
+	  MS_USER_ID = :MS_USER_ID        ,
+	  LINK_SAKI = :LINK_SAKI          ,
+	  LINK_SAKI_ID = :LINK_SAKI_ID    ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  DM_KANRYO_INFO_ID = :DM_KANRYO_INFO_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+	<sql name="LogicalDelete">
+		UPDATE DM_KANRYO_INFO SET
+		DELETE_FLAG = 1,           
+		RENEW_DATE = :RENEW_DATE
+
+		WHERE
+		LINK_SAKI_ID = :LINK_SAKI_ID    ,
+	</sql>
+
+</databaseConfig>

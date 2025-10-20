@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		SI_MENJOU_ATTACH_FILE.SI_MENJOU_ATTACH_FILE_ID   ,
+		SI_MENJOU_ATTACH_FILE.UPDATE_DATE                   ,
+		SI_MENJOU_ATTACH_FILE.FILE_NAME                     ,
+		SI_MENJOU_ATTACH_FILE.DATA                          ,
+		SI_MENJOU_ATTACH_FILE.SI_MENJOU_ID        ,
+
+		SI_MENJOU_ATTACH_FILE.DELETE_FLAG                   ,
+		SI_MENJOU_ATTACH_FILE.SEND_FLAG                     ,
+		SI_MENJOU_ATTACH_FILE.VESSEL_ID                     ,
+		SI_MENJOU_ATTACH_FILE.DATA_NO                       ,
+		SI_MENJOU_ATTACH_FILE.USER_KEY                      ,
+		SI_MENJOU_ATTACH_FILE.RENEW_DATE                    ,
+		SI_MENJOU_ATTACH_FILE.RENEW_USER_ID                 ,
+		SI_MENJOU_ATTACH_FILE.TS
+
+		from
+		SI_MENJOU_ATTACH_FILE
+		WHERE (SI_MENJOU_ATTACH_FILE.DELETE_FLAG = 0 or SI_MENJOU_ATTACH_FILE.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="BySiMenjouID">
+		AND SI_MENJOU_ATTACH_FILE.SI_MENJOU_ID = :SI_MENJOU_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		SI_MENJOU_ATTACH_FILE.RENEW_DATE DESC
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO SI_MENJOU_ATTACH_FILE
+	  (
+	  SI_MENJOU_ATTACH_FILE_ID ,
+	  UPDATE_DATE                 ,
+	  FILE_NAME                   ,
+	  DATA                        ,
+	  SI_MENJOU_ID      ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :SI_MENJOU_ATTACH_FILE_ID ,
+	  :UPDATE_DATE                 ,
+	  :FILE_NAME                   ,
+	  :DATA                        ,
+	  :SI_MENJOU_ID      ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE SI_MENJOU_ATTACH_FILE SET
+	  UPDATE_DATE = :UPDATE_DATE                       ,
+	  FILE_NAME = :FILE_NAME                           ,
+	  DATA = :DATA                                     ,
+	  SI_MENJOU_ID = :SI_MENJOU_ID ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  SI_MENJOU_ATTACH_FILE_ID = :SI_MENJOU_ATTACH_FILE_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_ALLOWANCE.MS_SI_ALLOWANCE_ID   ,
+    MS_SI_ALLOWANCE.NAME                       ,
+    MS_SI_ALLOWANCE.CONTENTS                   ,
+    MS_SI_ALLOWANCE.TARGET_VESSEL              ,
+    MS_SI_ALLOWANCE.DEPARTMENT                 ,
+    MS_SI_ALLOWANCE.ALLOWANCE                  ,
+    MS_SI_ALLOWANCE.MS_SI_SHOKUMEI_ID          ,
+    MS_SI_ALLOWANCE.SHOW_ORDER                 ,
+    MS_SI_ALLOWANCE.DISTRIBUTION_FLAG          ,
+    MS_SI_ALLOWANCE.DELETE_FLAG                ,
+    MS_SI_ALLOWANCE.SEND_FLAG                  ,
+    MS_SI_ALLOWANCE.VESSEL_ID                  ,
+    MS_SI_ALLOWANCE.DATA_NO                    ,
+    MS_SI_ALLOWANCE.USER_KEY                   ,
+    MS_SI_ALLOWANCE.RENEW_DATE                 ,
+    MS_SI_ALLOWANCE.RENEW_USER_ID              ,
+    MS_SI_ALLOWANCE.TS
+
+    FROM
+    MS_SI_ALLOWANCE
+
+    WHERE MS_SI_ALLOWANCE.DELETE_FLAG = 0
+    ORDER BY MS_SI_ALLOWANCE.SHOW_ORDER, MS_SI_ALLOWANCE.NAME
+  </sql>
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_ALLOWANCE(
+    MS_SI_ALLOWANCE_ID             ,
+    NAME                           ,
+    CONTENTS                       ,
+    TARGET_VESSEL                  ,
+    DEPARTMENT                     ,
+    ALLOWANCE                      ,
+    MS_SI_SHOKUMEI_ID              ,
+    SHOW_ORDER                     ,
+    DISTRIBUTION_FLAG              ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SI_ALLOWANCE_ID             ,
+    :NAME                           ,
+    :CONTENTS                       ,
+    :TARGET_VESSEL                  ,
+    :DEPARTMENT                     ,
+    :ALLOWANCE                      ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :SHOW_ORDER                     ,
+    :DISTRIBUTION_FLAG              ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_ALLOWANCE
+    SET
+    NAME = :NAME ,
+    CONTENTS = :CONTENTS ,
+    TARGET_VESSEL = :TARGET_VESSEL ,
+    DEPARTMENT = :DEPARTMENT ,
+    ALLOWANCE = :ALLOWANCE ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID ,
+    SHOW_ORDER = :SHOW_ORDER ,
+    DISTRIBUTION_FLAG =:DISTRIBUTION_FLAG ,
+    DELETE_FLAG = :DELETE_FLAG        ,
+    SEND_FLAG = :SEND_FLAG            ,
+    VESSEL_ID = :VESSEL_ID            ,
+    DATA_NO = :DATA_NO                ,
+    USER_KEY = :USER_KEY              ,
+    RENEW_DATE = :RENEW_DATE          ,
+    RENEW_USER_ID = :RENEW_USER_ID    ,
+    TS = :TS
+    WHERE
+    MS_SI_ALLOWANCE_ID = :MS_SI_ALLOWANCE_ID
+  </sql>
+
+</databaseConfig>

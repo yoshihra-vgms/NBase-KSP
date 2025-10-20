@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_CARGO_GROUP.MS_CARGO_GROUP_ID   ,
+		MS_CARGO_GROUP.CARGO_GROUP_NAME    ,
+		MS_CARGO_GROUP.RENEW_DATE    ,
+		MS_CARGO_GROUP.RENEW_USER_ID ,
+		MS_CARGO_GROUP.TS            ,
+		MS_CARGO_GROUP.DELETE_FLAG   ,
+		MS_CARGO_GROUP.SEND_FLAG     ,
+		MS_CARGO_GROUP.VESSEL_ID     ,
+		MS_CARGO_GROUP.DATA_NO       ,
+		MS_CARGO_GROUP.USER_KEY
+
+		from MS_CARGO_GROUP
+		where MS_CARGO_GROUP.DELETE_FLAG = 0
+	</sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_CARGO_GROUP
+    (
+    MS_CARGO_GROUP_ID   ,
+    CARGO_GROUP_NAME    ,
+    RENEW_DATE    ,
+    RENEW_USER_ID ,
+    DELETE_FLAG   ,
+    SEND_FLAG     ,
+    VESSEL_ID     ,
+    USER_KEY,
+    DATA_NO,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_MS_CARGO_GROUP_ID'),
+    :CARGO_GROUP_NAME    ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :USER_KEY      ,
+    :DATA_NO,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_CARGO_GROUP SET
+    CARGO_GROUP_NAME = :CARGO_GROUP_NAME  ,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    DELETE_FLAG = :DELETE_FLAG   ,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY
+
+    WHERE
+    MS_CARGO_GROUP_ID = :MS_CARGO_GROUP_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

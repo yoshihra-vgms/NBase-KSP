@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_DM_TEMPLATE_FILE.MS_DM_TEMPLATE_FILE_ID        ,
+		MS_DM_TEMPLATE_FILE.UPDATE_DATE                   ,
+		MS_DM_TEMPLATE_FILE.TEMPLATE_FILE_NAME            ,
+		MS_DM_TEMPLATE_FILE.DATA                          ,
+		MS_DM_TEMPLATE_FILE.MS_DM_HOUKOKUSHO_ID           ,
+
+		MS_DM_TEMPLATE_FILE.DELETE_FLAG                   ,
+		MS_DM_TEMPLATE_FILE.SEND_FLAG                     ,
+		MS_DM_TEMPLATE_FILE.VESSEL_ID                     ,
+		MS_DM_TEMPLATE_FILE.DATA_NO                       ,
+		MS_DM_TEMPLATE_FILE.USER_KEY                      ,
+		MS_DM_TEMPLATE_FILE.RENEW_DATE                    ,
+		MS_DM_TEMPLATE_FILE.RENEW_USER_ID                 ,
+		MS_DM_TEMPLATE_FILE.TS
+
+		from
+		MS_DM_TEMPLATE_FILE
+		WHERE (MS_DM_TEMPLATE_FILE.DELETE_FLAG = 0 or MS_DM_TEMPLATE_FILE.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByMsDmTemplateFileID">
+		AND MS_DM_TEMPLATE_FILE.MS_DM_TEMPLATE_FILE_ID = :MS_DM_TEMPLATE_FILE_ID
+	</sql>
+
+	<sql name="ByMsDmHoukokushoID">
+		AND MS_DM_TEMPLATE_FILE.MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By
+		MS_DM_TEMPLATE_FILE.RENEW_DATE DESC
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO MS_DM_TEMPLATE_FILE
+	  (
+	  MS_DM_TEMPLATE_FILE_ID ,
+	  UPDATE_DATE            ,
+	  TEMPLATE_FILE_NAME     ,
+	  DATA                   ,
+	  MS_DM_HOUKOKUSHO_ID    ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :MS_DM_TEMPLATE_FILE_ID ,
+	  :UPDATE_DATE            ,
+	  :TEMPLATE_FILE_NAME     ,
+	  :DATA                   ,
+	  :MS_DM_HOUKOKUSHO_ID    ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_DM_TEMPLATE_FILE SET
+	  UPDATE_DATE = :UPDATE_DATE                 ,
+	  TEMPLATE_FILE_NAME = :TEMPLATE_FILE_NAME   ,
+	  DATA = :DATA                               ,
+	  MS_DM_HOUKOKUSHO_ID = :MS_DM_HOUKOKUSHO_ID ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  MS_DM_TEMPLATE_FILE_ID = :MS_DM_TEMPLATE_FILE_ID
+  </sql>
+
+</databaseConfig>

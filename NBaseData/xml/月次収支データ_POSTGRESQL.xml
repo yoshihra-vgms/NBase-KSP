@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    select
+    CODETI AS KIKAN_HIMOKU_ID
+    ,round(KIN/1000,3) 実績
+    ,round(Y_KIN/1000,3) 計画
+    ,round(S_KIN/1000,3) 差額
+    ,round(FKIN,2) 実績_USD
+    ,round(Y_FKIN,2) 計画_USD
+    ,round(K_KIN/1000,3) 換算後
+    ,round(E_KIN/1000,3) 影響額
+    ,round(SK_KIN/1000,3) 市況その他
+    from
+    (
+    select
+    DT.BUMON_CD
+    ,DT.CODETI
+    ,DT.CODENIYO
+    ,C.CODENIYO HIMOKU
+    ,decode(DT.CODENIYO,null,null,DT.FKIN * KIN_SIGN) FKIN
+    ,decode(DT.CODENIYO,null,null,DT.YKIN * KIN_SIGN+nvl(Y.KIN_H,0)) YKIN
+    ,decode(DT.CODENIYO,null,null,DT.KIN * KIN_SIGN+nvl(Y.KIN_H,0)) KIN
+    ,decode(DT.CODENIYO,null,null,nvl(Y.KIN,0)) Y_KIN
+    ,decode(DT.CODENIYO,null,null,DT.KIN * KIN_SIGN+nvl(Y.KIN_H,0) - nvl(Y.KIN,0)) S_KIN
+    ,decode(DT.CODENIYO,null,null,DT.FKIN * KIN_SIGN) J_FKIN
+    ,decode(DT.CODENIYO,null,null,nvl(Y.FKIN,0)) Y_FKIN
+    ,decode(DT.CODENIYO,null,null,round(DT.FKIN * KIN_SIGN * J.SYONEN_RATE,0) + DT.YKIN * KIN_SIGN+nvl(Y.KIN_H,0)) K_KIN
+    ,decode(DT.CODENIYO,null,null,DT.KIN * KIN_SIGN+nvl(Y.KIN_H,0) - (round(DT.FKIN * KIN_SIGN * J.SYONEN_RATE,0) + DT.YKIN * KIN_SIGN+nvl(Y.KIN_H,0))) E_KIN
+    ,decode(DT.CODENIYO,null,null,DT.KIN * KIN_SIGN+nvl(Y.KIN_H,0) - nvl(Y.KIN,0) -(DT.KIN * KIN_SIGN+nvl(Y.KIN_H,0) - (round(DT.FKIN * KIN_SIGN * J.SYONEN_RATE,0) + DT.YKIN * KIN_SIGN+nvl(Y.KIN_H,0)))) SK_KIN
+    from
+    (
+    select
+    DP.BUMON_CD
+    ,DP.CODETI
+    ,DP.CODENIYO
+    ,decode(DP.CODETI,null,null,sum(DP.FKIN)) FKIN
+    ,decode(DP.CODETI,null,null,sum(DP.YKIN)) YKIN
+    ,decode(DP.CODETI,null,null,sum(DP.KIN)) KIN
+    ,decode(substr(DP.CODETI,1,2),'01',-1,1) KIN_SIGN
+    from
+    (
+    select
+    F.KISY_CD
+    ,F.BUMON_CD
+    ,F.KANJO_KMK_CD
+    ,C.CODETI
+    ,C.CODENIYO
+    ,sum(F.KIN) KIN
+    ,sum(F.YKIN) YKIN
+    ,sum(F.FKIN) FKIN
+    from
+    (
+    select
+    F.KISY_CD
+    ,nvl(C.BUMON_CD2,C.CHART_CD) BUMON_CD
+    ,decode(substr(F.KANJO_KMK_CD,1,2),'83','83701',substr(F.KANJO_KMK_CD,1,5)) KANJO_KMK_CD
+    ,decode(substr(F.KANJO_KMK_CD,1,2),'83','00000000',nvl(substr(F.UTIWAKE_KMK_CD,1,8),'00000000')) UTIWAKE_KMK_CD
+    ,sum((F.KARI_KIN - F.KASI_KIN)) KIN
+    ,sum(decode(F.TUKA_CD,'057',(F.KARI_KIN - F.KASI_KIN),0)) YKIN
+    ,sum(decode(F.TUKA_CD,'057',0,decode(abs(F.KARI_FKIN-F.KASI_FKIN),S.KARI_KIN,S.KARI_FKIN,S.KASI_FKIN)*(1.5 - F.TAISYAK_KBN)/0.5)) FKIN
+    from
+    (
+    SELECT KISY_CD,TAISYO_YM,KANJO_KMK_CD,UTIWAKE_KMK_CD,KARI_KIN,KASI_KIN,TAISYAK_KBN,KARI_FKIN,KASI_FKIN,TUKA_CD,BUMON_CD
+    ,SINSEI_KISY_CD,SINSEI_NO,SINSEI_MEISAI_NO
+    FROM VAJFURIDENTB
+    UNION ALL
+    SELECT KISY_CD,YOSAN_YM TAISYO_YM,YOSAN_KMK KANJO_KMK_CD,YOSAN_UTICD UTIWAKE_KMK_CD,SYONEN_YOSAN KARI_KIN,0 KASI_KIN
+    ,'1' TAISYAK_KBN,SYONEN_YOSAN KARI_FKIN,0 KASI_FKIN,'057' TUKA_CD,BUMON_CD
+    ,'' SINSEI_KISY_CD,'' SINSEI_NO,'' SINSEI_MEISAI_NO
+    FROM VBRYOSANTB
+    WHERE KISY_CD = '180' AND YOSAN_KBN = '90' AND YOSAN_YD = pBRCOMnendo('180',:NENGETSU) AND YOSAN_UTIKBN >= '2' AND KNJ_KBN = '5'
+    ) F
+    ,TAJSAIKENMEISAITB S
+    ,(
+    select BMN.KISY_CD,BMN.KAIKEI_BUMON_CD,decode(BMN.CNT,1,substr(BMN.BKJH_CD,1,4),null) HUNE_NO
+    from (select KISY_CD,KAIKEI_BUMON_CD,min(BKJH_CD) BKJH_CD,count(*) CNT from TAJBUMONMS
+    where length(ltrim(rtrim(BKJH_CD))) = 4
+    group by KISY_CD,KAIKEI_BUMON_CD) BMN
+    ) B
+    ,(
+    select KISY_CD,BUMON_CD,decode(length(:BUMON_CODE),'','',1,SEGMENT_CD,2,GROUP_CD,TEAM_CD) CHART_CD
+    ,decode(:KAIKEI_BUMON_CODE,'','',BUMON_CD) BUMON_CD2
+    from VAJBUMONCHART where DEF_FLG = '1'
+    ) C
+    where
+    F.SINSEI_KISY_CD   = S.KISY_CD(+)
+    and F.SINSEI_NO        = S.SINSEI_NO(+)
+    and F.SINSEI_MEISAI_NO = S.MEISAI_NO(+)
+    and F.KISY_CD              = B.KISY_CD(+)
+    and substr(F.BUMON_CD,1,5) = B.KAIKEI_BUMON_CD(+)
+    and F.KISY_CD              = C.KISY_CD
+    and substr(F.BUMON_CD,1,5) = C.BUMON_CD
+    and F.KANJO_KMK_CD like '8%'
+    and F.KISY_CD          = '180'
+    and F.TAISYO_YM        >= DECODE(:TANGETSU_FLAG,'1',:NENGETSU,:YEAR||'04')
+    and F.TAISYO_YM        &lt;= :NENGETSU
+    and (C.CHART_CD        = :BUMON_CODE or C.CHART_CD is null) and (C.BUMON_CD2 = :KAIKEI_BUMON_CODE or C.BUMON_CD2 IS NULL)
+    group by F.KISY_CD
+    ,C.CHART_CD,C.BUMON_CD2
+    ,F.KANJO_KMK_CD
+    ,nvl(substr(F.UTIWAKE_KMK_CD,1,8),'00000000')
+    ) F
+    ,(
+    select * from TKYCODETBL where CODESYBT = 'CBR821'
+    ) C
+    where
+    (F.KANJO_KMK_CD||F.UTIWAKE_KMK_CD = C.CODENIYO or F.KANJO_KMK_CD||'00000000' = C.CODENIYO)
+    group by
+    F.KISY_CD
+    ,F.BUMON_CD
+    ,F.KANJO_KMK_CD
+    ,C.CODETI
+    ,C.CODENIYO
+    union all
+    select
+    null
+    ,nvl(:KAIKEI_BUMON_CODE,:BUMON_CODE)
+    ,null
+    ,CODETI
+    ,CODENIYO
+    ,0
+    ,0
+    ,0
+    from TKYCODETBL where CODESYBT = 'CBR821' and CODEBNRI_KBN = '2'
+    ) DP
+    group by DP.BUMON_CD,DP.CODETI,DP.CODENIYO
+    ) DT
+    ,(
+    select
+    Y.YOSAN_YD
+    ,:YOSAN_KUBUN YOSAN_KBN
+    ,Y.BUMON_CD
+    ,C.CODETI
+    ,C.CODENIYO
+    ,sum(decode(Y.YOSAN_KBN,'90',0,Y.KIN)) KIN,sum(decode(Y.YOSAN_KBN,'90',nvl(Y.YKIN,0),0)) KIN_H
+    ,sum(decode(Y.YOSAN_KBN,'90',0,Y.YKIN)) YKIN
+    ,sum(decode(Y.YOSAN_KBN,'90',0,Y.FKIN)) FKIN
+    from
+    (
+    select
+    Y.KISY_CD,Y.YOSAN_YD,Y.YOSAN_KBN
+    ,nvl(C.BUMON_CD2,C.CHART_CD) BUMON_CD
+    ,decode(substr(Y.YOSAN_KMK,1,2),'83','83701',Y.YOSAN_KMK) KANJO_KMK_CD
+    ,decode(substr(Y.YOSAN_KMK,1,2),'83','00000000',Y.YOSAN_UTICD) UTIWAKE_KMK_CD
+    ,nvl(substr(Y.BUKKEN_NO,1,4),B.HUNE_NO) FUNE_NO
+    ,SYONENF_YOSAN FKIN
+    ,SYONENY_YOSAN YKIN
+    ,SYONEN_YOSAN KIN
+    from
+    (SELECT * FROM VBRYOSANTB
+    UNION ALL
+    SELECT KISY_CD,YOSAN_YD,YOSAN_YM,'01' YOSAN_KBN,BUMON_CD,YOSAN_KMK,YOSAN_UTIKBN,YOSAN_UTICD
+    ,KNJ_KBN,BUKKEN_KBN,BUKKEN_NO,SEG_ID,SYONEN_YOSAN,SYONENY_YOSAN,SYONENF_YOSAN
+    FROM VBRYOSANTB WHERE SUBSTR(YOSAN_KBN,1,1) = :KAMIKI_YOSAN_KUBUN AND :YOSAN_KUBUN = '01' and YOSAN_KBN &lt;> '91'
+    AND YOSAN_YM &lt;= :YEAR||'09'
+    ) Y
+    ,(
+    select BMN.KISY_CD,BMN.KAIKEI_BUMON_CD,decode(BMN.CNT,1,substr(BMN.BKJH_CD,1,4),null) HUNE_NO
+    from (select KISY_CD,KAIKEI_BUMON_CD,min(BKJH_CD) BKJH_CD,count(*) CNT from TAJBUMONMS
+    where length(ltrim(rtrim(BKJH_CD))) = 4
+    group by KISY_CD,KAIKEI_BUMON_CD) BMN
+    ) B
+    ,TBRYSNJOKENMST J
+    ,(
+    select KISY_CD,BUMON_CD,decode(length(:BUMON_CODE),'','',1,SEGMENT_CD,2,GROUP_CD,TEAM_CD) CHART_CD
+    ,decode(:KAIKEI_BUMON_CODE,'','',BUMON_CD) BUMON_CD2
+    from VAJBUMONCHART where DEF_FLG = '1'
+    ) C
+    where
+    Y.KISY_CD              = B.KISY_CD(+)
+    and Y.BUMON_CD             = B.KAIKEI_BUMON_CD(+)
+    and Y.KISY_CD              = C.KISY_CD
+    and Y.BUMON_CD          = C.BUMON_CD
+    and Y.YOSAN_YD             = J.YOSAN_YD
+    and Y.YOSAN_YM             >= DECODE(:TANGETSU_FLAG,'1',:NENGETSU,:YEAR||'04')
+    and Y.YOSAN_YM             &lt;= :NENGETSU
+    and :YOSAN_KUBUN                         = J.YOSAN_KBN
+    and Y.KISY_CD          = '180'
+    and Y.YOSAN_YD         = :YEAR
+    and ((Y.YOSAN_KBN        = :YOSAN_KUBUN) OR (Y.YOSAN_KBN  = '90' AND Y.YOSAN_UTIKBN &lt;> '1' AND Y.KNJ_KBN = '6'))
+    and (C.CHART_CD        = :BUMON_CODE or C.CHART_CD is null) and (C.BUMON_CD2 = :KAIKEI_BUMON_CODE or C.BUMON_CD2 IS NULL)
+    ) Y
+    ,(
+    select * from TKYCODETBL where CODESYBT = 'CBR820'
+    ) C
+    where
+    (Y.KANJO_KMK_CD||Y.UTIWAKE_KMK_CD = C.CODENIYO OR Y.KANJO_KMK_CD||'00000000' = C.CODENIYO)
+    and Y.KISY_CD          = '180'
+    and Y.YOSAN_YD         = :YEAR
+    group by
+    Y.YOSAN_YD
+    ,Y.BUMON_CD
+    ,C.CODETI
+    ,C.CODENIYO
+    ) Y
+    ,(
+    select * from TKYCODETBL where CODESYBT = 'CBR822' and CODEBNRI_KBN = '2'
+    ) C
+    ,TBRYSNJOKENMST J
+    where C.CODETI    = DT.CODETI(+)
+    and C.CODETI    = Y.CODETI(+)
+    and J.YOSAN_YD  = :YEAR
+    and J.YOSAN_KBN = :YOSAN_KUBUN
+    )
+    order by CODETI
+  </sql>
+
+</databaseConfig>

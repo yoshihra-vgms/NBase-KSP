@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DcCommon.Output" />
+  <xs:element name="GetServerDate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServerDateResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="LoginResult" nillable="true" type="q1:UserData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="user" nillable="true" type="q2:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoutUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_DownloadAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="attachment_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_DownloadAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcAttachment_DownloadAttachmentResult" nillable="true" type="q3:DcAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_GetDataByCommentItemID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_GetDataByCommentItemIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="PSCInspectionData_GetDataByCommentItemIDResult" nillable="true" type="q4:PSCInspectionData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_InsertList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="comhead" nillable="true" type="q5:CommentData" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="datalist" nillable="true" type="q6:ArrayOfPSCInspectionData" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q7:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_InsertListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PSCInspectionData_InsertListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_GetDataListBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q8:PscInspectionSearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_GetDataListBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="PSCInspectionData_GetDataListBySearchDataResult" nillable="true" type="q9:ArrayOfPSCInspectionData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_UpdateWithSister">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="comhead" nillable="true" type="q10:CommentData" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="pscdata" nillable="true" type="q11:PSCInspectionData" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q12:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_UpdateWithSisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PSCInspectionData_UpdateWithSisterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_Delete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q13:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PSCInspectionData_DeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PSCInspectionData_DeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcCiPscInspection_UpdateStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="psclist" nillable="true" type="q14:ArrayOfDcCiPscInspection" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q15:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcCiPscInspection_UpdateStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcCiPscInspection_UpdateStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByCommentItemID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByCommentItemIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcAttachment_GetARecrodsAllByCommentItemIDResult" nillable="true" type="q16:ArrayOfDcAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAccident_GetRecordsBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q17:AccidentSearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAccident_GetRecordsBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcAccident_GetRecordsBySearchDataResult" nillable="true" type="q18:ArrayOfDcAccident" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_GetDataByAccidentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_GetDataByAccidentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="AccidentData_GetDataByAccidentIDResult" nillable="true" type="q19:AccidentData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_InsertData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="data" nillable="true" type="q20:AccidentData" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q21:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_InsertDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccidentData_InsertDataResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_UpdateData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="data" nillable="true" type="q22:AccidentData" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q23:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_UpdateDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccidentData_UpdateDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_DeleteData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q24:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccidentData_DeleteDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccidentData_DeleteDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAccident_UpdateStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="aclist" nillable="true" type="q25:ArrayOfDcAccident" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q26:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAccident_UpdateStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcAccident_UpdateStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccidentReportNo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccidentReportNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateAccidentReportNoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByAccidentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByAccidentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcAttachment_GetARecrodsAllByAccidentIDResult" nillable="true" type="q27:ArrayOfDcAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_GetDataListBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q28:MoiSearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_GetDataListBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="MoiData_GetDataListBySearchDataResult" nillable="true" type="q29:ArrayOfMoiData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Moi_Insert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="hdata" nillable="true" type="q30:MoiHeaderData" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="obslist" nillable="true" type="q31:ArrayOfMoiObservationData" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q32:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Moi_InsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Moi_InsertResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_GetDataByMoiObservationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moi_observation_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_GetDataByMoiObservationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="MoiData_GetDataByMoiObservationIDResult" nillable="true" type="q33:MoiData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByMoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moi_observation_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcAttachment_GetARecrodsAllByMoiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcAttachment_GetARecrodsAllByMoiResult" nillable="true" type="q34:ArrayOfDcAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_UpdatetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="data" nillable="true" type="q35:MoiData" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q36:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_UpdatetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MoiData_UpdatetDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_DeleteData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="moi_observation_id" type="xs:int" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q37:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoiData_DeleteDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MoiData_DeleteDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcMoiObservation_UpdateStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="obslist" nillable="true" type="q38:ArrayOfDcMoiObservation" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q39:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcMoiObservation_UpdateStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcMoiObservation_UpdateStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccidentExcelTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccidentExcelTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAccidentExcelTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccidentOutputData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="param" nillable="true" type="q40:AccidentOutputParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccidentOutputDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="GetAccidentOutputDataResult" nillable="true" type="q41:ArrayOfAccidentOutputData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcSchedulePlan_GetRecordsBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q42:SchedulePlanSearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcSchedulePlan_GetRecordsBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcSchedulePlan_GetRecordsBySearchDataResult" nillable="true" type="q43:ArrayOfDcSchedulePlan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcSchedulePlan_InsertUpdateList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="datalist" nillable="true" type="q44:ArrayOfDcSchedulePlan" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q45:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcSchedulePlan_InsertUpdateListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcSchedulePlan_InsertUpdateListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleCompany_GetRecordsBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q46:ScheduleCompanySearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleCompany_GetRecordsBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcScheduleCompany_GetRecordsBySearchDataResult" nillable="true" type="q47:ArrayOfDcScheduleCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleOther_GetRecordsBySearchData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" minOccurs="0" name="sdata" nillable="true" type="q48:ScheduleOtherSearchData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleOther_GetRecordsBySearchDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="DcScheduleOther_GetRecordsBySearchDataResult" nillable="true" type="q49:ArrayOfDcScheduleOther" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleCompany_InsertUpdateList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="datalist" nillable="true" type="q50:ArrayOfDcScheduleCompany" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q51:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleCompany_InsertUpdateListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcScheduleCompany_InsertUpdateListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleOther_InsertUpdateList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="datalist" nillable="true" type="q52:ArrayOfDcScheduleOther" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q53:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DcScheduleOther_InsertUpdateListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DcScheduleOther_InsertUpdateListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPSCOutputData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="param" nillable="true" type="q54:PscOutputParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPSCOutputDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="GetPSCOutputDataResult" nillable="true" type="q55:PscOutputData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPSCExcelTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPSCExcelTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPSCExcelTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelCategoryTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelCategoryTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoiExcelCategoryTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelListTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelListTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoiExcelListTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiReportCommentListTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiReportCommentListTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoiReportCommentListTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiReportObservationTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiReportObservationTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMoiReportObservationTemplateResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelDataCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="param" nillable="true" type="q56:MoiExcelOutputParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelDataCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="GetMoiExcelDataCategoryResult" nillable="true" type="q57:MoiExcelOutputDataCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelDataCategory2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="param" nillable="true" type="q58:MoiExcelOutputParameter" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="version" nillable="true" type="q59:MsViqVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoiExcelDataCategory2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/DcCommon.Output" minOccurs="0" name="GetMoiExcelDataCategory2Result" nillable="true" type="q60:MoiExcelOutputDataCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScheduleListTemplateFile">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScheduleListTemplateFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetScheduleListTemplateFileResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVessel_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVessel_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsVessel_GetRecordsResult" nillable="true" type="q61:ArrayOfMsVessel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsUser_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsUser_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsUser_GetRecordsResult" nillable="true" type="q62:ArrayOfMsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserData_GetDataByMsUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserData_GetDataByMsUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="UserData_GetDataByMsUserIDResult" nillable="true" type="q63:UserData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsItemKind_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsItemKind_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsItemKind_GetRecordsResult" nillable="true" type="q64:ArrayOfMsItemKind" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsStatus_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsStatus_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="MsStatus_GetRecordsResult" nillable="true" type="q65:ArrayOfMsStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="MsAlarmColor_GetRecordsResult" nillable="true" type="q66:ArrayOfMsAlarmColor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsActionCode_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsActionCode_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsActionCode_GetRecordsResult" nillable="true" type="q67:ArrayOfMsActionCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsDeficiencyCode_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsDeficiencyCode_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsDeficiencyCode_GetRecordsResult" nillable="true" type="q68:ArrayOfMsDeficiencyCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselType_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselType_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsVesselType_GetRecordsResult" nillable="true" type="q69:ArrayOfMsVesselType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsBasho_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsBasho_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsBasho_GetRecordsResult" nillable="true" type="q70:ArrayOfMsBasho" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsRegional_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsRegional_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsRegional_GetRecordsResult" nillable="true" type="q71:ArrayOfMsRegional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_InsertRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="data" nillable="true" type="q72:MsAlarmColor" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q73:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_InsertRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MsAlarmColor_InsertRecordResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_UpdateRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="data" nillable="true" type="q74:MsAlarmColor" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q75:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_UpdateRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MsAlarmColor_UpdateRecordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_DeleteRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="data" nillable="true" type="q76:MsAlarmColor" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="requser" nillable="true" type="q77:MsUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAlarmColor_DeleteRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MsAlarmColor_DeleteRecordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentImportance_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentImportance_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsAccidentImportance_GetRecordsResult" nillable="true" type="q78:ArrayOfMsAccidentImportance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentKind_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentKind_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsAccidentKind_GetRecordsResult" nillable="true" type="q79:ArrayOfMsAccidentKind" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentSituation_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentSituation_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsAccidentSituation_GetRecordsResult" nillable="true" type="q80:ArrayOfMsAccidentSituation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentStatus_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsAccidentStatus_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="MsAccidentStatus_GetRecordsResult" nillable="true" type="q81:ArrayOfMsAccidentStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsKindOfAccident_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsKindOfAccident_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsKindOfAccident_GetRecordsResult" nillable="true" type="q82:ArrayOfMsKindOfAccident" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsInspectionCategory_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsInspectionCategory_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsInspectionCategory_GetRecordsResult" nillable="true" type="q83:ArrayOfMsInspectionCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqCode_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqCode_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsViqCode_GetRecordsResult" nillable="true" type="q84:ArrayOfMsViqCode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqNo_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqNo_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsViqNo_GetRecordsResult" nillable="true" type="q85:ArrayOfMsViqNo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqNo_GetRecordsByViqCodeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqNo_GetRecordsByViqCodeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsViqNo_GetRecordsByViqCodeIDResult" nillable="true" type="q86:ArrayOfMsViqNo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsMoiStatus_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsMoiStatus_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="MsMoiStatus_GetRecordsResult" nillable="true" type="q87:ArrayOfMsMoiStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsCustomer_GetRecordsResult" nillable="true" type="q88:ArrayOfMsCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecordsInspectionCompany">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecordsInspectionCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsCustomer_GetRecordsInspectionCompanyResult" nillable="true" type="q89:ArrayOfMsCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecordsAppointedCompany">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCustomer_GetRecordsAppointedCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsCustomer_GetRecordsAppointedCompanyResult" nillable="true" type="q90:ArrayOfMsCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsDeficiencyCategory_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsDeficiencyCategory_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsDeficiencyCategory_GetRecordsResult" nillable="true" type="q91:ArrayOfMsDeficiencyCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsYear_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsYear_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="MsYear_GetRecordsResult" nillable="true" type="q92:ArrayOfMsYear" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleCategory_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleCategory_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsScheduleCategory_GetRecordsResult" nillable="true" type="q93:ArrayOfMsScheduleCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleKind_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleKind_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsScheduleKind_GetRecordsResult" nillable="true" type="q94:ArrayOfMsScheduleKind" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleKindDetail_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsScheduleKindDetail_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsScheduleKindDetail_GetRecordsResult" nillable="true" type="q95:ArrayOfMsScheduleKindDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeficiencyCategoryData_GetDataList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeficiencyCategoryData_GetDataListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/DcCommon.DB" minOccurs="0" name="DeficiencyCategoryData_GetDataListResult" nillable="true" type="q96:ArrayOfDeficiencyCategoryData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqCodeName_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqCodeName_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsViqCodeName_GetRecordsResult" nillable="true" type="q97:ArrayOfMsViqCodeName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqVersion_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsViqVersion_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsViqVersion_GetRecordsResult" nillable="true" type="q98:ArrayOfMsViqVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselIDResult" nillable="true" type="q99:ArrayOfMsVesselScheduleKindDetailEnable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselScheduleKindDetailEnable_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselScheduleKindDetailEnable_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsVesselScheduleKindDetailEnable_GetRecordsResult" nillable="true" type="q100:ArrayOfMsVesselScheduleKindDetailEnable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselCategory_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsVesselCategory_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsVesselCategory_GetRecordsResult" nillable="true" type="q101:ArrayOfMsVesselCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCrewMatrixType_GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MsCrewMatrixType_GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="MsCrewMatrixType_GetRecordsResult" nillable="true" type="q102:ArrayOfMsCrewMatrixType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

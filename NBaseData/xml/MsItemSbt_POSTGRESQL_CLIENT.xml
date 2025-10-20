@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_ITEM_SBT.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME                  ,
+    MS_ITEM_SBT.SEND_FLAG                      ,
+    MS_ITEM_SBT.VESSEL_ID                      ,
+    MS_ITEM_SBT.DATA_NO                        ,
+    MS_ITEM_SBT.USER_KEY                       ,
+    MS_ITEM_SBT.RENEW_DATE                     ,
+    MS_ITEM_SBT.RENEW_USER_ID                  ,
+    MS_ITEM_SBT.TS
+    FROM
+    MS_ITEM_SBT
+    
+    WHERE DELETE_FLAG = 0
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_ITEM_SBT.MS_ITEM_SBT_ID                 ,
+    MS_ITEM_SBT.ITEM_SBT_NAME                  ,
+    MS_ITEM_SBT.SEND_FLAG                      ,
+    MS_ITEM_SBT.VESSEL_ID                      ,
+    MS_ITEM_SBT.DATA_NO                        ,
+    MS_ITEM_SBT.USER_KEY                       ,
+    MS_ITEM_SBT.RENEW_DATE                     ,
+    MS_ITEM_SBT.RENEW_USER_ID                  ,
+    MS_ITEM_SBT.TS
+    FROM
+    MS_ITEM_SBT
+    WHERE
+    MS_ITEM_SBT.MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID
+
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    MS_ITEM_SBT
+    (
+    MS_ITEM_SBT_ID                 ,
+    ITEM_SBT_NAME                  ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES
+    (
+    :MS_ITEM_SBT_ID                 ,
+    :ITEM_SBT_NAME                  ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_ITEM_SBT
+    SET
+    ITEM_SBT_NAME  = :ITEM_SBT_NAME                  ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    WHERE
+    MS_ITEM_SBT_ID = :MS_ITEM_SBT_ID
+
+  </sql>
+
+</databaseConfig>

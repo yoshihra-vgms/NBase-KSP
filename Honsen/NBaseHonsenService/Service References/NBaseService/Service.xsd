@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NBaseData.DS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NBaseData.DS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3715/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:3715/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NBaseData.DAC" />
+  <xs:import schemaLocation="http://localhost:3715/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NBaseData.BLC" />
+  <xs:complexType name="MsSeninFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HokenNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IncludeKyuka" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Juusho" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeiKana" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsSiShokumeiID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameKana" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nendo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderByStr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RetireFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SeiKana" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShimeiCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="joinSiCard" type="tns:MsSeninFilter.JoinSiCard" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="kubuns" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiMenjouKindIDs" nillable="true" type="q2:ArrayOfint" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiShubetsuIDs" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="種別無し" type="xs:boolean" />
+      <xs:element minOccurs="0" name="職別海技免許等資格一覧対象" type="xs:boolean" />
+      <xs:element minOccurs="0" name="船員テーブルのみ対象" type="xs:boolean" />
+      <xs:element minOccurs="0" name="詳細検索" type="xs:boolean" />
+      <xs:element minOccurs="0" name="退職年度" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MsSeninFilter" nillable="true" type="tns:MsSeninFilter" />
+  <xs:simpleType name="MsSeninFilter.JoinSiCard">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOT_JOIN" />
+      <xs:enumeration value="LEFT_JOIN" />
+      <xs:enumeration value="INNER_JOIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MsSeninFilter.JoinSiCard" nillable="true" type="tns:MsSeninFilter.JoinSiCard" />
+  <xs:complexType name="SiCardFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardMsSiShokumeiID" type="xs:int" />
+      <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IncludeNullVessel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KenmTushincyo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MsSeninID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderByStr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RetireFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSeninIDs" nillable="true" type="q4:ArrayOfint" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiShubetsuIDs" nillable="true" type="q5:ArrayOfint" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msVesselIDs" nillable="true" type="q6:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiCardFilter" nillable="true" type="tns:SiCardFilter" />
+  <xs:complexType name="SiKoushuFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bikou" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flag" type="xs:int" />
+      <xs:element minOccurs="0" name="Is受講予定" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is受講済み" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is期限切れ" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is未受講" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is退職者を除く" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JisekiFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JisekiTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="KoushuName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsSeninID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSiKoushuID" type="xs:int" />
+      <xs:element minOccurs="0" name="MsSiShokumeiID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameKana" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShimeiCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiKoushuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YoteiFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="YoteiTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiKoushuFilter" nillable="true" type="tns:SiKoushuFilter" />
+  <xs:complexType name="OdStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DefaultValue" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxValue" type="xs:int" />
+      <xs:element minOccurs="0" name="Values" nillable="true" type="tns:ArrayOfOdStatus.StatusValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OdStatus" nillable="true" type="tns:OdStatus" />
+  <xs:complexType name="ArrayOfOdStatus.StatusValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OdStatus.StatusValue" nillable="true" type="tns:OdStatus.StatusValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOdStatus.StatusValue" nillable="true" type="tns:ArrayOfOdStatus.StatusValue" />
+  <xs:complexType name="OdStatus.StatusValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OdStatus.StatusValue" nillable="true" type="tns:OdStatus.StatusValue" />
+  <xs:complexType name="OdThiFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HachuDateFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HachuDateTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JimTantouID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JryDateFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JryDateTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JryStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="MsThiIraiSbtID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiShousaiID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MsThiIraiStatusIDs" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+      <xs:element minOccurs="0" name="Nendo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThiIraiDateFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ThiIraiDateTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OdThiFilter" nillable="true" type="tns:OdThiFilter" />
+  <xs:complexType name="OdJryFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="JimTantouID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KeijyoZumi" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MiKeijyo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MsThiIraiSbtID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiShousaiID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+      <xs:element minOccurs="0" name="YearMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearMonthOnly" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OdJryFilter" nillable="true" type="tns:OdJryFilter" />
+  <xs:complexType name="OdFurikaeToritateFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HachuDateFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HachuDateTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HachuUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiSbtID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiShousaiID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OdFurikaeToritateFilter" nillable="true" type="tns:OdFurikaeToritateFilter" />
+  <xs:complexType name="SiMenjouFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Is退職者を除く" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShimeiCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yukokigen" type="xs:int" />
+      <xs:element minOccurs="0" name="is取得済" type="xs:boolean" />
+      <xs:element minOccurs="0" name="is未取得" type="xs:boolean" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiMenjouIDs" nillable="true" type="q8:ArrayOfint" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiMenjouKindIDs" nillable="true" type="q9:ArrayOfint" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="msSiShokumeiIDs" nillable="true" type="q10:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiMenjouFilter" nillable="true" type="tns:SiMenjouFilter" />
+  <xs:complexType name="合算対象の受領Filter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="JryDateFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="JryDateTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MsCustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiSbtID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsThiIraiShousaiID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsVesselID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="合算対象の受領Filter" nillable="true" type="tns:合算対象の受領Filter" />
+  <xs:complexType name="SiAdvancedSearchFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="includeKazoku" type="xs:boolean" />
+      <xs:element minOccurs="0" name="includeKenshin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="includeMenjou" type="xs:boolean" />
+      <xs:element minOccurs="0" name="includeRemarks" type="xs:boolean" />
+      <xs:element minOccurs="0" name="includeSalary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="includeShobatsu" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SiAdvancedSearchFilter" nillable="true" type="tns:SiAdvancedSearchFilter" />
+  <xs:complexType name="ArrayOfMsSeninPlus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsSeninPlus" nillable="true" type="tns:MsSeninPlus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsSeninPlus" nillable="true" type="tns:ArrayOfMsSeninPlus" />
+  <xs:complexType name="MsSeninPlus">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Address" nillable="true" type="q11:MsSeninAddress" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Card" nillable="true" type="q12:SiCard" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Career" nillable="true" type="q13:MsSeninCareer" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/NBaseData.BLC" minOccurs="0" name="CrewMatrixList" nillable="true" type="q14:ArrayOfCrewMatrix" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Etc" nillable="true" type="q15:MsSeninEtc" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Kazoku" nillable="true" type="q16:SiKazoku" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="KazokuEmg1" nillable="true" type="q17:SiKazoku" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="KazokuEmg2" nillable="true" type="q18:SiKazoku" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Kenshin" nillable="true" type="q19:SiKenshin" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Koushu" nillable="true" type="q20:SiKoushu" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Menjou_K" nillable="true" type="q21:SiMenjou" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Menjou_M" nillable="true" type="q22:SiMenjou" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Menjou_S" nillable="true" type="q23:SiMenjou" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Senin" nillable="true" type="q24:MsSenin" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="Shobyo" nillable="true" type="q25:SiShobyo" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/NBaseData.DAC" minOccurs="0" name="experienceCargoList" nillable="true" type="q26:ArrayOfSiExperienceCargo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MsSeninPlus" nillable="true" type="tns:MsSeninPlus" />
+</xs:schema>

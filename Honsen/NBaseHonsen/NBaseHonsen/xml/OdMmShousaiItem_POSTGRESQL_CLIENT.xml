@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_MM_SHOUSAI_ITEM.OD_MM_SHOUSAI_ITEM_ID         ,
+    OD_MM_SHOUSAI_ITEM.OD_MM_ITEM_ID                 ,
+    OD_MM_SHOUSAI_ITEM.SHOUSAI_ITEM_NAME             ,
+    OD_MM_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID             ,
+    MS_VESSEL_ITEM.VESSEL_ITEM_NAME     as MS_VESSEL_ITEM_NAME,
+    OD_MM_SHOUSAI_ITEM.MS_LO_ID                      ,
+    MS_LO.LO_NAME                       as MS_LO_NAME,
+    OD_MM_SHOUSAI_ITEM.COUNT                         ,
+    OD_MM_SHOUSAI_ITEM.MS_TANI_ID                    ,
+    MS_TANI.TANI_NAME                   as MS_TANI_NAME,
+    OD_MM_SHOUSAI_ITEM.BIKOU                         ,
+    OD_MM_SHOUSAI_ITEM.SEND_FLAG                     ,
+    OD_MM_SHOUSAI_ITEM.VESSEL_ID                     ,
+    OD_MM_SHOUSAI_ITEM.DATA_NO                       ,
+    OD_MM_SHOUSAI_ITEM.USER_KEY                      ,
+    OD_MM_SHOUSAI_ITEM.RENEW_DATE                    ,
+    OD_MM_SHOUSAI_ITEM.RENEW_USER_ID                 ,
+    OD_MM_SHOUSAI_ITEM.TS                            ,
+    OD_MM_SHOUSAI_ITEM.CANCEL_FLAG                   ,
+    OD_MM_SHOUSAI_ITEM.SHOW_ORDER
+    ,OD_MM_SHOUSAI_ITEM.OD_ATTACH_FILE_ID
+
+    FROM
+    OD_MM_SHOUSAI_ITEM
+    INNER JOIN OD_MM_ITEM ON OD_MM_ITEM.OD_MM_ITEM_ID = OD_MM_SHOUSAI_ITEM.OD_MM_ITEM_ID
+    LEFT OUTER JOIN MS_TANI ON MS_TANI.MS_TANI_ID = OD_MM_SHOUSAI_ITEM.MS_TANI_ID
+    LEFT OUTER JOIN MS_VESSEL_ITEM ON MS_VESSEL_ITEM.MS_VESSEL_ITEM_ID = OD_MM_SHOUSAI_ITEM.MS_VESSEL_ITEM_ID
+    LEFT OUTER JOIN MS_LO ON MS_LO.MS_LO_ID = OD_MM_SHOUSAI_ITEM.MS_LO_ID
+
+    WHERE OD_MM_SHOUSAI_ITEM.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="OrderByShowOrder">
+    ORDER BY OD_MM_SHOUSAI_ITEM.SHOW_ORDER
+  </sql>
+
+  <sql name="ByOdMmID">
+    AND OD_MM_ITEM.OD_MM_ID = :OD_MM_ID
+  </sql>
+
+  <sql name="ByOdMmShousaiItemID">
+    AND OD_MM_SHOUSAI_ITEM.OD_MM_SHOUSAI_ITEM_ID = :OD_MM_SHOUSAI_ITEM_ID
+  </sql>
+
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_MM_SHOUSAI_ITEM
+    (
+    OD_MM_SHOUSAI_ITEM_ID          ,
+    OD_MM_ITEM_ID                  ,
+    SHOUSAI_ITEM_NAME              ,
+    MS_VESSEL_ITEM_ID              ,
+    MS_LO_ID                       ,
+    COUNT                          ,
+    MS_TANI_ID                     ,
+    BIKOU                          ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    CANCEL_FLAG                    ,
+    SHOW_ORDER
+    ,OD_ATTACH_FILE_ID
+    )
+    VALUES
+    (
+    :OD_MM_SHOUSAI_ITEM_ID          ,
+    :OD_MM_ITEM_ID                  ,
+    :SHOUSAI_ITEM_NAME              ,
+    :MS_VESSEL_ITEM_ID              ,
+    :MS_LO_ID                       ,
+    :COUNT                          ,
+    :MS_TANI_ID                     ,
+    :BIKOU                          ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :CANCEL_FLAG                    ,
+    :SHOW_ORDER
+    ,:OD_ATTACH_FILE_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_MM_SHOUSAI_ITEM
+    SET
+    OD_MM_ITEM_ID = :OD_MM_ITEM_ID                   ,
+    SHOUSAI_ITEM_NAME = :SHOUSAI_ITEM_NAME           ,
+    MS_VESSEL_ITEM_ID = :MS_VESSEL_ITEM_ID           ,
+    MS_LO_ID = :MS_LO_ID                             ,
+    COUNT = :COUNT                                   ,
+    MS_TANI_ID = :MS_TANI_ID                         ,
+    BIKOU = :BIKOU                                   ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    SHOW_ORDER = :SHOW_ORDER
+    ,OD_ATTACH_FILE_ID = :OD_ATTACH_FILE_ID
+
+    WHERE
+    OD_MM_SHOUSAI_ITEM_ID = :OD_MM_SHOUSAI_ITEM_ID
+  </sql>
+
+</databaseConfig>

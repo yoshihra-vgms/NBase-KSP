@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    NAME
+    FROM SN_TABLE_INFO
+    ORDER BY NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SN_TABLE_INFO(
+    NAME
+    )
+    VALUES(
+    :NAME
+    )
+
+  </sql>
+
+</databaseConfig>

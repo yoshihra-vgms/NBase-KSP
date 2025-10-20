@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecordByYosanHeadIDAndShubetsu">
+    SELECT
+    BG_YOSAN_EXCEL.BG_YOSAN_EXCEL_ID,
+    BG_YOSAN_EXCEL.YOSAN_HEAD_ID,
+    BG_YOSAN_EXCEL.MS_VESSEL_ID,
+    BG_YOSAN_EXCEL.SHUBETSU,
+    BG_YOSAN_EXCEL.FILE_NAME,
+    BG_YOSAN_EXCEL.FILE_DATA,
+    BG_YOSAN_EXCEL.RENEW_DATE,
+    BG_YOSAN_EXCEL.RENEW_USER_ID,
+    BG_YOSAN_EXCEL.TS,
+
+    MS_USER.SEI || ' ' || MS_USER.MEI as RENEW_USER_NAME
+
+    FROM
+    BG_YOSAN_EXCEL
+
+    LEFT JOIN
+    MS_USER ON MS_USER.MS_USER_ID = BG_YOSAN_EXCEL.RENEW_USER_ID
+
+    WHERE
+    BG_YOSAN_EXCEL.YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+    AND
+    BG_YOSAN_EXCEL.SHUBETSU = :SHUBETSU
+  </sql>
+
+  <sql name="ByMsVesselId">
+    AND
+    BG_YOSAN_EXCEL.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+ 
+  <sql name="InsertRecord">
+    INSERT INTO BG_YOSAN_EXCEL
+    (
+    BG_YOSAN_EXCEL_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    SHUBETSU,
+    FILE_NAME,
+    FILE_DATA,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_BG_YOSAN_EXCEL_ID'),
+    :YOSAN_HEAD_ID,
+    :MS_VESSEL_ID,
+    :SHUBETSU,
+    :FILE_NAME,
+    :FILE_DATA,
+    :RENEW_DATE,
+    :RENEW_USER_ID,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE BG_YOSAN_EXCEL SET
+
+    YOSAN_HEAD_ID = :YOSAN_HEAD_ID,
+    MS_VESSEL_ID = :MS_VESSEL_ID,
+    SHUBETSU = :SHUBETSU,
+    FILE_NAME = :FILE_NAME,
+    FILE_DATA = :FILE_DATA,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID
+    WHERE
+    (BG_YOSAN_EXCEL_ID = :BG_YOSAN_EXCEL_ID) AND
+    (TS = :TS)
+  </sql>
+
+  <sql name="InsertRecords_コピー">
+    INSERT INTO BG_YOSAN_EXCEL
+    (
+    BG_YOSAN_EXCEL_ID,
+    YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    SHUBETSU,
+    FILE_NAME,
+    FILE_DATA,
+    RENEW_DATE,
+    RENEW_USER_ID
+    )
+
+    SELECT
+    nextval('SEQ_BG_YOSAN_EXCEL_ID'),
+    :YOSAN_HEAD_ID,
+    MS_VESSEL_ID,
+    SHUBETSU,
+    FILE_NAME,
+    FILE_DATA,
+    :RENEW_DATE,
+    :RENEW_USER_ID
+
+    FROM
+    BG_YOSAN_EXCEL
+
+    JOIN
+    BG_YOSAN_HEAD
+    ON BG_YOSAN_HEAD.YOSAN_HEAD_ID = BG_YOSAN_EXCEL.YOSAN_HEAD_ID
+
+    WHERE
+    BG_YOSAN_HEAD.YOSAN_HEAD_ID = :LAST_YOSAN_HEAD_ID
+    AND
+    BG_YOSAN_EXCEL.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+</databaseConfig>

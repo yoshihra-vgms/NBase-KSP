@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_TAX.MS_TAX_ID                      ,
+    MS_TAX.TAX_RATE                       ,
+    MS_TAX.TAX_CODE                       ,
+    MS_TAX.START_DATE                     ,
+    MS_TAX.DELETE_FLAG                    ,
+    MS_TAX.SEND_FLAG                      ,
+    MS_TAX.VESSEL_ID                      ,
+    MS_TAX.DATA_NO                        ,
+    MS_TAX.USER_KEY                       ,
+    MS_TAX.RENEW_DATE                     ,
+    MS_TAX.RENEW_USER_ID                  ,
+    MS_TAX.TS
+    FROM
+    MS_TAX
+
+    ORDER BY MS_TAX.MS_TAX_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_TAX(
+    MS_TAX_ID                      ,
+    TAX_RATE                       ,
+    TAX_CODE                       ,
+    START_DATE                     ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_TAX_ID                      ,
+    :TAX_RATE                       ,
+    :TAX_CODE                       ,
+    :START_DATE                     ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_TAX
+    SET
+    TAX_RATE  = :TAX_RATE                            ,
+    TAX_CODE  = :TAX_CODE                            ,
+    START_DATE  = :START_DATE                        ,
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    WHERE
+    MS_TAX_ID = :MS_TAX_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

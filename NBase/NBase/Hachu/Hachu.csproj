@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56D3CDB4-AA13-4B0A-9C84-8C1F1DA440A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hachu</RootNamespace>
+    <AssemblyName>Hachu</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LidorSystems.IntegralUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=520f5185833939dc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Containers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=5a74da625a1e014d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Containers.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Containers.TabControl, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b8975f44e9d648cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Containers.TabControl.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6103e469a96a1589, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.DLL</HintPath>
+    </Reference>
+    <Reference Include="LidorSystems.IntegralUI.Lists.TreeListView, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e382cb4f3627d662, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DLLs\LidorSystems.IntegralUI.Lists.TreeListView.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLC\貯蔵品金額計算処理.cs" />
+    <Compile Include="Controllers\年度変更一覧情報Controller.cs" />
+    <Compile Include="Controllers\日付調整一覧情報Controller.cs" />
+    <Compile Include="Controllers\船種別変更一覧情報Controller.cs" />
+    <Compile Include="HachuManage\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\VslSyubHenkoListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\VslSyubHenkoListControl.Designer.cs">
+      <DependentUpon>VslSyubHenkoListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\SyoninListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\SyoninListControl.Designer.cs">
+      <DependentUpon>SyoninListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更_依頼種別Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更_依頼種別Form.Designer.cs">
+      <DependentUpon>船種別変更_依頼種別Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更Form.Designer.cs">
+      <DependentUpon>船種別変更Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\日付調整Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\日付調整Form.Designer.cs">
+      <DependentUpon>日付調整Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\年度変更一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\年度変更一覧Form.Designer.cs">
+      <DependentUpon>年度変更一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\日付調整一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\日付調整一覧Form.Designer.cs">
+      <DependentUpon>日付調整一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\注文書出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\注文書出力Form.Designer.cs">
+      <DependentUpon>注文書出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\支払合算詳細Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\支払合算詳細Form.Designer.cs">
+      <DependentUpon>支払合算詳細Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\支払合算作成Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\支払合算作成Form.Designer.cs">
+      <DependentUpon>支払合算作成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\支払合算Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\支払合算Form.Designer.cs">
+      <DependentUpon>支払合算Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\燃料潤滑油編集Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\燃料潤滑油編集Form.Designer.cs">
+      <DependentUpon>燃料潤滑油編集Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListInfo年度変更.cs" />
+    <Compile Include="Models\ListInfo日付調整.cs" />
+    <Compile Include="Reports\Data潤滑油集計.cs" />
+    <Compile Include="Reports\Data船用品集計.cs" />
+    <Compile Include="Reports\Data貯蔵品年間管理表.cs" />
+    <Compile Include="Reports\業者別支払実績出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\業者別支払実績出力Form.Designer.cs">
+      <DependentUpon>業者別支払実績出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\概算計上一覧.cs" />
+    <Compile Include="Reports\KK発注帳票出力.cs" />
+    <Compile Include="Reports\貯蔵品年間管理表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\貯蔵品年間管理表Form.Designer.cs">
+      <DependentUpon>貯蔵品年間管理表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\集計表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\集計表Form.Designer.cs">
+      <DependentUpon>集計表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\貯蔵品管理表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\貯蔵品管理表Form.Designer.cs">
+      <DependentUpon>貯蔵品管理表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\貯蔵品リストForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\貯蔵品リストForm.Designer.cs">
+      <DependentUpon>貯蔵品リストForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AlarmReceiver.cs" />
+    <Compile Include="BLC\新規発注更新処理.cs" />
+    <Compile Include="BLC\支払更新処理.cs" />
+    <Compile Include="BLC\新規見積依頼更新処理.cs" />
+    <Compile Include="BLC\受領更新処理.cs" />
+    <Compile Include="BLC\見積回答更新処理.cs" />
+    <Compile Include="BLC\見積依頼更新処理.cs" />
+    <Compile Include="BLC\手配依頼更新処理.cs" />
+    <Compile Include="Chozo\貯蔵品Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chozo\貯蔵品Form.Designer.cs">
+      <DependentUpon>貯蔵品Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLC\貯蔵品編集処理.cs" />
+    <Compile Include="Chozo\貯蔵品FormTreeListManager.cs" />
+    <Compile Include="Chozo\貯蔵品Classes.cs" />
+    <Compile Include="Common\CommonCheck.cs" />
+    <Compile Include="Common\CommonDefine.cs" />
+    <Compile Include="HachuManage\発注メール送信Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\発注メール送信Form.Designer.cs">
+      <DependentUpon>発注メール送信Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\入渠種別Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\入渠種別Form.Designer.cs">
+      <DependentUpon>入渠種別Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\船用品カテゴリ選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\船用品カテゴリ選択Form.Designer.cs">
+      <DependentUpon>船用品カテゴリ選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\落成Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\落成Form.Designer.cs">
+      <DependentUpon>落成Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\新規発注Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\新規発注Form.Designer.cs">
+      <DependentUpon>新規発注Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\合見積比較Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\合見積比較Form.Designer.cs">
+      <DependentUpon>合見積比較Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\品目編集FormController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\承認一覧情報Controller.cs" />
+    <Compile Include="HachuManage\品目編集Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\品目編集Form.Designer.cs">
+      <DependentUpon>品目編集Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\支払Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\支払Form.Designer.cs">
+      <DependentUpon>支払Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\支払分割Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\支払分割Form.Designer.cs">
+      <DependentUpon>支払分割Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\新規見積依頼Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\新規見積依頼Form.Designer.cs">
+      <DependentUpon>新規見積依頼Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\受領Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\受領Form.Designer.cs">
+      <DependentUpon>受領Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\承認一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\承認一覧Form.Designer.cs">
+      <DependentUpon>承認一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\見積回答Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\見積回答Form.Designer.cs">
+      <DependentUpon>見積回答Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\見積依頼先設定Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\見積依頼先設定Form.Designer.cs">
+      <DependentUpon>見積依頼先設定Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\見積依頼Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\見積依頼Form.Designer.cs">
+      <DependentUpon>見積依頼Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item支払品目.cs" />
+    <Compile Include="Models\Item受領品目.cs" />
+    <Compile Include="Models\Item見積回答品目.cs" />
+    <Compile Include="Models\ListInfo受領.cs" />
+    <Compile Include="Models\ListInfo見積回答.cs" />
+    <Compile Include="Models\ListInfo支払.cs" />
+    <Compile Include="Models\ListInfo新規発注.cs" />
+    <Compile Include="Models\承認一覧検索条件.cs" />
+    <Compile Include="Models\見積依頼先.cs" />
+    <Compile Include="Models\Item見積依頼品目.cs" />
+    <Compile Include="Models\ListInfo見積依頼.cs" />
+    <Compile Include="Models\Item手配依頼品目.cs" />
+    <Compile Include="Models\発注一覧検索条件.cs" />
+    <Compile Include="Reports\BaseData.cs" />
+    <Compile Include="Reports\Dataランニング.cs" />
+    <Compile Include="Reports\Data入渠.cs" />
+    <Compile Include="Reports\Data船用品.cs" />
+    <Compile Include="Reports\Data貯蔵品.cs" />
+    <Compile Include="Reports\データ出力Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\データ出力Form.Designer.cs">
+      <DependentUpon>データ出力Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\合見積比較表.cs" />
+    <Compile Include="Reports\注文書.cs" />
+    <Compile Include="Reports\管理表Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\管理表Form.Designer.cs">
+      <DependentUpon>管理表Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\見積り依頼書.cs" />
+    <Compile Include="Utils\ItemTreeListView.cs" />
+    <Compile Include="Controllers\NodeController.cs" />
+    <Compile Include="Utils\ItemTreeListView年度変更.cs" />
+    <Compile Include="Utils\ItemTreeListView日付調整.cs" />
+    <Compile Include="Utils\ItemTreeListView見積依頼先設定.cs" />
+    <Compile Include="Utils\ItemTreeListView見積回答.cs" />
+    <Compile Include="Utils\ItemTreeListView受領.cs" />
+    <Compile Include="Utils\ItemTreeListView支払.cs" />
+    <Compile Include="Utils\ItemTreeListView支払分割.cs" />
+    <Compile Include="Utils\ItemTreeListView新規発注.cs" />
+    <Compile Include="Utils\WCFDockOrderDacProxy.cs" />
+    <Compile Include="Utils\ItemTreeListView支払合算一覧.cs" />
+    <Compile Include="Utils\ItemTreeListView支払合算作成.cs" />
+    <Compile Include="Utils\ItemTreeListView支払合算詳細.cs" />
+    <Compile Include="Utils\WCFVesselItemDacProxy.cs" />
+    <Compile Include="Utils\見積依頼先TreeListView.cs" />
+    <Compile Include="Utils\ItemTreeListView見積依頼.cs" />
+    <Compile Include="Utils\ItemTreeListView品目編集.cs" />
+    <Compile Include="Utils\ItemTreeListView手配依頼.cs" />
+    <Compile Include="HachuManage\依頼種別Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\依頼種別Form.Designer.cs">
+      <DependentUpon>依頼種別Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\手配依頼Form.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HachuManage\手配依頼Form.Designer.cs">
+      <DependentUpon>手配依頼Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\詳細品目選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\詳細品目選択Form.Designer.cs">
+      <DependentUpon>詳細品目選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\発注一覧情報Controller.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListInfoBase.cs" />
+    <Compile Include="Models\ListInfo手配依頼.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HachuManage\発注状況一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\発注状況一覧Form.Designer.cs">
+      <DependentUpon>発注状況一覧Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="発注修正Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="発注修正Form.Designer.cs">
+      <DependentUpon>発注修正Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更一覧Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HachuManage\船種別変更一覧Form.Designer.cs">
+      <DependentUpon>船種別変更一覧Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Chozo\貯蔵品Form.resx">
+      <DependentUpon>貯蔵品Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\VslSyubHenkoListControl.resx">
+      <DependentUpon>VslSyubHenkoListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\SyoninListControl.resx">
+      <DependentUpon>SyoninListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\船種別変更_依頼種別Form.resx">
+      <DependentUpon>船種別変更_依頼種別Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\船種別変更Form.resx">
+      <DependentUpon>船種別変更Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\日付調整Form.resx">
+      <DependentUpon>日付調整Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\年度変更一覧Form.resx">
+      <DependentUpon>年度変更一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\日付調整一覧Form.resx">
+      <DependentUpon>日付調整一覧Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\注文書出力Form.resx">
+      <DependentUpon>注文書出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\支払合算詳細Form.resx">
+      <DependentUpon>支払合算詳細Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\支払合算作成Form.resx">
+      <DependentUpon>支払合算作成Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\支払合算Form.resx">
+      <DependentUpon>支払合算Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\燃料潤滑油編集Form.resx">
+      <DependentUpon>燃料潤滑油編集Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\発注メール送信Form.resx">
+      <DependentUpon>発注メール送信Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\入渠種別Form.resx">
+      <DependentUpon>入渠種別Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\船用品カテゴリ選択Form.resx">
+      <DependentUpon>船用品カテゴリ選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\落成Form.resx">
+      <DependentUpon>落成Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\新規発注Form.resx">
+      <DependentUpon>新規発注Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\合見積比較Form.resx">
+      <DependentUpon>合見積比較Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\品目編集Form.resx">
+      <DependentUpon>品目編集Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\支払Form.resx">
+      <DependentUpon>支払Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\支払分割Form.resx">
+      <DependentUpon>支払分割Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\新規見積依頼Form.resx">
+      <DependentUpon>新規見積依頼Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\受領Form.resx">
+      <DependentUpon>受領Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\承認一覧Form.resx">
+      <DependentUpon>承認一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\見積回答Form.resx">
+      <DependentUpon>見積回答Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\見積依頼先設定Form.resx">
+      <DependentUpon>見積依頼先設定Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\見積依頼Form.resx">
+      <DependentUpon>見積依頼Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="HachuManage\依頼種別Form.resx">
+      <DependentUpon>依頼種別Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\手配依頼Form.resx">
+      <DependentUpon>手配依頼Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\詳細品目選択Form.resx">
+      <DependentUpon>詳細品目選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\発注状況一覧Form.resx">
+      <DependentUpon>発注状況一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\業者別支払実績出力Form.resx">
+      <DependentUpon>業者別支払実績出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\貯蔵品年間管理表Form.resx">
+      <DependentUpon>貯蔵品年間管理表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\集計表Form.resx">
+      <DependentUpon>集計表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\貯蔵品管理表Form.resx">
+      <DependentUpon>貯蔵品管理表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\データ出力Form.resx">
+      <DependentUpon>データ出力Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\貯蔵品リストForm.resx">
+      <DependentUpon>貯蔵品リストForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\管理表Form.resx">
+      <DependentUpon>管理表Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="発注修正Form.resx">
+      <DependentUpon>発注修正Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HachuManage\船種別変更一覧Form.resx">
+      <DependentUpon>船種別変更一覧Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NBaseService\NBaseService.csproj">
+      <Project>{A0C01C40-B1F0-43F2-8C92-77F2EE0ABEA7}</Project>
+      <Name>NBaseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReferences\ServiceReferences.csproj">
+      <Project>{1FBA14B8-00E7-4EE1-B9B0-7DF5737248EF}</Project>
+      <Name>ServiceReferences</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\貯蔵品管理票Template.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Template\貯蔵品年間管理票Template.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

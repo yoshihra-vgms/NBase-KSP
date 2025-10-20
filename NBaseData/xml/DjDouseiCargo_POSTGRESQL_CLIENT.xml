@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    DJ_DOUSEI_CARGO.DJ_DOUSEI_CARGO_ID,
+    DJ_DOUSEI_CARGO.DJ_DOUSEI_ID,
+    DJ_DOUSEI_CARGO.MS_CARGO_ID,
+    DJ_DOUSEI_CARGO.QTTY,
+    DJ_DOUSEI_CARGO.LINE_NO,
+    DJ_DOUSEI_CARGO.MS_DJ_TANI_ID,
+    DJ_DOUSEI_CARGO.PLAN_RESULT_FLAG,
+
+    DJ_DOUSEI_CARGO.DELETE_FLAG,
+    DJ_DOUSEI_CARGO.SEND_FLAG,
+    DJ_DOUSEI_CARGO.VESSEL_ID,
+    DJ_DOUSEI_CARGO.DATA_NO,
+    DJ_DOUSEI_CARGO.USER_KEY,
+    DJ_DOUSEI_CARGO.RENEW_DATE,
+    DJ_DOUSEI_CARGO.RENEW_USER_ID,
+    DJ_DOUSEI_CARGO.TS,
+
+    MS_CARGO.CARGO_NAME,
+    MS_CARGO.CARGO_NO
+
+    from DJ_DOUSEI_CARGO
+    inner join MS_CARGO on MS_CARGO.MS_CARGO_ID = DJ_DOUSEI_CARGO.MS_CARGO_ID
+
+  </sql>
+
+
+  <sql name="GetRecordsMsCargoID">
+    select
+    DJ_DOUSEI_CARGO.DJ_DOUSEI_CARGO_ID,
+    DJ_DOUSEI_CARGO.DJ_DOUSEI_ID,
+    DJ_DOUSEI_CARGO.MS_CARGO_ID,
+    DJ_DOUSEI_CARGO.QTTY,
+    DJ_DOUSEI_CARGO.LINE_NO,
+    DJ_DOUSEI_CARGO.MS_DJ_TANI_ID,
+    DJ_DOUSEI_CARGO.PLAN_RESULT_FLAG,
+
+    DJ_DOUSEI_CARGO.DELETE_FLAG,
+    DJ_DOUSEI_CARGO.SEND_FLAG,
+    DJ_DOUSEI_CARGO.VESSEL_ID,
+    DJ_DOUSEI_CARGO.DATA_NO,
+    DJ_DOUSEI_CARGO.USER_KEY,
+    DJ_DOUSEI_CARGO.RENEW_DATE,
+    DJ_DOUSEI_CARGO.RENEW_USER_ID,
+    DJ_DOUSEI_CARGO.TS
+
+    from DJ_DOUSEI_CARGO
+    WHERE
+    DJ_DOUSEI_CARGO.MS_CARGO_ID = :MS_CARGO_ID
+    and DJ_DOUSEI_CARGO.DELETE_FLAG = 0
+  </sql>
+  
+  
+  <sql name="Where">
+    where DJ_DOUSEI_CARGO.DJ_DOUSEI_ID = :DJ_DOUSEI_ID
+    and DJ_DOUSEI_CARGO.DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="OrderBy">
+	  order by DJ_DOUSEI_CARGO.DJ_DOUSEI_ID
+  </sql>
+
+	<sql name="InsertRecord">
+    insert into DJ_DOUSEI_CARGO(
+    DJ_DOUSEI_CARGO_ID,
+    DJ_DOUSEI_ID      ,
+    MS_CARGO_ID       ,
+    QTTY              ,
+    LINE_NO,
+    MS_DJ_TANI_ID,
+    PLAN_RESULT_FLAG,
+
+    DELETE_FLAG     ,
+    SEND_FLAG       ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    USER_KEY        ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    )values(
+    :DJ_DOUSEI_CARGO_ID,
+    :DJ_DOUSEI_ID      ,
+    :MS_CARGO_ID       ,
+    :QTTY              ,
+    :LINE_NO,
+    :MS_DJ_TANI_ID,
+    :PLAN_RESULT_FLAG,
+
+    :DELETE_FLAG     ,
+    :SEND_FLAG       ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :USER_KEY        ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+	<sql name="UpdateRecord">
+    update DJ_DOUSEI_CARGO set
+    DJ_DOUSEI_ID = :DJ_DOUSEI_ID,
+    MS_CARGO_ID = :MS_CARGO_ID,
+    QTTY = :QTTY,
+    LINE_NO = :LINE_NO,
+    MS_DJ_TANI_ID = :MS_DJ_TANI_ID,
+    PLAN_RESULT_FLAG = :PLAN_RESULT_FLAG,
+    
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    where DJ_DOUSEI_CARGO_ID = :DJ_DOUSEI_CARGO_ID
+  </sql>
+
+  <sql name="DeleteRecord">
+    update DJ_DOUSEI_CARGO
+
+    set DELETE_FLAG = 1
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    where DJ_DOUSEI_CARGO_ID = :DJ_DOUSEI_CARGO_ID
+  </sql>
+
+  <sql name="DeleteRecords_ORG">
+		delete from DJ_DOUSEI_CARGO 
+		where DJ_DOUSEI_ID = :DJ_DOUSEI_ID
+	</sql>
+
+  <sql name="DeleteRecords">
+    update DJ_DOUSEI_CARGO
+    set DELETE_FLAG = 1
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    where DJ_DOUSEI_ID = :DJ_DOUSEI_ID
+  </sql>
+
+  <sql name="DeleteByVoyageNo">
+    update DJ_DOUSEI_CARGO
+    set DELETE_FLAG = 1
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    where DJ_DOUSEI_ID in ( SELECT DJ_DOUSEI_ID FROM DJ_DOUSEI WHERE MS_VESSEL_ID = :MS_VESSEL_ID AND VOYAGE_NO = :VOYAGE_NO )
+  </sql>
+
+  <sql name="ByVoyageNo">
+    where DJ_DOUSEI_ID in ( SELECT DJ_DOUSEI_ID FROM DJ_DOUSEI WHERE MS_VESSEL_ID = :MS_VESSEL_ID AND VOYAGE_NO = :VOYAGE_NO )
+  </sql>
+
+  <sql name="ByDjDouseiId">
+    where DJ_DOUSEI_CARGO.DJ_DOUSEI_ID = :DJ_DOUSEI_ID
+    and DJ_DOUSEI_CARGO.DELETE_FLAG = 0
+    and DJ_DOUSEI_CARGO.LINE_NO = 1
+  </sql>
+</databaseConfig>

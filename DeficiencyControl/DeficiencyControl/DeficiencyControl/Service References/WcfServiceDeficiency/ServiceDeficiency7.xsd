@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.Output" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.Output" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+  <xs:complexType name="AccidentOutputParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndYear" type="xs:int" />
+      <xs:element minOccurs="0" name="OutputKind" type="tns:EAccidentOutputKind" />
+      <xs:element minOccurs="0" name="StartYear" type="xs:int" />
+      <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccidentOutputParameter" nillable="true" type="tns:AccidentOutputParameter" />
+  <xs:simpleType name="EAccidentOutputKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="船毎" />
+      <xs:enumeration value="IGT船" />
+      <xs:enumeration value="外航船" />
+      <xs:enumeration value="傭船" />
+      <xs:enumeration value="MAX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EAccidentOutputKind" nillable="true" type="tns:EAccidentOutputKind" />
+  <xs:complexType name="ArrayOfAccidentOutputData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccidentOutputData" nillable="true" type="tns:AccidentOutputData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccidentOutputData" nillable="true" type="tns:ArrayOfAccidentOutputData" />
+  <xs:complexType name="AccidentOutputData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KindDic" nillable="true" type="q1:ArrayOfKeyValueOfintArrayOfDcAccidentL63gWZ4E" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SituationDic" nillable="true" type="q2:ArrayOfKeyValueOfintArrayOfDcAccidentL63gWZ4E" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccidentOutputData" nillable="true" type="tns:AccidentOutputData" />
+  <xs:complexType name="PscOutputParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndYear" type="xs:int" />
+      <xs:element minOccurs="0" name="StartYear" type="xs:int" />
+      <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PscOutputParameter" nillable="true" type="tns:PscOutputParameter" />
+  <xs:complexType name="PscOutputData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AggregateList" nillable="true" type="tns:ArrayOfPscOutputAggregateData" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PSCVesselDic" nillable="true" type="q3:ArrayOfKeyValueOfdecimalArrayOfPSCInspectionDataL_PGpTIGq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PscOutputData" nillable="true" type="tns:PscOutputData" />
+  <xs:complexType name="ArrayOfPscOutputAggregateData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PscOutputAggregateData" nillable="true" type="tns:PscOutputAggregateData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPscOutputAggregateData" nillable="true" type="tns:ArrayOfPscOutputAggregateData" />
+  <xs:complexType name="PscOutputAggregateData">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ActionCodeDic" nillable="true" type="q4:ArrayOfKeyValueOfintArrayOfDcActionCodeHistoryL63gWZ4E" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DeficiencyCodeDic" nillable="true" type="q5:ArrayOfKeyValueOfintPscOutputDeficiencyAggregateData5xtNolcJ" />
+      <xs:element minOccurs="0" name="DeficiencyCount" type="xs:int" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PscCount" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PscOutputAggregateData" nillable="true" type="tns:PscOutputAggregateData" />
+  <xs:complexType name="PscOutputDeficiencyAggregateData">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" minOccurs="0" name="Code" nillable="true" type="q6:MsDeficiencyCode" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="PscLsit" nillable="true" type="q7:ArrayOfDcCiPscInspection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PscOutputDeficiencyAggregateData" nillable="true" type="tns:PscOutputDeficiencyAggregateData" />
+  <xs:complexType name="MoiExcelOutputParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndYear" type="xs:int" />
+      <xs:element minOccurs="0" name="Kind" type="tns:EMoiExcelOutputKind" />
+      <xs:element minOccurs="0" name="StartYear" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoiExcelOutputParameter" nillable="true" type="tns:MoiExcelOutputParameter" />
+  <xs:simpleType name="EMoiExcelOutputKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="項目別指摘数" />
+      <xs:enumeration value="是正対応リスト" />
+      <xs:enumeration value="MAX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EMoiExcelOutputKind" nillable="true" type="tns:EMoiExcelOutputKind" />
+  <xs:complexType name="MoiExcelOutputDataCategory">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataDic" nillable="true" type="q8:ArrayOfKeyValueOfintArrayOfMoiDataL_PGpTIGq" />
+      <xs:element minOccurs="0" name="DeleteSheet" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MoiCount" type="xs:int" />
+      <xs:element minOccurs="0" name="StartYear" type="xs:int" />
+      <xs:element minOccurs="0" name="VesselCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoiExcelOutputDataCategory" nillable="true" type="tns:MoiExcelOutputDataCategory" />
+</xs:schema>

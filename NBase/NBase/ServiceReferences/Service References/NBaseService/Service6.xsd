@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WtmModelBase" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WtmModelBase" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfWork">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Work" nillable="true" type="tns:Work" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWork" nillable="true" type="tns:ArrayOfWork" />
+  <xs:complexType name="Work">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CrewID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CrewNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Deviation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deviation1Week" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deviation4Week" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviationResttime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deviations" nillable="true" type="tns:ArrayOfDeviation" />
+      <xs:element minOccurs="0" name="FinishWork" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FinishWorkAcutual" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeviation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeviation1Week" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeviation4Week" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeviationResttime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NightTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SquenceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartWork" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartWorkAcutual" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkContentDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkContentDetails" nillable="true" type="tns:ArrayOfWorkContentDetail" />
+      <xs:element minOccurs="0" name="WorkID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Work" nillable="true" type="tns:Work" />
+  <xs:complexType name="ArrayOfDeviation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Deviation" nillable="true" type="tns:Deviation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviation" nillable="true" type="tns:ArrayOfDeviation" />
+  <xs:complexType name="Deviation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Kind" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Deviation" nillable="true" type="tns:Deviation" />
+  <xs:complexType name="ArrayOfWorkContentDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkContentDetail" nillable="true" type="tns:WorkContentDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkContentDetail" nillable="true" type="tns:ArrayOfWorkContentDetail" />
+  <xs:complexType name="WorkContentDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NightTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkContentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkContentDetail" nillable="true" type="tns:WorkContentDetail" />
+  <xs:complexType name="ArrayOfWorkSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkSummary" nillable="true" type="tns:WorkSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkSummary" nillable="true" type="tns:ArrayOfWorkSummary" />
+  <xs:complexType name="WorkSummary">
+    <xs:sequence>
+      <xs:element name="_x003C_CrewNo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Date_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_OverTimes_x003E_k__BackingField" type="xs:double" />
+      <xs:element name="_x003C_RestMinutes_x003E_k__BackingField" type="xs:double" />
+      <xs:element name="_x003C_WorkMinutes1Week_x003E_k__BackingField" type="xs:double" />
+      <xs:element name="_x003C_WorkMinutes_x003E_k__BackingField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkSummary" nillable="true" type="tns:WorkSummary" />
+  <xs:complexType name="Setting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Deviation" type="xs:double" />
+      <xs:element minOccurs="0" name="Deviation1Week" type="xs:double" />
+      <xs:element minOccurs="0" name="Deviation4Week" type="xs:double" />
+      <xs:element minOccurs="0" name="DeviationLongRestTime" type="xs:double" />
+      <xs:element minOccurs="0" name="DeviationRestTime" type="xs:double" />
+      <xs:element minOccurs="0" name="DeviationRestTimeCount" type="xs:double" />
+      <xs:element minOccurs="0" name="FlgAnchorage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgNightTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgShowApproval" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgShowRankCategory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgSummaryEdit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgSummaryTimes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlgVesselMovement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkRange" type="xs:double" />
+      <xs:element minOccurs="0" name="WorkingHours" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Setting" nillable="true" type="tns:Setting" />
+  <xs:complexType name="ArrayOfWorkContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkContent" nillable="true" type="tns:WorkContent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkContent" nillable="true" type="tns:ArrayOfWorkContent" />
+  <xs:complexType name="WorkContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BgColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="DspName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FgColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsIncludeWorkTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSafetyTemporaryLabor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkContentID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkContent" nillable="true" type="tns:WorkContent" />
+  <xs:complexType name="ArrayOfRankCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RankCategory" nillable="true" type="tns:RankCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRankCategory" nillable="true" type="tns:ArrayOfRankCategory" />
+  <xs:complexType name="RankCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="RankCategoryID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RankCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ranks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RankCategory" nillable="true" type="tns:RankCategory" />
+  <xs:complexType name="ArrayOfRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole" />
+  <xs:complexType name="Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="IsApprover" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Rank" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ranks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="ArrayOfVesselMovement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VesselMovement" nillable="true" type="tns:VesselMovement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVesselMovement" nillable="true" type="tns:ArrayOfVesselMovement" />
+  <xs:complexType name="VesselMovement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnchorageF1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnchorageF2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnchorageS1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnchorageS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Anchorages" nillable="true" type="tns:ArrayOfAnchorage" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="DateInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullAnchorage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GeneratorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MovementInfoE1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MovementInfoE2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MovementInfoP1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MovementInfoP2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MovementInfos" nillable="true" type="tns:ArrayOfMovementInfo" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SquenceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TargetDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VesselMovement" nillable="true" type="tns:VesselMovement" />
+  <xs:complexType name="ArrayOfAnchorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Anchorage" nillable="true" type="tns:Anchorage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnchorage" nillable="true" type="tns:ArrayOfAnchorage" />
+  <xs:complexType name="Anchorage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="DateInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Finish" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Start" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Anchorage" nillable="true" type="tns:Anchorage" />
+  <xs:complexType name="ArrayOfMovementInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MovementInfo" nillable="true" type="tns:MovementInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovementInfo" nillable="true" type="tns:ArrayOfMovementInfo" />
+  <xs:complexType name="MovementInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="DateInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Event" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="No" type="xs:int" />
+      <xs:element minOccurs="0" name="Port" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MovementInfo" nillable="true" type="tns:MovementInfo" />
+  <xs:complexType name="VesselApprovalMonth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApprovalCrewNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalMonth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SquenceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselApprovalMonthID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VesselApprovalMonth" nillable="true" type="tns:VesselApprovalMonth" />
+  <xs:complexType name="ArrayOfVesselApprovalDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VesselApprovalDay" nillable="true" type="tns:VesselApprovalDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVesselApprovalDay" nillable="true" type="tns:ArrayOfVesselApprovalDay" />
+  <xs:complexType name="VesselApprovalDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApprovalDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ApprovedCrewNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApproverCrewNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="IsDelete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SquenceDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselApprovalDayID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VesselApprovalDay" nillable="true" type="tns:VesselApprovalDay" />
+  <xs:complexType name="ArrayOfSummaryTimes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SummaryTimes" nillable="true" type="tns:SummaryTimes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSummaryTimes" nillable="true" type="tns:ArrayOfSummaryTimes" />
+  <xs:complexType name="SummaryTimes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowanceTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CrewNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNo" type="xs:int" />
+      <xs:element minOccurs="0" name="SendFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SummaryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SummaryTimesID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VesselID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SummaryTimes" nillable="true" type="tns:SummaryTimes" />
+</xs:schema>

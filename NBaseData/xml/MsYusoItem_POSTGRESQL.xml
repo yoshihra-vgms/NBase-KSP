@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		MS_YUSO_ITEM.MS_YUSO_ITEM_ID ,
+		MS_YUSO_ITEM.YUSO_ITEM_CODE  ,
+		MS_YUSO_ITEM.YUSO_ITEM_NAME  ,
+		MS_YUSO_ITEM.SENSHU_CODE     ,
+		MS_YUSO_ITEM.SENSHU_NAME     ,
+		MS_YUSO_ITEM.RENEW_DATE      ,
+		MS_YUSO_ITEM.RENEW_USER_ID   ,
+		MS_YUSO_ITEM.TS              ,
+		MS_YUSO_ITEM.DELETE_FLAG     ,
+		MS_YUSO_ITEM.SEND_FLAG       ,
+		MS_YUSO_ITEM.VESSEL_ID       ,
+		MS_YUSO_ITEM.DATA_NO         ,
+		MS_YUSO_ITEM.USER_KEY
+
+		from MS_YUSO_ITEM
+		where DELETE_FLAG = 0
+	</sql>
+	
+	<sql name="ByMsYusoItemID">
+		and MS_YUSO_ITEM.MS_YUSO_ITEM_ID = :MS_YUSO_ITEM_ID
+	</sql>
+	<sql name="ByYusoItemName">
+		and MS_YUSO_ITEM.YUSO_ITEM_NAME like :YUSO_ITEM_NAME
+	</sql>
+
+
+	<sql name="OrderBy">
+	    order by MS_YUSO_ITEM.YUSO_ITEM_CODE
+	</sql>
+
+	<sql name="InsertRecord">
+    INSERT INTO MS_YUSO_ITEM
+    (
+    MS_YUSO_ITEM_ID ,
+    YUSO_ITEM_CODE  ,
+    YUSO_ITEM_NAME  ,
+    SENSHU_CODE     ,
+    SENSHU_NAME     ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    DELETE_FLAG     ,
+    SEND_FLAG       ,
+    VESSEL_ID       ,
+    USER_KEY
+    )
+    VALUES
+    (
+    nextval('SEQ_MS_YUSO_ITEM_ID'),
+    :YUSO_ITEM_CODE ,
+    :YUSO_ITEM_NAME ,
+    :SENSHU_CODE    ,
+    :SENSHU_NAME    ,
+    :RENEW_DATE     ,
+    :RENEW_USER_ID  ,
+    0               ,
+    0               ,
+    :VESSEL_ID      ,
+    :USER_KEY
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_YUSO_ITEM SET
+	  YUSO_ITEM_CODE = :YUSO_ITEM_CODE,
+	  YUSO_ITEM_NAME = :YUSO_ITEM_NAME,
+	  SENSHU_CODE = :SENSHU_CODE,
+	  SENSHU_NAME = :SENSHU_NAME,
+	  RENEW_DATE = :RENEW_DATE,
+	  RENEW_USER_ID = :RENEW_USER_ID,
+	  DELETE_FLAG = :DELETE_FLAG,
+	  VESSEL_ID = :VESSEL_ID
+
+	  WHERE
+	  MS_YUSO_ITEM_ID = :MS_YUSO_ITEM_ID
+	  AND TS = :TS
+  </sql>
+
+</databaseConfig>

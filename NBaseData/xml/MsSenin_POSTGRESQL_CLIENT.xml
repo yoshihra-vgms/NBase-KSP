@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SENIN.MS_SENIN_ID                    ,
+
+    MS_SENIN.MS_USER_ID                     ,
+    MS_SENIN.MS_SI_SHOKUMEI_ID              ,
+    MS_SENIN.MS_SENIN_COMPANY_ID            ,
+
+    MS_SENIN.SEI                            ,
+    MS_SENIN.MEI                            ,
+    MS_SENIN.SEI_KANA                       ,
+    MS_SENIN.MEI_KANA                       ,
+    MS_SENIN.KUBUN                          ,
+    MS_SENIN.SHIMEI_CODE                    ,
+    MS_SENIN.HOKEN_NO
+
+    #APPEND_FULL_SENIN_COLUMNS#
+
+    #APPEND_COLUMN_STR#
+
+    FROM
+    MS_SENIN
+
+    LEFT JOIN
+    MS_USER ON MS_USER.MS_USER_ID = MS_SENIN.MS_USER_ID
+
+    JOIN
+    MS_SI_SHOKUMEI
+    ON
+    MS_SI_SHOKUMEI.MS_SI_SHOKUMEI_ID = MS_SENIN.MS_SI_SHOKUMEI_ID
+
+    #APPEND_JOIN_STR#
+
+    WHERE
+    MS_SENIN.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="AppendFullSeninColumns">
+    ,
+    MS_SENIN.SEX                            ,
+    MS_SENIN.BIRTHDAY                       ,
+    MS_SENIN.NENKIN_NO                      ,
+    MS_SENIN.NYUUSHA_DATE                   ,
+    MS_SENIN.POSTAL_NO                      ,
+    MS_SENIN.GENJUUSHO                      ,
+    MS_SENIN.HONSEKI                        ,
+    MS_SENIN.TEL                            ,
+    MS_SENIN.FAX                            ,
+    MS_SENIN.MAIL                           ,
+    MS_SENIN.KEITAI                         ,
+    MS_SENIN.SONOTA                         ,
+    MS_SENIN.PICTURE                        ,
+    MS_SENIN.PICTURE_DATE                   ,
+    MS_SENIN.GAKUREKI                       ,
+    MS_SENIN.ZENREKI                        ,
+    MS_SENIN.SHOUKAISHA                     ,
+    MS_SENIN.BANK_NAME1                     ,
+    MS_SENIN.BRANCH_NAME1                   ,
+    MS_SENIN.ACCOUNT_NO1                    ,
+    MS_SENIN.BANK_NAME2                     ,
+    MS_SENIN.BRANCH_NAME2                   ,
+    MS_SENIN.ACCOUNT_NO2                    ,
+    MS_SENIN.POSTAL_ACCOUNT_NO              ,
+    MS_SENIN.CLOTH_UE                       ,
+    MS_SENIN.CLOTH_SHITA                    ,
+    MS_SENIN.CLOTH_KUTSU                    ,
+    MS_SENIN.RETIRE_FLAG                    ,
+    MS_SENIN.RETIRE_DATE                    ,
+
+    MS_SENIN.DEPARTMENT                     ,
+    MS_SENIN.SEI_HIRAGANA                   ,
+    MS_SENIN.MEI_HIRAGANA                   ,
+    MS_SENIN.MEMBER_OF                      ,
+
+    MS_SENIN.DELETE_FLAG,
+    MS_SENIN.SEND_FLAG,
+    MS_SENIN.VESSEL_ID,
+    MS_SENIN.DATA_NO,
+    MS_SENIN.USER_KEY,
+    MS_SENIN.RENEW_DATE,
+    MS_SENIN.RENEW_USER_ID,
+    MS_SENIN.TS                             ,
+
+    MS_USER.LOGIN_ID                        ,
+    MS_USER.PASSWORD
+  </sql>
+  
+  <sql name="ByMsSeninID">
+    AND
+    MS_SENIN.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="ByStartEnd">
+    AND
+    (
+    SI_CARD.END_DATE >= :START_DATE
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    OR
+    SI_CARD.END_DATE IS NULL
+    AND
+    SI_CARD.START_DATE &lt;= :END_DATE
+    )
+  </sql>
+
+  <sql name="FilterBy_休暇管理以外">
+    AND
+    SI_CARD.MS_SI_SHUBETSU_ID IN (SELECT MS_SI_SHUBETSU.MS_SI_SHUBETSU_ID FROM MS_SI_SHUBETSU WHERE MS_SI_SHUBETSU.KYUUKA_FLAG &lt; 2)
+  </sql>
+
+  <sql name="AppendColumnForMsSeninFilter">
+    ,
+    SI_CARD.MS_SI_SHUBETSU_ID              ,
+    SI_CARD.MS_VESSEL_ID                   ,
+    SI_CARD.START_DATE                     ,
+    SI_CARD.END_DATE
+  </sql>
+
+  <sql name="AppendLeftJoinForSiCardFilter">
+    LEFT JOIN
+    SI_CARD ON SI_CARD.MS_SENIN_ID = MS_SENIN.MS_SENIN_ID
+    AND
+    SI_CARD.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="AppendInnerJoinForSiCardFilter">
+    JOIN
+    SI_CARD ON SI_CARD.MS_SENIN_ID = MS_SENIN.MS_SENIN_ID
+    AND
+    SI_CARD.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="FilterBySiMenjouDeleteFlag">
+    AND
+    SI_MENJOU.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="FilterByShimeiCode">
+    AND
+    TRIM(MS_SENIN.SHIMEI_CODE) = :SHIMEI_CODE
+  </sql>
+
+  <sql name="FilterByHokenNo">
+    AND
+    TRIM(MS_SENIN.HOKEN_NO) = :HOKEN_NO
+  </sql>
+
+  <sql name="FilterByName">
+    AND
+    (
+    MS_SENIN.SEI || ' ' || MS_SENIN.MEI
+    LIKE
+    :NAME
+    )
+  </sql>
+
+  <sql name="FilterByNameKana">
+    AND
+    (
+    MS_SENIN.SEI_KANA || ' ' || MS_SENIN.MEI_KANA
+    LIKE
+    :NAME_KANA
+    )
+  </sql>
+
+  <sql name="FilterByMsVesselId">
+    AND
+    SI_CARD.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="FilterByMsSiShokumeiId">
+    AND
+    MS_SENIN.MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID
+  </sql>
+
+  <sql name="FilterByKubuns">
+    AND MS_SENIN.KUBUN IN ( #INNER_SQL_KUBUNS# )
+  </sql>
+
+  <sql name="FilterByRetireFlag">
+    AND MS_SENIN.RETIRE_FLAG = :RETIRE_FLAG
+  </sql>
+
+  <sql name="FilterByGenjuusho">
+    AND
+    MS_SENIN.GENJUUSHO LIKE :GENJUUSHO
+  </sql>
+
+  <sql name="FilterByMsSiShubetsuIDs">
+    AND SI_CARD.MS_SI_SHUBETSU_ID IN ( #INNER_SQL_MS_SI_SHUBETSUS# )
+  </sql>
+
+  <sql name="FilterByMsSiMenjouKindFilter">
+    AND
+    MS_SENIN.MS_SENIN_ID IN
+    (
+    SELECT S2.MS_SENIN_ID
+    FROM
+    MS_SENIN S2
+
+    LEFT JOIN
+    SI_MENJOU ON SI_MENJOU.MS_SENIN_ID = S2.MS_SENIN_ID
+
+    LEFT JOIN
+    MS_SI_MENJOU_KIND ON MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID = SI_MENJOU.MS_SI_MENJOU_KIND_ID AND
+    SI_MENJOU.DELETE_FLAG = 0
+
+    WHERE
+    MS_SI_MENJOU_KIND.MS_SI_MENJOU_KIND_ID IN ( #INNER_SQL_MS_SI_MENJOU_KINDS# )
+  </sql>
+
+  <sql name="OrderByMsSiShokumeiIdSeiMei">
+    ORDER BY
+    MS_SI_SHOKUMEI.SHOW_ORDER, MS_SENIN.SEI_KANA, MS_SENIN.MEI_KANA
+  </sql>
+
+  <sql name="OrderBySeiMei">
+    ORDER BY
+    MS_SENIN.SEI_KANA, MS_SENIN.MEI_KANA
+  </sql>
+
+  <sql name="OrderBySeiMeiStartDate">
+    ORDER BY
+    MS_SENIN.SEI_KANA, MS_SENIN.MEI_KANA, SI_CARD.START_DATE DESC
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO MS_SENIN(
+    MS_SENIN_ID                    ,
+
+    MS_USER_ID                     ,
+    MS_SI_SHOKUMEI_ID              ,
+
+    SEI                            ,
+    MEI                            ,
+    SEI_KANA                       ,
+    MEI_KANA                       ,
+    KUBUN                          ,
+    SEX                            ,
+    SHIMEI_CODE                    ,
+    HOKEN_NO                       ,
+    BIRTHDAY                       ,
+    NENKIN_NO                      ,
+    NYUUSHA_DATE                   ,
+    POSTAL_NO                      ,
+    GENJUUSHO                      ,
+    HONSEKI                        ,
+    TEL                            ,
+    FAX                            ,
+    MAIL                           ,
+    KEITAI                         ,
+    SONOTA                         ,
+    PICTURE                        ,
+    PICTURE_DATE                   ,
+    GAKUREKI                       ,
+    ZENREKI                        ,
+    SHOUKAISHA                     ,
+    BANK_NAME1                     ,
+    BRANCH_NAME1                   ,
+    ACCOUNT_NO1                    ,
+    BANK_NAME2                     ,
+    BRANCH_NAME2                   ,
+    ACCOUNT_NO2                    ,
+    POSTAL_ACCOUNT_NO              ,
+    CLOTH_UE                       ,
+    CLOTH_SHITA                    ,
+    CLOTH_KUTSU                    ,
+    RETIRE_FLAG                    ,
+    RETIRE_DATE                    ,
+
+    MS_SENIN_COMPANY_ID            ,
+    DEPARTMENT                     ,
+    SEI_HIRAGANA                   ,
+    MEI_HIRAGANA                   ,
+    MEMBER_OF                      ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_SENIN_ID                    ,
+
+    :MS_USER_ID                     ,
+    :MS_SI_SHOKUMEI_ID              ,
+
+    :SEI                            ,
+    :MEI                            ,
+    :SEI_KANA                       ,
+    :MEI_KANA                       ,
+    :KUBUN                          ,
+    :SEX                            ,
+    :SHIMEI_CODE                    ,
+    :HOKEN_NO                       ,
+    :BIRTHDAY                       ,
+    :NENKIN_NO                      ,
+    :NYUUSHA_DATE                   ,
+    :POSTAL_NO                      ,
+    :GENJUUSHO                      ,
+    :HONSEKI                        ,
+    :TEL                            ,
+    :FAX                            ,
+    :MAIL                           ,
+    :KEITAI                         ,
+    :SONOTA                         ,
+    :PICTURE                        ,
+    :PICTURE_DATE                   ,
+    :GAKUREKI                       ,
+    :ZENREKI                        ,
+    :SHOUKAISHA                     ,
+    :BANK_NAME1                     ,
+    :BRANCH_NAME1                   ,
+    :ACCOUNT_NO1                    ,
+    :BANK_NAME2                     ,
+    :BRANCH_NAME2                   ,
+    :ACCOUNT_NO2                    ,
+    :POSTAL_ACCOUNT_NO              ,
+    :CLOTH_UE                       ,
+    :CLOTH_SHITA                    ,
+    :CLOTH_KUTSU                    ,
+    :RETIRE_FLAG                    ,
+    :RETIRE_DATE                    ,
+
+    :MS_SENIN_COMPANY_ID            ,
+    :DEPARTMENT                     ,
+    :SEI_HIRAGANA                   ,
+    :MEI_HIRAGANA                   ,
+    :MEMBER_OF                      ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SENIN
+    SET
+    MS_USER_ID = :MS_USER_ID                         ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+
+    SEI = :SEI                                       ,
+    MEI = :MEI                                       ,
+    SEI_KANA = :SEI_KANA                             ,
+    MEI_KANA = :MEI_KANA                             ,
+    KUBUN = :KUBUN                                   ,
+    SEX = :SEX                                       ,
+    SHIMEI_CODE = :SHIMEI_CODE                       ,
+    HOKEN_NO = :HOKEN_NO                             ,
+    BIRTHDAY = :BIRTHDAY                             ,
+    NENKIN_NO = :NENKIN_NO                           ,
+    NYUUSHA_DATE = :NYUUSHA_DATE                     ,
+    POSTAL_NO = :POSTAL_NO                           ,
+    GENJUUSHO = :GENJUUSHO                           ,
+    HONSEKI = :HONSEKI                               ,
+    TEL = :TEL                                       ,
+    FAX = :FAX                                       ,
+    MAIL = :MAIL                                     ,
+    KEITAI = :KEITAI                                 ,
+    SONOTA = :SONOTA                                 ,
+    PICTURE = :PICTURE                               ,
+    PICTURE_DATE = :PICTURE_DATE                     ,
+    GAKUREKI = :GAKUREKI                             ,
+    ZENREKI = :ZENREKI                               ,
+    SHOUKAISHA = :SHOUKAISHA                         ,
+    BANK_NAME1 = :BANK_NAME1                         ,
+    BRANCH_NAME1 = :BRANCH_NAME1                     ,
+    ACCOUNT_NO1 = :ACCOUNT_NO1                       ,
+    BANK_NAME2 = :BANK_NAME2                         ,
+    BRANCH_NAME2 = :BRANCH_NAME2                     ,
+    ACCOUNT_NO2 = :ACCOUNT_NO2                       ,
+    POSTAL_ACCOUNT_NO = :POSTAL_ACCOUNT_NO           ,
+    CLOTH_UE = :CLOTH_UE                             ,
+    CLOTH_SHITA = :CLOTH_SHITA                       ,
+    CLOTH_KUTSU = :CLOTH_KUTSU                       ,
+    RETIRE_FLAG = :RETIRE_FLAG                       ,
+    RETIRE_DATE = :RETIRE_DATE                       ,
+
+    MS_SENIN_COMPANY_ID = :MS_SENIN_COMPANY_ID       ,
+    DEPARTMENT = :DEPARTMENT                         ,
+    SEI_HIRAGANA = :SEI_HIRAGANA                     ,
+    MEI_HIRAGANA = :MEI_HIRAGANA                     ,
+    MEMBER_OF = :MEMBER_OF                           ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+</databaseConfig>

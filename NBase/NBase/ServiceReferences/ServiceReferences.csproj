@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FBA14B8-00E7-4EE1-B9B0-7DF5737248EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceReferences</RootNamespace>
+    <AssemblyName>ServiceReferences</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\BK用\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BUILD_BK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <DefineConstants>BUILD_BK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;BUILD_BK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\NBaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WcfServiceWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\NBaseService\Service.wsdl" />
+    <None Include="Service References\NBaseService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NBaseService\Service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SqlMapper\SqlMapper.csproj">
+      <Project>{E99EFCAD-A268-4B46-A6D8-396775C922D3}</Project>
+      <Name>SqlMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.BLC.動静基幹連携.datasource" />
+    <None Include="Properties\DataSources\WingData.BLC.合算対象の受領.datasource" />
+    <None Include="Properties\DataSources\WingData.BLC.年間管理表受入データ.datasource" />
+    <None Include="Properties\DataSources\WingData.BLC.貯蔵品リスト.datasource" />
+    <None Include="Properties\DataSources\WingData.BLC.貯蔵品編集RowData.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgHankanhi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgJiseki.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgKadouVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgNrkKanryou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgRate.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgUchiwakeYosanItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgUnkouhi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgVesselYosan.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanBikou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanExcel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanHead.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanMemo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.BgYosanSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DjDousei.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsKensa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsKensen.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsKyumeisetsubi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsNiyaku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShinsa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShousho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsAlarmDate.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBasho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBerth.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCargo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomer.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCustomerTantou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsHimoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsItemSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKanidouseiInfoShubetu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKensa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKensen.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKichi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsKyumeisetsubi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsLoVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsNiyaku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsNyukyoKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSenin.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShinsa.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShousho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShoushuriItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsShrJouken.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiDaikoumoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiHiyouKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiKamoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiMeisai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiMenjou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiMenjouKind.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShokumei.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSiShubetsu.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsSsShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsTani.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiSbt.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsThiIraiStatus.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUserBumon.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemCategory.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselItemVessel.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsVesselType.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdChozoShousai.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdFurikaeToritate.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdGetsujiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdHachuMail.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdHachuTanka.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJry.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdJryShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMk.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMkShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMm.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdMmShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShr.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrGassanHead.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrGassanItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdShrShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThi.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdThiShousaiItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtAlarmInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtHonsenkoushinInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtKanidouseiInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.PtPortalInfoFormat.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiCard.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiGetsujiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiHaijou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiJunbikin.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiKazoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiMenjou.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiNenjiShime.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiRireki.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiSoukin.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.MsRole.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.MsBashoKubun.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsBashoKyori.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.DjDouseiCargo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsNiyakuKensaLink.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShoushoKensaLink.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShoushoKensenLink.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.KsShoushoShinsaLink.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsCargoYusoItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsUserPassHis.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsYusoItem.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.OdGaisanKeijo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SiHaijouItem.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.DAC.SnSyncInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SnSyncInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\WingData.BLC.概算計上一覧Row.datasource" />
+    <None Include="Properties\DataSources\WingData.BLC.状況確認一覧Row.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmDocComment.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKakuninJokyo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKanriKiroku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKanriKirokuFile.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKanryoInfo.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKoubunshoKisoku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKoubunshoKisokuFile.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmKoukaiSaki.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.DmPublisher.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.HoukokushoKanriKiroku.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsDmBunrui.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsDmHoukokusho.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsDmShoubunrui.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.MsDmTemplateFile.datasource" />
+    <None Include="Properties\DataSources\WingData.DAC.SnParameter.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NBaseService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NBaseService\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NBaseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NBaseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NBaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

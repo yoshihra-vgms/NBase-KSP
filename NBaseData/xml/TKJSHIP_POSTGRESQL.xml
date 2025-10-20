@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    SELECT
+    MS_VESSEL.VESSEL_NO as FUNE_NO,
+    TKJSHIP.PROFITS_KBN,
+    MS_VESSEL.VESSEL_NAME,
+    MS_VESSEL.DWT,
+    MS_VESSEL.CARGO_WEIGHT,
+    MS_VESSEL.OFFICIAL_NUMBER,
+    MS_VESSEL.GRT
+
+
+    FROM TKJSHIP
+    inner join MS_VESSEL on MS_VESSEL.VESSEL_NO = TKJSHIP.FUNE_NO
+    where TKJSHIP.DELFLG = 0
+
+  </sql>
+
+	<sql name="OrderBy">
+		order by MS_VESSEL.SHOW_ORDER
+	</sql>
+</databaseConfig>

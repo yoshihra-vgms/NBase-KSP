@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_SALARY_ID,
+
+    KIND,
+    START_DATE,
+    END_DATE,
+    PREV_MS_SI_SALARY_ID,
+
+    USER_KEY,
+    DATA_NO,
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    RENEW_USER_ID,
+    RENEW_DATE,
+    TS
+
+    FROM
+    MS_SI_SALARY
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+  
+  <sql name="SearchByKinds">
+    AND
+    KIND in ( #KINDS# )
+  </sql>
+  
+  <sql name="SearchByKind">
+    AND
+    KIND = :KIND
+  </sql>
+  
+  <sql name="SearchBySiSalaryId">
+    AND
+    MS_SI_SALARY_ID = :MS_SI_SALARY_ID
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY
+    KIND, START_DATE, END_DATE
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_SALARY(
+    MS_SI_SALARY_ID                ,
+
+    KIND                         ,
+    START_DATE                    ,
+    END_DATE                      ,
+    PREV_MS_SI_SALARY_ID           ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    Nextval( 'SEQ_MS_SI_SALARY_ID' ),
+
+    :KIND,
+    :START_DATE                    ,
+    :END_DATE                      ,
+    :PREV_MS_SI_SALARY_ID           ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_SALARY
+    SET
+    KIND = :KIND                                 ,
+    START_DATE = :START_DATE                       ,
+    END_DATE = :END_DATE                           ,
+    PREV_MS_SI_SALARY_ID = :PREV_MS_SI_SALARY_ID     ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_SALARY_ID = :MS_SI_SALARY_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

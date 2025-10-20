@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    FUNCTION_NAME ,
+    IS_CONTRACT ,
+    
+    DELETE_FLAG ,
+    SEND_FLAG ,
+    VESSEL_ID ,
+    DATA_NO ,
+    USER_KEY ,
+    RENEW_DATE ,
+    RENEW_USER_ID ,
+    TS  
+
+    FROM
+    NBASE_CONTRACT_FUNCTION
+
+    WHERE DELETE_FLAG = 0
+
+    ORDER BY FUNCTION_NAME
+  </sql>
+ 
+  <sql name="InsertRecord">
+    INSERT INTO NBASE_CONTRACT_FUNCTION(
+    FUNCTION_NAME
+    ,IS_CONTRACT
+    ,DELETE_FLAG
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    )
+    VALUES(
+    :FUNCTION_NAME
+    ,:IS_CONTRACT
+    ,:DELETE_FLAG
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    NBASE_CONTRACT_FUNCTION
+    SET
+    IS_CONTRACT = :IS_CONTRACT
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE FUNCTION_NAME = :FUNCTION_NAME
+  </sql>
+
+</databaseConfig>

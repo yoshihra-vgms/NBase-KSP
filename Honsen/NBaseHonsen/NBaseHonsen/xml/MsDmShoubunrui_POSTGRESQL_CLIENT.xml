@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		SELECT
+		MS_DM_SHOUBUNRUI.MS_DM_SHOUBUNRUI_ID,
+		MS_DM_SHOUBUNRUI.CODE,
+		MS_DM_SHOUBUNRUI.NAME,
+		MS_DM_SHOUBUNRUI.MS_DM_BUNRUI_ID,
+		MS_DM_BUNRUI.NAME as MS_DM_BUNRUI_NAME,
+		MS_DM_SHOUBUNRUI.RENEW_DATE,
+		MS_DM_SHOUBUNRUI.RENEW_USER_ID,
+		MS_DM_SHOUBUNRUI.USER_KEY,
+		MS_DM_SHOUBUNRUI.SEND_FLAG,
+		MS_DM_SHOUBUNRUI.VESSEL_ID,
+		MS_DM_SHOUBUNRUI.TS
+
+		FROM MS_DM_SHOUBUNRUI
+		INNER JOIN MS_DM_BUNRUI ON MS_DM_BUNRUI.MS_DM_BUNRUI_ID = MS_DM_SHOUBUNRUI.MS_DM_BUNRUI_ID
+
+		WHERE (MS_DM_SHOUBUNRUI.DELETE_FLAG = 0 or MS_DM_SHOUBUNRUI.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByMsDmBunruiID">
+		AND MS_DM_SHOUBUNRUI.MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID
+
+	</sql>	
+
+	<sql name="LikeName">
+		and MS_DM_SHOUBUNRUI.NAME LIKE :NAME
+	</sql>
+	
+	<sql name="ByMsDmShoubunruiID">
+		and MS_DM_SHOUBUNRUI.MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By MS_DM_BUNRUI.CODE, MS_DM_BUNRUI.NAME, MS_DM_SHOUBUNRUI.CODE, MS_DM_SHOUBUNRUI.NAME
+	</sql>
+
+	<sql name="InsertRecord">
+		INSERT INTO MS_DM_SHOUBUNRUI
+		(
+		MS_DM_SHOUBUNRUI_ID ,
+		CODE			  ,
+		NAME			  ,
+		MS_DM_BUNRUI_ID ,
+		DELETE_FLAG     ,
+		SEND_FLAG       ,
+		VESSEL_ID       ,
+		DATA_NO         ,
+		USER_KEY        ,
+		RENEW_DATE      ,
+		RENEW_USER_ID   ,
+		TS
+		)
+		VALUES(
+		:MS_DM_SHOUBUNRUI_ID ,
+		:CODE            ,
+		:NAME            ,
+		:MS_DM_BUNRUI_ID ,
+		:DELETE_FLAG     ,
+		:SEND_FLAG       ,
+		:VESSEL_ID       ,
+		:DATA_NO         ,
+		:USER_KEY        ,
+		:RENEW_DATE      ,
+		:RENEW_USER_ID   ,
+		:TS
+		)
+	</sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE MS_DM_SHOUBUNRUI SET
+	  CODE = :CODE                       ,
+	  NAME = :NAME                       ,
+	  MS_DM_BUNRUI_ID = :MS_DM_BUNRUI_ID ,
+	  DELETE_FLAG = :DELETE_FLAG         ,
+	  SEND_FLAG = :SEND_FLAG             ,
+	  VESSEL_ID = :VESSEL_ID             ,
+	  DATA_NO = :DATA_NO                 ,
+	  USER_KEY = :USER_KEY               ,
+	  RENEW_DATE = :RENEW_DATE           ,
+	  RENEW_USER_ID = :RENEW_USER_ID     ,
+	  TS = :TS
+
+	  WHERE
+	  MS_DM_SHOUBUNRUI_ID = :MS_DM_SHOUBUNRUI_ID
+  </sql>
+</databaseConfig>

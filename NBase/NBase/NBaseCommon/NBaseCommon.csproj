@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA019336-3937-4B0D-A7F3-29523FF52433}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBaseCommon</RootNamespace>
+    <AssemblyName>NBaseCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <OutputPath>bin\BK用\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Shared.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Core.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.Creator.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExcelCreator\ExcelCreator.Xlsx.View.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\DLLs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alarm\IAlarmReceiver.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="DocumentGroupCheckBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DocumentGroupCheckBox.Designer.cs">
+      <DependentUpon>DocumentGroupCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentGroupPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DocumentGroupPanel.Designer.cs">
+      <DependentUpon>DocumentGroupPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\DouseiJissekiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\DouseiJissekiUserControl.Designer.cs">
+      <DependentUpon>DouseiJissekiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\DouseiJissekiUserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\DouseiJissekiUserControl2.Designer.cs">
+      <DependentUpon>DouseiJissekiUserControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\DouseiYoteiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\DouseiYoteiUserControl.Designer.cs">
+      <DependentUpon>DouseiYoteiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\DouseYoteiReadOnlyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\DouseYoteiReadOnlyUserControl.Designer.cs">
+      <DependentUpon>DouseYoteiReadOnlyUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\TuminiUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\TuminiUserControl.Designer.cs">
+      <DependentUpon>TuminiUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dousei\TuminiUserControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dousei\TuminiUserControl2.Designer.cs">
+      <DependentUpon>TuminiUserControl2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileView.cs" />
+    <Compile Include="Hachu\Excel\KK修繕注文書出力.cs" />
+    <Compile Include="Hachu\Excel\発注帳票Common.cs" />
+    <Compile Include="Hachu\Excel\KK船用品請求書出力.cs" />
+    <Compile Include="ListSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListSettingForm.Designer.cs">
+      <DependentUpon>ListSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogFiles.cs" />
+    <Compile Include="LoginFile.cs" />
+    <Compile Include="Master\Excel\報告書管理一覧出力.cs" />
+    <Compile Include="Master\Excel\顧客管理一覧出力.cs" />
+    <Compile Include="Master\Excel\乗り合わせ一覧出力.cs" />
+    <Compile Include="Master\Excel\個人予定一覧出力.cs" />
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeninSearchClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeninSearchClientForm.Designer.cs">
+      <DependentUpon>SeninSearchClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Senin\Excel\tek手当一覧出力.cs" />
+    <Compile Include="Senin\Excel\tek手当帳票出力.cs" />
+    <Compile Include="Senin\Excel\tek手当支給依頼書出力.cs" />
+    <Compile Include="Senin\Excel\util\ShokumeiGroup.cs" />
+    <Compile Include="Senin\Excel\健康診断一覧出力.cs" />
+    <Compile Include="Senin\Excel\傷病一覧出力.cs" />
+    <Compile Include="Senin\Excel\労務管理記録簿出力.cs" />
+    <Compile Include="Senin\Excel\船員交代予定表出力.cs" />
+    <Compile Include="Senin\Excel\職別海技免許等資格一覧出力.cs" />
+    <Compile Include="Senin\Excel\クルーリスト出力.cs" />
+    <Compile Include="Senin\Excel\免許免状一覧出力.cs" />
+    <Compile Include="Senin\Excel\未受講者一覧出力.cs" />
+    <Compile Include="Senin\Excel\給与手当一覧表出力.cs" />
+    <Compile Include="Senin\Excel\講習管理一覧表出力.cs" />
+    <Compile Include="Senin\Excel\船員カード出力.cs" />
+    <Compile Include="Senin\Excel\配乗表出力.cs" />
+    <Compile Include="Senin\Excel\乗下船カード出力.cs" />
+    <Compile Include="Senin\Excel\乗下船記録書出力.cs" />
+    <Compile Include="Senin\Excel\休暇消化状況出力.cs" />
+    <Compile Include="Senin\Excel\休日付与簿出力.cs" />
+    <Compile Include="Senin\Excel\科目別集計表出力.cs" />
+    <Compile Include="Senin\Excel\個人情報一覧出力.cs" />
+    <Compile Include="Senin\Excel\送金通知出力.cs" />
+    <Compile Include="Senin\Excel\船内収支報告書出力.cs" />
+    <Compile Include="Senin\Excel\船用品送金表出力.cs" />
+    <Compile Include="Number.cs" />
+    <Compile Include="Nyukyo\DirectDockOrderDacProxy.cs" />
+    <Compile Include="Nyukyo\DockOrderReader.cs" />
+    <Compile Include="Nyukyo\DockOrderWriter.cs" />
+    <Compile Include="Nyukyo\IDockOrderDacProxy.cs" />
+    <Compile Include="Nyukyo\InvalidFormatException.cs" />
+    <Compile Include="Nyukyo\NoDataException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Senin\Excel\配乗計画出力長期.cs" />
+    <Compile Include="Senin\Excel\配乗計画表内航乗下船出力.cs" />
+    <Compile Include="Senin\Excel\配乗計画表出力.cs" />
+    <Compile Include="Senin\TreeListViewUtils.cs" />
+    <Compile Include="Senyouhin\DirectVesselItemDacProxy.cs" />
+    <Compile Include="Senyouhin\IVesselItemDacProxy.cs" />
+    <Compile Include="Senyouhin\VesselItemReader.cs" />
+    <Compile Include="Senyouhin\VesselItemWriter.cs" />
+    <Compile Include="SettingListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingListControl.Designer.cs">
+      <DependentUpon>SettingListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船員検索Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船員検索Form.Designer.cs">
+      <DependentUpon>船員検索Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="複数選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="複数選択Form.Designer.cs">
+      <DependentUpon>複数選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="船選択Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="船選択Form.Designer.cs">
+      <DependentUpon>船選択Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="配乗計画Func.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DocumentGroupCheckBox.resx">
+      <DependentUpon>DocumentGroupCheckBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocumentGroupPanel.resx">
+      <DependentUpon>DocumentGroupPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\DouseiJissekiUserControl.resx">
+      <DependentUpon>DouseiJissekiUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\DouseiJissekiUserControl2.resx">
+      <DependentUpon>DouseiJissekiUserControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\DouseiYoteiUserControl.resx">
+      <DependentUpon>DouseiYoteiUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\DouseYoteiReadOnlyUserControl.resx">
+      <DependentUpon>DouseYoteiReadOnlyUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\TuminiUserControl.resx">
+      <DependentUpon>TuminiUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dousei\TuminiUserControl2.resx">
+      <DependentUpon>TuminiUserControl2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListSettingForm.resx">
+      <DependentUpon>ListSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingListControl.resx">
+      <DependentUpon>SettingListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船員検索Form.resx">
+      <DependentUpon>船員検索Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="複数選択Form.resx">
+      <DependentUpon>複数選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="船選択Form.resx">
+      <DependentUpon>船選択Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Senin\CSV\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

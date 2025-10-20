@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+  
+  <sql name="GetMaxTehaiIraiNo">
+    SELECT MAX(TEHAI_IRAI_NO) AS MAX_NO
+    FROM OD_THI
+    WHERE SUBSTR(TEHAI_IRAI_NO,1,:NO_LENGTH) = :BASE_TEHAI_IRAI_NO
+  </sql>
+
+  <sql name="GetMaxMmNo">
+    SELECT MAX(MM_NO) AS MAX_NO
+    FROM OD_MM
+    WHERE SUBSTR(MM_NO,1,:NO_LENGTH) = :BASE_MM_NO
+  </sql>
+
+  <sql name="GetMaxMkNo">
+    SELECT MAX(MK_NO) AS MAX_NO
+    FROM OD_MK
+    WHERE SUBSTR(MK_NO,1,:NO_LENGTH) = :BASE_MK_NO
+  </sql>
+
+  <sql name="GetMaxJryNo">
+    SELECT MAX(JRY_NO) AS MAX_NO
+    FROM OD_JRY
+    WHERE SUBSTR(JRY_NO,1,:NO_LENGTH) = :BASE_JRY_NO
+  </sql>
+
+  <sql name="GetMaxRksNo">
+    SELECT MAX(SHR_NO) AS MAX_NO
+    FROM OD_SHR
+    WHERE SUBSTR(SHR_NO,1,:NO_LENGTH) = :BASE_SHR_NO
+    AND SBT = 1
+  </sql>
+
+  <sql name="GetMaxShrNo">
+    SELECT MAX(SHR_NO) AS MAX_NO
+    FROM OD_SHR
+    WHERE SUBSTR(SHR_NO,1,:NO_LENGTH) = :BASE_SHR_NO
+    AND SBT = 0
+  </sql>
+
+  <sql name="GetMaxSumKanriNo">
+    SELECT MAX(SUM_KANRI_NO) AS MAX_NO
+    FROM TAJSINSEIIF
+    WHERE SUBSTR(SUM_KANRI_NO,1,:NO_LENGTH) = :BASE_SHR_NO
+  </sql>
+
+
+</databaseConfig>

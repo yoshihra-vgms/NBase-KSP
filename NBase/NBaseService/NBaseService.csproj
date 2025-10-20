@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0C01C40-B1F0-43F2-8C92-77F2EE0ABEA7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBaseService</RootNamespace>
+    <AssemblyName>NBaseService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExcelCreator\ExcelCreator.Shared.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExcelCreator\ExcelCreator.Xlsx.Core.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExcelCreator\ExcelCreator.Xlsx.Creator.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExcelCreator\ExcelCreator.Xlsx.View.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NBase\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.24.2.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NBase\packages\SendGrid.9.24.2\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NBase\packages\starkbank-ecdsa.1.3.1\lib\net452\StarkbankEcdsa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WtmModelBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\DataSources\WingData.BLC.動静基幹連携.datasource" />
+    <Content Include="Properties\DataSources\WingData.BLC.動静帳票.改正省エネ法エネルギー報告書.datasource" />
+    <Content Include="Properties\DataSources\WingData.BLC.ダイジェスト出力.datasource" />
+    <Content Include="Properties\DataSources\WingData.BLC.月次収支データ.datasource" />
+    <Content Include="Properties\DataSources\WingData.DAC.DJ.内航船舶輸送実績調査票Data.datasource" />
+    <Content Include="Properties\DataSources\WingData.DAC.DJ.内航海運輸送実績調査票Data.datasource" />
+    <Content Include="Properties\DataSources\WingData.DAC.予実実績連携IF.datasource" />
+    <Content Include="Properties\DataSources\WingData.DAC.支払実績連携IF.datasource" />
+    <Content Include="Service.svc" />
+    <Content Include="Template\HimokuTree.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\HimokuTree_入渠.xml" />
+    <Content Include="Template\印影.bmp" />
+    <Content Include="Template\動静報告メール.txt" />
+    <Content Include="Template\手配依頼メール.txt" />
+    <Content Include="Template\燃料・潤滑油発注メール.txt" />
+    <Content Include="Template\発注メール.txt" />
+    <Content Include="Template\見積依頼メール.txt" />
+    <Content Include="Template\見積回答メール.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLC\Alarm処理.cs" />
+    <Compile Include="BLC\GetsujiShuushiWriter2.cs" />
+    <Compile Include="BLC\ListSetteing.cs" />
+    <Compile Include="BLC\MailSendExeHelper.cs" />
+    <Compile Include="BLC\TEK船員帳票.cs" />
+    <Compile Include="BLC\WtmService.cs" />
+    <Compile Include="BLC\マスタ出力.cs" />
+    <Compile Include="BLC\動静帳票\動静報告一覧.cs" />
+    <Compile Include="BLC\勤怠管理.cs" />
+    <Compile Include="BLC\基幹システム連携書き込み処理.cs" />
+    <Compile Include="BLC\基本給管理.cs" />
+    <Compile Include="BLC\潤滑油登録.cs" />
+    <Compile Include="BLC\発注\KK船_種別変更.cs" />
+    <Compile Include="BLC\発注\業者別支払実績帳票.cs" />
+    <Compile Include="BLC\発注\発注データ修正.cs" />
+    <Compile Include="BLC\発注\KK発注帳票.cs" />
+    <Compile Include="BLC\船用品登録.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品編集.cs" />
+    <Compile Include="BLC\Constants.cs" />
+    <Compile Include="BLC\Doc\未提出状況一覧出力.cs" />
+    <Compile Include="BLC\Doc\回覧終了処理.cs" />
+    <Compile Include="BLC\Doc\コメント登録処理.cs" />
+    <Compile Include="BLC\Doc\状況確認一覧Row.cs" />
+    <Compile Include="BLC\Doc\確認状況一覧出力.cs" />
+    <Compile Include="BLC\Doc\管理記録処理.cs" />
+    <Compile Include="BLC\Doc\公文書規則処理.cs" />
+    <Compile Include="BLC\Doc\報告書処理.cs" />
+    <Compile Include="BLC\Dousei\動静処理.cs" />
+    <Compile Include="BLC\HimokuTreeNode.cs" />
+    <Compile Include="BLC\HimokuTreeReader.cs" />
+    <Compile Include="BLC\HimokuTreeReader_入渠.cs" />
+    <Compile Include="BLC\JisekiBuilder.cs" />
+    <Compile Include="BLC\YosanhyoWriter.cs" />
+    <Compile Include="BLC\YosanTaihihyoWriter.cs" />
+    <Compile Include="BLC\免許免状管理.cs" />
+    <Compile Include="BLC\発注\見積回答メール送信.cs" />
+    <Compile Include="BLC\船マスタ更新処理.cs" />
+    <Compile Include="BLC\予算対比表出力.cs" />
+    <Compile Include="BLC\予算表出力.cs" />
+    <Compile Include="BLC\修繕費予算出力.cs" />
+    <Compile Include="BLC\ユーザパスワード.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品集計表.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品リスト.cs" />
+    <Compile Include="BLC\添付ファイル.cs" />
+    <Compile Include="BLC\発注\船用品処理.cs" />
+    <Compile Include="BLC\発注\発注アラーム処理.cs" />
+    <Compile Include="BLC\発注\支払合算処理.cs" />
+    <Compile Include="BLC\発注\合見積比較表.cs" />
+    <Compile Include="BLC\審査帳票作成処理.cs" />
+    <Compile Include="BLC\本船更新情報処理.cs" />
+    <Compile Include="BLC\発注\発注RowData.cs" />
+    <Compile Include="BLC\発注\発注メール送信.cs" />
+    <Compile Include="BLC\船員.cs" />
+    <Compile Include="BLC\発注\入渠処理.cs" />
+    <Compile Include="BLC\発注\入渠費用管理表.cs" />
+    <Compile Include="BLC\動静表出力処理.cs" />
+    <Compile Include="BLC\月次収支管理票出力.cs" />
+    <Compile Include="BLC\発注\月次計上処理.cs" />
+    <Compile Include="BLC\発注\新規発注処理.cs" />
+    <Compile Include="BLC\予実.cs" />
+    <Compile Include="BLC\発注\概算計上処理.cs" />
+    <Compile Include="BLC\発注\ランニング管理表.cs" />
+    <Compile Include="BLC\発注\支払更新処理.cs" />
+    <Compile Include="BLC\発注\注文書.cs" />
+    <Compile Include="BLC\発注\発注処理Commn.cs" />
+    <Compile Include="BLC\発注\新規見積依頼処理.cs" />
+    <Compile Include="BLC\発注\受領更新処理.cs" />
+    <Compile Include="BLC\発注\船用品発注管理表.cs" />
+    <Compile Include="BLC\発注\見積り依頼書.cs" />
+    <Compile Include="BLC\発注\見積依頼メール送信.cs" />
+    <Compile Include="BLC\発注\見積回答更新処理.cs" />
+    <Compile Include="BLC\発注\見積依頼更新処理.cs" />
+    <Compile Include="BLC\ユーザ情報更新処理.cs" />
+    <Compile Include="BLC\ログイン処理.cs" />
+    <Compile Include="BLC\発注\手配依頼更新処理.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品年間管理表処理.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品詳細追加処理.cs" />
+    <Compile Include="BLC\講習管理.cs" />
+    <Compile Include="BLC\貨物マスタ更新処理.cs" />
+    <Compile Include="BLC\乗船資格.cs" />
+    <Compile Include="BLC\配乗シミュレーション.cs" />
+    <Compile Include="BLC\配乗計画.cs" />
+    <Compile Include="DAC\BgHankanhi.cs" />
+    <Compile Include="DAC\BgJiseki.cs" />
+    <Compile Include="DAC\BgKadouVessel.cs" />
+    <Compile Include="DAC\BgNrkKanryou.cs" />
+    <Compile Include="DAC\BgRate.cs" />
+    <Compile Include="DAC\BgYosanHead.cs" />
+    <Compile Include="DAC\BgYosanMemo.cs" />
+    <Compile Include="DAC\BgYosanSbt.cs" />
+    <Compile Include="DAC\DjDouseiCargo.cs" />
+    <Compile Include="DAC\DJ\DjDousei.cs" />
+    <Compile Include="DAC\DJ\DjDouseiHoukoku.cs" />
+    <Compile Include="DAC\Doc\MsDmBunrui.cs" />
+    <Compile Include="DAC\Doc\MsDmShoubunrui.cs" />
+    <Compile Include="DAC\Doc\MsDmHoukokusho.cs" />
+    <Compile Include="DAC\Doc\MsDmTemplateFile.cs" />
+    <Compile Include="DAC\Doc\DmPublisher.cs" />
+    <Compile Include="DAC\Doc\DmKoukaiSaki.cs" />
+    <Compile Include="DAC\Doc\DmKanriKiroku.cs" />
+    <Compile Include="DAC\Doc\HoukokushoKanriKiroku.cs" />
+    <Compile Include="DAC\Doc\DmKanriKirokuFile.cs" />
+    <Compile Include="DAC\Doc\DmKakuninJokyo.cs" />
+    <Compile Include="DAC\Doc\DmDocComment.cs" />
+    <Compile Include="DAC\Doc\DmKoubunshoKisoku.cs" />
+    <Compile Include="DAC\Doc\DmKoubunshoKisokuFile.cs" />
+    <Compile Include="DAC\Doc\DmKanryoInfo.cs" />
+    <Compile Include="DAC\MsAccidentImportance.cs" />
+    <Compile Include="DAC\MsAccidentKind.cs" />
+    <Compile Include="DAC\MsAccidentSituation.cs" />
+    <Compile Include="DAC\MsActionCode.cs" />
+    <Compile Include="DAC\MsCargoGroup.cs" />
+    <Compile Include="DAC\MsDeficiencyCategory.cs" />
+    <Compile Include="DAC\MsDeficiencyCode.cs" />
+    <Compile Include="DAC\MsDjKazamuki.cs" />
+    <Compile Include="DAC\MsDjKenkoujyoutai.cs" />
+    <Compile Include="DAC\MsDjSentaisetsubi.cs" />
+    <Compile Include="DAC\MsDjTani.cs" />
+    <Compile Include="DAC\MsDjTenkou.cs" />
+    <Compile Include="DAC\MsInspectionCategory.cs" />
+    <Compile Include="DAC\MsKindOfAccident.cs" />
+    <Compile Include="DAC\MsRegional.cs" />
+    <Compile Include="DAC\MsScheduleCategory.cs" />
+    <Compile Include="DAC\MsScheduleKind.cs" />
+    <Compile Include="DAC\MsScheduleKindDetail.cs" />
+    <Compile Include="DAC\MsSeninEtc.cs" />
+    <Compile Include="DAC\MsSeninCareer.cs" />
+    <Compile Include="DAC\MsSeninAddress.cs" />
+    <Compile Include="DAC\MsSeninCompany.cs" />
+    <Compile Include="DAC\MsSiAdvancedSearchCondition.cs" />
+    <Compile Include="DAC\MsSiSalary.cs" />
+    <Compile Include="DAC\MsSiAllowance.cs" />
+    <Compile Include="DAC\MsSiExcludeMenjouKind.cs" />
+    <Compile Include="DAC\MsItemKind.cs" />
+    <Compile Include="DAC\MsSiOptions.cs" />
+    <Compile Include="DAC\MsSiPresentationItem.cs" />
+    <Compile Include="DAC\MsListItem.cs" />
+    <Compile Include="DAC\MsSiShokumeiShousai.cs" />
+    <Compile Include="DAC\MsSiShubetsuShousai.cs" />
+    <Compile Include="DAC\MsVesselCategory.cs" />
+    <Compile Include="DAC\MsVesselSection.cs" />
+    <Compile Include="DAC\MsVesselKind.cs" />
+    <Compile Include="DAC\MsVesselScheduleKindDetailEnable.cs" />
+    <Compile Include="DAC\MsViqCode.cs" />
+    <Compile Include="DAC\MsViqCodeName.cs" />
+    <Compile Include="DAC\MsViqVersion.cs" />
+    <Compile Include="DAC\MsViqNo.cs" />
+    <Compile Include="DAC\NBaseContractFunction.cs" />
+    <Compile Include="DAC\SiAllowance.cs" />
+    <Compile Include="DAC\SiAllowanceDetail.cs" />
+    <Compile Include="DAC\SiCardPlanHead.cs" />
+    <Compile Include="DAC\SiCardPlan.cs" />
+    <Compile Include="DAC\SiKenshinPmhKa.cs" />
+    <Compile Include="DAC\SiKyuyoTeate.cs" />
+    <Compile Include="DAC\MsSiKyuyoTeate.cs" />
+    <Compile Include="DAC\MsSiKyuyoTeateSet.cs" />
+    <Compile Include="DAC\MsTax.cs" />
+    <Compile Include="DAC\MsCrewMatrixType.cs" />
+    <Compile Include="DAC\PtJimushokoushinInfo.cs" />
+    <Compile Include="DAC\MsBoardingExperience.cs" />
+    <Compile Include="DAC\SiLaborManagementRecordBook.cs" />
+    <Compile Include="DAC\SiNightSetting.cs" />
+    <Compile Include="DAC\SiPersonalSchedule.cs" />
+    <Compile Include="DAC\SiFellowPassengers.cs" />
+    <Compile Include="DAC\SiRequiredNumberOfDays.cs" />
+    <Compile Include="DAC\SiSalary.cs" />
+    <Compile Include="DAC\SiRemarks.cs" />
+    <Compile Include="DAC\SiShobatsu.cs" />
+    <Compile Include="DAC\SiShobyo.cs" />
+    <Compile Include="DAC\SiKenshin.cs" />
+    <Compile Include="DAC\SnParameter.cs" />
+    <Compile Include="DAC\KsKensa.cs" />
+    <Compile Include="DAC\KsKensen.cs" />
+    <Compile Include="DAC\KsKyumeisetsubi.cs" />
+    <Compile Include="DAC\KsNiyaku.cs" />
+    <Compile Include="DAC\KsNiyakuKensaLink.cs" />
+    <Compile Include="DAC\KsShinsa.cs" />
+    <Compile Include="DAC\KsShousho.cs" />
+    <Compile Include="DAC\KsShoushoKensaLink.cs" />
+    <Compile Include="DAC\KsShoushoKensenLink.cs" />
+    <Compile Include="DAC\KsShoushoShinsaLink.cs" />
+    <Compile Include="DAC\MsAlarmDate.cs" />
+    <Compile Include="DAC\MsBasho.cs" />
+    <Compile Include="DAC\MsBerth.cs" />
+    <Compile Include="DAC\MsBumon.cs" />
+    <Compile Include="DAC\MsYusoItem.cs" />
+    <Compile Include="DAC\MsHimoku.cs" />
+    <Compile Include="DAC\MsKanidouseiInfoShubetu.cs" />
+    <Compile Include="DAC\MsKensa.cs" />
+    <Compile Include="DAC\MsKensen.cs" />
+    <Compile Include="DAC\MsKichi.cs" />
+    <Compile Include="DAC\MsKiti.cs" />
+    <Compile Include="DAC\MsKyumeisetsubi.cs" />
+    <Compile Include="DAC\MsLo.cs" />
+    <Compile Include="DAC\MsLoVessel.cs" />
+    <Compile Include="DAC\MsNiyaku.cs" />
+    <Compile Include="DAC\MsRole.cs" />
+    <Compile Include="DAC\MsShinsa.cs" />
+    <Compile Include="DAC\MsShousho.cs" />
+    <Compile Include="DAC\MsShoushuriItem.cs" />
+    <Compile Include="DAC\MsSiGetsujiShimeBi.cs" />
+    <Compile Include="DAC\MsSiShokumei.cs" />
+    <Compile Include="DAC\MsSsShousaiItem.cs" />
+    <Compile Include="DAC\MsUser.cs" />
+    <Compile Include="DAC\MsUserBumon.cs" />
+    <Compile Include="DAC\MsUserPassHis.cs" />
+    <Compile Include="DAC\MsVessel.cs" />
+    <Compile Include="DAC\MsThiIraiStatus.cs" />
+    <Compile Include="DAC\MsThiIraiSbt.cs" />
+    <Compile Include="DAC\MsThiIraiShousai.cs" />
+    <Compile Include="DAC\MsVesselItem.cs" />
+    <Compile Include="DAC\MsVesselItemCategory.cs" />
+    <Compile Include="DAC\MsVesselType.cs" />
+    <Compile Include="DAC\MS\MsCargo.cs" />
+    <Compile Include="DAC\OdChozo.cs" />
+    <Compile Include="DAC\OdChozoShousai.cs" />
+    <Compile Include="DAC\OdFurikaeToritate.cs" />
+    <Compile Include="DAC\OdGaisanKeijo.cs" />
+    <Compile Include="DAC\OdGetsujiShime.cs" />
+    <Compile Include="DAC\OdHachuMail.cs" />
+    <Compile Include="DAC\OdHachuTanka.cs" />
+    <Compile Include="DAC\OdJryShousaiItem.cs" />
+    <Compile Include="DAC\OdThi.cs" />
+    <Compile Include="DAC\MsItemSbt.cs" />
+    <Compile Include="DAC\MsTani.cs" />
+    <Compile Include="DAC\OdThiItem.cs" />
+    <Compile Include="DAC\OdThiShousaiItem.cs" />
+    <Compile Include="DAC\MsVesselItemVessel.cs" />
+    <Compile Include="DAC\MsNyukyoKamoku.cs" />
+    <Compile Include="DAC\MsShrJouken.cs" />
+    <Compile Include="DAC\MsCustomer.cs" />
+    <Compile Include="DAC\MsCustomerTantou.cs" />
+    <Compile Include="DAC\OdMm.cs" />
+    <Compile Include="DAC\OdMmItem.cs" />
+    <Compile Include="DAC\OdMmShousaiItem.cs" />
+    <Compile Include="DAC\OdMk.cs" />
+    <Compile Include="DAC\OdMkItem.cs" />
+    <Compile Include="DAC\OdMkShousaiItem.cs" />
+    <Compile Include="DAC\OdJryItem.cs" />
+    <Compile Include="DAC\OdJry.cs" />
+    <Compile Include="DAC\OdShr.cs" />
+    <Compile Include="DAC\OdShrItem.cs" />
+    <Compile Include="DAC\OdShrShousaiItem.cs" />
+    <Compile Include="DAC\BgVesselYosan.cs" />
+    <Compile Include="DAC\BgYosanItem.cs" />
+    <Compile Include="DAC\MsKamoku.cs" />
+    <Compile Include="DAC\MsShinseiTantou.cs" />
+    <Compile Include="DAC\PtAlarmInfo.cs" />
+    <Compile Include="DAC\PtHonsenkoushinInfo.cs" />
+    <Compile Include="DAC\PtKanidouseiInfo.cs" />
+    <Compile Include="DAC\MsSiShubetsu.cs" />
+    <Compile Include="DAC\MsSiMenjou.cs" />
+    <Compile Include="DAC\MsSenin.cs" />
+    <Compile Include="DAC\SiCard.cs" />
+    <Compile Include="DAC\SiHaijouItem.cs" />
+    <Compile Include="DAC\SiMenjou.cs" />
+    <Compile Include="DAC\MsSiHiyouKamoku.cs" />
+    <Compile Include="DAC\MsSiMeisai.cs" />
+    <Compile Include="DAC\MsSiDaikoumoku.cs" />
+    <Compile Include="DAC\SiJunbikin.cs" />
+    <Compile Include="DAC\SiSoukin.cs" />
+    <Compile Include="DAC\SiKazoku.cs" />
+    <Compile Include="DAC\SiRireki.cs" />
+    <Compile Include="DAC\SiHaijou.cs" />
+    <Compile Include="DAC\BgUnkouhi.cs" />
+    <Compile Include="DAC\BgUchiwakeYosanItem.cs" />
+    <Compile Include="DAC\BgYosanBikou.cs" />
+    <Compile Include="DAC\BgYosanExcel.cs" />
+    <Compile Include="DAC\MsSiKamoku.cs" />
+    <Compile Include="DAC\MsSiMenjouKind.cs" />
+    <Compile Include="DAC\PtPortalInfoFormat.cs" />
+    <Compile Include="DAC\SiGetsujiShime.cs" />
+    <Compile Include="DAC\SiNenjiShime.cs" />
+    <Compile Include="DAC\MsBashoKyori.cs" />
+    <Compile Include="DAC\MsBashoKubun.cs" />
+    <Compile Include="DAC\OdShrGassanHead.cs" />
+    <Compile Include="DAC\OdShrGassanItem.cs" />
+    <Compile Include="DAC\MsCargoYusoItem.cs" />
+    <Compile Include="DAC\SnSyncInfo.cs" />
+    <Compile Include="DAC\OdJryGaisan.cs" />
+    <Compile Include="DAC\TsTraceLog.cs" />
+    <Compile Include="DAC\MsUserSettings.cs" />
+    <Compile Include="DAC\WingMessage.cs" />
+    <Compile Include="DAC\OdAttachFile.cs" />
+    <Compile Include="DAC\MsSiKoushu.cs" />
+    <Compile Include="DAC\SiKoushu.cs" />
+    <Compile Include="DAC\PtAnzenHyouji.cs" />
+    <Compile Include="DAC\SiKyuka.cs" />
+    <Compile Include="DAC\WorkPattern.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.svc.cs">
+      <DependentUpon>Service.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ORMapping\ORMapping.csproj">
+      <Project>{1D9A87FB-1BA0-49EF-A5BA-94934A590AE0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NBaseData\NBaseData.csproj">
+      <Project>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{ACDBD951-2C1F-4155-93C1-56AB4212123A}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBase\NBaseCommon\NBaseCommon.csproj">
+      <Project>{AA019336-3937-4B0D-A7F3-29523FF52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Template\Template_ダイジェスト表示.xls" />
+    <None Include="Template\Template_ランニング管理表.xls" />
+    <None Include="Template\Template_クルーリスト.xls" />
+    <Content Include="Template\Template_乗り合わせ一覧表.xls" />
+    <None Include="Template\Template_乗下船記録書.xls" />
+    <None Include="Template\Template_予算対比表.xls" />
+    <None Include="Template\Template_予算表.xls" />
+    <None Include="Template\Template_休日付与簿.xls" />
+    <None Include="Template\Template_休暇消化状況.xls" />
+    <None Include="Template\Template_修繕費予算出力.xls" />
+    <Content Include="Template\Template_個人予定一覧表.xls" />
+    <None Include="Template\Template_個人情報一覧.xls" />
+    <Content Include="Template\Template_健康診断一覧.xls" />
+    <Content Include="Template\Template_傷病一覧.xls" />
+    <None Include="Template\Template_免許・免状一覧.xls" />
+    <None Include="Template\Template_入渠費用管理表.xls" />
+    <None Include="Template\Template_内航海運輸送実績調査票.xls" />
+    <None Include="Template\Template_内航船舶輸送実績調査票.xls" />
+    <None Include="Template\Template_動静報告一覧.xls" />
+    <None Include="Template\Template_動静表.xls" />
+    <None Include="Template\Template_受講状況一覧.xls" />
+    <None Include="Template\Template_合見積比較表.xls" />
+    <None Include="Template\Template_審査帳票.xls" />
+    <None Include="Template\Template_改正省エネ法エネルギー報告書.xls" />
+    <None Include="Template\Template_月次収支報告書.xls" />
+    <None Include="Template\Template_月次収支資料.xls" />
+    <None Include="Template\Template_未提出確認一覧.xls" />
+    <Content Include="Template\Template_業者別支払実績.xls" />
+    <None Include="Template\Template_概算計上一覧.xls" />
+    <None Include="Template\Template_注文書.xls" />
+    <None Include="Template\Template_発注RowData.xls" />
+    <None Include="Template\Template_確認状況一覧.xls" />
+    <None Include="Template\Template_経常収支実績.xls" />
+    <Content Include="Template\Template_給与手当一覧表.xls" />
+    <None Include="Template\Template_船内収支報告書.xls" />
+    <None Include="Template\Template_船員カード.xls" />
+    <Content Include="Template\Template_船員免状等職別資格一覧表.xls" />
+    <None Include="Template\Template_船用品注文書.xls" />
+    <None Include="Template\Template_船用品発注管理表.xls" />
+    <None Include="Template\Template_船用品集計表.xls" />
+    <None Include="Template\Template_船用金送金表.xls" />
+    <None Include="Template\Template_見積り依頼書.xls" />
+    <None Include="Template\Template_講習管理一覧表.xls" />
+    <None Include="Template\Template_貯蔵品リスト.xls" />
+    <None Include="Template\Template_貯蔵品年間管理表.xls" />
+    <None Include="Template\Template_貯蔵品管理表.xls" />
+    <None Include="Template\Template_潤滑油集計表.xls" />
+    <None Include="Template\Template_送金通知.xls" />
+    <None Include="Template\Template_科目別集計表.xls" />
+    <None Include="Template\Template_配乗表.xls" />
+    <None Include="Template\Template_乗下船カード.xls" />
+    <Content Include="Web - miho.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web - aki.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <OutputPath>bin\BK用\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>3715</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/WingServer</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

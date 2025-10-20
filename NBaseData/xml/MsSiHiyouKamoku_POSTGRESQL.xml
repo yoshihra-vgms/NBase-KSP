@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_HIYOU_KAMOKU_ID,
+    NAME,
+
+    DELETE_FLAG,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO,
+    USER_KEY,
+    RENEW_DATE,
+    RENEW_USER_ID,
+    TS
+
+    FROM
+    MS_SI_HIYOU_KAMOKU
+
+    WHERE
+    DELETE_FLAG = 0
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    NAME LIKE :NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_HIYOU_KAMOKU(
+    MS_SI_HIYOU_KAMOKU_ID              ,
+    NAME                           ,
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    nextval('SEQ_MS_SI_HIYOU_KAMOKU_ID'),
+    :NAME                           ,
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_HIYOU_KAMOKU
+    SET
+    NAME = :NAME                                     ,
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE MS_SI_HIYOU_KAMOKU_ID = :MS_SI_HIYOU_KAMOKU_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

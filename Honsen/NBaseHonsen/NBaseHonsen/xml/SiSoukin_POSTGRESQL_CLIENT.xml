@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_SOUKIN.SI_SOUKIN_ID                   ,
+
+    SI_SOUKIN.SI_JUNBIKIN_ID                 ,
+    SI_SOUKIN.MS_VESSEL_ID                   ,
+    SI_SOUKIN.SOUKIN_USER_ID                 ,
+    SI_SOUKIN.UKEIRE_USER_ID                 ,
+    SI_SOUKIN.MS_CUSTOMER_ID                 ,
+
+    SI_SOUKIN.SOUKIN_DATE                    ,
+    SI_SOUKIN.UKEIRE_DATE                    ,
+    SI_SOUKIN.SHOKUHI                        ,
+    SI_SOUKIN.RYOHI                          ,
+    SI_SOUKIN.SONOTAHI                       ,
+    SI_SOUKIN.KINGAKU                        ,
+    SI_SOUKIN.BIKOU                          ,
+
+    SI_SOUKIN.DELETE_FLAG                    ,
+    SI_SOUKIN.SEND_FLAG                      ,
+    SI_SOUKIN.VESSEL_ID                      ,
+    SI_SOUKIN.DATA_NO                        ,
+    SI_SOUKIN.USER_KEY                       ,
+    SI_SOUKIN.RENEW_DATE                     ,
+    SI_SOUKIN.RENEW_USER_ID                  ,
+    SI_SOUKIN.TS                             ,
+
+    U1.SEI || ' ' || U1.MEI AS SOUKIN_USER_NAME,
+    U2.SEI || ' ' || U2.MEI AS UKEIRE_USER_NAME,
+    MS_CUSTOMER.CUSTOMER_NAME
+
+    FROM
+    SI_SOUKIN
+
+    LEFT JOIN
+    MS_USER U1 ON U1.MS_USER_ID = SI_SOUKIN.SOUKIN_USER_ID
+    LEFT JOIN
+    MS_USER U2 ON U2.MS_USER_ID = SI_SOUKIN.UKEIRE_USER_ID
+    LEFT JOIN
+    MS_CUSTOMER ON MS_CUSTOMER.MS_CUSTOMER_ID = SI_SOUKIN.MS_CUSTOMER_ID
+
+    WHERE
+    SI_SOUKIN.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByStartEnd">
+    AND
+    SI_SOUKIN.SOUKIN_DATE >= :START_DATE
+    AND
+    SI_SOUKIN.SOUKIN_DATE &lt; :END_DATE
+  </sql>
+
+  <sql name="ByMsVesselID">
+    AND
+    SI_SOUKIN.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="BySiSoukinID">
+    AND
+    SI_SOUKIN.SI_SOUKIN_ID = :SI_SOUKIN_ID
+  </sql>
+
+  <sql name="BySiJunbikinID">
+    AND
+    SI_SOUKIN.SI_JUNBIKIN_ID = :SI_JUNBIKIN_ID
+  </sql>
+
+  <sql name="_未受入">
+    AND
+    SI_SOUKIN.UKEIRE_USER_ID IS NULL
+    AND
+    SI_SOUKIN.UKEIRE_DATE IS NULL
+
+    ORDER BY
+    SI_SOUKIN.SOUKIN_DATE DESC
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_SOUKIN(
+    SI_SOUKIN_ID                   ,
+
+    SI_JUNBIKIN_ID                  ,
+    MS_VESSEL_ID                   ,
+    SOUKIN_USER_ID                 ,
+    UKEIRE_USER_ID                 ,
+    MS_CUSTOMER_ID                 ,
+
+    SOUKIN_DATE                    ,
+    UKEIRE_DATE                    ,
+    SHOKUHI                        ,
+    RYOHI                          ,
+    SONOTAHI                       ,
+    KINGAKU                        ,
+    BIKOU                          ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_SOUKIN_ID                   ,
+
+    :SI_JUNBIKIN_ID                 ,
+    :MS_VESSEL_ID                   ,
+    :SOUKIN_USER_ID                 ,
+    :UKEIRE_USER_ID                 ,
+    :MS_CUSTOMER_ID                 ,
+
+    :SOUKIN_DATE                    ,
+    :UKEIRE_DATE                    ,
+    :SHOKUHI                        ,
+    :RYOHI                          ,
+    :SONOTAHI                       ,
+    :KINGAKU                        ,
+    :BIKOU                          ,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_SOUKIN
+    SET
+    SI_JUNBIKIN_ID = :SI_JUNBIKIN_ID                 ,
+    MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+    SOUKIN_USER_ID = :SOUKIN_USER_ID                 ,
+    UKEIRE_USER_ID = :UKEIRE_USER_ID                 ,
+    MS_CUSTOMER_ID = :MS_CUSTOMER_ID                 ,
+
+    SOUKIN_DATE = :SOUKIN_DATE                       ,
+    UKEIRE_DATE = :UKEIRE_DATE                       ,
+    SHOKUHI = :SHOKUHI                               ,
+    RYOHI = :RYOHI                                   ,
+    SONOTAHI = :SONOTAHI                             ,
+    KINGAKU = :KINGAKU                               ,
+    BIKOU = :BIKOU                                   ,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_SOUKIN_ID = :SI_SOUKIN_ID
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_TANI.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                      ,
+    MS_TANI.SEND_FLAG                      ,
+    MS_TANI.VESSEL_ID                      ,
+    MS_TANI.DATA_NO                        ,
+    MS_TANI.USER_KEY                       ,
+    MS_TANI.RENEW_DATE                     ,
+    MS_TANI.RENEW_USER_ID                  ,
+    MS_TANI.TS
+    FROM
+    MS_TANI
+
+    ORDER BY MS_TANI.TANI_NAME
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_TANI.MS_TANI_ID                     ,
+    MS_TANI.TANI_NAME                      ,
+    MS_TANI.SEND_FLAG                      ,
+    MS_TANI.VESSEL_ID                      ,
+    MS_TANI.DATA_NO                        ,
+    MS_TANI.USER_KEY                       ,
+    MS_TANI.RENEW_DATE                     ,
+    MS_TANI.RENEW_USER_ID                  ,
+    MS_TANI.TS
+    FROM
+    MS_TANI
+
+    WHERE MS_TANI.MS_TANI_ID = :MS_TANI_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_TANI(
+    MS_TANI_ID                     ,
+    TANI_NAME                      ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :MS_TANI_ID                     ,
+    :TANI_NAME                      ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_TANI
+    SET
+    TANI_NAME  = :TANI_NAME                          ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+    WHERE
+    MS_TANI_ID = :MS_TANI_ID
+
+  </sql>
+
+</databaseConfig>

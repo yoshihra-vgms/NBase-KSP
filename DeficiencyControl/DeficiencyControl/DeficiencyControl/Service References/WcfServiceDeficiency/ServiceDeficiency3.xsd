@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57670/ServiceDeficiency.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+  <xs:complexType name="SIMemoProgressSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="si_memo_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SIMemoProgressSearchData" nillable="true" type="tns:SIMemoProgressSearchData" />
+  <xs:complexType name="BaseSearchData">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BaseSearchData" nillable="true" type="tns:BaseSearchData" />
+  <xs:complexType name="MsExpiryDateSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsExpiryDateSearchData" nillable="true" type="tns:MsExpiryDateSearchData" />
+  <xs:complexType name="MsUserSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsUserSearchData" nillable="true" type="tns:MsUserSearchData" />
+  <xs:complexType name="SIMemoSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PeriodStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="compornent_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="si_memo_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="si_memo_status_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SIMemoSearchData" nillable="true" type="tns:SIMemoSearchData" />
+  <xs:complexType name="DefectSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PeriodStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_component_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="defect_status_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DefectSearchData" nillable="true" type="tns:DefectSearchData" />
+  <xs:complexType name="DefectProgressSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defect_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DefectProgressSearchData" nillable="true" type="tns:DefectProgressSearchData" />
+  <xs:complexType name="AccidentReportSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PeriodStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="accident_report_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_status_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="kind_of_accident_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccidentReportSearchData" nillable="true" type="tns:AccidentReportSearchData" />
+  <xs:complexType name="AccidentReportProgressSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="accident_report_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccidentReportProgressSearchData" nillable="true" type="tns:AccidentReportProgressSearchData" />
+  <xs:complexType name="PlanSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EstimateDateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EstimateDateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpiryDateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpiryDateStart" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" minOccurs="0" name="PlanStatus" nillable="true" type="q1:EPlanStatus" />
+          <xs:element minOccurs="0" name="RecordLink" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="mou_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlanSearchData" nillable="true" type="tns:PlanSearchData" />
+  <xs:complexType name="InsuranceSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PeriodEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PeriodStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cargo_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="category1_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="category2_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="discharging_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="insurance_status_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="loading_ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ref_number" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsuranceSearchData" nillable="true" type="tns:InsuranceSearchData" />
+  <xs:complexType name="InsuranceProgressSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="insurance_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsuranceProgressSearchData" nillable="true" type="tns:InsuranceProgressSearchData" />
+  <xs:complexType name="ProgressSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_item_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="progress_date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="progress_date_start" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgressSearchData" nillable="true" type="tns:ProgressSearchData" />
+  <xs:complexType name="AlarmSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="enble" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="item_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlarmSearchData" nillable="true" type="tns:AlarmSearchData" />
+  <xs:complexType name="CommentItemSearchData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearchData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="date_end" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_start" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="deficiency_count_max" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="deficiency_count_min" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="inspector_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="internal_audit_type_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="item_kind_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mou_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="si_visiting" type="xs:boolean" />
+          <xs:element minOccurs="0" name="status_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="truble_report" type="xs:boolean" />
+          <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CommentItemSearchData" nillable="true" type="tns:CommentItemSearchData" />
+</xs:schema>

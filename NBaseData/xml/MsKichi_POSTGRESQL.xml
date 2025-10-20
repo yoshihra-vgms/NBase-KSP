@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    select
+    MS_KICHI_ID     ,
+    KICHI_NO        ,
+    KICHI_NAME      ,
+
+    MS_BASHO_ID,
+    FOR_NYUKO_TO_CHAKUSAN,
+    AVAILABLE_FOR_CHAKUSAN_FROM,
+    AVAILABLE_FOR_CHAKUSAN_TO,
+    FOR_CHAKUSAN_TO_NIYAKU,
+    AVAILABLE_FOR_NIYAKU_FROM,
+    AVAILABLE_FOR_NIYAKU_TO,
+    FOR_NIYAKU_TO_RISAN,
+    AVAILABLE_FOR_RISAN_FROM,
+    AVAILABLE_FOR_RISAN_TO,
+    FOR_RISAN_TO_SHUKOU,
+    AVAILABLE_FOR_SHUKOU_FROM,
+    AVAILABLE_FOR_SHUKOU_TO,
+    CARGOS,
+
+    DELETE_FLAG     ,
+    USER_KEY        ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    SEND_FLAG       ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    from
+    MS_KICHI
+    where (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+  <sql name="OrderBy">
+
+    order by KICHI_NO
+
+  </sql>
+  <sql name="ByKichiNoKichiName">
+		and KICHI_NO like :KICHI_NO
+		and KICHI_NAME like :KICHI_NAME
+
+	</sql>
+  <sql name="ByKichiName">
+    and KICHI_NAME  = :KICHI_NAME
+  </sql>
+  <sql name="ByKichiNo">
+    and KICHI_NO = :KICHI_NO
+  </sql>
+  <sql name="InsertRecord">
+    INSERT INTO MS_KICHI
+    (
+    MS_KICHI_ID     ,
+    KICHI_NO        ,
+    KICHI_NAME      ,
+
+    MS_BASHO_ID,
+    FOR_NYUKO_TO_CHAKUSAN,
+    AVAILABLE_FOR_CHAKUSAN_FROM,
+    AVAILABLE_FOR_CHAKUSAN_TO,
+    FOR_CHAKUSAN_TO_NIYAKU,
+    AVAILABLE_FOR_NIYAKU_FROM,
+    AVAILABLE_FOR_NIYAKU_TO,
+    FOR_NIYAKU_TO_RISAN,
+    AVAILABLE_FOR_RISAN_FROM,
+    AVAILABLE_FOR_RISAN_TO,
+    FOR_RISAN_TO_SHUKOU,
+    AVAILABLE_FOR_SHUKOU_FROM,
+    AVAILABLE_FOR_SHUKOU_TO,
+    CARGOS,
+
+    DELETE_FLAG     ,
+    USER_KEY        ,
+    VESSEL_ID       ,
+    DATA_NO         ,
+    SEND_FLAG       ,
+    RENEW_DATE      ,
+    RENEW_USER_ID   ,
+    TS
+    )
+    VALUES
+    (
+    :MS_KICHI_ID     ,
+    :KICHI_NO        ,
+    :KICHI_NAME      ,
+
+    :MS_BASHO_ID,
+    :FOR_NYUKO_TO_CHAKUSAN,
+    :AVAILABLE_FOR_CHAKUSAN_FROM,
+    :AVAILABLE_FOR_CHAKUSAN_TO,
+    :FOR_CHAKUSAN_TO_NIYAKU,
+    :AVAILABLE_FOR_NIYAKU_FROM,
+    :AVAILABLE_FOR_NIYAKU_TO,
+    :FOR_NIYAKU_TO_RISAN,
+    :AVAILABLE_FOR_RISAN_FROM,
+    :AVAILABLE_FOR_RISAN_TO,
+    :FOR_RISAN_TO_SHUKOU,
+    :AVAILABLE_FOR_SHUKOU_FROM,
+    :AVAILABLE_FOR_SHUKOU_TO,
+    :CARGOS,
+
+    :DELETE_FLAG     ,
+    :USER_KEY        ,
+    :VESSEL_ID       ,
+    :DATA_NO         ,
+    :SEND_FLAG       ,
+    :RENEW_DATE      ,
+    :RENEW_USER_ID   ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_KICHI
+    SET
+    KICHI_NO = :KICHI_NO            ,
+    KICHI_NAME = :KICHI_NAME        ,
+
+    MS_BASHO_ID = :MS_BASHO_ID,
+    FOR_NYUKO_TO_CHAKUSAN = :FOR_NYUKO_TO_CHAKUSAN,
+    AVAILABLE_FOR_CHAKUSAN_FROM = :AVAILABLE_FOR_CHAKUSAN_FROM,
+    AVAILABLE_FOR_CHAKUSAN_TO = :AVAILABLE_FOR_CHAKUSAN_TO,
+    FOR_CHAKUSAN_TO_NIYAKU = :FOR_CHAKUSAN_TO_NIYAKU,
+    AVAILABLE_FOR_NIYAKU_FROM = :AVAILABLE_FOR_NIYAKU_FROM,
+    AVAILABLE_FOR_NIYAKU_TO = :AVAILABLE_FOR_NIYAKU_TO,
+    FOR_NIYAKU_TO_RISAN = :FOR_NIYAKU_TO_RISAN,
+    AVAILABLE_FOR_RISAN_FROM = :AVAILABLE_FOR_RISAN_FROM,
+    AVAILABLE_FOR_RISAN_TO = :AVAILABLE_FOR_RISAN_TO,
+    FOR_RISAN_TO_SHUKOU = :FOR_RISAN_TO_SHUKOU,
+    AVAILABLE_FOR_SHUKOU_FROM = :AVAILABLE_FOR_SHUKOU_FROM,
+    AVAILABLE_FOR_SHUKOU_TO = :AVAILABLE_FOR_SHUKOU_TO,
+    CARGOS = :CARGOS,
+
+    DELETE_FLAG = :DELETE_FLAG      ,
+    USER_KEY = :USER_KEY            ,
+    VESSEL_ID = :VESSEL_ID          ,
+    DATA_NO = :DATA_NO              ,
+    SEND_FLAG = :SEND_FLAG          ,
+    RENEW_DATE = :RENEW_DATE        ,
+    RENEW_USER_ID = :RENEW_USER_ID  ,
+    TS = :TS
+
+    WHERE
+    MS_KICHI_ID = :MS_KICHI_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

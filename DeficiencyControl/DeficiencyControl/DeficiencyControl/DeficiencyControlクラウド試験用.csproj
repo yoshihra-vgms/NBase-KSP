@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC736493-48BC-4265-A253-26474542484F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeficiencyControl</RootNamespace>
+    <AssemblyName>IGTDeficiencyControl_Test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/defcon_igt/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://wing.iino.co.jp/DeficiencyControlApp_Test/</InstallUrl>
+    <ProductName>IGTDeficiencyControlDataBase_Test</ProductName>
+    <PublisherName>IGT DCデータベース</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>0.0.0.2</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DeficiencyControl.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\DeficiencyControl.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>455978E18113F3F3283DE5A4C1CD23D1CF173E43</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator.Shared.2, Version=1.0.5270.3126, Culture=neutral, PublicKeyToken=74413c0dffa9a444, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ExcelCreator.Shared.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelCreator.View.2, Version=1.0.5270.3126, Culture=neutral, PublicKeyToken=6cd5c90abe85f19a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ExcelCreator.View.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.2, Version=8.0.5270.3126, Culture=neutral, PublicKeyToken=ae4e623aabba02c0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ExcelCreator.Xlsx.Core.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.2, Version=8.0.5270.3126, Culture=neutral, PublicKeyToken=ee833485010d97e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ExcelCreator.Xlsx.Creator.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accident\AccidentDetailAttachmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentDetailAttachmentControl.Designer.cs">
+      <DependentUpon>AccidentDetailAttachmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentDetailAttachmentGrid.cs" />
+    <Compile Include="Accident\AccidentDetailControlLogic.cs" />
+    <Compile Include="Accident\AccidentDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentDetailForm.Designer.cs">
+      <DependentUpon>AccidentDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentDetailFormLogic.cs" />
+    <Compile Include="Accident\AccidentListGrid.cs" />
+    <Compile Include="Accident\AccidentManager.cs" />
+    <Compile Include="Accident\AccidentOutputSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentOutputSettingForm.Designer.cs">
+      <DependentUpon>AccidentOutputSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentProgressControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentProgressControl.Designer.cs">
+      <DependentUpon>AccidentProgressControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentReportsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentReportsControl.Designer.cs">
+      <DependentUpon>AccidentReportsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMaintenance\AdminMaintenanceMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMaintenance\AdminMaintenanceMenuForm.Designer.cs">
+      <DependentUpon>AdminMaintenanceMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMaintenance\RegistCountListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMaintenance\RegistCountListForm.Designer.cs">
+      <DependentUpon>RegistCountListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMaintenance\RegistCountListGrid.cs" />
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="Accident\AccidentDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentDetailControl.Designer.cs">
+      <DependentUpon>AccidentDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentHeaderControl.Designer.cs">
+      <DependentUpon>AccidentHeaderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseChildItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BaseChildItemControl.Designer.cs">
+      <DependentUpon>BaseChildItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentDetailAttachmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentDetailAttachmentControl.Designer.cs">
+      <DependentUpon>CommentDetailAttachmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentDetailItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentDetailItemControl.Designer.cs">
+      <DependentUpon>CommentDetailItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\ActionCodeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\ActionCodeControl.Designer.cs">
+      <DependentUpon>ActionCodeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\BaseCommentItemDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\BaseCommentItemDetailControl.Designer.cs">
+      <DependentUpon>BaseCommentItemDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\BaseCommentItemHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\BaseCommentItemHeaderControl.Designer.cs">
+      <DependentUpon>BaseCommentItemHeaderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\DeficiencyCodeSelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\DeficiencyCodeSelectControl.Designer.cs">
+      <DependentUpon>DeficiencyCodeSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\PscDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\PscDetailControl.Designer.cs">
+      <DependentUpon>PscDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommentItem\PscHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommentItem\PscHeaderControl.Designer.cs">
+      <DependentUpon>PscHeaderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataCountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataCountControl.Designer.cs">
+      <DependentUpon>DataCountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LabelDescriptionControl.Designer.cs">
+      <DependentUpon>LabelDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelDescriptionLineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LabelDescriptionLineControl.Designer.cs">
+      <DependentUpon>LabelDescriptionLineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StatusSelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StatusSelectControl.Designer.cs">
+      <DependentUpon>StatusSelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DatePeriodControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DatePeriodControl.Designer.cs">
+      <DependentUpon>DatePeriodControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PortalAlarmControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PortalAlarmControl.Designer.cs">
+      <DependentUpon>PortalAlarmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\YearPeriodInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\YearPeriodInputControl.Designer.cs">
+      <DependentUpon>YearPeriodInputControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DcEnv.cs" />
+    <Compile Include="DcGlobal.cs" />
+    <Compile Include="DcLog.cs" />
+    <Compile Include="DcMes.cs" />
+    <Compile Include="Files\AccidentExcelFile.cs" />
+    <Compile Include="Files\BaseExcelFile.cs" />
+    <Compile Include="Files\BaseExcelImportFile.cs" />
+    <Compile Include="Files\MessageFile.cs" />
+    <Compile Include="Files\MoiExcelCategoryFile.cs" />
+    <Compile Include="Files\MoiExcelListFile.cs" />
+    <Compile Include="Files\MoiReportFileCommentList.cs" />
+    <Compile Include="Files\MoiReportFileObservation.cs" />
+    <Compile Include="Files\ProxySetting.cs" />
+    <Compile Include="Accident\AccidentCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentCreateForm.Designer.cs">
+      <DependentUpon>AccidentCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accident\AccidentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accident\AccidentListForm.Designer.cs">
+      <DependentUpon>AccidentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\PscExcelFile.cs" />
+    <Compile Include="Files\PscExcelFileActionCode.cs" />
+    <Compile Include="Files\PscExcelFileDeficiencyCode.cs" />
+    <Compile Include="Files\PscExcelFilePscList.cs" />
+    <Compile Include="Files\ScheduleListExcelFile.cs" />
+    <Compile Include="Files\ScheduleListExcelFileCompany.cs" />
+    <Compile Include="Files\ScheduleListExcelFileExpiry.cs" />
+    <Compile Include="Files\ScheduleListExcelFileGrid.cs" />
+    <Compile Include="Forms\CommentItemCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommentItemCreateForm.Designer.cs">
+      <DependentUpon>CommentItemCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommentItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommentItemDetailForm.Designer.cs">
+      <DependentUpon>CommentItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ProxySetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ProxySetting.designer.cs">
+      <DependentUpon>Form_ProxySetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PscListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PscListForm.Designer.cs">
+      <DependentUpon>PscListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PscOutputSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PscOutputSettingForm.Designer.cs">
+      <DependentUpon>PscOutputSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\BaseAttachmentGrid.cs" />
+    <Compile Include="Grid\BaseEditCheckGrid.cs" />
+    <Compile Include="Grid\PSCListGrid.cs" />
+    <Compile Include="Accident\AccidentCreateFormLogic.cs" />
+    <Compile Include="Accident\AccidentListFormLogic.cs" />
+    <Compile Include="Logic\CommentItemCreateFormLogic.cs" />
+    <Compile Include="Logic\CommentItemDetailFormLogic.cs" />
+    <Compile Include="Logic\CommentItem\BaseCommentItemControlData.cs" />
+    <Compile Include="Logic\CommentItem\BaseCommentItemManager.cs" />
+    <Compile Include="Logic\CommentItem\PscDetailControlLogic.cs" />
+    <Compile Include="Logic\CommentItem\PscInspectionManager.cs" />
+    <Compile Include="Logic\PscListFormLogic.cs" />
+    <Compile Include="Forms\PortalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PortalForm.Designer.cs">
+      <DependentUpon>PortalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiCreateForm.Designer.cs">
+      <DependentUpon>MoiCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiCreateFormLogic.cs" />
+    <Compile Include="MOI\MoiDetailAttachmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiDetailAttachmentControl.Designer.cs">
+      <DependentUpon>MoiDetailAttachmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiDetailAttachmentGrid.cs" />
+    <Compile Include="MOI\MoiDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiDetailControl.Designer.cs">
+      <DependentUpon>MoiDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiDetailForm.Designer.cs">
+      <DependentUpon>MoiDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiDetailFormLogic.cs" />
+    <Compile Include="MOI\MoiOutputExcelSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiOutputExcelSettingForm.Designer.cs">
+      <DependentUpon>MoiOutputExcelSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiHeaderControl.Designer.cs">
+      <DependentUpon>MoiHeaderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiListForm.Designer.cs">
+      <DependentUpon>MoiListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\MoiListFormLogic.cs" />
+    <Compile Include="MOI\MoiListGrid.cs" />
+    <Compile Include="MOI\MoiManager.cs" />
+    <Compile Include="MOI\MoiOutputReportSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MOI\MoiOutputReportSettingForm.Designer.cs">
+      <DependentUpon>MoiOutputReportSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\ViqCodeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOI\ViqCodeControl.Designer.cs">
+      <DependentUpon>ViqCodeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOI\ViqNoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOI\ViqNoControl.Designer.cs">
+      <DependentUpon>ViqNoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\BaseScheduleInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\BaseScheduleInputControl.Designer.cs">
+      <DependentUpon>BaseScheduleInputControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\BaseScheduleMainTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\MonthVesselData.cs" />
+    <Compile Include="Schedule\ListGrid\ScheduleItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleItemControl.Designer.cs">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleListControl.Designer.cs">
+      <DependentUpon>ScheduleListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleListHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleListHeaderControl.Designer.cs">
+      <DependentUpon>ScheduleListHeaderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleVesselMonthControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ListGrid\ScheduleVesselMonthControl.Designer.cs">
+      <DependentUpon>ScheduleVesselMonthControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlCompany.Designer.cs">
+      <DependentUpon>ScheduleInputControlCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlOther.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlOther.Designer.cs">
+      <DependentUpon>ScheduleInputControlOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleInputControlPlan.Designer.cs">
+      <DependentUpon>ScheduleInputControlPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainCompanyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainCompanyControl.Designer.cs">
+      <DependentUpon>ScheduleMainCompanyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainForm.Designer.cs">
+      <DependentUpon>ScheduleMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainFormLogic.cs" />
+    <Compile Include="Schedule\ScheduleMainOtherControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainOtherControl.Designer.cs">
+      <DependentUpon>ScheduleMainOtherControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainPlanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainPlanControl.Designer.cs">
+      <DependentUpon>ScheduleMainPlanControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainScheduleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainScheduleControl.Designer.cs">
+      <DependentUpon>ScheduleMainScheduleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleMainScheduleControlLogic.cs" />
+    <Compile Include="Schedule\ScheduleVesselEnabledData.cs" />
+    <Compile Include="Util\TranquilNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm.designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\BaseGrid.cs" />
+    <Compile Include="Grid\CiDetailAttachmentGrid.cs" />
+    <Compile Include="Grid\PortalAlarmGrid.cs" />
+    <Compile Include="Logic\BaseFormLogic.cs" />
+    <Compile Include="Logic\ComLogic.cs" />
+    <Compile Include="Logic\CommentItemCreator.cs" />
+    <Compile Include="Logic\CommentItemLogic.cs" />
+    <Compile Include="Logic\LocalSearch.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMaintenance\Logic\MsAlarmColorListGrid.cs" />
+    <Compile Include="MasterMaintenance\MasterMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterMaintenance\MasterMenuForm.Designer.cs">
+      <DependentUpon>MasterMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMaintenance\MsAlarmColorDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterMaintenance\MsAlarmColorDetailForm.Designer.cs">
+      <DependentUpon>MsAlarmColorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMaintenance\MsAlarmColorListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterMaintenance\MsAlarmColorListForm.Designer.cs">
+      <DependentUpon>MsAlarmColorListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WcfServiceDeficiency\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SvcManager.cs" />
+    <Compile Include="Util\ControlItemCreator.cs" />
+    <Compile Include="Util\CustomFlowLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\DBDataCache.cs" />
+    <Compile Include="Util\FileViewControlEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Util\FileViewControlEx.Designer.cs">
+      <DependentUpon>FileViewControlEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\LinkedDatetimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\SingleLineCombo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Util\SingleLineCombo.designer.cs">
+      <DependentUpon>SingleLineCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\SingleLineComboForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\SingleLineComboForm.Designer.cs">
+      <DependentUpon>SingleLineComboForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WcfSvcCreator.cs" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsAccidentImportance.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsAccidentKind.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsAccidentSituation.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsActionCode.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsBasho.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsCrewMatrixType.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsCustomer.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsDeficiencyCategory.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsDeficiencyCode.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsInspectionCategory.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsItemKind.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsKindOfAccident.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsRegional.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsScheduleCategory.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsScheduleKind.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsScheduleKindDetail.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsVesselCategory.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsVesselScheduleKindDetailEnable.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsVesselType.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsViqCode.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsViqCodeName.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsViqNo.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsViqVersion.datasource" />
+    <None Include="Properties\DataSources\CIsl.DB.WingDAC.MsYear.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.AccidentData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcAccident.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcScheduleCompany.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcScheduleOther.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcSchedulePlan.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentCommunitteeReport.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentImportance.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentSituation.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAssessor.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsBrazilSoc.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsMoiStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsNonConformity.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPhysicalConditionItem.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPhysicalConditionItemValue.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPhysicalConditionItemValueSet.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsReportedBy.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsVesselStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsYear.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DeficiencyCategoryData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.MoiData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.PhysicalConditionCategoryData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.PhysicalConditionData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.PhysicalConditionItemValueSetData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.RegistCountData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.Output.AccidentOutputData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.Output.MoiExcelOutputDataCategory.datasource" />
+    <None Include="Properties\DataSources\DcCommon.Output.PscOutputData.datasource" />
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency.wsdl" />
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency1.disco" />
+    <EmbeddedResource Include="Accident\AccidentDetailAttachmentControl.resx">
+      <DependentUpon>AccidentDetailAttachmentControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentDetailForm.resx">
+      <DependentUpon>AccidentDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentOutputSettingForm.resx">
+      <DependentUpon>AccidentOutputSettingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentProgressControl.resx">
+      <DependentUpon>AccidentProgressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentReportsControl.resx">
+      <DependentUpon>AccidentReportsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMaintenance\AdminMaintenanceMenuForm.resx">
+      <DependentUpon>AdminMaintenanceMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMaintenance\RegistCountListForm.resx">
+      <DependentUpon>RegistCountListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentDetailControl.resx">
+      <DependentUpon>AccidentDetailControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentHeaderControl.resx">
+      <DependentUpon>AccidentHeaderControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BaseChildItemControl.resx">
+      <DependentUpon>BaseChildItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentDetailAttachmentControl.resx">
+      <DependentUpon>CommentDetailAttachmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentDetailItemControl.resx">
+      <DependentUpon>CommentDetailItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\ActionCodeControl.resx">
+      <DependentUpon>ActionCodeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\BaseCommentItemDetailControl.resx">
+      <DependentUpon>BaseCommentItemDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\BaseCommentItemHeaderControl.resx">
+      <DependentUpon>BaseCommentItemHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\DeficiencyCodeSelectControl.resx">
+      <DependentUpon>DeficiencyCodeSelectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\PscDetailControl.resx">
+      <DependentUpon>PscDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommentItem\PscHeaderControl.resx">
+      <DependentUpon>PscHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataCountControl.resx">
+      <DependentUpon>DataCountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LabelDescriptionControl.resx">
+      <DependentUpon>LabelDescriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LabelDescriptionLineControl.resx">
+      <DependentUpon>LabelDescriptionLineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StatusSelectControl.resx">
+      <DependentUpon>StatusSelectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DatePeriodControl.resx">
+      <DependentUpon>DatePeriodControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PortalAlarmControl.resx">
+      <DependentUpon>PortalAlarmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentCreateForm.resx">
+      <DependentUpon>AccidentCreateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accident\AccidentListForm.resx">
+      <DependentUpon>AccidentListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\YearPeriodInputControl.resx">
+      <DependentUpon>YearPeriodInputControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommentItemCreateForm.resx">
+      <DependentUpon>CommentItemCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommentItemDetailForm.resx">
+      <DependentUpon>CommentItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ProxySetting.resx">
+      <DependentUpon>Form_ProxySetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PscListForm.resx">
+      <DependentUpon>PscListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PortalForm.resx">
+      <DependentUpon>PortalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PscOutputSettingForm.resx">
+      <DependentUpon>PscOutputSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiCreateForm.resx">
+      <DependentUpon>MoiCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiDetailAttachmentControl.resx">
+      <DependentUpon>MoiDetailAttachmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiDetailControl.resx">
+      <DependentUpon>MoiDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiDetailForm.resx">
+      <DependentUpon>MoiDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiHeaderControl.resx">
+      <DependentUpon>MoiHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiListForm.resx">
+      <DependentUpon>MoiListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiOutputExcelSettingForm.resx">
+      <DependentUpon>MoiOutputExcelSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\MoiOutputReportSettingForm.resx">
+      <DependentUpon>MoiOutputReportSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\ViqCodeControl.resx">
+      <DependentUpon>ViqCodeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOI\ViqNoControl.resx">
+      <DependentUpon>ViqNoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\BaseScheduleInputControl.resx">
+      <DependentUpon>BaseScheduleInputControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ListGrid\ScheduleItemControl.resx">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ListGrid\ScheduleListControl.resx">
+      <DependentUpon>ScheduleListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ListGrid\ScheduleListHeaderControl.resx">
+      <DependentUpon>ScheduleListHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ListGrid\ScheduleVesselMonthControl.resx">
+      <DependentUpon>ScheduleVesselMonthControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleInputControlCompany.resx">
+      <DependentUpon>ScheduleInputControlCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleInputControlOther.resx">
+      <DependentUpon>ScheduleInputControlOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleInputControlPlan.resx">
+      <DependentUpon>ScheduleInputControlPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleMainCompanyControl.resx">
+      <DependentUpon>ScheduleMainCompanyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleMainForm.resx">
+      <DependentUpon>ScheduleMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleMainOtherControl.resx">
+      <DependentUpon>ScheduleMainOtherControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleMainPlanControl.resx">
+      <DependentUpon>ScheduleMainPlanControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleMainScheduleControl.resx">
+      <DependentUpon>ScheduleMainScheduleControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterMaintenance\MasterMenuForm.resx">
+      <DependentUpon>MasterMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterMaintenance\MsAlarmColorDetailForm.resx">
+      <DependentUpon>MsAlarmColorDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterMaintenance\MsAlarmColorListForm.resx">
+      <DependentUpon>MsAlarmColorListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Util\FileViewControlEx.resx">
+      <DependentUpon>FileViewControlEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\LinkedDatetimePicker.resx">
+      <DependentUpon>LinkedDatetimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\SingleLineCombo.resx">
+      <DependentUpon>SingleLineCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\SingleLineComboForm.resx">
+      <DependentUpon>SingleLineComboForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="HttpSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="DeficiencyControl_TemporaryKey.pfx" />
+    <None Include="memo.txt" />
+    <Content Include="Icon.ico" />
+    <Content Include="message.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\DataSources\DcCommon.DB.AccidentReportData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.AccidentReportProgressData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.AlarmData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.ClassAuditData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.ComItemData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcAccidentReportProgressPending.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcAttachment.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcCiPscInspection.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcCommentItem.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcDefectProgressPending.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcInsuranceProgressPending.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcProgressPending.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcSiMemoProgressPending.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.DcTerminalHistory.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentCategory.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentReportPendingStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAccidentReportStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsActionCode.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsActionCodeType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAlarmColor.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAssciatedRisk.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAuditBy.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAuditClass.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsAuditType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsBasho.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsByCompany.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsByShipamaster.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCargo.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCategory1.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCategory2.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsClassInvolved.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsClassReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsClassReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCoastalStateReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCocType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCompanyVerification.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsComponent.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsComponentCondition.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCompornent.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCorrespondentAndSurveyOrFee.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCorrespondentAndSurveyOrFeeKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCorrespondentAppointment.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCorrespondentFeeKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsCorrespondentFeeUnit.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDeductibleKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDeductibleUnit.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDefectComponent.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDefectPendingStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDefectReportedBy.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDefectStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDeficiencyCategory.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsDeficiencyCode.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsEnteringCourt.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsEtasResponce.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsExpiryDate.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsFlagReported.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsFlagReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsFlagReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsFlagStateReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsFlagStateReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsImportance.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsInspector.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsInsuranceCompany.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsInsurancePendingStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsInsuranceStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsInternalAuditType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsIspsCsoReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsIspsCsoReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsItemKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsItemType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsKindOfAccident.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsKindOfNc.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsKindOfNcn.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsLawyerAppointment.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsLocalAgentInvolved.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsManningAgency.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsMediaResponce.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsMou.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsNavStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsNcOfEachChapter.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsNeedsOfImproving.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsOcimfDownloadBy.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsOcimfVirUpload.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPendingStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPlanColor.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPlanPeriod.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsPlanStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsRegional.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsRepairPlace.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsRightShipReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsRightShipReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSiMemoPendingStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSiMemoStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSiMemoType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSireMemberKind.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSireMemberReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSireMemberReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSmsDpaReporting.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSmsDpaReportingResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsStatus.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsSurveyorAppointment.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsTerminalResult.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsTroublePlace.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsUscgCoc.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsUser.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsVessel.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsVesselType.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DAC.MsViqCode.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DefectData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.DefectProgressData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.FlagInspectionData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.InsuranceData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.InsuranceProgressData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.InternalAuditData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.NavigationalAuditData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.NonConformityData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.PlanData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.ProgressData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.PSCInspectionData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.SIMemoData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.SIMemoProgressData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.TerminalInspectionData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.DB.UserData.datasource" />
+    <None Include="Properties\DataSources\DcCommon.Files.CommentListFileData.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WcfServiceDeficiency\ServiceDeficiency8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CISL\CIsl\CIsl\CIsl.csproj">
+      <Project>{07DAADE2-4885-457F-9CF1-80ED6F68BEC0}</Project>
+      <Name>CIsl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DcCommon\DcCommon.csproj">
+      <Project>{04DA8DE3-B718-4B48-957F-508C34BE3EC4}</Project>
+      <Name>DcCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WcfServiceDeficiency\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WcfServiceDeficiency\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WcfServiceDeficiency\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WcfServiceDeficiency\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ExcelCreator.Document.2">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="ExcelCreator.PDFWriter.2">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

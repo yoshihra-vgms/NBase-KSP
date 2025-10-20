@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    ACCIDENT_SITUATION_ID,
+    ACCIDENT_SITUATION_NAME,
+
+    DELETE_FLAG,
+    CREATE_DATE,
+    UPDATE_DATE,
+    CREATE_MS_USER_ID,
+    UPDATE_MS_USER_ID
+
+    FROM
+    MS_ACCIDENT_SITUATION
+
+    WHERE
+    DELETE_FLAG = False
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    ACCIDENT_SITUATION_NAME LIKE :ACCIDENT_SITUATION_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_ACCIDENT_SITUATION(
+    ACCIDENT_SITUATION_NAME        ,
+    DELETE_FLAG           ,
+    UPDATE_MS_USER_ID     ,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :ACCIDENT_SITUATION_NAME        ,
+    :DELETE_FLAG           ,
+    :UPDATE_MS_USER_ID     ,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_ACCIDENT_SITUATION
+    SET
+    ACCIDENT_SITUATION_NAME = :ACCIDENT_SITUATION_NAME        ,
+    DELETE_FLAG = :DELETE_FLAG              ,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE ACCIDENT_SITUATION_ID = :ACCIDENT_SITUATION_ID
+  </sql>
+
+</databaseConfig>

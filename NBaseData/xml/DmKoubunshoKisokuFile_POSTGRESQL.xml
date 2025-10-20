@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+		select
+		DM_KOUBUNSHO_KISOKU_FILE.DM_KOUBUNSHO_KISOKU_FILE_ID   ,
+		DM_KOUBUNSHO_KISOKU_FILE.UPDATE_DATE                   ,
+		DM_KOUBUNSHO_KISOKU_FILE.FILE_NAME                     ,
+		DM_KOUBUNSHO_KISOKU_FILE.DATA                          ,
+		DM_KOUBUNSHO_KISOKU_FILE.DM_KOUBUNSHO_KISOKU_ID        ,
+
+		DM_KOUBUNSHO_KISOKU_FILE.DELETE_FLAG                   ,
+		DM_KOUBUNSHO_KISOKU_FILE.SEND_FLAG                     ,
+		DM_KOUBUNSHO_KISOKU_FILE.VESSEL_ID                     ,
+		DM_KOUBUNSHO_KISOKU_FILE.DATA_NO                       ,
+		DM_KOUBUNSHO_KISOKU_FILE.USER_KEY                      ,
+		DM_KOUBUNSHO_KISOKU_FILE.RENEW_DATE                    ,
+		DM_KOUBUNSHO_KISOKU_FILE.RENEW_USER_ID                 ,
+		DM_KOUBUNSHO_KISOKU_FILE.TS
+
+		from
+		DM_KOUBUNSHO_KISOKU_FILE
+		WHERE (DM_KOUBUNSHO_KISOKU_FILE.DELETE_FLAG = 0 or DM_KOUBUNSHO_KISOKU_FILE.DELETE_FLAG is NULL)
+	</sql>
+
+	<sql name="ByDmKoubunshoKisokuFileID">
+		AND DM_KOUBUNSHO_KISOKU_FILE.DM_KOUBUNSHO_KISOKU_FILE_ID = :DM_KOUBUNSHO_KISOKU_FILE_ID
+	</sql>
+
+	<sql name="ByDmKoubunshoKisokuID">
+		AND DM_KOUBUNSHO_KISOKU_FILE.DM_KOUBUNSHO_KISOKU_ID = :DM_KOUBUNSHO_KISOKU_ID
+	</sql>
+
+	<sql name="OrderBy">
+		Order By 
+		DM_KOUBUNSHO_KISOKU_FILE.RENEW_DATE DESC
+	</sql>
+	
+	
+  <sql name="InsertRecord">
+	  INSERT INTO DM_KOUBUNSHO_KISOKU_FILE
+	  (
+	  DM_KOUBUNSHO_KISOKU_FILE_ID ,
+	  UPDATE_DATE                 ,
+	  FILE_NAME                   ,
+	  DATA                        ,
+	  DM_KOUBUNSHO_KISOKU_ID      ,
+
+	  DELETE_FLAG     ,
+	  SEND_FLAG       ,
+	  VESSEL_ID       ,
+	  DATA_NO         ,
+	  USER_KEY        ,
+	  RENEW_DATE      ,
+	  RENEW_USER_ID   ,
+	  TS
+	  )
+	  VALUES(
+	  :DM_KOUBUNSHO_KISOKU_FILE_ID ,
+	  :UPDATE_DATE                 ,
+	  :FILE_NAME                   ,
+	  :DATA                        ,
+	  :DM_KOUBUNSHO_KISOKU_ID      ,
+	  :DELETE_FLAG     ,
+	  :SEND_FLAG       ,
+	  :VESSEL_ID       ,
+	  :DATA_NO         ,
+	  :USER_KEY        ,
+	  :RENEW_DATE      ,
+	  :RENEW_USER_ID   ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE DM_KOUBUNSHO_KISOKU_FILE SET
+	  UPDATE_DATE = :UPDATE_DATE                       ,
+	  FILE_NAME = :FILE_NAME                           ,
+	  DATA = :DATA                                     ,
+	  DM_KOUBUNSHO_KISOKU_ID = :DM_KOUBUNSHO_KISOKU_ID ,
+	  DELETE_FLAG = :DELETE_FLAG      ,
+	  SEND_FLAG = :SEND_FLAG          ,
+	  VESSEL_ID = :VESSEL_ID          ,
+	  DATA_NO = :DATA_NO              ,
+	  USER_KEY = :USER_KEY            ,
+	  RENEW_DATE = :RENEW_DATE        ,
+	  RENEW_USER_ID = :RENEW_USER_ID  ,
+	  TS = :TS
+
+	  WHERE
+	  DM_KOUBUNSHO_KISOKU_FILE_ID = :DM_KOUBUNSHO_KISOKU_FILE_ID
+	  AND
+	  TS = :TS
+  </sql>
+
+</databaseConfig>

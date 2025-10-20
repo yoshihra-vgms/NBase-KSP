@@ -1,0 +1,105 @@
+■IGT DeficiencyControl DB
+
+■本番環境
+アプリ
+https://wing.iino.co.jp/DeficiencyControlApp/
+
+サービス
+https://wing.iino.co.jp/DeficiencyControlSvc/ServiceDeficiency.svc
+
+
+■クラウド試験環境
+アプリ
+https://wing.iino.co.jp/DeficiencyControlApp_Test/
+Version: 1.0.0.0
+Clickonce Version: 0.0.0.2
+
+サービス
+https://wing.iino.co.jp/DeficiencyControlSvc_Test/ServiceDeficiency.svc
+
+
+=========================================================================
+=========================================================================
+2019/2/12
+１．senin_enabled=0のデータもVesselリストの対象とする。
+　コメントリストの船名が空白になるのを回避するため。(6/19)IMS-DCで発覚
+２．(8/29)★隠し機能★Statusの状態を変更できる裏モード
+３．(12/28)IGT-WINGからの自動起動で、Windows10クリックワンス引数渡し起動の
+　不具合のため、ファイル渡しでも自動ログインできるようにする。
+　【ファイル名】C:\ProgramData\WING\login
+４．(1/25)ExcelCreatorのDLL 4つを最新に入れ替え
+５．VIQ Ver.7への対応
+
+
+
+2018/6/18
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.6
+AlarmColorマスタ、挿入更新失敗バグの修正
+（SVCだけでよかったが一応本番運用前なので丸ごと上げなおす対処）
+
+
+
+2018/5/31
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.5
+問題点リスト対応 1-57まで。
+画面調整。各種不具合対応。
+PSC、VesselTypeをCrewMatrixTypeに変更と
+それに伴ったテーブル修正。
+
+
+2018/5/17
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.4
+画面コントロールの位置調整と整列。
+ローカル呼び分け処理組み込み
+
+
+2018/4/27
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.3
+不適合、バグ修正各種
+
+
+
+2018/4/24
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.2
+権限制御ロジックの変更
+バグ修正各種
+
+
+2018/4/23
+AppVersion=1.0.0.0
+ClickonceVersion=0.0.0.1
+本番受け入れ試験環境仮作成
+
+
+
+2018/2/19
+PhysicalInspectionとAccdeintの変更を反映。
+IGT版製作開始！！
+
+
+
+2017/10/30
+wing.iino.co.jpサーバーに仮配置
+クリックワンスバージョン1.0.0.1
+
+
+
+
+2017/10/26
+IGT版DeficiencyのためIMS Deficiencyより分離。
+以後、別処理。
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+2016/3/10
+製作開始

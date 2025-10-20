@@ -1,0 +1,1585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceDeficiency" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB.WingDAC" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC.Search" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DcCommon.Output" />
+      <xsd:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceDeficiency_GetServerDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetServerDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_LogoutUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_LogoutUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_DownloadAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_DownloadAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_DownloadAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_DownloadAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_GetDataByCommentItemID_InputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_GetDataByCommentItemID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_GetDataByCommentItemID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_GetDataByCommentItemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_InsertList_InputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_InsertList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_InsertList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_InsertListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_GetDataListBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_GetDataListBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_GetDataListBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_GetDataListBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_UpdateWithSister_InputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_UpdateWithSister" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_UpdateWithSister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_UpdateWithSisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_Delete" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_PSCInspectionData_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PSCInspectionData_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcCiPscInspection_UpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcCiPscInspection_UpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcCiPscInspection_UpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcCiPscInspection_UpdateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByCommentItemID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByCommentItemID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByCommentItemID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByCommentItemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAccident_GetRecordsBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAccident_GetRecordsBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAccident_GetRecordsBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAccident_GetRecordsBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_GetDataByAccidentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_GetDataByAccidentID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_GetDataByAccidentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_GetDataByAccidentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_InsertData_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_InsertData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_InsertData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_InsertDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_UpdateData_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_UpdateData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_UpdateData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_UpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_DeleteData_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_DeleteData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_AccidentData_DeleteData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccidentData_DeleteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAccident_UpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAccident_UpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAccident_UpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAccident_UpdateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_CreateAccidentReportNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccidentReportNo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_CreateAccidentReportNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccidentReportNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByAccidentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByAccidentID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByAccidentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByAccidentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_GetDataListBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_GetDataListBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_GetDataListBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_GetDataListBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_Moi_Insert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Moi_Insert" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_Moi_Insert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Moi_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_GetDataByMoiObservationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_GetDataByMoiObservationID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_GetDataByMoiObservationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_GetDataByMoiObservationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByMoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByMoi" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcAttachment_GetARecrodsAllByMoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcAttachment_GetARecrodsAllByMoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_UpdatetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_UpdatetData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_UpdatetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_UpdatetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_DeleteData_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_DeleteData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MoiData_DeleteData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoiData_DeleteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcMoiObservation_UpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcMoiObservation_UpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcMoiObservation_UpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcMoiObservation_UpdateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetAccidentExcelTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccidentExcelTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetAccidentExcelTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccidentExcelTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetAccidentOutputData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccidentOutputData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetAccidentOutputData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccidentOutputDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcSchedulePlan_GetRecordsBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcSchedulePlan_GetRecordsBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcSchedulePlan_GetRecordsBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcSchedulePlan_GetRecordsBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcSchedulePlan_InsertUpdateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcSchedulePlan_InsertUpdateList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcSchedulePlan_InsertUpdateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcSchedulePlan_InsertUpdateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleCompany_GetRecordsBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleCompany_GetRecordsBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleCompany_GetRecordsBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleCompany_GetRecordsBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleOther_GetRecordsBySearchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleOther_GetRecordsBySearchData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleOther_GetRecordsBySearchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleOther_GetRecordsBySearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleCompany_InsertUpdateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleCompany_InsertUpdateList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleCompany_InsertUpdateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleCompany_InsertUpdateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleOther_InsertUpdateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleOther_InsertUpdateList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DcScheduleOther_InsertUpdateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DcScheduleOther_InsertUpdateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetPSCOutputData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPSCOutputData" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetPSCOutputData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPSCOutputDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetPSCExcelTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPSCExcelTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetPSCExcelTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPSCExcelTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelCategoryTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelCategoryTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelCategoryTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelCategoryTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelListTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelListTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelListTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelListTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiReportCommentListTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiReportCommentListTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiReportCommentListTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiReportCommentListTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiReportObservationTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiReportObservationTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiReportObservationTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiReportObservationTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelDataCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelDataCategory" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelDataCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelDataCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelDataCategory2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelDataCategory2" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetMoiExcelDataCategory2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoiExcelDataCategory2Response" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetScheduleListTemplateFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleListTemplateFile" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_GetScheduleListTemplateFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleListTemplateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVessel_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsVessel_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVessel_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsVessel_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsUser_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsUser_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsUser_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsUser_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_UserData_GetDataByMsUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserData_GetDataByMsUserID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_UserData_GetDataByMsUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserData_GetDataByMsUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsItemKind_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsItemKind_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsItemKind_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsItemKind_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsStatus_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsStatus_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsStatus_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsStatus_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsActionCode_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsActionCode_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsActionCode_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsActionCode_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsDeficiencyCode_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsDeficiencyCode_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsDeficiencyCode_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsDeficiencyCode_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselType_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselType_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselType_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselType_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsBasho_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsBasho_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsBasho_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsBasho_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsRegional_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsRegional_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsRegional_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsRegional_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_InsertRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_InsertRecord" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_InsertRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_InsertRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_UpdateRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_UpdateRecord" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_UpdateRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_UpdateRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_DeleteRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_DeleteRecord" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAlarmColor_DeleteRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAlarmColor_DeleteRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentImportance_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentImportance_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentImportance_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentImportance_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentKind_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentKind_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentKind_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentKind_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentSituation_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentSituation_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentSituation_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentSituation_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentStatus_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentStatus_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsAccidentStatus_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsAccidentStatus_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsKindOfAccident_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsKindOfAccident_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsKindOfAccident_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsKindOfAccident_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsInspectionCategory_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsInspectionCategory_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsInspectionCategory_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsInspectionCategory_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqCode_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqCode_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqCode_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqCode_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqNo_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqNo_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqNo_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqNo_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqNo_GetRecordsByViqCodeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqNo_GetRecordsByViqCodeID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqNo_GetRecordsByViqCodeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqNo_GetRecordsByViqCodeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsMoiStatus_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsMoiStatus_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsMoiStatus_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsMoiStatus_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecordsInspectionCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecordsInspectionCompany" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecordsInspectionCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecordsInspectionCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecordsAppointedCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecordsAppointedCompany" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCustomer_GetRecordsAppointedCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsCustomer_GetRecordsAppointedCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsDeficiencyCategory_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsDeficiencyCategory_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsDeficiencyCategory_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsDeficiencyCategory_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsYear_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsYear_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsYear_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsYear_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleCategory_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleCategory_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleCategory_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleCategory_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleKind_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleKind_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleKind_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleKind_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleKindDetail_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleKindDetail_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsScheduleKindDetail_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsScheduleKindDetail_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DeficiencyCategoryData_GetDataList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeficiencyCategoryData_GetDataList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_DeficiencyCategoryData_GetDataList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeficiencyCategoryData_GetDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqCodeName_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqCodeName_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqCodeName_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqCodeName_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqVersion_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqVersion_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsViqVersion_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsViqVersion_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselScheduleKindDetailEnable_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselScheduleKindDetailEnable_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselCategory_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselCategory_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsVesselCategory_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsVesselCategory_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCrewMatrixType_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:MsCrewMatrixType_GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDeficiency_MsCrewMatrixType_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MsCrewMatrixType_GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceDeficiency">
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetServerDate" message="tns:IServiceDeficiency_GetServerDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetServerDateResponse" message="tns:IServiceDeficiency_GetServerDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/Login" message="tns:IServiceDeficiency_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/LoginResponse" message="tns:IServiceDeficiency_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/LogoutUser" message="tns:IServiceDeficiency_LogoutUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/LogoutUserResponse" message="tns:IServiceDeficiency_LogoutUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_DownloadAttachment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_DownloadAttachment" message="tns:IServiceDeficiency_DcAttachment_DownloadAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_DownloadAttachmentResponse" message="tns:IServiceDeficiency_DcAttachment_DownloadAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_GetDataByCommentItemID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataByCommentItemID" message="tns:IServiceDeficiency_PSCInspectionData_GetDataByCommentItemID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataByCommentItemIDResponse" message="tns:IServiceDeficiency_PSCInspectionData_GetDataByCommentItemID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_InsertList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_InsertList" message="tns:IServiceDeficiency_PSCInspectionData_InsertList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_InsertListResponse" message="tns:IServiceDeficiency_PSCInspectionData_InsertList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_GetDataListBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataListBySearchData" message="tns:IServiceDeficiency_PSCInspectionData_GetDataListBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataListBySearchDataResponse" message="tns:IServiceDeficiency_PSCInspectionData_GetDataListBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_UpdateWithSister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_UpdateWithSister" message="tns:IServiceDeficiency_PSCInspectionData_UpdateWithSister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_UpdateWithSisterResponse" message="tns:IServiceDeficiency_PSCInspectionData_UpdateWithSister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_Delete" message="tns:IServiceDeficiency_PSCInspectionData_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/PSCInspectionData_DeleteResponse" message="tns:IServiceDeficiency_PSCInspectionData_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcCiPscInspection_UpdateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcCiPscInspection_UpdateStatus" message="tns:IServiceDeficiency_DcCiPscInspection_UpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcCiPscInspection_UpdateStatusResponse" message="tns:IServiceDeficiency_DcCiPscInspection_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByCommentItemID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByCommentItemID" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByCommentItemID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByCommentItemIDResponse" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByCommentItemID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAccident_GetRecordsBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAccident_GetRecordsBySearchData" message="tns:IServiceDeficiency_DcAccident_GetRecordsBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAccident_GetRecordsBySearchDataResponse" message="tns:IServiceDeficiency_DcAccident_GetRecordsBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_GetDataByAccidentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_GetDataByAccidentID" message="tns:IServiceDeficiency_AccidentData_GetDataByAccidentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_GetDataByAccidentIDResponse" message="tns:IServiceDeficiency_AccidentData_GetDataByAccidentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_InsertData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_InsertData" message="tns:IServiceDeficiency_AccidentData_InsertData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_InsertDataResponse" message="tns:IServiceDeficiency_AccidentData_InsertData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_UpdateData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_UpdateData" message="tns:IServiceDeficiency_AccidentData_UpdateData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_UpdateDataResponse" message="tns:IServiceDeficiency_AccidentData_UpdateData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_DeleteData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_DeleteData" message="tns:IServiceDeficiency_AccidentData_DeleteData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/AccidentData_DeleteDataResponse" message="tns:IServiceDeficiency_AccidentData_DeleteData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAccident_UpdateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAccident_UpdateStatus" message="tns:IServiceDeficiency_DcAccident_UpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAccident_UpdateStatusResponse" message="tns:IServiceDeficiency_DcAccident_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccidentReportNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/CreateAccidentReportNo" message="tns:IServiceDeficiency_CreateAccidentReportNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/CreateAccidentReportNoResponse" message="tns:IServiceDeficiency_CreateAccidentReportNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByAccidentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByAccidentID" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByAccidentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByAccidentIDResponse" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByAccidentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_GetDataListBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_GetDataListBySearchData" message="tns:IServiceDeficiency_MoiData_GetDataListBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_GetDataListBySearchDataResponse" message="tns:IServiceDeficiency_MoiData_GetDataListBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Moi_Insert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/Moi_Insert" message="tns:IServiceDeficiency_Moi_Insert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/Moi_InsertResponse" message="tns:IServiceDeficiency_Moi_Insert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_GetDataByMoiObservationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_GetDataByMoiObservationID" message="tns:IServiceDeficiency_MoiData_GetDataByMoiObservationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_GetDataByMoiObservationIDResponse" message="tns:IServiceDeficiency_MoiData_GetDataByMoiObservationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByMoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByMoi" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByMoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByMoiResponse" message="tns:IServiceDeficiency_DcAttachment_GetARecrodsAllByMoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_UpdatetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_UpdatetData" message="tns:IServiceDeficiency_MoiData_UpdatetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_UpdatetDataResponse" message="tns:IServiceDeficiency_MoiData_UpdatetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_DeleteData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_DeleteData" message="tns:IServiceDeficiency_MoiData_DeleteData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MoiData_DeleteDataResponse" message="tns:IServiceDeficiency_MoiData_DeleteData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcMoiObservation_UpdateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcMoiObservation_UpdateStatus" message="tns:IServiceDeficiency_DcMoiObservation_UpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcMoiObservation_UpdateStatusResponse" message="tns:IServiceDeficiency_DcMoiObservation_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccidentExcelTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetAccidentExcelTemplate" message="tns:IServiceDeficiency_GetAccidentExcelTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetAccidentExcelTemplateResponse" message="tns:IServiceDeficiency_GetAccidentExcelTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccidentOutputData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetAccidentOutputData" message="tns:IServiceDeficiency_GetAccidentOutputData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetAccidentOutputDataResponse" message="tns:IServiceDeficiency_GetAccidentOutputData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcSchedulePlan_GetRecordsBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_GetRecordsBySearchData" message="tns:IServiceDeficiency_DcSchedulePlan_GetRecordsBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_GetRecordsBySearchDataResponse" message="tns:IServiceDeficiency_DcSchedulePlan_GetRecordsBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcSchedulePlan_InsertUpdateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_InsertUpdateList" message="tns:IServiceDeficiency_DcSchedulePlan_InsertUpdateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_InsertUpdateListResponse" message="tns:IServiceDeficiency_DcSchedulePlan_InsertUpdateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleCompany_GetRecordsBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_GetRecordsBySearchData" message="tns:IServiceDeficiency_DcScheduleCompany_GetRecordsBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_GetRecordsBySearchDataResponse" message="tns:IServiceDeficiency_DcScheduleCompany_GetRecordsBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleOther_GetRecordsBySearchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleOther_GetRecordsBySearchData" message="tns:IServiceDeficiency_DcScheduleOther_GetRecordsBySearchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleOther_GetRecordsBySearchDataResponse" message="tns:IServiceDeficiency_DcScheduleOther_GetRecordsBySearchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleCompany_InsertUpdateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_InsertUpdateList" message="tns:IServiceDeficiency_DcScheduleCompany_InsertUpdateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_InsertUpdateListResponse" message="tns:IServiceDeficiency_DcScheduleCompany_InsertUpdateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleOther_InsertUpdateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleOther_InsertUpdateList" message="tns:IServiceDeficiency_DcScheduleOther_InsertUpdateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DcScheduleOther_InsertUpdateListResponse" message="tns:IServiceDeficiency_DcScheduleOther_InsertUpdateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPSCOutputData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetPSCOutputData" message="tns:IServiceDeficiency_GetPSCOutputData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetPSCOutputDataResponse" message="tns:IServiceDeficiency_GetPSCOutputData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPSCExcelTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetPSCExcelTemplate" message="tns:IServiceDeficiency_GetPSCExcelTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetPSCExcelTemplateResponse" message="tns:IServiceDeficiency_GetPSCExcelTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelCategoryTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelCategoryTemplate" message="tns:IServiceDeficiency_GetMoiExcelCategoryTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelCategoryTemplateResponse" message="tns:IServiceDeficiency_GetMoiExcelCategoryTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelListTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelListTemplate" message="tns:IServiceDeficiency_GetMoiExcelListTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelListTemplateResponse" message="tns:IServiceDeficiency_GetMoiExcelListTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiReportCommentListTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiReportCommentListTemplate" message="tns:IServiceDeficiency_GetMoiReportCommentListTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiReportCommentListTemplateResponse" message="tns:IServiceDeficiency_GetMoiReportCommentListTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiReportObservationTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiReportObservationTemplate" message="tns:IServiceDeficiency_GetMoiReportObservationTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiReportObservationTemplateResponse" message="tns:IServiceDeficiency_GetMoiReportObservationTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelDataCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategory" message="tns:IServiceDeficiency_GetMoiExcelDataCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategoryResponse" message="tns:IServiceDeficiency_GetMoiExcelDataCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelDataCategory2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategory2" message="tns:IServiceDeficiency_GetMoiExcelDataCategory2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategory2Response" message="tns:IServiceDeficiency_GetMoiExcelDataCategory2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleListTemplateFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/GetScheduleListTemplateFile" message="tns:IServiceDeficiency_GetScheduleListTemplateFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/GetScheduleListTemplateFileResponse" message="tns:IServiceDeficiency_GetScheduleListTemplateFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsVessel_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVessel_GetRecords" message="tns:IServiceDeficiency_MsVessel_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVessel_GetRecordsResponse" message="tns:IServiceDeficiency_MsVessel_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsUser_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsUser_GetRecords" message="tns:IServiceDeficiency_MsUser_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsUser_GetRecordsResponse" message="tns:IServiceDeficiency_MsUser_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserData_GetDataByMsUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/UserData_GetDataByMsUserID" message="tns:IServiceDeficiency_UserData_GetDataByMsUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/UserData_GetDataByMsUserIDResponse" message="tns:IServiceDeficiency_UserData_GetDataByMsUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsItemKind_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsItemKind_GetRecords" message="tns:IServiceDeficiency_MsItemKind_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsItemKind_GetRecordsResponse" message="tns:IServiceDeficiency_MsItemKind_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsStatus_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsStatus_GetRecords" message="tns:IServiceDeficiency_MsStatus_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsStatus_GetRecordsResponse" message="tns:IServiceDeficiency_MsStatus_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_GetRecords" message="tns:IServiceDeficiency_MsAlarmColor_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_GetRecordsResponse" message="tns:IServiceDeficiency_MsAlarmColor_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsActionCode_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsActionCode_GetRecords" message="tns:IServiceDeficiency_MsActionCode_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsActionCode_GetRecordsResponse" message="tns:IServiceDeficiency_MsActionCode_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsDeficiencyCode_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsDeficiencyCode_GetRecords" message="tns:IServiceDeficiency_MsDeficiencyCode_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsDeficiencyCode_GetRecordsResponse" message="tns:IServiceDeficiency_MsDeficiencyCode_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselType_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselType_GetRecords" message="tns:IServiceDeficiency_MsVesselType_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselType_GetRecordsResponse" message="tns:IServiceDeficiency_MsVesselType_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsBasho_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsBasho_GetRecords" message="tns:IServiceDeficiency_MsBasho_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsBasho_GetRecordsResponse" message="tns:IServiceDeficiency_MsBasho_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsRegional_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsRegional_GetRecords" message="tns:IServiceDeficiency_MsRegional_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsRegional_GetRecordsResponse" message="tns:IServiceDeficiency_MsRegional_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_InsertRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_InsertRecord" message="tns:IServiceDeficiency_MsAlarmColor_InsertRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_InsertRecordResponse" message="tns:IServiceDeficiency_MsAlarmColor_InsertRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_UpdateRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_UpdateRecord" message="tns:IServiceDeficiency_MsAlarmColor_UpdateRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_UpdateRecordResponse" message="tns:IServiceDeficiency_MsAlarmColor_UpdateRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_DeleteRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_DeleteRecord" message="tns:IServiceDeficiency_MsAlarmColor_DeleteRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAlarmColor_DeleteRecordResponse" message="tns:IServiceDeficiency_MsAlarmColor_DeleteRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentImportance_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentImportance_GetRecords" message="tns:IServiceDeficiency_MsAccidentImportance_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentImportance_GetRecordsResponse" message="tns:IServiceDeficiency_MsAccidentImportance_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentKind_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentKind_GetRecords" message="tns:IServiceDeficiency_MsAccidentKind_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentKind_GetRecordsResponse" message="tns:IServiceDeficiency_MsAccidentKind_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentSituation_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentSituation_GetRecords" message="tns:IServiceDeficiency_MsAccidentSituation_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentSituation_GetRecordsResponse" message="tns:IServiceDeficiency_MsAccidentSituation_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentStatus_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentStatus_GetRecords" message="tns:IServiceDeficiency_MsAccidentStatus_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsAccidentStatus_GetRecordsResponse" message="tns:IServiceDeficiency_MsAccidentStatus_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsKindOfAccident_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsKindOfAccident_GetRecords" message="tns:IServiceDeficiency_MsKindOfAccident_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsKindOfAccident_GetRecordsResponse" message="tns:IServiceDeficiency_MsKindOfAccident_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsInspectionCategory_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsInspectionCategory_GetRecords" message="tns:IServiceDeficiency_MsInspectionCategory_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsInspectionCategory_GetRecordsResponse" message="tns:IServiceDeficiency_MsInspectionCategory_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsViqCode_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqCode_GetRecords" message="tns:IServiceDeficiency_MsViqCode_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqCode_GetRecordsResponse" message="tns:IServiceDeficiency_MsViqCode_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsViqNo_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecords" message="tns:IServiceDeficiency_MsViqNo_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecordsResponse" message="tns:IServiceDeficiency_MsViqNo_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsViqNo_GetRecordsByViqCodeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecordsByViqCodeID" message="tns:IServiceDeficiency_MsViqNo_GetRecordsByViqCodeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecordsByViqCodeIDResponse" message="tns:IServiceDeficiency_MsViqNo_GetRecordsByViqCodeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsMoiStatus_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsMoiStatus_GetRecords" message="tns:IServiceDeficiency_MsMoiStatus_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsMoiStatus_GetRecordsResponse" message="tns:IServiceDeficiency_MsMoiStatus_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecords" message="tns:IServiceDeficiency_MsCustomer_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsResponse" message="tns:IServiceDeficiency_MsCustomer_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecordsInspectionCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsInspectionCompany" message="tns:IServiceDeficiency_MsCustomer_GetRecordsInspectionCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsInspectionCompanyResponse" message="tns:IServiceDeficiency_MsCustomer_GetRecordsInspectionCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecordsAppointedCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsAppointedCompany" message="tns:IServiceDeficiency_MsCustomer_GetRecordsAppointedCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsAppointedCompanyResponse" message="tns:IServiceDeficiency_MsCustomer_GetRecordsAppointedCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsDeficiencyCategory_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsDeficiencyCategory_GetRecords" message="tns:IServiceDeficiency_MsDeficiencyCategory_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsDeficiencyCategory_GetRecordsResponse" message="tns:IServiceDeficiency_MsDeficiencyCategory_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsYear_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsYear_GetRecords" message="tns:IServiceDeficiency_MsYear_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsYear_GetRecordsResponse" message="tns:IServiceDeficiency_MsYear_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleCategory_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleCategory_GetRecords" message="tns:IServiceDeficiency_MsScheduleCategory_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleCategory_GetRecordsResponse" message="tns:IServiceDeficiency_MsScheduleCategory_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleKind_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleKind_GetRecords" message="tns:IServiceDeficiency_MsScheduleKind_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleKind_GetRecordsResponse" message="tns:IServiceDeficiency_MsScheduleKind_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleKindDetail_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleKindDetail_GetRecords" message="tns:IServiceDeficiency_MsScheduleKindDetail_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsScheduleKindDetail_GetRecordsResponse" message="tns:IServiceDeficiency_MsScheduleKindDetail_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeficiencyCategoryData_GetDataList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/DeficiencyCategoryData_GetDataList" message="tns:IServiceDeficiency_DeficiencyCategoryData_GetDataList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/DeficiencyCategoryData_GetDataListResponse" message="tns:IServiceDeficiency_DeficiencyCategoryData_GetDataList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsViqCodeName_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqCodeName_GetRecords" message="tns:IServiceDeficiency_MsViqCodeName_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqCodeName_GetRecordsResponse" message="tns:IServiceDeficiency_MsViqCodeName_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsViqVersion_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqVersion_GetRecords" message="tns:IServiceDeficiency_MsViqVersion_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsViqVersion_GetRecordsResponse" message="tns:IServiceDeficiency_MsViqVersion_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID" message="tns:IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselIDResponse" message="tns:IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselScheduleKindDetailEnable_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecords" message="tns:IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecordsResponse" message="tns:IServiceDeficiency_MsVesselScheduleKindDetailEnable_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselCategory_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselCategory_GetRecords" message="tns:IServiceDeficiency_MsVesselCategory_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsVesselCategory_GetRecordsResponse" message="tns:IServiceDeficiency_MsVesselCategory_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MsCrewMatrixType_GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCrewMatrixType_GetRecords" message="tns:IServiceDeficiency_MsCrewMatrixType_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDeficiency/MsCrewMatrixType_GetRecordsResponse" message="tns:IServiceDeficiency_MsCrewMatrixType_GetRecords_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceDeficiency" type="tns:IServiceDeficiency">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/LogoutUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_DownloadAttachment">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAttachment_DownloadAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_GetDataByCommentItemID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataByCommentItemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_InsertList">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/PSCInspectionData_InsertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_GetDataListBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/PSCInspectionData_GetDataListBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_UpdateWithSister">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/PSCInspectionData_UpdateWithSister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSCInspectionData_Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/PSCInspectionData_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcCiPscInspection_UpdateStatus">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcCiPscInspection_UpdateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByCommentItemID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByCommentItemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAccident_GetRecordsBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAccident_GetRecordsBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_GetDataByAccidentID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/AccidentData_GetDataByAccidentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_InsertData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/AccidentData_InsertData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_UpdateData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/AccidentData_UpdateData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccidentData_DeleteData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/AccidentData_DeleteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAccident_UpdateStatus">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAccident_UpdateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccidentReportNo">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/CreateAccidentReportNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByAccidentID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByAccidentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_GetDataListBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MoiData_GetDataListBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Moi_Insert">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/Moi_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_GetDataByMoiObservationID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MoiData_GetDataByMoiObservationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcAttachment_GetARecrodsAllByMoi">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcAttachment_GetARecrodsAllByMoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_UpdatetData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MoiData_UpdatetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoiData_DeleteData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MoiData_DeleteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcMoiObservation_UpdateStatus">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcMoiObservation_UpdateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccidentExcelTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetAccidentExcelTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccidentOutputData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetAccidentOutputData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcSchedulePlan_GetRecordsBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_GetRecordsBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcSchedulePlan_InsertUpdateList">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcSchedulePlan_InsertUpdateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleCompany_GetRecordsBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_GetRecordsBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleOther_GetRecordsBySearchData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcScheduleOther_GetRecordsBySearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleCompany_InsertUpdateList">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcScheduleCompany_InsertUpdateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DcScheduleOther_InsertUpdateList">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DcScheduleOther_InsertUpdateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPSCOutputData">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetPSCOutputData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPSCExcelTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetPSCExcelTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelCategoryTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiExcelCategoryTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelListTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiExcelListTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiReportCommentListTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiReportCommentListTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiReportObservationTemplate">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiReportObservationTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelDataCategory">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoiExcelDataCategory2">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetMoiExcelDataCategory2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleListTemplateFile">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/GetScheduleListTemplateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsVessel_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsVessel_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsUser_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsUser_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserData_GetDataByMsUserID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/UserData_GetDataByMsUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsItemKind_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsItemKind_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsStatus_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsStatus_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAlarmColor_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsActionCode_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsActionCode_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsDeficiencyCode_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsDeficiencyCode_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselType_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsVesselType_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsBasho_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsBasho_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsRegional_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsRegional_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_InsertRecord">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAlarmColor_InsertRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_UpdateRecord">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAlarmColor_UpdateRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAlarmColor_DeleteRecord">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAlarmColor_DeleteRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentImportance_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAccidentImportance_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentKind_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAccidentKind_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentSituation_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAccidentSituation_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsAccidentStatus_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsAccidentStatus_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsKindOfAccident_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsKindOfAccident_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsInspectionCategory_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsInspectionCategory_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsViqCode_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsViqCode_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsViqNo_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsViqNo_GetRecordsByViqCodeID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsViqNo_GetRecordsByViqCodeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsMoiStatus_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsMoiStatus_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecordsInspectionCompany">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsInspectionCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsCustomer_GetRecordsAppointedCompany">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsCustomer_GetRecordsAppointedCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsDeficiencyCategory_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsDeficiencyCategory_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsYear_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsYear_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleCategory_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsScheduleCategory_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleKind_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsScheduleKind_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsScheduleKindDetail_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsScheduleKindDetail_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeficiencyCategoryData_GetDataList">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/DeficiencyCategoryData_GetDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsViqCodeName_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsViqCodeName_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsViqVersion_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsViqVersion_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecordsByMsVesselID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselScheduleKindDetailEnable_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsVesselScheduleKindDetailEnable_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsVesselCategory_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsVesselCategory_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MsCrewMatrixType_GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IServiceDeficiency/MsCrewMatrixType_GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceDeficiency">
+    <wsdl:port name="BasicHttpBinding_IServiceDeficiency" binding="tns:BasicHttpBinding_IServiceDeficiency">
+      <soap:address location="http://localhost:56353/ServiceDeficiency.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

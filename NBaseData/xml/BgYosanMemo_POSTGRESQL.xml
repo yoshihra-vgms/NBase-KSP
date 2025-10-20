@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecords">
+    SELECT
+    BG_YOSAN_MEMO.YOSAN_HEAD_ID,
+    BG_YOSAN_MEMO.MS_BUMON_ID,
+    BG_YOSAN_MEMO.MEMO,
+    BG_YOSAN_MEMO.RENEW_DATE,
+    BG_YOSAN_MEMO.RENEW_USER_ID,
+    BG_YOSAN_MEMO.TS
+
+    FROM
+    BG_YOSAN_MEMO
+
+    WHERE 1 = 1
+  </sql>
+
+  <sql name="ByYosanHeadID">
+    AND BG_YOSAN_MEMO.YOSAN_HEAD_ID = :YOSAN_HEAD_ID
+  </sql>
+
+  <sql name="GetRecord">
+		SELECT
+		BG_YOSAN_MEMO.YOSAN_HEAD_ID,
+		BG_YOSAN_MEMO.MS_BUMON_ID,
+		BG_YOSAN_MEMO.MEMO,
+		BG_YOSAN_MEMO.RENEW_DATE,
+		BG_YOSAN_MEMO.RENEW_USER_ID,
+		BG_YOSAN_MEMO.TS
+
+		FROM
+		BG_YOSAN_MEMO
+		WHERE
+		(BG_YOSAN_MEMO.YOSAN_HEAD_ID = :YOSAN_HEAD_ID) AND
+		(BG_YOSAN_MEMO.MS_BUMON_ID = :MS_BUMON_ID)
+
+	</sql>
+
+	<sql name="InsertRecord">
+		INSERT INTO BG_YOSAN_MEMO(
+			YOSAN_HEAD_ID,
+			MS_BUMON_ID,
+			MEMO,
+			RENEW_DATE,
+			RENEW_USER_ID,
+			TS
+		)
+		VALUES
+		(
+			:YOSAN_HEAD_ID,
+			:MS_BUMON_ID,
+			:MEMO,
+			:RENEW_DATE,
+			:RENEW_USER_ID,
+			:TS
+		)
+	</sql>
+
+	<sql name="UpdateRecord">
+		UPDATE BG_YOSAN_MEMO SET
+		MEMO = :MEMO,
+		RENEW_DATE= :RENEW_DATE,
+		RENEW_USER_ID = :RENEW_USER_ID
+		WHERE
+		(YOSAN_HEAD_ID = :YOSAN_HEAD_ID) AND
+		(MS_BUMON_ID = :MS_BUMON_ID) AND
+		(TS = :TS)
+	</sql>
+
+</databaseConfig>

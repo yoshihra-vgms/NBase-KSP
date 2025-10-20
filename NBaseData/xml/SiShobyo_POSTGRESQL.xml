@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SI_SHOBYO.SI_SHOBYO_ID            ,
+
+    SI_SHOBYO.MS_SENIN_ID              ,
+    SI_SHOBYO.HOKEN_NO                 ,
+    SI_SHOBYO.MS_SI_SHOKUMEI_ID        ,
+    SI_SHOBYO.KIND,
+    SI_SHOBYO.MS_VESSEL_ID,
+    SI_SHOBYO.STATUS,
+    SI_SHOBYO.SHOBYO_NAME,
+    SI_SHOBYO.FROM_DATE,
+    SI_SHOBYO.TO_DATE,
+    SI_SHOBYO.TOKYU,
+    SI_SHOBYO.NITIGAKU,
+    SI_SHOBYO.KINGAKU,
+    SI_SHOBYO.KOUZA,
+
+    SI_SHOBYO.SEND_DOCUMENT,
+    SI_SHOBYO.DOCUMENT_RETURN,
+    SI_SHOBYO.FILING_DATE,
+    SI_SHOBYO.NOTIFICATION,
+    SI_SHOBYO.ADVANCE_VOUCHER,
+    SI_SHOBYO.DEPOSIT_SLIP,
+    SI_SHOBYO.MONEY_TRANSFER,
+    SI_SHOBYO.MAIL_TO_PRINCIPAL,
+
+    SI_SHOBYO.DELETE_FLAG              ,
+    SI_SHOBYO.SEND_FLAG                ,
+    SI_SHOBYO.VESSEL_ID                ,
+    SI_SHOBYO.DATA_NO                  ,
+    SI_SHOBYO.USER_KEY                 ,
+    SI_SHOBYO.RENEW_DATE               ,
+    SI_SHOBYO.RENEW_USER_ID            ,
+    SI_SHOBYO.TS
+
+    FROM
+    SI_SHOBYO
+
+    #APPEND_JOIN_STR#
+
+    WHERE
+    SI_SHOBYO.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    SI_SHOBYO.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="ByFromDate">
+    AND
+    SI_SHOBYO.TO_DATE >= :FROM_DATE
+  </sql>
+
+  <sql name="ByToDate">
+    AND
+    SI_SHOBYO.FROM_DATE &lt;= :TO_DATE
+  </sql>
+
+  <sql name="ByMsSiShokumeiID">
+    INNER JOIN MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_SHOBYO.MS_SENIN_ID AND MS_SENIN.MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO SI_SHOBYO(
+    SI_SHOBYO_ID                  ,
+
+    MS_SENIN_ID                    ,
+    HOKEN_NO                       ,
+    MS_SI_SHOKUMEI_ID              ,
+    KIND,
+    MS_VESSEL_ID,
+    STATUS,
+    SHOBYO_NAME,
+    FROM_DATE,
+    TO_DATE,
+    TOKYU,
+    NITIGAKU,
+    KINGAKU,
+    KOUZA,
+
+    SEND_DOCUMENT,
+    DOCUMENT_RETURN,
+    FILING_DATE,
+    NOTIFICATION,
+    ADVANCE_VOUCHER,
+    DEPOSIT_SLIP,
+    MONEY_TRANSFER,
+    MAIL_TO_PRINCIPAL,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+    )
+    VALUES(
+    :SI_SHOBYO_ID                  ,
+
+    :MS_SENIN_ID                    ,
+    :HOKEN_NO                       ,
+    :MS_SI_SHOKUMEI_ID              ,
+    :KIND,
+    :MS_VESSEL_ID,
+    :STATUS,
+    :SHOBYO_NAME,
+    :FROM_DATE,
+    :TO_DATE,
+    :TOKYU,
+    :NITIGAKU,
+    :KINGAKU,
+    :KOUZA,
+
+    :SEND_DOCUMENT,
+    :DOCUMENT_RETURN,
+    :FILING_DATE,
+    :NOTIFICATION,
+    :ADVANCE_VOUCHER,
+    :DEPOSIT_SLIP,
+    :MONEY_TRANSFER,
+    :MAIL_TO_PRINCIPAL,
+
+    :DELETE_FLAG                    ,
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    SI_SHOBYO
+    SET
+    MS_SENIN_ID = :MS_SENIN_ID                       ,
+    HOKEN_NO = :HOKEN_NO                             ,
+    MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+
+    KIND = :KIND,
+    MS_VESSEL_ID = :MS_VESSEL_ID,
+    STATUS = :STATUS,
+    SHOBYO_NAME = :SHOBYO_NAME,
+    FROM_DATE = :FROM_DATE,
+    TO_DATE = :TO_DATE,
+    TOKYU = :TOKYU,
+    NITIGAKU = :NITIGAKU,
+    KINGAKU = :KINGAKU,
+    KOUZA = :KOUZA,
+
+    SEND_DOCUMENT = :SEND_DOCUMENT,
+    DOCUMENT_RETURN = :DOCUMENT_RETURN,
+    FILING_DATE = :FILING_DATE,
+    NOTIFICATION = :NOTIFICATION,
+    ADVANCE_VOUCHER = :ADVANCE_VOUCHER,
+    DEPOSIT_SLIP = :DEPOSIT_SLIP,
+    MONEY_TRANSFER = :MONEY_TRANSFER,
+    MAIL_TO_PRINCIPAL = :MAIL_TO_PRINCIPAL,
+
+    DELETE_FLAG = :DELETE_FLAG                       ,
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS
+
+    WHERE SI_SHOBYO_ID = :SI_SHOBYO_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

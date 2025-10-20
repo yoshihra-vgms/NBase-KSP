@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ID       ,
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ZUKI     ,
+    OD_GAISAN_KEIJO.OD_JRY_ID             ,
+    
+    OD_GAISAN_KEIJO.OD_SHR_ID             ,
+    OD_GAISAN_KEIJO.AMOUNT                ,
+    OD_GAISAN_KEIJO.NEBIKI_AMOUNT         ,
+    OD_GAISAN_KEIJO.TAX                   ,
+    OD_GAISAN_KEIJO.KAMOKU_NO             ,
+    OD_GAISAN_KEIJO.UTIWAKE_KAMOKU_NO     ,
+    
+    OD_GAISAN_KEIJO.MS_USER_ID            ,
+    OD_GAISAN_KEIJO.RENEW_DATE            ,
+    OD_GAISAN_KEIJO.RENEW_USER_ID         ,
+    OD_GAISAN_KEIJO.TS
+    FROM
+    OD_GAISAN_KEIJO
+
+  </sql>
+
+  <sql name="GetRecordsByMsUserID">
+    SELECT
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ID       ,
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ZUKI     ,
+    OD_GAISAN_KEIJO.OD_JRY_ID             ,
+
+    OD_GAISAN_KEIJO.OD_SHR_ID             ,
+    OD_GAISAN_KEIJO.AMOUNT                ,
+    OD_GAISAN_KEIJO.NEBIKI_AMOUNT         ,
+    OD_GAISAN_KEIJO.TAX                   ,
+    OD_GAISAN_KEIJO.KAMOKU_NO             ,
+    OD_GAISAN_KEIJO.UTIWAKE_KAMOKU_NO     ,
+
+    OD_GAISAN_KEIJO.MS_USER_ID            ,
+    OD_GAISAN_KEIJO.RENEW_DATE            ,
+    OD_GAISAN_KEIJO.RENEW_USER_ID         ,
+    OD_GAISAN_KEIJO.TS
+    FROM
+    OD_GAISAN_KEIJO
+    WHERE
+    OD_GAISAN_KEIJO.MS_USER_ID = :MS_USER_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ID       ,
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ZUKI     ,
+    OD_GAISAN_KEIJO.OD_JRY_ID             ,
+
+    OD_GAISAN_KEIJO.OD_SHR_ID             ,
+    OD_GAISAN_KEIJO.AMOUNT                ,
+    OD_GAISAN_KEIJO.NEBIKI_AMOUNT         ,
+    OD_GAISAN_KEIJO.TAX                   ,
+    OD_GAISAN_KEIJO.KAMOKU_NO             ,
+    OD_GAISAN_KEIJO.UTIWAKE_KAMOKU_NO     ,
+
+    OD_GAISAN_KEIJO.MS_USER_ID            ,
+    OD_GAISAN_KEIJO.RENEW_DATE            ,
+    OD_GAISAN_KEIJO.RENEW_USER_ID         ,
+    OD_GAISAN_KEIJO.TS
+    FROM
+    OD_GAISAN_KEIJO
+    WHERE
+    OD_GAISAN_KEIJO.GAISAN_KEIJO_ID = :GAISAN_KEIJO_ID
+
+  </sql>
+
+  <sql name="ByOdJryID">
+    WHERE OD_GAISAN_KEIJO.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+	
+	<sql name="GetLatestNengetsu">
+		select max(GAISAN_KEIJO_ZUKI) as GAISAN_KEIJO_ZUKI from od_gaisan_keijo
+	</sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_GAISAN_KEIJO
+    (
+    GAISAN_KEIJO_ID       ,
+    GAISAN_KEIJO_ZUKI     ,
+    OD_JRY_ID             ,
+
+    OD_SHR_ID             ,
+    AMOUNT                ,
+    NEBIKI_AMOUNT         ,
+    TAX                   ,
+    KAMOKU_NO             ,
+    UTIWAKE_KAMOKU_NO     ,
+
+    MS_USER_ID            ,
+    RENEW_DATE            ,
+    RENEW_USER_ID         ,
+    TS
+    )
+    VALUES
+    (
+    nextval('SEQ_OD_GAISAN_KEIJO_ID') ,
+    :GAISAN_KEIJO_ZUKI     ,
+    :OD_JRY_ID             ,
+
+    :OD_SHR_ID             ,
+    :AMOUNT                ,
+    :NEBIKI_AMOUNT         ,
+    :TAX                   ,
+    :KAMOKU_NO             ,
+    :UTIWAKE_KAMOKU_NO     ,
+
+    :MS_USER_ID            ,
+    :RENEW_DATE            ,
+    :RENEW_USER_ID         ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_GAISAN_KEIJO
+    SET
+    GAISAN_KEIJO_ZUKI = :GAISAN_KEIJO_ZUKI  ,
+    OD_JRY_ID = :OD_JRY_ID                  ,
+
+    OD_SHR_ID = :OD_SHR_ID                  ,
+    AMOUNT = :AMOUNT                        ,
+    NEBIKI_AMOUNT = :NEBIKI_AMOUNT          ,
+    TAX = :TAX                              ,
+    KAMOKU_NO = :KAMOKU_NO                  ,
+    UTIWAKE_KAMOKU_NO = :UTIWAKE_KAMOKU_NO  ,
+
+    MS_USER_ID = :MS_USER_ID                ,
+    RENEW_DATE = :RENEW_DATE                ,
+    RENEW_USER_ID = :RENEW_USER_ID          ,
+    TS = :TS
+
+    WHERE
+    GAISAN_KEIJO_ID = :GAISAN_KEIJO_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

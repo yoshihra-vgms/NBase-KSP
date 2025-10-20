@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SENIN_ADDRESS.MS_SENIN_ID   ,
+
+    MS_SENIN_ADDRESS.ZIP_CODE      ,
+    MS_SENIN_ADDRESS.PREFECTURES   ,
+    MS_SENIN_ADDRESS.CITY_TOWN     ,
+    MS_SENIN_ADDRESS.STREET        ,
+
+    MS_SENIN_ADDRESS.P_ZIP_CODE    ,
+    MS_SENIN_ADDRESS.P_PREFECTURES ,
+    MS_SENIN_ADDRESS.P_CITY_TOWN   ,
+    MS_SENIN_ADDRESS.P_STREET      ,
+
+    MS_SENIN_ADDRESS.A_ZIP_CODE    ,
+    MS_SENIN_ADDRESS.A_PREFECTURES ,
+    MS_SENIN_ADDRESS.A_CITY_TOWN   ,
+    MS_SENIN_ADDRESS.A_STREET      ,
+
+    MS_SENIN_ADDRESS.REMARKS       ,
+
+    MS_SENIN_ADDRESS.DELETE_FLAG   ,
+    MS_SENIN_ADDRESS.SEND_FLAG     ,
+    MS_SENIN_ADDRESS.VESSEL_ID     ,
+    MS_SENIN_ADDRESS.DATA_NO       ,
+    MS_SENIN_ADDRESS.USER_KEY      ,
+    MS_SENIN_ADDRESS.RENEW_DATE    ,
+    MS_SENIN_ADDRESS.RENEW_USER_ID ,
+    MS_SENIN_ADDRESS.TS
+
+    FROM
+    MS_SENIN_ADDRESS
+
+    WHERE
+    MS_SENIN_ADDRESS.DELETE_FLAG = 0
+  </sql>
+
+  <sql name="ByMsSeninID">
+    AND
+    MS_SENIN_ADDRESS.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SENIN_ADDRESS(
+
+    MS_SENIN_ID    ,
+
+    ZIP_CODE       ,
+    PREFECTURES    ,
+    CITY_TOWN      ,
+    STREET         ,
+
+    P_ZIP_CODE     ,
+    P_PREFECTURES  ,
+    P_CITY_TOWN    ,
+    P_STREET       ,
+
+    A_ZIP_CODE     ,
+    A_PREFECTURES  ,
+    A_CITY_TOWN    ,
+    A_STREET       ,
+
+    REMARKS        ,
+
+    DELETE_FLAG    ,
+    SEND_FLAG      ,
+    VESSEL_ID      ,
+    DATA_NO        ,
+    USER_KEY       ,
+    RENEW_DATE     ,
+    RENEW_USER_ID  ,
+    TS
+    )
+    VALUES(
+
+    :MS_SENIN_ID   ,
+
+    :ZIP_CODE      ,
+    :PREFECTURES   ,
+    :CITY_TOWN     ,
+    :STREET        ,
+
+    :P_ZIP_CODE    ,
+    :P_PREFECTURES ,
+    :P_CITY_TOWN   ,
+    :P_STREET      ,
+
+    :A_ZIP_CODE    ,
+    :A_PREFECTURES ,
+    :A_CITY_TOWN   ,
+    :A_STREET      ,
+
+    :REMARKS       ,
+
+    :DELETE_FLAG   ,
+    :SEND_FLAG     ,
+    :VESSEL_ID     ,
+    :DATA_NO       ,
+    :USER_KEY      ,
+    :RENEW_DATE    ,
+    :RENEW_USER_ID ,
+    :TS
+    )
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SENIN_ADDRESS
+    SET
+
+    ZIP_CODE = :ZIP_CODE
+    ,PREFECTURES = :PREFECTURES
+    ,CITY_TOWN = :CITY_TOWN
+    ,STREET = :STREET
+
+    ,P_ZIP_CODE = :P_ZIP_CODE
+    ,P_PREFECTURES = :P_PREFECTURES
+    ,P_CITY_TOWN = :P_CITY_TOWN
+    ,P_STREET = :P_STREET
+
+    ,A_ZIP_CODE = :A_ZIP_CODE
+    ,A_PREFECTURES = :A_PREFECTURES
+    ,A_CITY_TOWN = :A_CITY_TOWN
+    ,A_STREET = :A_STREET
+
+    ,REMARKS = :REMARKS
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MS_SENIN_ID = :MS_SENIN_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

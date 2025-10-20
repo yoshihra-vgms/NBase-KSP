@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_SI_PRESENTATION_ITEM_ID ,
+    SET_NO ,
+    SN ,
+    NAME ,
+
+    DELETE_FLAG                    ,
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS
+
+    FROM
+    MS_SI_PRESENTATION_ITEM
+
+    WHERE
+    DELETE_FLAG = 0
+    
+  </sql>
+  
+  <sql name="OrderBy">
+    ORDER BY SET_NO, SN
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SI_PRESENTATION_ITEM (
+    MS_SI_PRESENTATION_ITEM_ID
+    ,SET_NO
+    ,SN
+    ,NAME
+    ,DELETE_FLAG
+    ,SEND_FLAG
+    ,VESSEL_ID
+    ,DATA_NO
+    ,USER_KEY
+    ,RENEW_DATE
+    ,RENEW_USER_ID
+    ,TS
+    )
+    VALUES(
+    :MS_SI_PRESENTATION_ITEM_ID
+    ,:SET_NO
+    ,:SN
+    ,:NAME
+    ,:DELETE_FLAG
+    ,:SEND_FLAG
+    ,:VESSEL_ID
+    ,:DATA_NO
+    ,:USER_KEY
+    ,:RENEW_DATE
+    ,:RENEW_USER_ID
+    ,:TS
+    )
+  </sql>
+  
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SI_PRESENTATION_ITEM
+    SET
+
+    SET_NO = :SET_NO
+    ,SN = :SN
+    ,NAME = :NAME
+
+    ,DELETE_FLAG = :DELETE_FLAG
+    ,SEND_FLAG = :SEND_FLAG
+    ,VESSEL_ID = :VESSEL_ID
+    ,DATA_NO = :DATA_NO
+    ,USER_KEY = :USER_KEY
+    ,RENEW_DATE = :RENEW_DATE
+    ,RENEW_USER_ID = :RENEW_USER_ID
+    ,TS = :TS
+
+    WHERE MS_SI_PRESENTATION_ITEM_ID = :MS_SI_PRESENTATION_ITEM_ID
+    AND TS = :TS
+  </sql>
+
+</databaseConfig>

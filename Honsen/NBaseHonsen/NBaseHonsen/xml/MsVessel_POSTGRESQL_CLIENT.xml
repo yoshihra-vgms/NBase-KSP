@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VESSEL.MS_VESSEL_ID          ,
+    MS_VESSEL.VESSEL_NO             ,
+    MS_VESSEL.VESSEL_NAME           ,
+    MS_VESSEL.DWT                   ,
+    MS_VESSEL.CAPACITY              ,
+    MS_VESSEL.TEL                   ,
+    MS_VESSEL.MS_VESSEL_TYPE_ID     ,
+    MS_VESSEL_TYPE.VESSEL_TYPE_NAME ,
+    MS_VESSEL.DELETE_FLAG           ,
+    MS_VESSEL.SEND_FLAG             ,
+    MS_VESSEL.VESSEL_ID             ,
+    MS_VESSEL.DATA_NO               ,
+    MS_VESSEL.USER_KEY              ,
+    MS_VESSEL.RENEW_DATE            ,
+    MS_VESSEL.RENEW_USER_ID         ,
+    MS_VESSEL.TS                    ,
+    MS_VESSEL.HP_TEL                ,
+    MS_VESSEL.OFFICIAL_NUMBER     ,
+    MS_VESSEL.CARGO_WEIGHT		      ,
+    MS_VESSEL.SHOW_ORDER            ,
+    MS_VESSEL.COMPLETION_DATE       ,
+    MS_VESSEL.ANNIVERSARY_DATE      ,
+    MS_VESSEL.NATIONALITY           ,
+    MS_VESSEL.MAIL_ADDRESS
+
+    ,MS_VESSEL.HONSEN_ENABLED
+    ,MS_VESSEL.YOJITSU_ENABLED
+    ,MS_VESSEL.HACHU_ENABLED
+    ,MS_VESSEL.SENIN_ENABLED
+    ,MS_VESSEL.DOCUMENT_ENABLED
+    ,MS_VESSEL.KENSA_ENABLED
+    ,MS_VESSEL.KANIDOUSEI_ENABLED
+
+    ,MS_VESSEL.YOJITSU_RESULTS
+    ,MS_VESSEL.HACHU_RESULTS
+    ,MS_VESSEL.SENIN_RESULTS
+    ,MS_VESSEL.DOCUMENT_RESULTS
+    ,MS_VESSEL.KENSA_RESULTS
+    ,MS_VESSEL.KANIDOUSEI_RESULTS
+
+    ,MS_VESSEL.SALES_PERSON_ID
+    ,SALES_PERSON.SEI  || SALES_PERSON.MEI as SALES_PERSON_NAME
+    ,MS_VESSEL.MARINE_SUPERINTENDENT_ID
+    ,MARINE_SUPERINTENDENT.SEI  || MARINE_SUPERINTENDENT.MEI as MARINE_SUPERINTENDENT_NAME
+
+    ,MS_VESSEL.MS_CREW_MATRIX_TYPE_ID
+    
+    --MS_VESSEL.OWNER                 ,
+    --MS_VESSEL.AKASAKA_VESSEL_NO     ,
+    --MS_VESSEL.KAIKEI_BUMON_CODE
+    --MS_VESSEL.DOUSEI_REPORT1,
+    --MS_VESSEL.DOUSEI_REPORT2,
+    --MS_VESSEL.DOUSEI_REPORT3,
+    
+
+    FROM MS_VESSEL
+    LEFT OUTER JOIN  MS_VESSEL_TYPE ON MS_VESSEL.MS_VESSEL_TYPE_ID = MS_VESSEL_TYPE.MS_VESSEL_TYPE_ID
+
+    LEFT JOIN MS_USER SALES_PERSON ON SALES_PERSON.MS_USER_ID = MS_VESSEL.SALES_PERSON_ID
+    LEFT JOIN MS_USER MARINE_SUPERINTENDENT ON MARINE_SUPERINTENDENT.MS_USER_ID = MS_VESSEL.MARINE_SUPERINTENDENT_ID
+
+    WHERE (MS_VESSEL.DELETE_FLAG = 0 or MS_VESSEL.DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="GetRecords2">
+    SELECT
+    MS_VESSEL.MS_VESSEL_ID          ,
+    MS_VESSEL.VESSEL_NO             ,
+    MS_VESSEL.VESSEL_NAME           ,
+    MS_VESSEL.DWT                   ,
+    MS_VESSEL.CAPACITY              ,
+    MS_VESSEL.TEL                   ,
+    MS_VESSEL.MS_VESSEL_TYPE_ID     ,
+    MS_VESSEL_TYPE.VESSEL_TYPE_NAME ,
+    MS_VESSEL.DELETE_FLAG           ,
+    MS_VESSEL.SEND_FLAG             ,
+    MS_VESSEL.VESSEL_ID             ,
+    MS_VESSEL.DATA_NO               ,
+    MS_VESSEL.USER_KEY              ,
+    MS_VESSEL.RENEW_DATE            ,
+    MS_VESSEL.RENEW_USER_ID         ,
+    MS_VESSEL.TS                    ,
+    MS_VESSEL.HP_TEL                ,
+    senin.SEI,
+    senin.MEI,
+    MS_VESSEL.OFFICIAL_NUMBER    		,
+    MS_VESSEL.CARGO_WEIGHT		      ,
+    MS_VESSEL.SHOW_ORDER            ,
+    MS_VESSEL.COMPLETION_DATE       ,
+    MS_VESSEL.ANNIVERSARY_DATE      ,
+    MS_VESSEL.NATIONALITY,
+    MS_VESSEL.MAIL_ADDRESS
+
+    ,MS_VESSEL.HONSEN_ENABLED
+    ,MS_VESSEL.YOJITSU_ENABLED
+    ,MS_VESSEL.HACHU_ENABLED
+    ,MS_VESSEL.SENIN_ENABLED
+    ,MS_VESSEL.DOCUMENT_ENABLED
+    ,MS_VESSEL.KENSA_ENABLED
+    ,MS_VESSEL.KANIDOUSEI_ENABLED
+
+    ,MS_VESSEL.YOJITSU_RESULTS
+    ,MS_VESSEL.HACHU_RESULTS
+    ,MS_VESSEL.SENIN_RESULTS
+    ,MS_VESSEL.DOCUMENT_RESULTS
+    ,MS_VESSEL.KENSA_RESULTS
+    ,MS_VESSEL.KANIDOUSEI_RESULTS
+
+    ,MS_VESSEL.SALES_PERSON_ID
+    ,MS_VESSEL.MARINE_SUPERINTENDENT_ID
+    ,MS_VESSEL.MS_CREW_MATRIX_TYPE_ID
+    
+    --MS_VESSEL.OWNER                 ,
+    --MS_VESSEL.AKASAKA_VESSEL_NO     ,
+    --MS_VESSEL.KAIKEI_BUMON_CODE
+    --MS_VESSEL.DOUSEI_REPORT1,
+    --MS_VESSEL.DOUSEI_REPORT2,
+    --MS_VESSEL.DOUSEI_REPORT3,
+    
+
+    FROM MS_VESSEL
+    LEFT OUTER JOIN  MS_VESSEL_TYPE ON MS_VESSEL.MS_VESSEL_TYPE_ID = MS_VESSEL_TYPE.MS_VESSEL_TYPE_ID
+    LEFT OUTER JOIN
+    (
+    select
+    MS_VESSEL.MS_VESSEL_ID,
+    MS_SENIN.SEI,
+    MS_SENIN.MEI
+    from
+    MS_VESSEL
+    LEFT OUTER JOIN  SI_CARD ON MS_VESSEL.MS_VESSEL_ID = SI_CARD.MS_VESSEL_ID
+    LEFT OUTER JOIN  MS_SENIN ON SI_CARD.MS_SENIN_ID = MS_SENIN.MS_SENIN_ID
+    where
+    MS_SENIN.MS_SI_SHOKUMEI_ID = 901
+    ) senin on MS_VESSEL.MS_VESSEL_ID = senin.MS_VESSEL_ID
+    WHERE (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="ByMsVesselID">
+    AND MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="ByVesselNo">
+    AND VESSEL_NO = :VESSEL_NO
+  </sql>
+
+  <sql name="ByHachuEnabled">
+    AND HACHU_ENABLED = 1
+  </sql>
+
+  <sql name="ByYojitsuEnabled">
+    AND YOJITSU_ENABLED = 1
+  </sql>
+
+  <sql name="ByHonsenEnabled">
+    AND HONSEN_ENABLED = 1
+  </sql>
+
+  <sql name="ByKanidouseiEnabled">
+    AND KANIDOUSEI_ENABLED = 1
+  </sql>
+
+  <sql name="ByDocumentEnabled">
+    AND DOCUMENT_ENABLED = 1
+  </sql>
+
+  <sql name="ByKensaEnabeled">
+    AND KENSA_ENABLED = 1
+  </sql>
+
+  <sql name="BySeninEnabled">
+    AND SENIN_ENABLED = 1
+  </sql>
+
+  <sql name="BySeninEnabledResults">
+    AND ( SENIN_ENABLED = 1 OR SENIN_RESULTS = 1 )
+  </sql>
+
+  <sql name="ByKensaEnabeledResults">
+    AND ( KENSA_ENABLED = 1 OR KENSA_RESULTS = 1 )
+  </sql>
+
+  <sql name="ByHachuEnabledResults">
+    AND ( HACHU_ENABLED = 1 OR HACHU_RESULTS = 1)
+  </sql>
+
+  <sql name="ByYojitsuEnabledResults">
+    AND ( YOJITSU_ENABLED = 1 OR YOJITSU_RESULTS = 1 )
+  </sql>
+
+  <sql name="ByKanidouseiEnabledResults">
+    AND ( KANIDOUSEI_ENABLED = 1 OR KANIDOUSEI_RESULTS = 1 )
+  </sql>
+
+  <sql name="ByDocumentEnabledResults">
+    AND ( DOCUMENT_ENABLED = 1 OR DOCUMENT_RESULTS = 1)
+  </sql>
+
+  <sql name="ByKensaResults">
+    OR KENSA_RESULTS = 1
+  </sql>
+
+  <sql name="BySeninResults">
+    OR SENIN_RESULTS = 1
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY MS_VESSEL.SHOW_ORDER , MS_VESSEL.VESSEL_NO
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_VESSEL
+    (
+    MS_VESSEL_ID        ,
+    VESSEL_NO           ,
+    VESSEL_NAME         ,
+    DWT                 ,
+    CAPACITY            ,
+    TEL                 ,
+    MS_VESSEL_TYPE_ID   ,
+    DELETE_FLAG         ,
+    SEND_FLAG           ,
+    VESSEL_ID           ,
+    DATA_NO             ,
+    USER_KEY            ,
+    RENEW_DATE          ,
+    RENEW_USER_ID       ,
+    TS                  ,
+    HP_TEL              ,
+    HACHU_ENABLED       ,
+    YOJITSU_ENABLED     ,
+    HONSEN_ENABLED      ,
+    KANIDOUSEI_ENABLED  ,
+    OFFICIAL_NUMBER     ,
+    CARGO_WEIGHT        ,
+    SHOW_ORDER          ,
+    COMPLETION_DATE     ,
+    ANNIVERSARY_DATE    ,
+    NATIONALITY         ,
+    MAIL_ADDRESS        ,
+    DOCUMENT_ENABLED    ,
+
+    SENIN_ENABLED,
+    KENSA_ENABLED,
+
+    YOJITSU_RESULTS,
+    HACHU_RESULTS,
+    SENIN_RESULTS,
+    DOCUMENT_RESULTS,
+    KENSA_RESULTS,
+    KANIDOUSEI_RESULTS,
+
+    SALES_PERSON_ID,
+    MARINE_SUPERINTENDENT_ID,
+    MS_CREW_MATRIX_TYPE_ID
+
+    --OWNER               ,
+    --AKASAKA_VESSEL_NO   ,
+    --DOUSEI_REPORT1      ,
+    --DOUSEI_REPORT2      ,
+    --DOUSEI_REPORT3      ,
+    --KAIKEI_BUMON_CODE   ,
+    )
+    VALUES(
+    :MS_VESSEL_ID        ,
+    :VESSEL_NO           ,
+    :VESSEL_NAME         ,
+    :DWT                 ,
+    :CAPACITY            ,
+    :TEL                 ,
+    :MS_VESSEL_TYPE_ID   ,
+    :DELETE_FLAG         ,
+    :SEND_FLAG           ,
+    :VESSEL_ID           ,
+    :DATA_NO             ,
+    :USER_KEY            ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    :TS                  ,
+    :HP_TEL              ,
+    :HACHU_ENABLED       ,
+    :YOJITSU_ENABLED     ,
+    :HONSEN_ENABLED      ,
+    :KANIDOUSEI_ENABLED  ,
+    :OFFICIAL_NUMBER     ,
+    :CARGO_WEIGHT        ,
+    :SHOW_ORDER          ,
+    :COMPLETION_DATE     ,
+    :ANNIVERSARY_DATE    ,
+    :NATIONALITY        ,
+    :MAIL_ADDRESS       ,
+    :DOCUMENT_ENABLED   ,
+
+    :SENIN_ENABLED,
+    :KENSA_ENABLED,
+
+    :YOJITSU_RESULTS,
+    :HACHU_RESULTS,
+    :SENIN_RESULTS,
+    :DOCUMENT_RESULTS,
+    :KENSA_RESULTS,
+    :KANIDOUSEI_RESULTS,
+
+    :SALES_PERSON_ID,
+    :MARINE_SUPERINTENDENT_ID,
+    :MS_CREW_MATRIX_TYPE_ID
+
+    --:OWNER               ,
+    --:AKASAKA_VESSEL_NO   ,
+    --:DOUSEI_REPORT1     ,
+    --:DOUSEI_REPORT2     ,
+    --:DOUSEI_REPORT3     ,
+    --:KAIKEI_BUMON_CODE  ,
+    )
+
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_VESSEL SET
+    VESSEL_NO = :VESSEL_NO,
+    VESSEL_NAME = :VESSEL_NAME,
+    DWT = :DWT,
+    CAPACITY = :CAPACITY,
+    TEL = :TEL,
+    MS_VESSEL_TYPE_ID = :MS_VESSEL_TYPE_ID,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO               ,
+    USER_KEY = :USER_KEY             ,
+    RENEW_DATE = :RENEW_DATE         ,
+    RENEW_USER_ID = :RENEW_USER_ID   ,
+    TS = :TS                         ,
+    HP_TEL = :HP_TEL                 ,
+    HACHU_ENABLED = :HACHU_ENABLED    ,
+    YOJITSU_ENABLED = :YOJITSU_ENABLED,
+    HONSEN_ENABLED = :HONSEN_ENABLED  ,
+    KANIDOUSEI_ENABLED = :KANIDOUSEI_ENABLED,
+    OFFICIAL_NUMBER = :OFFICIAL_NUMBER,
+    CARGO_WEIGHT = :CARGO_WEIGHT,
+    SHOW_ORDER = :SHOW_ORDER         ,
+    COMPLETION_DATE = :COMPLETION_DATE    ,
+    ANNIVERSARY_DATE = :ANNIVERSARY_DATE    ,
+    NATIONALITY = :NATIONALITY,
+    MAIL_ADDRESS = :MAIL_ADDRESS,
+    DOCUMENT_ENABLED = :DOCUMENT_ENABLED,
+
+    SENIN_ENABLED = :SENIN_ENABLED,
+    KENSA_ENABLED = :KENSA_ENABLED,
+
+    YOJITSU_RESULTS = :YOJITSU_RESULTS,
+    HACHU_RESULTS = :HACHU_RESULTS,
+    SENIN_RESULTS = :SENIN_RESULTS,
+    DOCUMENT_RESULTS = :DOCUMENT_RESULTS,
+    KENSA_RESULTS = :KENSA_RESULTS,
+    KANIDOUSEI_RESULTS = :KANIDOUSEI_RESULTS,
+
+    SALES_PERSON_ID = :SALES_PERSON_ID,
+    MARINE_SUPERINTENDENT_ID = :MARINE_SUPERINTENDENT_ID,
+    MS_CREW_MATRIX_TYPE_ID = :MS_CREW_MATRIX_TYPE_ID
+ 
+ 
+    --OWNER = :OWNER                    ,
+    --AKASAKA_VESSEL_NO = :AKASAKA_VESSEL_NO,
+    --DOUSEI_REPORT1 = :DOUSEI_REPORT1,
+    --DOUSEI_REPORT2 = :DOUSEI_REPORT2,
+    --DOUSEI_REPORT3 = :DOUSEI_REPORT3,
+    --KAIKEI_BUMON_CODE = :KAIKEI_BUMON_CODE,    
+
+    WHERE MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+  <sql name="DeleteFlagRecord">
+    UPDATE MS_VESSEL SET
+    DELETE_FLAG = 1
+
+    where MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+
+</databaseConfig>

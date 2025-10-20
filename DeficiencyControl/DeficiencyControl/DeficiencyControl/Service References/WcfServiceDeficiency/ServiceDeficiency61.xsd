@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CIsl.DB" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
+  <xs:complexType name="DcAttachment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q1:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttachmentTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="attachment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="attachment_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="file_data" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="icon_data" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAttachment" nillable="true" type="tns:DcAttachment" />
+  <xs:complexType name="ArrayOfDcAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcAttachment" nillable="true" type="tns:DcAttachment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcAttachment" nillable="true" type="tns:ArrayOfDcAttachment" />
+  <xs:complexType name="DcComment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q2:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcComment" nillable="true" type="tns:DcComment" />
+  <xs:complexType name="ArrayOfDcActionCodeHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcActionCodeHistory" nillable="true" type="tns:DcActionCodeHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcActionCodeHistory" nillable="true" type="tns:ArrayOfDcActionCodeHistory" />
+  <xs:complexType name="DcActionCodeHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q3:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_code_history_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="action_code_text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcActionCodeHistory" nillable="true" type="tns:DcActionCodeHistory" />
+  <xs:complexType name="DcCiPscInspection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcCommentItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action_taken_by_company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="action_taken_by_vessel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cause_of_deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved_nk_department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="class_involved_nk_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="comment_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="corrective_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="deficiency_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="deficinecy_count" type="xs:int" />
+          <xs:element minOccurs="0" name="deficinecy_no" type="xs:int" />
+          <xs:element minOccurs="0" name="item_remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="share_to_our_fleet" type="xs:boolean" />
+          <xs:element minOccurs="0" name="share_to_our_fleet_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="status_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCiPscInspection" nillable="true" type="tns:DcCiPscInspection" />
+  <xs:complexType name="DcCommentItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q4:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+          <xs:element minOccurs="0" name="comment_item_id" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="item_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_crew_matrix_type_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcCommentItem" nillable="true" type="tns:DcCommentItem" />
+  <xs:complexType name="ArrayOfDcCiPscInspection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcCiPscInspection" nillable="true" type="tns:DcCiPscInspection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcCiPscInspection" nillable="true" type="tns:ArrayOfDcCiPscInspection" />
+  <xs:complexType name="ArrayOfDcAccident">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcAccident" nillable="true" type="tns:DcAccident" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcAccident" nillable="true" type="tns:ArrayOfDcAccident" />
+  <xs:complexType name="DcAccident">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q5:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_importance_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_kind_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_report_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="accident_situation_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="cause_of_accident" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="influence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="kind_of_accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="spot_report" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccident" nillable="true" type="tns:DcAccident" />
+  <xs:complexType name="DcAccidentProgress">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q6:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_progress_id" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="progress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentProgress" nillable="true" type="tns:DcAccidentProgress" />
+  <xs:complexType name="DcAccidentReports">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q7:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_reports_id" type="xs:int" />
+          <xs:element minOccurs="0" name="order_no" type="xs:int" />
+          <xs:element minOccurs="0" name="reports" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcAccidentReports" nillable="true" type="tns:DcAccidentReports" />
+  <xs:complexType name="DcMoi">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q8:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appointed_ms_customer_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="attend" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="inspection_ms_customer_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="inspection_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="moi_id" type="xs:int" />
+          <xs:element minOccurs="0" name="ms_basho_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_regional_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_user_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+          <xs:element minOccurs="0" name="observation" type="xs:int" />
+          <xs:element minOccurs="0" name="receipt_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcMoi" nillable="true" type="tns:DcMoi" />
+  <xs:complexType name="DcMoiObservation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q9:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comment_1st" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="comment_1st_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="comment_2nd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="comment_2nd_check" type="xs:boolean" />
+          <xs:element minOccurs="0" name="moi_id" type="xs:int" />
+          <xs:element minOccurs="0" name="moi_observation_id" type="xs:int" />
+          <xs:element minOccurs="0" name="moi_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="observation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="observation_no" type="xs:int" />
+          <xs:element minOccurs="0" name="preventive_action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="root_cause" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="search_keyword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="special_notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viq_code_id" type="xs:int" />
+          <xs:element minOccurs="0" name="viq_no_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcMoiObservation" nillable="true" type="tns:DcMoiObservation" />
+  <xs:complexType name="ArrayOfDcMoiObservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcMoiObservation" nillable="true" type="tns:DcMoiObservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcMoiObservation" nillable="true" type="tns:ArrayOfDcMoiObservation" />
+  <xs:complexType name="ArrayOfDcSchedulePlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcSchedulePlan" nillable="true" type="tns:DcSchedulePlan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcSchedulePlan" nillable="true" type="tns:ArrayOfDcSchedulePlan" />
+  <xs:complexType name="DcSchedulePlan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcSchedule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ms_vessel_id" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSchedulePlan" nillable="true" type="tns:DcSchedulePlan" />
+  <xs:complexType name="DcSchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q10:BaseDac">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="DataColor" type="q11:Color" />
+          <xs:element minOccurs="0" name="color_b" type="xs:int" />
+          <xs:element minOccurs="0" name="color_g" type="xs:int" />
+          <xs:element minOccurs="0" name="color_r" type="xs:int" />
+          <xs:element minOccurs="0" name="estimate_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="expiry_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="inspection_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="record_memo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schedule_category_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_detail_id" type="xs:int" />
+          <xs:element minOccurs="0" name="schedule_kind_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcSchedule" nillable="true" type="tns:DcSchedule" />
+  <xs:complexType name="ArrayOfDcScheduleCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcScheduleCompany" nillable="true" type="tns:DcScheduleCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcScheduleCompany" nillable="true" type="tns:ArrayOfDcScheduleCompany" />
+  <xs:complexType name="DcScheduleCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcSchedule">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcScheduleCompany" nillable="true" type="tns:DcScheduleCompany" />
+  <xs:complexType name="ArrayOfDcScheduleOther">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcScheduleOther" nillable="true" type="tns:DcScheduleOther" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcScheduleOther" nillable="true" type="tns:ArrayOfDcScheduleOther" />
+  <xs:complexType name="DcScheduleOther">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DcSchedule">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="event_memo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DcScheduleOther" nillable="true" type="tns:DcScheduleOther" />
+  <xs:complexType name="ArrayOfMsStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsStatus" nillable="true" type="tns:MsStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsStatus" nillable="true" type="tns:ArrayOfMsStatus" />
+  <xs:complexType name="MsStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q12:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsStatus" nillable="true" type="tns:MsStatus" />
+  <xs:complexType name="ArrayOfMsAlarmColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAlarmColor" nillable="true" type="tns:MsAlarmColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAlarmColor" nillable="true" type="tns:ArrayOfMsAlarmColor" />
+  <xs:complexType name="MsAlarmColor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q13:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="alarm_color_id" type="xs:int" />
+          <xs:element minOccurs="0" name="color_b" type="xs:int" />
+          <xs:element minOccurs="0" name="color_g" type="xs:int" />
+          <xs:element minOccurs="0" name="color_r" type="xs:int" />
+          <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="day_count" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAlarmColor" nillable="true" type="tns:MsAlarmColor" />
+  <xs:complexType name="ArrayOfMsAccidentStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsAccidentStatus" nillable="true" type="tns:MsAccidentStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsAccidentStatus" nillable="true" type="tns:ArrayOfMsAccidentStatus" />
+  <xs:complexType name="MsAccidentStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q14:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accident_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="accident_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsAccidentStatus" nillable="true" type="tns:MsAccidentStatus" />
+  <xs:complexType name="ArrayOfMsMoiStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsMoiStatus" nillable="true" type="tns:MsMoiStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsMoiStatus" nillable="true" type="tns:ArrayOfMsMoiStatus" />
+  <xs:complexType name="MsMoiStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q15:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="moi_status_id" type="xs:int" />
+          <xs:element minOccurs="0" name="moi_status_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsMoiStatus" nillable="true" type="tns:MsMoiStatus" />
+  <xs:complexType name="ArrayOfMsYear">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MsYear" nillable="true" type="tns:MsYear" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMsYear" nillable="true" type="tns:ArrayOfMsYear" />
+  <xs:complexType name="MsYear">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/CIsl.DB" base="q16:BaseDac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="end_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="start_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="year" type="xs:int" />
+          <xs:element minOccurs="0" name="year_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MsYear" nillable="true" type="tns:MsYear" />
+</xs:schema>

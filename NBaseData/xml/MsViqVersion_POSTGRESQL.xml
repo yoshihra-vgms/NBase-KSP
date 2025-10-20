@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_VIQ_VERSION.VIQ_VERSION_ID,
+    MS_VIQ_VERSION.VIQ_VERSION,
+    MS_VIQ_VERSION.START_DATE,
+    MS_VIQ_VERSION.END_DATE,
+
+    MS_VIQ_VERSION.DELETE_FLAG,
+    MS_VIQ_VERSION.CREATE_DATE,
+    MS_VIQ_VERSION.UPDATE_DATE,
+    MS_VIQ_VERSION.CREATE_MS_USER_ID,
+    MS_VIQ_VERSION.UPDATE_MS_USER_ID
+
+    FROM
+    MS_VIQ_VERSION
+
+    WHERE
+    MS_VIQ_VERSION.DELETE_FLAG = False
+  </sql>
+
+  <sql name="OrderBy">
+    ORDER BY MS_VIQ_VERSION.START_DATE, MS_VIQ_VERSION.END_DATE
+  </sql>
+  
+  <sql name="InsertRecord">
+    INSERT INTO MS_VIQ_VERSION(
+    VIQ_VERSION,
+    START_DATE,
+    END_DATE,
+    DELETE_FLAG,
+    UPDATE_MS_USER_ID,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :VIQ_VERSION,
+    :START_DATE,
+    :END_DATE,
+    :DELETE_FLAG,
+    :UPDATE_MS_USER_ID,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_VIQ_VERSION
+    SET
+    VIQ_VERSION = :VIQ_VERSION,
+    START_DATE = :START_DATE,
+    END_DATE = :END_DATE,
+    DELETE_FLAG = :DELETE_FLAG,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE VIQ_VERSION_ID = :VIQ_VERSION_ID
+  </sql>
+
+</databaseConfig>

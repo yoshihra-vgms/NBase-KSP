@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecordsOfLatestRev">
+		SELECT
+		tblA.si_card_plan_head_id,
+		tblA.vessel_kind,
+		tblA.year_month,
+		tblA.rev_no,
+		tblA.delete_flag,
+		tblA.send_flag,
+		tblA.vessel_id,
+		tblA.user_key,
+		tblA.data_no,
+		tblA.renew_user_id,
+		tblA.renew_date,
+		tblA.ts,
+		tblA.shime_flag
+
+		FROM
+		si_card_plan_head as tblA
+		INNER JOIN (SELECT
+		year_month,
+		MAX(rev_no) AS maxrev
+		FROM
+		si_card_plan_head
+		GROUP BY
+		year_month ) AS tblB
+		ON tblA.year_month = tblB.year_month
+		AND tblA.rev_no = tblB.maxrev
+
+		where tblA.vessel_kind = :VESSEL_KIND
+
+	</sql>
+	
+	<sql name="GetRecords">
+		SELECT
+		SI_CARD_PLAN_HEAD.SI_CARD_PLAN_HEAD_ID           ,
+
+		SI_CARD_PLAN_HEAD.VESSEL_KIND                    ,
+		SI_CARD_PLAN_HEAD.YEAR_MONTH                     ,
+		SI_CARD_PLAN_HEAD.REV_NO						   ,
+		SI_CARD_PLAN_HEAD.SHIME_FLAG                     ,
+
+		SI_CARD_PLAN_HEAD.DELETE_FLAG                    ,
+		SI_CARD_PLAN_HEAD.SEND_FLAG                      ,
+		SI_CARD_PLAN_HEAD.VESSEL_ID                      ,
+		SI_CARD_PLAN_HEAD.DATA_NO                        ,
+		SI_CARD_PLAN_HEAD.USER_KEY                       ,
+		SI_CARD_PLAN_HEAD.RENEW_DATE                     ,
+		SI_CARD_PLAN_HEAD.RENEW_USER_ID                  ,
+		SI_CARD_PLAN_HEAD.TS
+
+		FROM
+		SI_CARD_PLAN_HEAD
+
+		WHERE
+		SI_CARD_PLAN_HEAD.DELETE_FLAG = 0 AND
+		SI_CARD_PLAN_HEAD.VESSEL_KIND = :VESSEL_KIND
+	</sql>
+
+  <sql name="BySiCardPlanHeadID">
+	  AND
+	  SI_CARD_PLAN_HEAD.SI_CARD_PLAN_HEAD_ID = :SI_CARD_PLAN_HEAD_ID
+  </sql>
+
+  <sql name="ByYearMonth">
+	  AND
+	  SI_CARD_PLAN_HEAD.YEAR_MONTH = :YEAR_MONTH
+  </sql>
+
+  <sql name="ByRevNo">
+	  AND
+	  SI_CARD_PLAN_HEAD.REV_NO = :REV_NO
+  </sql>
+	
+  <sql name="OrderByYearMonth">
+	  ORDER BY
+	  YEAR_MONTH
+  </sql>
+
+	<sql name="OrderByRevNo">
+		ORDER BY
+		REV_NO
+	</sql>
+	
+  <sql name="InsertRecord">
+	  INSERT INTO SI_CARD_PLAN_HEAD(
+	  SI_CARD_PLAN_HEAD_ID                     ,
+	  VESSEL_KIND     ,
+	  YEAR_MONTH      ,
+	  REV_NO          ,
+	  SHIME_FLAG      ,
+
+	  DELETE_FLAG                    ,
+	  SEND_FLAG                      ,
+	  VESSEL_ID                      ,
+	  DATA_NO                        ,
+	  USER_KEY                       ,
+	  RENEW_DATE                     ,
+	  RENEW_USER_ID                  ,
+	  TS
+	  )
+	  VALUES(
+	  :SI_CARD_PLAN_HEAD_ID                     ,
+	  :VESSEL_KIND                    ,
+	  :YEAR_MONTH                     ,
+	  :REV_NO                         ,
+	  :SHIME_FLAG                     ,
+
+	  :DELETE_FLAG                    ,
+	  :SEND_FLAG                      ,
+	  :VESSEL_ID                      ,
+	  :DATA_NO                        ,
+	  :USER_KEY                       ,
+	  :RENEW_DATE                     ,
+	  :RENEW_USER_ID                  ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE
+	  SI_CARD_PLAN_HEAD
+	  SET
+	  YEAR_MONTH = :YEAR_MONTH                         ,
+	  REV_NO = :REV_NO                                 ,
+	  SHIME_FLAG = :SHIME_FLAG                         ,
+
+	  DELETE_FLAG = :DELETE_FLAG                       ,
+	  SEND_FLAG = :SEND_FLAG                           ,
+	  VESSEL_ID = :VESSEL_ID                           ,
+	  DATA_NO = :DATA_NO                               ,
+	  USER_KEY = :USER_KEY                             ,
+	  RENEW_DATE = :RENEW_DATE                         ,
+	  RENEW_USER_ID = :RENEW_USER_ID                   ,
+	  TS = :TS
+
+	  WHERE SI_CARD_PLAN_HEAD_ID = :SI_CARD_PLAN_HEAD_ID
+	  AND TS = :TS
+  </sql>
+
+</databaseConfig>

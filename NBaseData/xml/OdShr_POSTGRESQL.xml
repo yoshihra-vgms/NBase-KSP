@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_SHR.OD_SHR_ID                      ,
+    OD_SHR.STATUS                         ,
+    OD_SHR.CANCEL_FLAG                    ,
+    OD_SHR.OD_JRY_ID                      ,
+    OD_SHR.SBT                            ,
+    OD_SHR.SHR_NO                         ,
+    OD_SHR.NAIYOU                         ,
+    OD_SHR.BIKOU                          ,
+    OD_SHR.KIKAN_SYSTEM_SHR_NO            ,
+    OD_SHR.AMOUNT                         ,
+    OD_SHR.NEBIKI_AMOUNT                  ,
+    OD_SHR.TAX                            ,
+    OD_SHR.SHR_IRAI_DATE                  ,
+    OD_SHR.SHR_DATE                       ,
+    OD_SHR.TEKIYOU                        ,
+    OD_SHR.KAMOKU_NO                      ,
+    OD_SHR.UTIWAKE_KAMOKU_NO              ,
+    OD_SHR.SEND_FLAG                      ,
+    OD_SHR.VESSEL_ID                      ,
+    OD_SHR.DATA_NO                        ,
+    OD_SHR.USER_KEY                       ,
+    OD_SHR.RENEW_DATE                     ,
+    OD_SHR.RENEW_USER_ID                  ,
+    OD_SHR.TS                             ,
+    OD_SHR.SHR_TANTOU                     ,
+    OD_SHR.KEIJO_DATE                     ,
+    OD_SHR.SYORI_STATUS                   ,
+    OD_SHR.KIHYOUBI
+    ,OD_SHR.CARRIAGE
+
+    #APPEND_COLUMN_STR#
+
+    FROM
+    OD_SHR
+
+    #APPEND_JOIN_STR#
+
+    WHERE OD_SHR.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="ByOdShrID">
+    AND OD_SHR.OD_SHR_ID  = :OD_SHR_ID
+  </sql>
+
+
+  <sql name="ByOdThiID">
+    AND OD_THI.OD_THI_ID  = :OD_THI_ID
+  </sql>
+  <sql name="ByOdJryID">
+    AND OD_SHR.OD_JRY_ID  = :OD_JRY_ID
+  </sql>
+  <sql name="AppendColumnForOdJryID">
+    ,OD_SHR_GASSAN_HEAD.OD_SHR_GASSAN_HEAD_ID
+  </sql>
+  <sql name="AppendJoinForOdJryID">
+    LEFT JOIN OD_SHR_GASSAN_HEAD ON OD_SHR_GASSAN_HEAD.OD_SHR_ID = OD_SHR.OD_SHR_ID
+  </sql>
+
+  <sql name="AppendColumnForOdThiFilter">
+    ,OD_THI.MS_VESSEL_ID as OD_THI_MS_VESSEL_ID
+    ,OD_THI.NAIYOU as OD_THI_NAIYOU
+    ,OD_MK.MS_CUSTOMER_ID as OD_MK_MS_CUSTOMER_ID
+  </sql>
+  <sql name="AppendColumnForOdThiFilter2">
+	  ,OD_JRY.JRY_DATE as OD_JRY_JRY_DATE
+	  ,OD_MK.MS_CUSTOMER_ID as OD_MK_MS_CUSTOMER_ID
+	  ,OD_THI.NAIYOU as OD_THI_NAIYOU
+	  ,MS_VESSEL.VESSEL_NO as MS_VESSEL_VESSEL_NO
+	  ,MS_VESSEL.VESSEL_NAME as MS_VESSEL_VESSEL_NAME
+	  ,OD_THI.MS_VESSEL_ID as OD_THI_MS_VESSEL_ID
+	  ,OD_THI.MS_THI_IRAI_SBT_ID as OD_THI_MS_THI_IRAI_SBT_ID
+	  ,OD_THI.MS_THI_IRAI_SHOUSAI_ID as OD_THI_MS_THI_IRAI_SHOUSAI_ID
+	  ,OD_JRY.JRY_NO as OD_JRY_JRY_NO
+	  ,OD_THI.JIM_TANTOU_ID as OD_THI_JIM_TANTOU_ID
+  </sql>
+  <sql name="AppendJoinForOdThiFilter">
+    INNER JOIN OD_JRY ON OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID AND OD_JRY.CANCEL_FLAG = 0
+    INNER JOIN OD_MK ON OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID AND OD_MK.CANCEL_FLAG = 0
+    INNER JOIN OD_MM ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MM.CANCEL_FLAG = 0
+    INNER JOIN OD_THI ON OD_MM.OD_THI_ID = OD_THI.OD_THI_ID AND OD_THI.CANCEL_FLAG = 0
+  </sql>
+  <sql name="AppendJoinForOdThiFilter2">
+    INNER JOIN OD_JRY ON OD_SHR.OD_JRY_ID = OD_JRY.OD_JRY_ID AND OD_JRY.CANCEL_FLAG = 0
+    INNER JOIN OD_MK ON OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID AND OD_MK.CANCEL_FLAG = 0
+    INNER JOIN OD_MM ON OD_MK.OD_MM_ID = OD_MM.OD_MM_ID AND OD_MM.CANCEL_FLAG = 0
+    INNER JOIN OD_THI ON OD_MM.OD_THI_ID = OD_THI.OD_THI_ID AND OD_THI.CANCEL_FLAG = 0
+    INNER JOIN MS_VESSEL ON OD_THI.MS_VESSEL_ID = MS_VESSEL.MS_VESSEL_ID
+  </sql>
+  <sql name="FilterByMibaraiRakuseizumi">
+	and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+    and OD_SHR.SBT = 1
+    and not exists
+    (
+    select
+    SBT,
+    OD_JRY_ID
+    from
+    OD_SHR TableA
+    WHERE TableA.CANCEL_FLAG = 0
+    and TableA.SBT = 0
+    and TableA.OD_JRY_ID = OD_SHR.OD_JRY_ID
+    )
+  </sql>
+　<sql name="FilterByMibaraiRakuseizumi_OLD">
+		and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+		and OD_SHR.SBT = 1
+		and OD_SHR.STATUS = 13
+		and not exists
+		(
+		select
+		SBT,
+		OD_JRY_ID
+		from
+		OD_SHR TableA
+		WHERE TableA.CANCEL_FLAG = 0
+		and TableA.SBT = 0
+		and TableA.OD_JRY_ID = OD_SHR.OD_JRY_ID
+		)
+　</sql>
+　<sql name="FilterByMibarai">
+	  and OD_THI.MS_THI_IRAI_STATUS_ID != :MS_THI_IRAI_STATUS_ID
+	  and OD_SHR.SBT = 0
+	  and ((OD_SHR.STATUS  = 0 or OD_SHR.STATUS  = 2)
+	  or
+	  (OD_SHR.STATUS  = 3 AND TO_CHAR(OD_SHR.SHR_DATE,'YYYYMM') &gt; :SHR_DATE))
+  </sql>
+  <sql name="FilterByStatus">
+    AND OD_SHR.STATUS = :STATUS
+  </sql>
+  <sql name="FilterBySyoriStatus">
+    AND OD_SHR.STATUS = :STATUS
+    AND OD_SHR.SYORI_STATUS = :SYORI_STATUS
+  </sql>
+  <sql name="FilterByMsVesselId">
+    AND OD_THI.MS_VESSEL_ID = :MS_VESSEL_ID
+  </sql>
+  <sql name="FilterByJimTantouID">
+    AND OD_THI.JIM_TANTOU_ID = :JIM_TANTOU_ID
+  </sql>
+  <sql name="FilterByKeijoYearMonth">
+	  AND TO_CHAR(OD_SHR.KEIJO_DATE,'YYYYMM') = :KEIJO_DATE
+  </sql>
+
+
+	<sql name="FilterByThiIraiSbtID">
+    AND OD_THI.MS_THI_IRAI_SBT_ID = :MS_THI_IRAI_SBT_ID
+  </sql>
+  <sql name="FilterByThiIraiShousaiID">
+    AND OD_THI.MS_THI_IRAI_SHOUSAI_ID = :MS_THI_IRAI_SHOUSAI_ID
+  </sql>
+  <sql name="FilterByMsThiIraiStatusID_20140220">
+    AND OD_THI.MS_THI_IRAI_STATUS_ID IN ( #INNER_SQL_MS_THI_IRAI_STATUS_IDS# )
+  </sql>
+  <sql name="FilterByMsThiIraiStatusID">
+    OD_THI.MS_THI_IRAI_STATUS_ID IN ( #INNER_SQL_MS_THI_IRAI_STATUS_IDS# )
+  </sql>
+  <sql name="FilterByThiIraiDateFrom">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') >= TO_CHAR(:THI_IRAI_DATE_FROM,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByThiIraiDateTo">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:THI_IRAI_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByThiIraiDateFromTo">
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') >= TO_CHAR(:THI_IRAI_DATE_FROM,'YYYY/MM/DD')
+    AND TO_CHAR(OD_THI.THI_IRAI_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:THI_IRAI_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="AppendJoinForOdThiFilter">
+    INNER JOIN OD_JRY ON OD_JRY.OD_MK_ID = OD_MK.OD_MK_ID AND OD_JRY.CANCEL_FLAG = 0
+  </sql>
+  <sql name="FilterByJryDateFrom">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') >= TO_CHAR(:JRY_DATE_FROM,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByJryDateTo">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:JRY_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByJryDateFromTo">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') >= TO_CHAR(:JRY_DATE_FROM,'YYYY/MM/DD')
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYY/MM/DD') &lt;= TO_CHAR(:JRY_DATE_TO,'YYYY/MM/DD')
+  </sql>
+  <sql name="FilterByJryStatus">
+    OD_JRY.STATUS = :JRY_STATUS
+  </sql>
+  
+  <sql name="FilterByNotStatus">
+    AND OD_SHR.STATUS != :STATUS
+  </sql>
+  <sql name="OrderByNo">
+    ORDER BY OD_THI.TEHAI_IRAI_NO, OD_MM.MM_NO, OD_MK.MK_NO, OD_JRY.JRY_NO, OD_SHR.SHR_NO
+  </sql>
+  <sql name="FilterByYearMonthOnly">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYYMM') = :YYYYMM
+  </sql>
+  <sql name="FilterByYearMonth">
+    AND TO_CHAR(OD_JRY.JRY_DATE,'YYYYMM') &lt;= :YYYYMM
+  </sql>
+  <sql name="FilterByMiKeijyo_ORG">
+    AND NOT EXISTS ( SELECT * FROM OD_GAISAN_KEIJO WHERE OD_GAISAN_KEIJO.OD_SHR_ID = OD_SHR.OD_SHR_ID )
+  </sql>
+  <sql name="FilterByMiKeijyo">
+    AND NOT EXISTS ( SELECT * FROM OD_GAISAN_KEIJO WHERE OD_GAISAN_KEIJO.OD_SHR_ID = OD_SHR.OD_SHR_ID AND OD_GAISAN_KEIJO.GAISAN_KEIJO_ZUKI = :GAISAN_KEIJO_ZUKI )
+  </sql>
+  <sql name="FilterByKeijyoZumi">
+    AND EXISTS ( SELECT * FROM OD_GAISAN_KEIJO WHERE OD_GAISAN_KEIJO.OD_SHR_ID = OD_SHR.OD_SHR_ID AND OD_GAISAN_KEIJO.GAISAN_KEIJO_ZUKI = :GAISAN_KEIJO_ZUKI )
+  </sql>
+
+
+
+  <sql name="AppendColumnForGassanItem">
+    ,OD_SHR_GASSAN_HEAD.HACHU_NO as HACHU_NO
+  </sql>
+  <sql name="AppendJoinForGassanItem_ORG">
+    INNER JOIN OD_SHR_GASSAN_HEAD ON OD_SHR_GASSAN_HEAD.OD_SHR_ID = OD_SHR.OD_SHR_ID
+    INNER JOIN OD_SHR_GASSAN_ITEM ON OD_SHR_GASSAN_ITEM.OD_SHR_GASSAN_HEAD_ID = OD_SHR_GASSAN_HEAD.OD_SHR_GASSAN_HEAD_ID
+    AND OD_SHR_GASSAN_ITEM.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+  <sql name="AppendJoinForGassanItem">
+    INNER JOIN OD_SHR_GASSAN_HEAD ON OD_SHR_GASSAN_HEAD.OD_JRY_ID = OD_SHR.OD_JRY_ID
+    INNER JOIN OD_SHR_GASSAN_ITEM ON OD_SHR_GASSAN_ITEM.OD_SHR_GASSAN_HEAD_ID = OD_SHR_GASSAN_HEAD.OD_SHR_GASSAN_HEAD_ID
+    AND OD_SHR_GASSAN_ITEM.OD_JRY_ID = :OD_JRY_ID
+  </sql>
+
+
+
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_SHR
+    (
+    OD_SHR_ID                      ,
+    STATUS                         ,
+    CANCEL_FLAG                    ,
+    OD_JRY_ID                      ,
+    SBT                            ,
+    SHR_NO                         ,
+    NAIYOU                         ,
+    BIKOU                          ,
+    KIKAN_SYSTEM_SHR_NO            ,
+    AMOUNT                         ,
+    NEBIKI_AMOUNT                  ,
+    TAX                            ,
+    KAMOKU_NO                      ,
+    UTIWAKE_KAMOKU_NO              ,
+    SHR_IRAI_DATE                  ,
+    SHR_DATE                       ,
+    TEKIYOU                        ,
+
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHR_TANTOU                     ,
+    KEIJO_DATE                     ,
+    SYORI_STATUS                   ,
+    KIHYOUBI
+    ,CARRIAGE
+    )
+    VALUES
+    (
+    :OD_SHR_ID                      ,
+    :STATUS                         ,
+    :CANCEL_FLAG                    ,
+    :OD_JRY_ID                      ,
+    :SBT                            ,
+    :SHR_NO                         ,
+    :NAIYOU                         ,
+    :BIKOU                          ,
+    :KIKAN_SYSTEM_SHR_NO            ,
+    :AMOUNT                         ,
+    :NEBIKI_AMOUNT                  ,
+    :TAX                            ,
+    :KAMOKU_NO                      ,
+    :UTIWAKE_KAMOKU_NO              ,
+    :SHR_IRAI_DATE                  ,
+    :SHR_DATE                       ,
+    :TEKIYOU                        ,
+
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :SHR_TANTOU                     ,
+    :KEIJO_DATE                     ,
+    :SYORI_STATUS                   ,
+    :KIHYOUBI
+    ,:CARRIAGE
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_SHR
+    SET
+    STATUS = :STATUS                                 ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    OD_JRY_ID = :OD_JRY_ID                           ,
+    SBT = :SBT                                       ,
+    SHR_NO = :SHR_NO                                 ,
+    NAIYOU = :NAIYOU                                 ,
+    BIKOU = :BIKOU                                   ,
+    KIKAN_SYSTEM_SHR_NO = :KIKAN_SYSTEM_SHR_NO       ,
+    AMOUNT = :AMOUNT                                 ,
+    NEBIKI_AMOUNT = :NEBIKI_AMOUNT                   ,
+    TAX = :TAX                                       ,
+    KAMOKU_NO = :KAMOKU_NO                           ,
+    UTIWAKE_KAMOKU_NO = :UTIWAKE_KAMOKU_NO           ,
+    SHR_IRAI_DATE = :SHR_IRAI_DATE                   ,
+    SHR_DATE = :SHR_DATE                             ,
+    TEKIYOU = :TEKIYOU                               ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    SHR_TANTOU = :SHR_TANTOU                         ,
+    KEIJO_DATE = :KEIJO_DATE                         ,
+    SYORI_STATUS = :SYORI_STATUS                     ,
+    KIHYOUBI = :KIHYOUBI
+    ,CARRIAGE = :CARRIAGE
+
+    WHERE
+    OD_SHR_ID = :OD_SHR_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

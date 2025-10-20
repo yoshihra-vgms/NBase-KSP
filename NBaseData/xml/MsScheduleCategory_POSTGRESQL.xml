@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    SCHEDULE_CATEGORY_ID,
+    SCHEDULE_CATEGORY_NAME,
+
+    DELETE_FLAG,
+    CREATE_DATE,
+    UPDATE_DATE,
+    CREATE_MS_USER_ID,
+    UPDATE_MS_USER_ID
+
+    FROM
+    MS_SCHEDULE_CATEGORY
+
+    WHERE
+    DELETE_FLAG = False
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    SCHEDULE_CATEGORY_NAME LIKE :SCHEDULE_CATEGORY_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_SCHEDULE_CATEGORY(
+    SCHEDULE_CATEGORY_NAME      ,
+    DELETE_FLAG           ,
+    UPDATE_MS_USER_ID     ,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :SCHEDULE_CATEGORY_NAME      ,
+    :SCHEDULE_CATEGORY_TEXT      ,
+    :DELETE_FLAG           ,
+    :UPDATE_MS_USER_ID     ,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_SCHEDULE_CATEGORY
+    SET
+    SCHEDULE_CATEGORY_NAME = :SCHEDULE_CATEGORY_NAME    ,
+    DELETE_FLAG = :DELETE_FLAG              ,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE SCHEDULE_CATEGORY_ID = :SCHEDULE_CATEGORY_ID
+  </sql>
+
+</databaseConfig>

@@ -1,0 +1,272 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using NBaseData.DAC;
+using NBaseUtil;
+
+namespace NBaseMaster.指摘事項管理
+{
+    public partial class ViqCode管理詳細Form : Form
+    {
+        private MsViqCode viqCode;
+        private List<MsViqCodeName> codeNames;
+        private List<MsViqVersion> viqVersions;
+	
+		//データを変更したかどうか？
+		private bool ChangeFlag = false;
+
+
+        public ViqCode管理詳細Form(List<MsViqCodeName> codeNames, List<MsViqVersion> viqVersions)
+            : this(codeNames, viqVersions, new MsViqCode())
+        {
+        }
+
+
+        public ViqCode管理詳細Form(List<MsViqCodeName> codeNames, List<MsViqVersion> viqVersions, MsViqCode viqCode)
+        {
+            this.codeNames = codeNames;
+            this.viqVersions = viqVersions;
+            this.viqCode = viqCode;
+
+            InitializeComponent();
+            Init();
+        }
+
+
+        private void Init()
+        {
+            InitComboBox_Version();
+            InitComboBox_CodeName();
+
+            if (!viqCode.IsNew())
+            {
+                var v = viqVersions.Where(obj => obj.ViqVersionID == viqCode.ViqVersionID).First();
+                comboBoxVersion.SelectedItem = v;
+
+                var c = codeNames.Where(obj => obj.ViqCodeNameID == viqCode.ViqCodeNameID).First();
+                comboBoxCodeName.SelectedItem = c;
+
+                textBox名.Text = viqCode.ViqCode;
+                textBoxCode.Text = viqCode.Description;
+                textBoxCodeEng.Text = viqCode.DescriptionEng;
+                textBoxOrderNo.Text = viqCode.OrderNo.ToString();
+            }
+            else
+            {
+                button削除.Enabled = false;
+            }
+
+			//編集可否を初期化
+			this.ChangeFlag = false;
+        }
+
+        private void InitComboBox_CodeName()
+        {
+            comboBoxCodeName.Items.Add(string.Empty);
+
+            foreach (MsViqCodeName o in codeNames)
+            {
+                comboBoxCodeName.Items.Add(o);
+            }
+
+            comboBoxCodeName.SelectedIndex = 0;
+        }
+
+        private void InitComboBox_Version()
+        {
+            comboBoxVersion.Items.Add(string.Empty);
+
+            foreach (MsViqVersion o in viqVersions)
+            {
+                comboBoxVersion.Items.Add(o);
+            }
+
+            comboBoxVersion.SelectedIndex = 0;
+        }
+
+        private void button更新_Click(object sender, EventArgs e)
+        {
+            Save(false);
+        }
+
+		//引数：削除かどうか？
+        private void Save(bool dele)
+        {
+            if (ValidateFields())
+            {
+                FillInstance();
+
+                if (InsertOrUpdate())
+                {
+					if (dele == false)
+					{
+						MessageBox.Show(this, "登録しました。", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else
+					{
+						MessageBox.Show(this, "削除しました。", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					
+					DialogResult = DialogResult.OK;
+                    Dispose();
+                }
+                else
+                {
+					if (dele == false)
+					{
+						MessageBox.Show(this, "登録に失敗しました。", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+					else
+					{
+						MessageBox.Show(this, "削除に失敗しました。", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+                }
+            }
+        }
+
+
+        private bool ValidateFields()
+        {
+            if (comboBoxVersion.SelectedIndex == 0)
+            {
+                comboBoxVersion.BackColor = Color.Pink;
+                MessageBox.Show("VIQ Versionを選択して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxVersion.BackColor = Color.White;
+                return false;
+            }
+            else if (comboBoxCodeName.SelectedIndex == 0)
+            {
+                comboBoxCodeName.BackColor = Color.Pink;
+                MessageBox.Show("VIQ Code名前を選択して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxCodeName.BackColor = Color.White;
+                return false;
+            }
+            else if (textBox名.Text.Length == 0)
+            {
+                textBox名.BackColor = Color.Pink;
+                MessageBox.Show("VIQ Codeを入力して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox名.BackColor = Color.White;
+                return false;
+            }
+            else if (textBoxCode.Text.Length == 0)
+            {
+                textBoxCode.BackColor = Color.Pink;
+                MessageBox.Show("Code説明を入力して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCode.BackColor = Color.White;
+                return false;
+            }
+            else if (textBoxCodeEng.Text.Length == 0)
+            {
+                textBoxCodeEng.BackColor = Color.Pink;
+                MessageBox.Show("Code説明（英語）を入力して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCodeEng.BackColor = Color.White;
+                return false;
+            }
+            else if (NumberUtils.Validate(textBoxOrderNo.Text) == false)
+            {
+                textBoxCodeEng.BackColor = Color.Pink;
+                MessageBox.Show("表示順を入力して下さい", "入力エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCodeEng.BackColor = Color.White;
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private void FillInstance()
+        {
+            viqCode.ViqCodeNameID = (comboBoxCodeName.SelectedItem as MsViqCodeName).ViqCodeNameID;
+            viqCode.ViqVersionID = (comboBoxVersion.SelectedItem as MsViqVersion).ViqVersionID;
+            viqCode.ViqCode = textBox名.Text;
+            viqCode.Description = textBoxCode.Text;
+            viqCode.DescriptionEng = textBoxCodeEng.Text;
+            viqCode.OrderNo = int.Parse(textBoxOrderNo.Text);
+        }
+
+
+        private bool InsertOrUpdate()
+        {
+            bool result = false;
+
+            using (ServiceReferences.NBaseService.ServiceClient serviceClient = ServiceReferences.WcfServiceWrapper.GetInstance().GetServiceClient())
+            {
+                result = serviceClient.MsViqCode_InsertOrUpdate(NBaseCommon.Common.LoginUser, viqCode);
+            }
+
+            return result;
+        }
+
+
+        private void button削除_Click(object sender, EventArgs e)
+        {
+            //このデータは利用しているため削除できません
+
+            //削除前に使用しているかのチェックをする
+            bool ret = this.CheckDeleteUsing(this.viqCode);
+
+            if (ret == false)
+            {
+                MessageBox.Show(this, "このデータは利用しているため削除できません", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show(this, "削除してよろしいですか？",
+                                            "",
+                                            MessageBoxButtons.OKCancel,
+                                            MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                viqCode.DeleteFlag = true;
+                Save(true);
+            }
+        }
+
+
+        private void button閉じる_Click(object sender, EventArgs e)
+        {
+			//編集中に閉じようとした。
+			if (this.ChangeFlag == true)
+			{
+				DialogResult ret = MessageBox.Show(this, "データが編集されていますが、閉じますか？",
+											"",
+											MessageBoxButtons.OKCancel,
+											MessageBoxIcon.Question);
+
+				if (ret == DialogResult.Cancel)
+				{
+					return;
+				}
+			}
+
+            DialogResult = DialogResult.Cancel;
+            Dispose();
+        }
+
+		//データが変更されたとき
+		private void ChangeDataText(object sender, EventArgs e)
+		{
+			this.ChangeFlag = true;
+		}
+
+
+        /// <summary>
+        /// 対象のMsViqCodeデータが使用されているかを調べる
+        /// 引数：チェックするデータ
+        /// 返り値：削除可能→true、使用されている→false
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckDeleteUsing(MsViqCode data)
+        {
+            using (ServiceReferences.NBaseService.ServiceClient serviceClient = ServiceReferences.WcfServiceWrapper.GetInstance().GetServiceClient())
+            {
+            }
+
+            return true;
+        }
+    }
+}

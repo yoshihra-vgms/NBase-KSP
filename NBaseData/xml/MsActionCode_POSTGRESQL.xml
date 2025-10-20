@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    ACTION_CODE_ID,
+    ACTION_CODE_NAME,
+    ACTION_CODE_TEXT,
+
+    DELETE_FLAG,
+    CREATE_DATE,
+    UPDATE_DATE,
+    CREATE_MS_USER_ID,
+    UPDATE_MS_USER_ID
+
+    FROM
+    MS_ACTION_CODE
+
+    WHERE
+    DELETE_FLAG = False
+  </sql>
+
+  <sql name="SearchByName">
+    AND
+    ACTION_CODE_NAME LIKE :ACTION_CODE_NAME
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_ACTION_CODE(
+    ACTION_CODE_NAME      ,
+    ACTION_CODE_TEXT      ,
+    DELETE_FLAG           ,
+    UPDATE_MS_USER_ID     ,
+    CREATE_MS_USER_ID
+    )
+    VALUES(
+    :ACTION_CODE_NAME      ,
+    :ACTION_CODE_TEXT      ,
+    :DELETE_FLAG           ,
+    :UPDATE_MS_USER_ID     ,
+    :CREATE_MS_USER_ID
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    MS_ACTION_CODE
+    SET
+    ACTION_CODE_NAME = :ACTION_CODE_NAME    ,
+    ACTION_CODE_TEXT = :ACTION_CODE_TEXT    ,
+    DELETE_FLAG = :DELETE_FLAG              ,
+    UPDATE_MS_USER_ID = :UPDATE_MS_USER_ID
+
+    WHERE ACTION_CODE_ID = :ACTION_CODE_ID
+  </sql>
+
+</databaseConfig>

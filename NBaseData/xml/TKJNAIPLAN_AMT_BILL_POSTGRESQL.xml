@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+	<sql name="GetRecord">
+		select
+		FUNE_NO        ,
+		JIKO_NO        ,
+		M_SC_YMD       ,
+		SC_YMD         ,
+		KOMA_NO        ,
+		LINE_NO        ,
+		CAG_NO         ,
+		CHRTAIT_NO     ,
+		QTY            ,
+		KZTANI_CD      ,
+		USKJN_KBN      ,
+		KSN_KBN        ,
+		FRTANKA        ,
+		GAKYEN         ,
+		SYOHIZEI_KBN   ,
+		SYOHIZEI_GAK   ,
+		TTLGAKU        ,
+		K_KBN          ,
+		LD_DS_SET_NO   ,
+		UPDPGMID       ,
+		UPDUSERID      ,
+		UPDDATE_YMDHMS
+
+		from TKJNAIPLAN_AMT_BILL
+
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+		and SC_YMD = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+		and LINE_NO = :LINE_NO
+		
+	</sql>
+	
+	<sql name="GetRecords">
+		select
+		FUNE_NO        ,
+		JIKO_NO        ,
+		M_SC_YMD       ,
+		SC_YMD         ,
+		KOMA_NO        ,
+		LINE_NO        ,
+		CAG_NO         ,
+		CHRTAIT_NO     ,
+		QTY            ,
+		KZTANI_CD      ,
+		USKJN_KBN      ,
+		KSN_KBN        ,
+		FRTANKA        ,
+		GAKYEN         ,
+		SYOHIZEI_KBN   ,
+		SYOHIZEI_GAK   ,
+		TTLGAKU        ,
+		K_KBN          ,
+		LD_DS_SET_NO   ,
+		UPDPGMID       ,
+		UPDUSERID      ,
+		UPDDATE_YMDHMS
+
+		from TKJNAIPLAN_AMT_BILL
+
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+		and SC_YMD = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+
+		order by TKJNAIPLAN_AMT_BILL.LINE_NO
+	</sql>
+
+	<sql name="GetRecordLineNo">
+		select CAST(max(LINE_NO) as number(2))
+		from TKJNAIPLAN_AMT_BILL
+
+		where FUNE_NO = :FUNE_NO
+		and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+
+		group by FUNE_NO,SC_YMD,KOMA_NO
+	</sql>
+
+
+	<sql name="GetRecordsBy揚げ">
+		select
+		TKJNAIPLAN_AMT_BILL.FUNE_NO        ,
+		TKJNAIPLAN_AMT_BILL.JIKO_NO        ,
+		TKJNAIPLAN_AMT_BILL.M_SC_YMD       ,
+		TKJNAIPLAN_AMT_BILL.SC_YMD         ,
+		TKJNAIPLAN_AMT_BILL.KOMA_NO        ,
+		TKJNAIPLAN_AMT_BILL.LINE_NO        ,
+		TKJNAIPLAN_AMT_BILL.CAG_NO         ,
+		TKJNAIPLAN_AMT_BILL.CHRTAIT_NO     ,
+		TKJNAIPLAN_AMT_BILL.QTY            ,
+		TKJNAIPLAN_AMT_BILL.KZTANI_CD      ,
+		TKJNAIPLAN_AMT_BILL.USKJN_KBN      ,
+		TKJNAIPLAN_AMT_BILL.KSN_KBN        ,
+		TKJNAIPLAN_AMT_BILL.FRTANKA        ,
+		TKJNAIPLAN_AMT_BILL.GAKYEN         ,
+		TKJNAIPLAN_AMT_BILL.SYOHIZEI_KBN   ,
+		TKJNAIPLAN_AMT_BILL.SYOHIZEI_GAK   ,
+		TKJNAIPLAN_AMT_BILL.TTLGAKU        ,
+		TKJNAIPLAN_AMT_BILL.K_KBN          ,
+		TKJNAIPLAN_AMT_BILL.LD_DS_SET_NO   ,
+		TKJNAIPLAN_AMT_BILL.UPDPGMID       ,
+		TKJNAIPLAN_AMT_BILL.UPDUSERID      ,
+		TKJNAIPLAN_AMT_BILL.UPDDATE_YMDHMS
+
+		from TKJNAIPLAN_AMT_BILL
+		inner join TKJNAIPLAN on TKJNAIPLAN.SG_KBN = '2'
+		and TKJNAIPLAN.FUNE_NO = TKJNAIPLAN_AMT_BILL.FUNE_NO
+		and TKJNAIPLAN.JIKO_NO = TKJNAIPLAN_AMT_BILL.JIKO_NO
+		and TKJNAIPLAN.LD_DS_SET_NO = TKJNAIPLAN_AMT_BILL.LD_DS_SET_NO
+
+		where TKJNAIPLAN_AMT_BILL.FUNE_NO = :FUNE_NO
+		and TKJNAIPLAN_AMT_BILL.JIKO_NO = :JIKO_NO
+		and TKJNAIPLAN_AMT_BILL.CAG_NO = :CAG_NO
+		and TKJNAIPLAN_AMT_BILL.LD_DS_SET_NO = :LD_DS_SET_NO
+
+	</sql>
+</databaseConfig>

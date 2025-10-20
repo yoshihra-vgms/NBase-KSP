@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    MS_LO.MS_LO_ID,
+    MS_LO.LO_NAME,
+    MS_LO.KAMOKU_NO,
+    MS_LO.MS_TANI_ID,
+    MS_TANI.TANI_NAME as MS_TANI_NAME,
+    MS_LO.SEND_FLAG,
+    MS_LO.VESSEL_ID,
+    MS_LO.DATA_NO,
+    MS_LO.USER_KEY,
+    MS_LO.RENEW_DATE,
+    MS_LO.RENEW_USER_ID,
+    MS_LO.TS
+    FROM MS_LO left join MS_TANI on MS_LO.MS_TANI_ID = MS_TANI.MS_TANI_ID
+  </sql>
+
+  <sql name="GetRecord">
+    SELECT
+    MS_LO.MS_LO_ID,
+    MS_LO.LO_NAME,
+    MS_LO.KAMOKU_NO,
+    MS_LO.MS_TANI_ID,
+    MS_TANI.TANI_NAME as MS_TANI_NAME,
+    MS_LO.SEND_FLAG,
+    MS_LO.VESSEL_ID,
+    MS_LO.DATA_NO,
+    MS_LO.USER_KEY,
+    MS_LO.RENEW_DATE,
+    MS_LO.RENEW_USER_ID,
+    MS_LO.TS
+    FROM MS_LO left join MS_TANI on MS_LO.MS_TANI_ID = MS_TANI.MS_TANI_ID
+
+    where MS_LO_ID = :MS_LO_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO MS_LO(
+    MS_LO_ID,
+    LO_NAME,
+    KAMOKU_NO,
+    MS_TANI_ID,
+    SEND_FLAG,
+    VESSEL_ID,
+    DATA_NO             ,
+    USER_KEY            ,
+    RENEW_DATE          ,
+    RENEW_USER_ID       ,
+    TS
+    )
+    VALUES
+    (
+    :MS_LO_ID,
+    :LO_NAME,
+    :KAMOKU_NO,
+    :MS_TANI_ID,
+    :SEND_FLAG,
+    :VESSEL_ID,
+    :DATA_NO             ,
+    :USER_KEY            ,
+    :RENEW_DATE          ,
+    :RENEW_USER_ID       ,
+    :TS
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE MS_LO SET
+    LO_NAME = :LO_NAME,
+    KAMOKU_NO = :KAMOKU_NO,
+    MS_TANI_ID = :MS_TANI_ID,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY           ,
+    RENEW_DATE = :RENEW_DATE       ,
+    RENEW_USER_ID = :RENEW_USER_ID ,
+    TS = :TS
+
+    WHERE
+    MS_LO_ID = :MS_LO_ID
+    AND
+    TS = :TS
+  </sql>
+
+  <sql name="DeleteRecord">
+    DELETE 
+    FROM MS_LO
+
+    WHERE
+    MS_LO_ID = :MS_LO_ID
+    AND
+    TS = :TS
+  </sql>
+
+</databaseConfig>

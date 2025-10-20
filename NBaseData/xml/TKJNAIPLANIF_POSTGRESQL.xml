@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+	<sql name="GetRecord">
+    select
+    FUNE_NO,
+    JIKO_NO,
+    SC_YMD,
+    KOMA_NO,
+    OPE_NO,
+    OPE_SET_KEY,
+    PORT_NO,
+    BASE_NO,
+    SG_KBN,
+    AREA,
+    AGENCY_CONTACT_FLG,
+    AGENCY_RE_CONTACT_FLG,
+    CAPTAIN_CONTACT_FLG,
+    DS_INPUT_FLG,
+    INPORT_TIME,
+    ARRIVE_TIME,
+    START_TIME,
+    END_TIME,
+    DEPARTURE_TIME,
+    OUTPORT_TIME,
+    THROUGH_TIME,
+    CREATE_DATE,
+    TRKM_TNTSY_CD,
+    TRKM_DATE,
+    SYORI_STATUS,
+    STATUS_REMARK,
+    EXT_SYSTEM_CD,
+    UPDPGMID,
+    UPDUSERID,
+    UPDDATE_YMDHMS
+
+    from TKJNAIPLANIF
+    where FUNE_NO = :FUNE_NO
+    and JIKO_NO = :JIKO_NO
+    and SC_YMD = :SC_YMD
+    and KOMA_NO = :KOMA_NO
+    and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+
+    order by UPDDATE_YMDHMS desc
+  </sql>
+  
+  <sql name="GetSameRecord_OLD">
+    select
+    FUNE_NO,
+    JIKO_NO,
+    SC_YMD,
+    KOMA_NO,
+    OPE_NO,
+    OPE_SET_KEY,
+    PORT_NO,
+    BASE_NO,
+    SG_KBN,
+    AREA,
+    AGENCY_CONTACT_FLG,
+    AGENCY_RE_CONTACT_FLG,
+    CAPTAIN_CONTACT_FLG,
+    DS_INPUT_FLG,
+    INPORT_TIME,
+    ARRIVE_TIME,
+    START_TIME,
+    END_TIME,
+    DEPARTURE_TIME,
+    OUTPORT_TIME,
+    THROUGH_TIME,
+    CREATE_DATE,
+    TRKM_TNTSY_CD,
+    TRKM_DATE,
+    SYORI_STATUS,
+    STATUS_REMARK,
+    EXT_SYSTEM_CD,
+    UPDPGMID,
+    UPDUSERID,
+    UPDDATE_YMDHMS
+
+    from TKJNAIPLANIF
+    where FUNE_NO = :FUNE_NO
+    and SC_YMD = :SC_YMD
+    and SG_KBN = :SG_KBN
+    and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+    
+    order by UPDDATE_YMDHMS desc
+  </sql>
+
+  <sql name="GetSameRecord">
+    select
+    FUNE_NO,
+    JIKO_NO,
+    SC_YMD,
+    KOMA_NO,
+    OPE_NO,
+    OPE_SET_KEY,
+    PORT_NO,
+    BASE_NO,
+    SG_KBN,
+    AREA,
+    AGENCY_CONTACT_FLG,
+    AGENCY_RE_CONTACT_FLG,
+    CAPTAIN_CONTACT_FLG,
+    DS_INPUT_FLG,
+    INPORT_TIME,
+    ARRIVE_TIME,
+    START_TIME,
+    END_TIME,
+    DEPARTURE_TIME,
+    OUTPORT_TIME,
+    THROUGH_TIME,
+    CREATE_DATE,
+    TRKM_TNTSY_CD,
+    TRKM_DATE,
+    SYORI_STATUS,
+    STATUS_REMARK,
+    EXT_SYSTEM_CD,
+    UPDPGMID,
+    UPDUSERID,
+    UPDDATE_YMDHMS
+
+    from TKJNAIPLANIF
+    where FUNE_NO = :FUNE_NO
+    and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+    and SG_KBN = :SG_KBN
+    and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+    and TO_NUMBER(SYORI_STATUS) &lt; 90
+
+    order by UPDDATE_YMDHMS desc
+  </sql>
+
+  <sql name="GetRecordKoma_OLD">
+		select CAST(max(KOMA_NO) as number(2))
+		from TKJNAIPLANIF
+
+		where FUNE_NO = :FUNE_NO
+		and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+
+		group by FUNE_NO,SC_YMD
+	</sql>
+  
+  <sql name="GetRecordKoma">
+    select CAST(max(KOMA_NO) as number(2))
+    from TKJNAIPLANIF
+
+    where FUNE_NO = :FUNE_NO
+    and TO_CHAR(SC_YMD,'yyyymmdd') = :SC_YMD
+    and TO_NUMBER(SYORI_STATUS) &lt; 90
+
+    group by FUNE_NO,SC_YMD
+  </sql>
+
+  <sql name="InsertRecord">
+	  insert into TKJNAIPLANIF(
+	  FUNE_NO,
+	  JIKO_NO,
+	  SC_YMD,
+	  KOMA_NO,
+	  OPE_NO,
+	  OPE_SET_KEY,
+	  PORT_NO,
+	  BASE_NO,
+	  SG_KBN,
+	  AREA,
+	  AGENCY_CONTACT_FLG,
+	  AGENCY_RE_CONTACT_FLG,
+	  CAPTAIN_CONTACT_FLG,
+	  DS_INPUT_FLG,
+	  INPORT_TIME,
+	  ARRIVE_TIME,
+	  START_TIME,
+	  END_TIME,
+	  DEPARTURE_TIME,
+	  OUTPORT_TIME,
+	  THROUGH_TIME,
+	  CREATE_DATE,
+	  TRKM_TNTSY_CD,
+	  TRKM_DATE,
+	  SYORI_STATUS,
+	  STATUS_REMARK,
+	  EXT_SYSTEM_CD,
+	  UPDPGMID,
+	  UPDUSERID,
+	  UPDDATE_YMDHMS
+	  ) values(
+	  :FUNE_NO,
+	  :JIKO_NO,
+	  :SC_YMD,
+	  :KOMA_NO,
+	  :OPE_NO,
+	  :OPE_SET_KEY,
+	  :PORT_NO,
+	  :BASE_NO,
+	  :SG_KBN,
+	  :AREA,
+	  :AGENCY_CONTACT_FLG,
+	  :AGENCY_RE_CONTACT_FLG,
+	  :CAPTAIN_CONTACT_FLG,
+	  :DS_INPUT_FLG,
+	  :INPORT_TIME,
+	  :ARRIVE_TIME,
+	  :START_TIME,
+	  :END_TIME,
+	  :DEPARTURE_TIME,
+	  :OUTPORT_TIME,
+	  :THROUGH_TIME,
+	  :CREATE_DATE,
+	  :TRKM_TNTSY_CD,
+	  :TRKM_DATE,
+	  :SYORI_STATUS,
+	  :STATUS_REMARK,
+	  :EXT_SYSTEM_CD,
+	  :UPDPGMID,
+	  :UPDUSERID,
+	  :UPDDATE_YMDHMS)
+  </sql>
+
+	<sql name="DeleteRecord">
+		delete from TKJNAIPLANIF
+		where FUNE_NO = :FUNE_NO
+		and JIKO_NO = :JIKO_NO
+		and SC_YMD = :SC_YMD
+		and KOMA_NO = :KOMA_NO
+		and EXT_SYSTEM_CD = :EXT_SYSTEM_CD
+	</sql>
+</databaseConfig>

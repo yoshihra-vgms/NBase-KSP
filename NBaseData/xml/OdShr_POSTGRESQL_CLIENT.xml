@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecords">
+    SELECT
+    OD_SHR.OD_SHR_ID                      ,
+    OD_SHR.STATUS                         ,
+    OD_SHR.CANCEL_FLAG                    ,
+    OD_SHR.OD_JRY_ID                      ,
+    OD_SHR.SBT                            ,
+    OD_SHR.SHR_NO                         ,
+    OD_SHR.NAIYOU                         ,
+    OD_SHR.BIKOU                          ,
+    OD_SHR.KIKAN_SYSTEM_SHR_NO            ,
+    OD_SHR.AMOUNT                         ,
+    OD_SHR.NEBIKI_AMOUNT                  ,
+    OD_SHR.TAX                            ,
+    OD_SHR.SHR_IRAI_DATE                  ,
+    OD_SHR.SHR_DATE                       ,
+    OD_SHR.TEKIYOU                        ,
+    OD_SHR.KAMOKU_NO                      ,
+    OD_SHR.UTIWAKE_KAMOKU_NO              ,
+    OD_SHR.SEND_FLAG                      ,
+    OD_SHR.VESSEL_ID                      ,
+    OD_SHR.DATA_NO                        ,
+    OD_SHR.USER_KEY                       ,
+    OD_SHR.RENEW_DATE                     ,
+    OD_SHR.RENEW_USER_ID                  ,
+    OD_SHR.TS                             ,
+    OD_SHR.SHR_TANTOU                     ,
+    OD_SHR.KEIJO_DATE                     ,
+    OD_SHR.SYORI_STATUS                   ,
+    OD_SHR.KIHYOUBI
+    ,OD_SHR.CARRIAGE
+    
+    FROM
+    OD_SHR
+
+    WHERE OD_SHR.CANCEL_FLAG = 0
+  </sql>
+
+  <sql name="ByOdShrID">
+    AND OD_SHR.OD_SHR_ID  = :OD_SHR_ID
+  </sql>
+
+  <sql name="InsertRecord">
+    INSERT INTO
+    OD_SHR
+    (
+    OD_SHR_ID                      ,
+    STATUS                         ,
+    CANCEL_FLAG                    ,
+    OD_JRY_ID                      ,
+    SBT                            ,
+    SHR_NO                         ,
+    NAIYOU                         ,
+    BIKOU                          ,
+    KIKAN_SYSTEM_SHR_NO            ,
+    AMOUNT                         ,
+    NEBIKI_AMOUNT                  ,
+    TAX                            ,
+    KAMOKU_NO                      ,
+    UTIWAKE_KAMOKU_NO              ,
+    SHR_IRAI_DATE                  ,
+    SHR_DATE                       ,
+    TEKIYOU                        ,
+
+    SEND_FLAG                      ,
+    VESSEL_ID                      ,
+    DATA_NO                        ,
+    USER_KEY                       ,
+    RENEW_DATE                     ,
+    RENEW_USER_ID                  ,
+    TS                             ,
+    SHR_TANTOU                     ,
+    KEIJO_DATE                     ,
+    SYORI_STATUS                   ,
+    KIHYOUBI
+    ,CARRIAGE
+    )
+    VALUES
+    (
+    :OD_SHR_ID                      ,
+    :STATUS                         ,
+    :CANCEL_FLAG                    ,
+    :OD_JRY_ID                      ,
+    :SBT                            ,
+    :SHR_NO                         ,
+    :NAIYOU                         ,
+    :BIKOU                          ,
+    :KIKAN_SYSTEM_SHR_NO            ,
+    :AMOUNT                         ,
+    :NEBIKI_AMOUNT                  ,
+    :TAX                            ,
+    :KAMOKU_NO                      ,
+    :UTIWAKE_KAMOKU_NO              ,
+    :SHR_IRAI_DATE                  ,
+    :SHR_DATE                       ,
+    :TEKIYOU                        ,
+
+    :SEND_FLAG                      ,
+    :VESSEL_ID                      ,
+    :DATA_NO                        ,
+    :USER_KEY                       ,
+    :RENEW_DATE                     ,
+    :RENEW_USER_ID                  ,
+    :TS                             ,
+    :SHR_TANTOU                     ,
+    :KEIJO_DATE                     ,
+    :SYORI_STATUS                   ,
+    :KIHYOUBI
+    ,:CARRIAGE
+    )
+
+  </sql>
+
+  <sql name="UpdateRecord">
+    UPDATE
+    OD_SHR
+    SET
+    STATUS = :STATUS                                 ,
+    CANCEL_FLAG = :CANCEL_FLAG                       ,
+    OD_JRY_ID = :OD_JRY_ID                           ,
+    SBT = :SBT                                       ,
+    SHR_NO = :SHR_NO                                 ,
+    NAIYOU = :NAIYOU                                 ,
+    BIKOU = :BIKOU                                   ,
+    KIKAN_SYSTEM_SHR_NO = :KIKAN_SYSTEM_SHR_NO       ,
+    AMOUNT = :AMOUNT                                 ,
+    NEBIKI_AMOUNT = :NEBIKI_AMOUNT                   ,
+    TAX = :TAX                                       ,
+    KAMOKU_NO = :KAMOKU_NO                           ,
+    UTIWAKE_KAMOKU_NO = :UTIWAKE_KAMOKU_NO           ,
+    SHR_IRAI_DATE = :SHR_IRAI_DATE                   ,
+    SHR_DATE = :SHR_DATE                             ,
+    TEKIYOU = :TEKIYOU                               ,
+
+    SEND_FLAG = :SEND_FLAG                           ,
+    VESSEL_ID = :VESSEL_ID                           ,
+    DATA_NO = :DATA_NO                               ,
+    USER_KEY = :USER_KEY                             ,
+    RENEW_DATE = :RENEW_DATE                         ,
+    RENEW_USER_ID = :RENEW_USER_ID                   ,
+    TS = :TS                                         ,
+    SHR_TANTOU = :SHR_TANTOU                         ,
+    KEIJO_DATE = :KEIJO_DATE                         ,
+    SYORI_STATUS = :SYORI_STATUS                     ,
+    KIHYOUBI = :KIHYOUBI
+    ,CARRIAGE = :CARRIAGE
+
+
+    WHERE
+    OD_SHR_ID = :OD_SHR_ID
+  </sql>
+
+</databaseConfig>

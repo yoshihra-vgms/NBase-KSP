@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9AB4AF0D-D6B2-48B9-BC2D-D1C938843D70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WTM</RootNamespace>
+    <AssemblyName>WTM</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;HONSEN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Command.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Input.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1List.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Schedule.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Schedule.Extended.4.8, Version=4.8.20232.611, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Framework.CalendarGrid.v24, Version=2.4.4003.2012, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Framework.MultiRow.v24, Version=2.4.4006.2012, Culture=neutral, PublicKeyToken=fdd90f5c44b73170, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Win.CalendarGrid.v20, Version=2.0.4003.2012, Culture=neutral, PublicKeyToken=f4c1eb1dac5d2351, processorArchitecture=MSIL" />
+    <Reference Include="GrapeCity.Win.MultiRow.v100, Version=10.0.4006.2012, Culture=neutral, PublicKeyToken=0f7a722ee3c2bdd9, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase">
+      <HintPath>..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels">
+      <HintPath>..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="DeviationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviationPanel.Designer.cs">
+      <DependentUpon>DeviationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OfficePortalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfficePortalForm.Designer.cs">
+      <DependentUpon>OfficePortalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Template1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Template1.Designer.cs">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Template2.designer.cs">
+      <DependentUpon>Template2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkContentLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkContentLabel.Designer.cs">
+      <DependentUpon>WorkContentLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkContentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkContentPanel.Designer.cs">
+      <DependentUpon>WorkContentPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WtmFormController.cs" />
+    <Compile Include="コピーForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="コピーForm.Designer.cs">
+      <DependentUpon>コピーForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="個人表示Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="個人表示Form.Designer.cs">
+      <DependentUpon>個人表示Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="出勤Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="出勤Form.Designer.cs">
+      <DependentUpon>出勤Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="出退勤Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="出退勤Form.Designer.cs">
+      <DependentUpon>出退勤Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="出退勤登録Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="出退勤登録Form.Designer.cs">
+      <DependentUpon>出退勤登録Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日表示Form .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日表示Form .Designer.cs">
+      <DependentUpon>日表示Form .cs</DependentUpon>
+    </Compile>
+    <Compile Include="月表示Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="月表示Form.Designer.cs">
+      <DependentUpon>月表示Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="退勤Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="退勤Form.Designer.cs">
+      <DependentUpon>退勤Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeviationPanel.resx">
+      <DependentUpon>DeviationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfficePortalForm.resx">
+      <DependentUpon>OfficePortalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Template1.resx">
+      <DependentUpon>Template1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template2.resx">
+      <DependentUpon>Template2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkContentPanel.resx">
+      <DependentUpon>WorkContentPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="コピーForm.resx">
+      <DependentUpon>コピーForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="個人表示Form.resx">
+      <DependentUpon>個人表示Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="出勤Form.resx">
+      <DependentUpon>出勤Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="出退勤Form.resx">
+      <DependentUpon>出退勤Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="出退勤登録Form.resx">
+      <DependentUpon>出退勤登録Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日表示Form .resx">
+      <DependentUpon>日表示Form .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="月表示Form.resx">
+      <DependentUpon>月表示Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="退勤Form.resx">
+      <DependentUpon>退勤Form.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NBase\NBase\NBaseCommon\NBaseCommon.csproj">
+      <Project>{aa019336-3937-4b0d-a7f3-29523ff52433}</Project>
+      <Name>NBaseCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseData\NBaseData.csproj">
+      <Project>{714f98e7-2dda-44f7-8651-6c40a52719b9}</Project>
+      <Name>NBaseData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{acdbd951-2c1f-4155-93c1-56ab4212123a}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

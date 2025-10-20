@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DcCommon.Output" />
+  <xs:import schemaLocation="http://localhost:56353/ServiceDeficiency.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DcCommon.DB" />
+  <xs:complexType name="ArrayOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfDcAccidentL63gWZ4E">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfDcAccidentL63gWZ4E">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" name="Value" nillable="true" type="q1:ArrayOfDcAccident" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfDcAccidentL63gWZ4E" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfDcAccidentL63gWZ4E" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfDcActionCodeHistoryL63gWZ4E">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfDcActionCodeHistoryL63gWZ4E">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DcCommon.DB.DAC" name="Value" nillable="true" type="q2:ArrayOfDcActionCodeHistory" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfDcActionCodeHistoryL63gWZ4E" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfDcActionCodeHistoryL63gWZ4E" />
+  <xs:complexType name="ArrayOfKeyValueOfintPscOutputDeficiencyAggregateData5xtNolcJ">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintPscOutputDeficiencyAggregateData5xtNolcJ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DcCommon.Output" name="Value" nillable="true" type="q3:PscOutputDeficiencyAggregateData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintPscOutputDeficiencyAggregateData5xtNolcJ" nillable="true" type="tns:ArrayOfKeyValueOfintPscOutputDeficiencyAggregateData5xtNolcJ" />
+  <xs:complexType name="ArrayOfKeyValueOfdecimalArrayOfPSCInspectionDataL_PGpTIGq">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfdecimalArrayOfPSCInspectionDataL_PGpTIGq">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:decimal" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DcCommon.DB" name="Value" nillable="true" type="q4:ArrayOfPSCInspectionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfdecimalArrayOfPSCInspectionDataL_PGpTIGq" nillable="true" type="tns:ArrayOfKeyValueOfdecimalArrayOfPSCInspectionDataL_PGpTIGq" />
+  <xs:complexType name="ArrayOfKeyValueOfintArrayOfMoiDataL_PGpTIGq">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintArrayOfMoiDataL_PGpTIGq">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DcCommon.DB" name="Value" nillable="true" type="q5:ArrayOfMoiData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintArrayOfMoiDataL_PGpTIGq" nillable="true" type="tns:ArrayOfKeyValueOfintArrayOfMoiDataL_PGpTIGq" />
+</xs:schema>

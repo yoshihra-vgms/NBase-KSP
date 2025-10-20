@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name="GetRecord">
+	  SELECT
+	  OD_THI_BUNKER_MAIL.OD_THI_ID                      ,
+	  OD_THI_BUNKER_MAIL.STATUS                         ,
+	  OD_THI_BUNKER_MAIL.MS_VESSEL_ID                   ,
+	  OD_THI_BUNKER_MAIL.THI_IRAI_DATE                  ,
+	  OD_THI_BUNKER_MAIL.TEHAI_IRAI_NO                  ,
+	  OD_THI_BUNKER_MAIL.OD_THI_RENEW_DATE              ,
+	  OD_THI_BUNKER_MAIL.OD_THI_RENEW_USER_ID           ,
+	  OD_THI_BUNKER_MAIL.RENEW_DATE                     ,
+	  OD_THI_BUNKER_MAIL.RENEW_USER_ID                  ,
+	  OD_THI_BUNKER_MAIL.MAIL_BODY                      ,
+	  OD_THI_BUNKER_MAIL.MAIL_SEND_FLAG
+
+	  FROM
+	  OD_THI_BUNKER_MAIL
+
+	  WHERE OD_THI_BUNKER_MAIL.OD_THI_ID = :OD_THI_ID
+	  AND OD_THI_BUNKER_MAIL.MAIL_SEND_FLAG = 1
+  </sql>
+ 
+  <sql name="InsertRecord">
+	  INSERT INTO OD_THI_BUNKER_MAIL(
+	  OD_THI_ID                      ,
+	  STATUS                         ,
+	  MS_VESSEL_ID                   ,
+	  THI_IRAI_DATE                  ,
+	  TEHAI_IRAI_NO                  ,
+	  OD_THI_RENEW_DATE              ,
+	  OD_THI_RENEW_USER_ID           ,
+	  RENEW_DATE                     ,
+	  RENEW_USER_ID                  ,
+	  MAIL_BODY                      ,
+	  MAIL_SEND_FLAG
+	  )
+	  VALUES(
+	  :OD_THI_ID                      ,
+	  :STATUS                         ,
+	  :MS_VESSEL_ID                   ,
+	  :THI_IRAI_DATE                  ,
+	  :TEHAI_IRAI_NO                  ,
+	  :THI_RENEW_DATE                 ,
+	  :THI_RENEW_USER_ID              ,
+	  :RENEW_DATE                     ,
+	  :RENEW_USER_ID                  ,
+	  :MAIL_BODY                      ,
+	  :MAIL_SEND_FLAG
+	  )
+
+  </sql>
+
+</databaseConfig>

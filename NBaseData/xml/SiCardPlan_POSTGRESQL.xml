@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<databaseConfig>
+
+  <sql name ="GetRecordParent">
+	  SELECT
+	  SI_CARD_PLAN.SI_CARD_PLAN_ID                     ,
+
+	  SI_CARD_PLAN.MS_SENIN_ID                    ,
+	  SI_CARD_PLAN.MS_SI_SHUBETSU_ID              ,
+	  SI_CARD_PLAN.MS_VESSEL_ID                   ,
+	  SI_CARD_PLAN.MS_SI_SHOKUMEI_ID              ,
+	  SI_CARD_PLAN.MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+	  SI_CARD_PLAN.START_DATE                     ,
+	  SI_CARD_PLAN.END_DATE                       ,
+	  SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID           ,
+	  SI_CARD_PLAN.LABOR_ON_BOARDING              ,
+	  SI_CARD_PLAN.LABOR_ON_DISEMBARKING          ,
+	  SI_CARD_PLAN.REPLACEMENT                    ,
+	  SI_CARD_PLAN.MS_BASHO_ID                    ,
+
+	  SI_CARD_PLAN.DELETE_FLAG                    ,
+	  SI_CARD_PLAN.SEND_FLAG                      ,
+	  SI_CARD_PLAN.VESSEL_ID                      ,
+	  SI_CARD_PLAN.DATA_NO                        ,
+	  SI_CARD_PLAN.USER_KEY                       ,
+	  SI_CARD_PLAN.RENEW_DATE                     ,
+	  SI_CARD_PLAN.RENEW_USER_ID                  ,
+	  SI_CARD_PLAN.TS                             
+	  
+	  FROM
+	  SI_CARD_PLAN
+
+	  WHERE
+	  SI_CARD_PLAN.DELETE_FLAG = 0
+	  and
+	  REPLACEMENT = :REPLACEMENT
+
+
+  </sql>
+
+  <sql name="GetRecord">
+		SELECT
+		SI_CARD_PLAN.SI_CARD_PLAN_ID                     ,
+
+		SI_CARD_PLAN.MS_SENIN_ID                    ,
+		SI_CARD_PLAN.MS_SI_SHUBETSU_ID              ,
+		SI_CARD_PLAN.MS_VESSEL_ID                   ,
+		SI_CARD_PLAN.MS_SI_SHOKUMEI_ID              ,
+		SI_CARD_PLAN.MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+		SI_CARD_PLAN.START_DATE                     ,
+		SI_CARD_PLAN.END_DATE                       ,
+		SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID           ,
+		SI_CARD_PLAN.LABOR_ON_BOARDING              ,
+		SI_CARD_PLAN.LABOR_ON_DISEMBARKING          ,
+		SI_CARD_PLAN.REPLACEMENT                    ,
+		SI_CARD_PLAN.MS_BASHO_ID                    ,
+
+		SI_CARD_PLAN.DELETE_FLAG                    ,
+		SI_CARD_PLAN.SEND_FLAG                      ,
+		SI_CARD_PLAN.VESSEL_ID                      ,
+		SI_CARD_PLAN.DATA_NO                        ,
+		SI_CARD_PLAN.USER_KEY                       ,
+		SI_CARD_PLAN.RENEW_DATE                     ,
+		SI_CARD_PLAN.RENEW_USER_ID                  ,
+		SI_CARD_PLAN.TS
+
+		FROM
+		SI_CARD_PLAN
+
+		WHERE
+		SI_CARD_PLAN.DELETE_FLAG = 0
+
+  </sql>
+	
+  <sql name="GetRecords">
+	  SELECT
+	  SI_CARD_PLAN.SI_CARD_PLAN_ID                     ,
+
+	  SI_CARD_PLAN.MS_SENIN_ID                    ,
+	  SI_CARD_PLAN.MS_SI_SHUBETSU_ID              ,
+	  SI_CARD_PLAN.MS_VESSEL_ID                   ,
+	  SI_CARD_PLAN.MS_SI_SHOKUMEI_ID              ,
+	  SI_CARD_PLAN.MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+	  SI_CARD_PLAN.START_DATE                     ,
+	  SI_CARD_PLAN.END_DATE                       ,
+	  SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID           ,
+	  SI_CARD_PLAN.LABOR_ON_BOARDING              ,
+	  SI_CARD_PLAN.LABOR_ON_DISEMBARKING          ,
+	  SI_CARD_PLAN.REPLACEMENT                    ,
+	  SI_CARD_PLAN.MS_BASHO_ID                    ,
+
+	  SI_CARD_PLAN.DELETE_FLAG                    ,
+	  SI_CARD_PLAN.SEND_FLAG                      ,
+	  SI_CARD_PLAN.VESSEL_ID                      ,
+	  SI_CARD_PLAN.DATA_NO                        ,
+	  SI_CARD_PLAN.USER_KEY                       ,
+	  SI_CARD_PLAN.RENEW_DATE                     ,
+	  SI_CARD_PLAN.RENEW_USER_ID                  ,
+	  SI_CARD_PLAN.TS                             ,
+
+	  MS_SENIN.SEI || ' ' || MS_SENIN.MEI AS SENIN_NAME,
+	  tblC.SHIME_FLAG AS HEAD_SHIME_FLAG
+
+	  FROM
+	  SI_CARD_PLAN
+
+	  INNER JOIN MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_CARD_PLAN.MS_SENIN_ID
+
+	  INNER JOIN
+	  (si_card_plan_head as tblA
+	  INNER JOIN (SELECT
+	  year_month,
+	  MAX(rev_no) AS maxrev
+	  FROM
+	  (select * from si_card_plan_head where vessel_kind = :VESSEL_KIND ) as tbl1
+	  GROUP BY
+	  year_month ) AS tblB
+	  ON tblA.year_month = tblB.year_month
+	  AND tblA.rev_no = tblB.maxrev) as tblC
+
+	  ON tblC.SI_CARD_PLAN_HEAD_ID = SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID
+
+	  WHERE
+	  SI_CARD_PLAN.DELETE_FLAG = 0
+	  AND tblC.VESSEL_KIND = :VESSEL_KIND
+  </sql>
+
+	<sql name="GetRecordsByHead">
+		SELECT
+		SI_CARD_PLAN.SI_CARD_PLAN_ID                     ,
+
+		SI_CARD_PLAN.MS_SENIN_ID                    ,
+		SI_CARD_PLAN.MS_SI_SHUBETSU_ID              ,
+		SI_CARD_PLAN.MS_VESSEL_ID                   ,
+		SI_CARD_PLAN.MS_SI_SHOKUMEI_ID              ,
+		SI_CARD_PLAN.MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+		SI_CARD_PLAN.START_DATE                     ,
+		SI_CARD_PLAN.END_DATE                       ,
+		SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID           ,
+		SI_CARD_PLAN.LABOR_ON_BOARDING              ,
+		SI_CARD_PLAN.LABOR_ON_DISEMBARKING          ,
+		SI_CARD_PLAN.REPLACEMENT                    ,
+		SI_CARD_PLAN.MS_BASHO_ID                    ,
+
+		SI_CARD_PLAN.DELETE_FLAG                    ,
+		SI_CARD_PLAN.SEND_FLAG                      ,
+		SI_CARD_PLAN.VESSEL_ID                      ,
+		SI_CARD_PLAN.DATA_NO                        ,
+		SI_CARD_PLAN.USER_KEY                       ,
+		SI_CARD_PLAN.RENEW_DATE                     ,
+		SI_CARD_PLAN.RENEW_USER_ID                  ,
+		SI_CARD_PLAN.TS                             ,
+
+		MS_SENIN.SEI || ' ' || MS_SENIN.MEI AS SENIN_NAME,
+		SI_CARD_PLAN_HEAD.SHIME_FLAG AS HEAD_SHIME_FLAG
+
+		FROM
+		SI_CARD_PLAN
+
+		INNER JOIN MS_SENIN ON MS_SENIN.MS_SENIN_ID = SI_CARD_PLAN.MS_SENIN_ID
+
+		LEFT JOIN SI_CARD_PLAN_HEAD ON SI_CARD_PLAN_HEAD.SI_CARD_PLAN_HEAD_ID = SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID
+
+		WHERE
+		SI_CARD_PLAN.DELETE_FLAG = 0
+	</sql>
+	
+  <sql name="BySeninID">
+	  AND
+	  SI_CARD_PLAN.MS_SENIN_ID = :MS_SENIN_ID
+  </sql>
+	
+	<sql name="BySiCardPlanID">
+	AND
+SI_CARD_PLAN.SI_CARD_PLAN_ID = :SI_CARD_PLAN_ID
+	</sql>
+
+	<sql name="ByHeadID">
+		AND
+		SI_CARD_PLAN.SI_CARD_PLAN_HEAD_ID = :SI_CARD_PLAN_HEAD_ID
+	</sql>
+
+	<sql name="ByStartEnd">
+		AND
+		(
+		SI_CARD_PLAN.END_DATE >= :START_DATE
+		AND
+		SI_CARD_PLAN.START_DATE &lt; :END_DATE
+		OR
+		SI_CARD_PLAN.END_DATE IS NULL
+		AND
+		SI_CARD_PLAN.START_DATE &lt; :END_DATE
+		)
+	</sql>
+
+	<sql name="OrderByStartDate">
+    ORDER BY
+    SI_CARD_PLAN.START_DATE
+  </sql>
+
+  <sql name="InsertRecord">
+	  INSERT INTO SI_CARD_PLAN(
+	  SI_CARD_PLAN_ID                     ,
+
+	  MS_SENIN_ID                    ,
+	  MS_SI_SHUBETSU_ID              ,
+	  MS_VESSEL_ID                   ,
+	  MS_SI_SHOKUMEI_ID              ,
+	  MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+	  START_DATE                     ,
+	  END_DATE                       ,
+	  SI_CARD_PLAN_HEAD_ID           ,
+	  LABOR_ON_BOARDING              ,
+	  LABOR_ON_DISEMBARKING          ,
+	  REPLACEMENT                    ,
+	  MS_BASHO_ID                    ,
+
+	  DELETE_FLAG                    ,
+	  SEND_FLAG                      ,
+	  VESSEL_ID                      ,
+	  DATA_NO                        ,
+	  USER_KEY                       ,
+	  RENEW_DATE                     ,
+	  RENEW_USER_ID                  ,
+	  TS
+	  )
+	  VALUES(
+	  :SI_CARD_PLAN_ID                     ,
+
+	  :MS_SENIN_ID                    ,
+	  :MS_SI_SHUBETSU_ID              ,
+	  :MS_VESSEL_ID                   ,
+	  :MS_SI_SHOKUMEI_ID              ,
+	  :MS_SI_SHOKUMEI_SHOUSAI_ID      ,
+	  :START_DATE                     ,
+	  :END_DATE                       ,
+	  :SI_CARD_PLAN_HEAD_ID           ,
+	  :LABOR_ON_BOARDING              ,
+	  :LABOR_ON_DISEMBARKING          ,
+	  :REPLACEMENT                    ,
+	  :MS_BASHO_ID                    ,
+
+	  :DELETE_FLAG                    ,
+	  :SEND_FLAG                      ,
+	  :VESSEL_ID                      ,
+	  :DATA_NO                        ,
+	  :USER_KEY                       ,
+	  :RENEW_DATE                     ,
+	  :RENEW_USER_ID                  ,
+	  :TS
+	  )
+  </sql>
+
+  <sql name="UpdateRecord">
+	  UPDATE
+	  SI_CARD_PLAN
+	  SET
+	  MS_SENIN_ID = :MS_SENIN_ID                       ,
+	  MS_SI_SHUBETSU_ID = :MS_SI_SHUBETSU_ID           ,
+	  MS_VESSEL_ID = :MS_VESSEL_ID                     ,
+	  MS_SI_SHOKUMEI_ID = :MS_SI_SHOKUMEI_ID           ,
+	  MS_SI_SHOKUMEI_SHOUSAI_ID = :MS_SI_SHOKUMEI_SHOUSAI_ID ,
+	  START_DATE = :START_DATE                         ,
+	  END_DATE = :END_DATE                             ,
+	  SI_CARD_PLAN_HEAD_ID = :SI_CARD_PLAN_HEAD_ID     ,
+	  LABOR_ON_BOARDING = :LABOR_ON_BOARDING           ,
+	  LABOR_ON_DISEMBARKING = :LABOR_ON_DISEMBARKING   ,
+	  REPLACEMENT =:REPLACEMENT                        ,
+	  MS_BASHO_ID =:MS_BASHO_ID                        ,
+
+	  DELETE_FLAG = :DELETE_FLAG                       ,
+	  SEND_FLAG = :SEND_FLAG                           ,
+	  VESSEL_ID = :VESSEL_ID                           ,
+	  DATA_NO = :DATA_NO                               ,
+	  USER_KEY = :USER_KEY                             ,
+	  RENEW_DATE = :RENEW_DATE                         ,
+	  RENEW_USER_ID = :RENEW_USER_ID                   ,
+	  TS = :TS
+
+	  WHERE SI_CARD_PLAN_ID = :SI_CARD_PLAN_ID
+	  AND TS = :TS
+  </sql>
+
+</databaseConfig>

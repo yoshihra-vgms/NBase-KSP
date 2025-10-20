@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{714F98E7-2DDA-44F7-8651-6C40A52719B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBaseData</RootNamespace>
+    <AssemblyName>NBaseData</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|AnyCPU'">
+    <OutputPath>bin\BK用\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x86'">
+    <OutputPath>bin\x86\BK用\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BK用|x64'">
+    <OutputPath>bin\x64\BK用\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelCreator.Shared.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=411a8845f4d5d1b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExcelCreator\ExcelCreator.Shared.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Core.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=afb069e70259a56a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExcelCreator\ExcelCreator.Xlsx.Core.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.Creator.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=a1afcfd03b061a55, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExcelCreator\ExcelCreator.Xlsx.Creator.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelCreator.Xlsx.View.v10, Version=10.0.5270.2017, Culture=neutral, PublicKeyToken=c551c97308384f23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExcelCreator\ExcelCreator.Xlsx.View.v10.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WtmModelBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WtmModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLC\Alarm処理.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品年間管理表.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品管理表.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品編集処理.cs" />
+    <Compile Include="BLC\CrewMatrix.cs" />
+    <Compile Include="BLC\Doc\未提出確認一覧出力.cs" />
+    <Compile Include="BLC\Doc\回覧終了処理.cs" />
+    <Compile Include="BLC\Doc\コメント登録処理.cs" />
+    <Compile Include="BLC\Doc\状況確認一覧Row.cs" />
+    <Compile Include="BLC\Doc\確認状況一覧出力.cs" />
+    <Compile Include="BLC\Doc\管理記録処理.cs" />
+    <Compile Include="BLC\Doc\公文書規則処理.cs" />
+    <Compile Include="BLC\Doc\報告書処理.cs" />
+    <Compile Include="BLC\Dousei\動静処理.cs" />
+    <Compile Include="BLC\GetMaxNo.cs" />
+    <Compile Include="BLC\KK船_種別変更.cs" />
+    <Compile Include="BLC\WTMLinkageProc.cs" />
+    <Compile Include="BLC\免許免状管理.cs" />
+    <Compile Include="BLC\ダイジェスト出力.cs" />
+    <Compile Include="BLC\事務所更新情報処理.cs" />
+    <Compile Include="BLC\動静帳票\動静報告一覧.cs" />
+    <Compile Include="BLC\勤怠管理.cs" />
+    <Compile Include="BLC\合算対象の受領.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品集計表.cs" />
+    <Compile Include="BLC\基本給管理.cs" />
+    <Compile Include="BLC\支払合算処理.cs" />
+    <Compile Include="BLC\月次収支データ.cs" />
+    <Compile Include="BLC\概算計上一覧Row.cs" />
+    <Compile Include="BLC\添付ファイル.cs" />
+    <Compile Include="BLC\配乗計画.cs" />
+    <Compile Include="BLC\発注RowData.cs" />
+    <Compile Include="BLC\ユーザパスワード.cs" />
+    <Compile Include="BLC\入渠.cs" />
+    <Compile Include="BLC\合見積データ.cs" />
+    <Compile Include="BLC\手配依頼のステータスを完了にする.cs" />
+    <Compile Include="BLC\本船更新情報処理.cs" />
+    <Compile Include="BLC\発注アラーム処理.cs" />
+    <Compile Include="BLC\概算計上一覧出力.cs" />
+    <Compile Include="BLC\管理表Info.cs" />
+    <Compile Include="BLC\簡易動静表.cs" />
+    <Compile Include="BLC\船マスタ更新処理.cs" />
+    <Compile Include="BLC\船員.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品リスト.cs" />
+    <Compile Include="BLC\潤滑油.cs" />
+    <Compile Include="BLC\船員検索.cs" />
+    <Compile Include="BLC\船員経験処理.cs" />
+    <Compile Include="BLC\船用品.cs" />
+    <Compile Include="BLC\講習管理.cs" />
+    <Compile Include="BLC\貨物マスタ更新処理.cs" />
+    <Compile Include="BLC\配乗シミュレーション.cs" />
+    <Compile Include="DAC\Batch\LogInfo.cs" />
+    <Compile Include="DAC\BgRate.cs" />
+    <Compile Include="DAC\DJ\DjDousei.cs" />
+    <Compile Include="DAC\DJ\DjDouseiCargo.cs" />
+    <Compile Include="DAC\DJ\DjDouseiHoukoku.cs" />
+    <Compile Include="DAC\Doc\MsDmShoubunrui.cs" />
+    <Compile Include="DAC\Doc\MsDmHoukokusho.cs" />
+    <Compile Include="DAC\Doc\MsDmTemplateFile.cs" />
+    <Compile Include="DAC\Doc\DmPublisher.cs" />
+    <Compile Include="DAC\Doc\DmKoukaiSaki.cs" />
+    <Compile Include="DAC\Doc\DmKoubunshoKisoku.cs" />
+    <Compile Include="DAC\Doc\DmKoubunshoKisokuFile.cs" />
+    <Compile Include="DAC\Doc\DmKanriKiroku.cs" />
+    <Compile Include="DAC\Doc\DmKanriKirokuFile.cs" />
+    <Compile Include="DAC\Doc\HoukokushoKanriKiroku.cs" />
+    <Compile Include="DAC\Doc\DmKakuninJokyo.cs" />
+    <Compile Include="DAC\Doc\DmDocComment.cs" />
+    <Compile Include="DAC\Doc\DmKanryoInfo.cs" />
+    <Compile Include="DAC\Doc\PtDmAlramInfo.cs" />
+    <Compile Include="DAC\KsKensa.cs" />
+    <Compile Include="DAC\KsKensen.cs" />
+    <Compile Include="DAC\KsKyumeisetsubi.cs" />
+    <Compile Include="DAC\KsNiyaku.cs" />
+    <Compile Include="DAC\KsNiyakuKensaLink.cs" />
+    <Compile Include="DAC\KsShinsa.cs" />
+    <Compile Include="DAC\KsShousho.cs" />
+    <Compile Include="DAC\KsShoushoKensaLink.cs" />
+    <Compile Include="DAC\KsShoushoKensenLink.cs" />
+    <Compile Include="DAC\KsShoushoShinsaLink.cs" />
+    <Compile Include="DAC\MsAccidentImportance.cs" />
+    <Compile Include="DAC\MsAccidentKind.cs" />
+    <Compile Include="DAC\MsAccidentSituation.cs" />
+    <Compile Include="DAC\MsActionCode.cs" />
+    <Compile Include="DAC\MsAlarmDate.cs" />
+    <Compile Include="DAC\MsAlarmSetuteiKikan.cs" />
+    <Compile Include="DAC\MsBasho.cs" />
+    <Compile Include="DAC\MsBashoKubun.cs" />
+    <Compile Include="DAC\MsBerth.cs" />
+    <Compile Include="DAC\MsCargoGroup.cs" />
+    <Compile Include="DAC\MsCargoYusoItem.cs" />
+    <Compile Include="DAC\MsDeficiencyCategory.cs" />
+    <Compile Include="DAC\MsDeficiencyCode.cs" />
+    <Compile Include="DAC\MsInspectionCategory.cs" />
+    <Compile Include="DAC\MsKindOfAccident.cs" />
+    <Compile Include="DAC\MsPlanType.cs" />
+    <Compile Include="DAC\MsSeninEtc.cs" />
+    <Compile Include="DAC\MsSeninCareer.cs" />
+    <Compile Include="DAC\MsSiAllowance.cs" />
+    <Compile Include="DAC\MsUserSettings.cs" />
+    <Compile Include="DAC\MsVesselSection.cs" />
+    <Compile Include="DAC\NbaseContractFunction.cs" />
+    <Compile Include="DAC\SiAllowance.cs" />
+    <Compile Include="DAC\SiAllowanceDetail.cs" />
+    <Compile Include="DAC\SiLaborManagementRecordBook.cs" />
+    <Compile Include="DAC\SiNightSetting.cs" />
+    <Compile Include="DAC\SiRequiredNumberOfDays.cs" />
+    <Compile Include="DAC\SiSalaryNendo.cs" />
+    <Compile Include="DAC\UserListItems.cs" />
+    <Compile Include="DAC\MsRegional.cs" />
+    <Compile Include="DAC\MsScheduleCategory.cs" />
+    <Compile Include="DAC\MsScheduleKind.cs" />
+    <Compile Include="DAC\MsScheduleKindDetail.cs" />
+    <Compile Include="DAC\MsSchool.cs" />
+    <Compile Include="DAC\MsDjKazamuki.cs" />
+    <Compile Include="DAC\MsDjKenkoujyoutai.cs" />
+    <Compile Include="DAC\MsDjSentaisetsubi.cs" />
+    <Compile Include="DAC\MsDjTani.cs" />
+    <Compile Include="DAC\MsDjTenkou.cs" />
+    <Compile Include="DAC\MsKanidouseiInfoShubetu.cs" />
+    <Compile Include="DAC\MsKensa.cs" />
+    <Compile Include="DAC\MsKensen.cs" />
+    <Compile Include="DAC\MsKichi.cs" />
+    <Compile Include="DAC\MsKyumeisetsubi.cs" />
+    <Compile Include="DAC\MsNiyaku.cs" />
+    <Compile Include="DAC\MsPortalInfoKoumoku.cs" />
+    <Compile Include="DAC\MsPortalInfoKubun.cs" />
+    <Compile Include="DAC\MsPortalInfoShubetu.cs" />
+    <Compile Include="DAC\MsRole.cs" />
+    <Compile Include="DAC\MsSenin.cs" />
+    <Compile Include="DAC\MsSeninAddress.cs" />
+    <Compile Include="DAC\MsSeninCompany.cs" />
+    <Compile Include="DAC\MsShinsa.cs" />
+    <Compile Include="DAC\MsShinseiTantou.cs" />
+    <Compile Include="BLC\手配依頼更新処理.cs" />
+    <Compile Include="BLC\予実.cs" />
+    <Compile Include="BLC\Chozo\貯蔵品処理.cs" />
+    <Compile Include="BLC\LoginSession.cs" />
+    <Compile Include="DAC\BgNrkKanryou.cs" />
+    <Compile Include="DAC\BgVesselYosan.cs" />
+    <Compile Include="DAC\BgYosanHead.cs" />
+    <Compile Include="DAC\BgYosanItem.cs" />
+    <Compile Include="DAC\BgYosanMemo.cs" />
+    <Compile Include="DAC\BgYosanSbt.cs" />
+    <Compile Include="DAC\BgJiseki.cs" />
+    <Compile Include="DAC\MsBumon.cs" />
+    <Compile Include="DAC\MsCustomer.cs" />
+    <Compile Include="DAC\MsCustomerTantou.cs" />
+    <Compile Include="DAC\MsKamoku.cs" />
+    <Compile Include="DAC\MsLo.cs" />
+    <Compile Include="DAC\MsLoVessel.cs" />
+    <Compile Include="DAC\MsItemSbt.cs" />
+    <Compile Include="DAC\MsNyukyoKamoku.cs" />
+    <Compile Include="DAC\MsShousho.cs" />
+    <Compile Include="DAC\MsShoushuriItem.cs" />
+    <Compile Include="DAC\MsShrJouken.cs" />
+    <Compile Include="DAC\MsSiAdvancedSearchCondition.cs" />
+    <Compile Include="DAC\MsSiExcludeMenjouKind.cs" />
+    <Compile Include="DAC\MsSiGetsujiShimeBi.cs" />
+    <Compile Include="DAC\MsItemKind.cs" />
+    <Compile Include="DAC\MsSiKoushu.cs" />
+    <Compile Include="DAC\MsSiSalaryRank.cs" />
+    <Compile Include="DAC\MsSiSalaryHyorei.cs" />
+    <Compile Include="DAC\MsSiSalary.cs" />
+    <Compile Include="DAC\MsSiOptions.cs" />
+    <Compile Include="DAC\MsSiPresentationItem.cs" />
+    <Compile Include="DAC\MsSiShokumeiShousai.cs" />
+    <Compile Include="DAC\MsSiShubetsuShousai.cs" />
+    <Compile Include="DAC\MsVesselCategory.cs" />
+    <Compile Include="DAC\MsVesselKind.cs" />
+    <Compile Include="DAC\MsVesselScheduleKindDetailEnable.cs" />
+    <Compile Include="DAC\MsViqCode.cs" />
+    <Compile Include="DAC\MsViqCodeName.cs" />
+    <Compile Include="DAC\MsViqVersion.cs" />
+    <Compile Include="DAC\MsViqNo.cs" />
+    <Compile Include="DAC\SiAdvancedSearchConditionHead.cs" />
+    <Compile Include="DAC\SiAdvancedSearchConditionItem.cs" />
+    <Compile Include="DAC\SiAdvancedSearchConditionValue.cs" />
+    <Compile Include="DAC\SiCardPlanHead.cs" />
+    <Compile Include="DAC\SiCardPlan.cs" />
+    <Compile Include="DAC\SiKenshinPmhKa.cs" />
+    <Compile Include="DAC\SiKyuyoTeate.cs" />
+    <Compile Include="DAC\MsSiKyuyoTeate.cs" />
+    <Compile Include="DAC\MsSiKyuyoTeateSet.cs" />
+    <Compile Include="DAC\MsSsShousaiItem.cs" />
+    <Compile Include="DAC\MsTanaoroshiLo.cs" />
+    <Compile Include="DAC\MsTax.cs" />
+    <Compile Include="DAC\MsThiIraiSbt.cs" />
+    <Compile Include="DAC\MsThiIraiStatus.cs" />
+    <Compile Include="DAC\MsTani.cs" />
+    <Compile Include="DAC\MsUser.cs" />
+    <Compile Include="DAC\MsUserBumon.cs" />
+    <Compile Include="DAC\MsUserPassHis.cs" />
+    <Compile Include="DAC\MsVessel.cs" />
+    <Compile Include="DAC\MsVesselItem.cs" />
+    <Compile Include="DAC\MsVesselItemVessel.cs" />
+    <Compile Include="DAC\MsBoardingExperience.cs" />
+    <Compile Include="DAC\MsVesselRankLicense.cs" />
+    <Compile Include="DAC\MsCrewMatrixType.cs" />
+    <Compile Include="DAC\MsVesselType.cs" />
+    <Compile Include="DAC\MsThiIraiShousai.cs" />
+    <Compile Include="DAC\MsYusoItem.cs" />
+    <Compile Include="DAC\MS\MsBashoKyori.cs" />
+    <Compile Include="DAC\MS\MsCargo.cs" />
+    <Compile Include="DAC\OdAttachFile.cs" />
+    <Compile Include="DAC\OdChozo.cs" />
+    <Compile Include="DAC\OdChozoShousai.cs" />
+    <Compile Include="DAC\OdFurikaeToritate.cs" />
+    <Compile Include="DAC\OdGaisanKeijo.cs" />
+    <Compile Include="DAC\OdGetsujiShime.cs" />
+    <Compile Include="DAC\OdHachuMail.cs" />
+    <Compile Include="DAC\OdHachuTanka.cs" />
+    <Compile Include="DAC\OdJry.cs" />
+    <Compile Include="DAC\OdJryItem.cs" />
+    <Compile Include="DAC\OdJryShousaiItem.cs" />
+    <Compile Include="DAC\OdMk.cs" />
+    <Compile Include="DAC\OdMkItem.cs" />
+    <Compile Include="DAC\OdMkShousaiItem.cs" />
+    <Compile Include="DAC\OdMm.cs" />
+    <Compile Include="DAC\OdMmItem.cs" />
+    <Compile Include="DAC\OdMmShousaiItem.cs" />
+    <Compile Include="DAC\OdNyukyoItem.cs" />
+    <Compile Include="DAC\OdNyukyoShousaiItem.cs" />
+    <Compile Include="DAC\OdShr.cs" />
+    <Compile Include="DAC\OdShrItem.cs" />
+    <Compile Include="DAC\OdShrShousaiItem.cs" />
+    <Compile Include="DAC\OdThiItem.cs" />
+    <Compile Include="DAC\OdThi.cs" />
+    <Compile Include="DAC\OdThiShousaiItem.cs" />
+    <Compile Include="DAC\PtAnzenHyouji.cs" />
+    <Compile Include="DAC\PT\PtAlarmInfo.cs" />
+    <Compile Include="DAC\PT\PtHonsenkoushinInfo.cs" />
+    <Compile Include="DAC\PT\PtJimushokoushinInfo.cs" />
+    <Compile Include="DAC\PT\PtKanidouseiInfo.cs" />
+    <Compile Include="DAC\PT\PtPortalInfoFormat.cs" />
+    <Compile Include="DAC\Sequences.cs" />
+    <Compile Include="DAC\SiBoardingSchedule.cs" />
+    <Compile Include="DAC\SiExperienceForeign.cs" />
+    <Compile Include="DAC\SiExperienceCargo.cs" />
+    <Compile Include="DAC\SiPersonalSchedule.cs" />
+    <Compile Include="DAC\SiPresentaionItem.cs" />
+    <Compile Include="DAC\SiSalary.cs" />
+    <Compile Include="DAC\SiRemarks.cs" />
+    <Compile Include="DAC\SiShobatsu.cs" />
+    <Compile Include="DAC\SiRemarksAttachFile.cs" />
+    <Compile Include="DAC\SiShobatsuAttachFile.cs" />
+    <Compile Include="DAC\SiShobyoAttachFile.cs" />
+    <Compile Include="DAC\SiKenshinAttachFile.cs" />
+    <Compile Include="DAC\SiKoushuAttachFile.cs" />
+    <Compile Include="DAC\SiMenjouAttachFile.cs" />
+    <Compile Include="DAC\SiKenshin.cs" />
+    <Compile Include="DAC\SiFellowPassengers.cs" />
+    <Compile Include="DAC\SiShobyo.cs" />
+    <Compile Include="DAC\SiSimulationDetail.cs" />
+    <Compile Include="DAC\SiSimulationDetailItem.cs" />
+    <Compile Include="DAC\SnTableInfo.cs" />
+    <Compile Include="DAC\MsHimoku.cs" />
+    <Compile Include="DAC\MsVesselItemCategory.cs" />
+    <Compile Include="DAC\Tajsinseiif.cs" />
+    <Compile Include="DAC\BgKadouVessel.cs" />
+    <Compile Include="DAC\BgHankanhi.cs" />
+    <Compile Include="DAC\MsSiMenjou.cs" />
+    <Compile Include="DAC\MsSiShokumei.cs" />
+    <Compile Include="DAC\MsSiShubetsu.cs" />
+    <Compile Include="DAC\SiMenjou.cs" />
+    <Compile Include="DAC\SiCard.cs" />
+    <Compile Include="DAC\MsSiHiyouKamoku.cs" />
+    <Compile Include="DAC\MsSiDaikoumoku.cs" />
+    <Compile Include="DAC\MsSiMeisai.cs" />
+    <Compile Include="DAC\SiJunbikin.cs" />
+    <Compile Include="DAC\SiSoukin.cs" />
+    <Compile Include="DAC\SiLinkShokumeiCard.cs" />
+    <Compile Include="DAC\SiHaijouItem.cs" />
+    <Compile Include="DAC\SiHaijou.cs" />
+    <Compile Include="DAC\SiKazoku.cs" />
+    <Compile Include="DAC\SiRireki.cs" />
+    <Compile Include="DAC\BgUnkouhi.cs" />
+    <Compile Include="DAC\BgUchiwakeYosanItem.cs" />
+    <Compile Include="DAC\BgYosanBikou.cs" />
+    <Compile Include="DAC\BgYosanExcel.cs" />
+    <Compile Include="DAC\MsSiKamoku.cs" />
+    <Compile Include="DAC\MsSiMenjouKind.cs" />
+    <Compile Include="DAC\SiGetsujiShime.cs" />
+    <Compile Include="DAC\SiNenjiShime.cs" />
+    <Compile Include="DAC\OdShrGassanHead.cs" />
+    <Compile Include="DAC\OdShrGassanItem.cs" />
+    <Compile Include="DAC\OdThiBunkerMail.cs" />
+    <Compile Include="DAC\SnSyncInfo.cs" />
+    <Compile Include="DAC\Doc\MsDmBunrui.cs" />
+    <Compile Include="DAC\SnParameter.cs" />
+    <Compile Include="DAC\MsParameter.cs" />
+    <Compile Include="DAC\OdJryGaisan.cs" />
+    <Compile Include="DAC\TsTraceLog.cs" />
+    <Compile Include="DAC\WingMessage.cs" />
+    <Compile Include="DAC\SiKoushu.cs" />
+    <Compile Include="DAC\SiKyuka.cs" />
+    <Compile Include="DAC\WTM\WorkPattern.cs" />
+    <Compile Include="DAC\予実実績連携IF.cs" />
+    <Compile Include="DAC\支払実績連携IF.cs" />
+    <Compile Include="DS\Appointment.cs" />
+    <Compile Include="DS\BlobUnkouhi.cs" />
+    <Compile Include="DS\BlobUnkouhiList.cs" />
+    <Compile Include="DS\Constants.cs" />
+    <Compile Include="DS\DirectMsRoleDacProxy.cs" />
+    <Compile Include="DS\DirectNBaseContractFunctionDacProxy.cs" />
+    <Compile Include="DS\DirectSeninDacProxy.cs" />
+    <Compile Include="DS\IGenericCloneable.cs" />
+    <Compile Include="DS\IMsRoleDacProxy.cs" />
+    <Compile Include="DS\INBaseContractFunctionDacProxy.cs" />
+    <Compile Include="DS\ISeninDacProxy.cs" />
+    <Compile Include="DS\IYojitsu.cs" />
+    <Compile Include="DS\MappingClass2.cs" />
+    <Compile Include="DS\MsRoleTableCache.cs" />
+    <Compile Include="DS\MsSeninAdvancedFilter.cs" />
+    <Compile Include="DS\MsSeninFilter.cs" />
+    <Compile Include="DS\MsSeninPlus.cs" />
+    <Compile Include="DS\NbaseContractFunctionTableCache.cs" />
+    <Compile Include="DS\OdFurikaeToritateFilter.cs" />
+    <Compile Include="DS\SettingListRowInfo.cs" />
+    <Compile Include="DS\SeninTableCache.cs" />
+    <Compile Include="DS\Shokumei.cs" />
+    <Compile Include="DS\SiAdvancedSearchFilter.cs" />
+    <Compile Include="DS\SiMenjouFilter.cs" />
+    <Compile Include="DS\SyncTableSaver.cs" />
+    <Compile Include="DS\NoConvert.cs" />
+    <Compile Include="DS\OdStatus.cs" />
+    <Compile Include="DS\OdThiFilter.cs" />
+    <Compile Include="DS\OdJryFilter.cs" />
+    <Compile Include="DS\SiCardFilter.cs" />
+    <Compile Include="DS\DocConstants.cs" />
+    <Compile Include="DS\SiKoushuFilter.cs" />
+    <Compile Include="DS\合算対象の受領Filter.cs" />
+    <Compile Include="DAC\MsListItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DS\ISyncTable.cs" />
+    <Compile Include="DS\MappingClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\BgHankanhi_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgJiseki_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgKadouVessel_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgNrkKanryou_POSTGRESQL.xml" />
+    <Content Include="xml\BgRate_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgUchiwakeYosanItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgUnkouhi_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgVesselYosan_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgYosanBikou_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgYosanExcel_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgYosanHead_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgYosanItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\BgYosanMemo_POSTGRESQL.xml" />
+    <Content Include="xml\BgYosanSbt_POSTGRESQL.xml" />
+    <Content Include="xml\Common_POSTGRESQL.xml" />
+    <Content Include="xml\Common_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DjAkasaka_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DjDouseiCargo_POSTGRESQL.xml" />
+    <Content Include="xml\DjDouseiCargo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DjDouseiHoukoku_POSTGRESQL.xml" />
+    <Content Include="xml\DjDouseiHoukoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DjDousei_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DjDousei_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmDocComment_POSTGRESQL.xml" />
+    <Content Include="xml\DmDocComment_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKakuninJokyo_POSTGRESQL.xml" />
+    <Content Include="xml\DmKakuninJokyo_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmKanriKirokuFile_POSTGRESQL.xml" />
+    <Content Include="xml\DmKanriKirokuFile_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKanriKiroku_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmKanriKiroku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKanryoInfo_POSTGRESQL.xml" />
+    <Content Include="xml\DmKanryoInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKoubunshoKisokuFile_POSTGRESQL.xml" />
+    <Content Include="xml\DmKoubunshoKisokuFile_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKoubunshoKisoku_POSTGRESQL.xml" />
+    <Content Include="xml\DmKoubunshoKisoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmKoukaiSaki_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmKoukaiSaki_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\DmPublisher_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\DmPublisher_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\GetMaxNo_POSTGRESQL.xml" />
+    <Content Include="xml\HoukokushoKanriKiroku_POSTGRESQL.xml" />
+    <Content Include="xml\HoukokushoKanriKiroku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\KsKensa_POSTGRESQL.xml" />
+    <Content Include="xml\KsKensen_POSTGRESQL.xml" />
+    <Content Include="xml\KsKyumeisetsubi_POSTGRESQL.xml" />
+    <Content Include="xml\KsNiyakuKensaLink_POSTGRESQL.xml" />
+    <Content Include="xml\KsNiyaku_POSTGRESQL.xml" />
+    <Content Include="xml\KsShinsa_POSTGRESQL.xml" />
+    <Content Include="xml\KsShoushoKensaLink_POSTGRESQL.xml" />
+    <Content Include="xml\KsShoushoKensenLink_POSTGRESQL.xml" />
+    <Content Include="xml\KsShoushoShinsaLink_POSTGRESQL.xml" />
+    <Content Include="xml\KsShousho_POSTGRESQL.xml" />
+    <Content Include="xml\LoginSession_POSTGRESQL.xml" />
+    <Content Include="xml\MsAccidentImportance_POSTGRESQL.xml" />
+    <Content Include="xml\MsAccidentKind_POSTGRESQL.xml" />
+    <Content Include="xml\MsAccidentSituation_POSTGRESQL.xml" />
+    <Content Include="xml\MsActionCode_POSTGRESQL.xml" />
+    <Content Include="xml\MsAlarmDate_POSTGRESQL.xml" />
+    <Content Include="xml\MsAlarmSetuteiKikan_POSTGRESQL.xml" />
+    <Content Include="xml\MsBashoKubun_POSTGRESQL.xml" />
+    <Content Include="xml\MsBashoKubun_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsBashoKyori_POSTGRESQL.xml" />
+    <Content Include="xml\MsBasho_POSTGRESQL.xml" />
+    <Content Include="xml\MsBasho_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsBerth_POSTGRESQL.xml" />
+    <Content Include="xml\MsBumon_POSTGRESQL.xml" />
+    <Content Include="xml\MsBumon_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsCargoYusoItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsCargoGroup_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsCargo_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsCargo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsCustomerTantou_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsCustomerTantou_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDeficiencyCategory_POSTGRESQL.xml" />
+    <Content Include="xml\MsDeficiencyCode_POSTGRESQL.xml" />
+    <Content Include="xml\MsInspectionCategory_POSTGRESQL.xml" />
+    <Content Include="xml\MsKindOfAccident_POSTGRESQL.xml" />
+    <Content Include="xml\MsRegional_POSTGRESQL.xml" />
+    <Content Include="xml\MsRole_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsScheduleCategory_POSTGRESQL.xml" />
+    <Content Include="xml\MsScheduleKindDetail_POSTGRESQL.xml" />
+    <Content Include="xml\MsScheduleKind_POSTGRESQL.xml" />
+    <Content Include="xml\MsSchool_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsCustomer_POSTGRESQL.xml" />
+    <Content Include="xml\MsCustomer_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDjKazamuki_POSTGRESQL.xml" />
+    <Content Include="xml\MsDjKazamuki_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDjKenkoujyoutai_POSTGRESQL.xml" />
+    <Content Include="xml\MsDjKenkoujyoutai_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDjSentaisetsubi_POSTGRESQL.xml" />
+    <Content Include="xml\MsDjSentaisetsubi_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDjTani_POSTGRESQL.xml" />
+    <Content Include="xml\MsDjTani_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDjTenkou_POSTGRESQL.xml" />
+    <Content Include="xml\MsDjTenkou_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDmBunrui_POSTGRESQL.xml" />
+    <Content Include="xml\MsDmBunrui_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDmHoukokusho_POSTGRESQL.xml" />
+    <Content Include="xml\MsDmHoukokusho_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDmShoubunrui_POSTGRESQL.xml" />
+    <Content Include="xml\MsDmShoubunrui_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsDmTemplateFile_POSTGRESQL.xml" />
+    <Content Include="xml\MsDmTemplateFile_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsHimoku_POSTGRESQL.xml" />
+    <Content Include="xml\MsHimoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsItemSbt_POSTGRESQL.xml" />
+    <Content Include="xml\MsItemSbt_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSeninEtc_POSTGRESQL.xml" />
+    <Content Include="xml\MsSeninCareer_POSTGRESQL.xml" />
+    <Content Include="xml\MsSeninAddress_POSTGRESQL.xml" />
+    <Content Include="xml\MsSeninCompany_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiAdvancedSearchCondition_POSTGRESQL.xml" />
+    <Content Include="xml\MsItemKind_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiAllowance_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiAllowance_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiKyuyoTeateSet_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiKyuyoTeateSet_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiOptions_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiPresentationItem_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiSalaryHyorei_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiSalaryRank_POSTGRESQL.xml" />
+    <Content Include="xml\MsListItem_POSTGRESQL.xml" />
+    <Content Include="xml\MsUserSettings_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselSection_POSTGRESQL.xml" />
+    <Content Include="xml\NbaseContractFunction_POSTGRESQL.xml" />
+    <Content Include="xml\NbaseContractFunction_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiAllowanceDetail_POSTGRESQL.xml" />
+    <Content Include="xml\SiAllowanceDetail_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiAllowance_POSTGRESQL.xml" />
+    <Content Include="xml\SiAllowance_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiLaborManagementRecordBook_POSTGRESQL.xml" />
+    <Content Include="xml\SiLaborManagementRecordBook_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiNightSetting_POSTGRESQL.xml" />
+    <Content Include="xml\SiNightSetting_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiRequiredNumberOfDays_POSTGRESQL.xml" />
+    <Content Include="xml\SiRequiredNumberOfDays_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\UserListItems_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiSalary_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiShokumeiShousai_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiShokumeiShousai_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiShubetsuShousai_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiShubetsuShousai_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsVesselCategory_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselKind_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselScheduleKindDetailEnable_POSTGRESQL.xml" />
+    <Content Include="xml\MsViqCodeName_POSTGRESQL.xml" />
+    <Content Include="xml\MsViqCode_POSTGRESQL.xml" />
+    <Content Include="xml\MsViqVersion_POSTGRESQL.xml" />
+    <Content Include="xml\MsViqNo_POSTGRESQL.xml" />
+    <Content Include="xml\SiAdvancedSearchConditionHead_POSTGRESQL.xml" />
+    <Content Include="xml\SiAdvancedSearchConditionItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SiAdvancedSearchConditionValue_POSTGRESQL.xml" />
+    <Content Include="xml\SiCardPlanHead_POSTGRESQL.xml" />
+    <Content Include="xml\SiCardPlan_POSTGRESQL.xml" />
+    <Content Include="xml\SiKyuyoTeate_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiKyuyoTeate_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiKyuyoTeate_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsVesselRankLicense_POSTGRESQL.xml" />
+    <Content Include="xml\MsKamoku_POSTGRESQL.xml" />
+    <Content Include="xml\MsKamoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsKanidouseiInfoShubetu_POSTGRESQL.xml" />
+    <Content Include="xml\MsKanidouseiInfoShubetu_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsKensa_POSTGRESQL.xml" />
+    <Content Include="xml\MsKensen_POSTGRESQL.xml" />
+    <Content Include="xml\MsKichi_POSTGRESQL.xml" />
+    <Content Include="xml\MsKichi_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsKyumeisetsubi_POSTGRESQL.xml" />
+    <Content Include="xml\MsLoVessel_POSTGRESQL.xml" />
+    <Content Include="xml\MsLoVessel_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsLo_POSTGRESQL.xml" />
+    <Content Include="xml\MsLo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsNiyaku_POSTGRESQL.xml" />
+    <Content Include="xml\MsNyukyoKamoku_POSTGRESQL.xml" />
+    <Content Include="xml\MsNyukyoKamoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsParameter_POSTGRESQL.xml" />
+    <Content Include="xml\MsPortalInfoKoumoku_POSTGRESQL.xml" />
+    <Content Include="xml\MsPortalInfoKubun_POSTGRESQL.xml" />
+    <Content Include="xml\MsPortalInfoShubetu_POSTGRESQL.xml" />
+    <Content Include="xml\MsPortalInfoShubetu_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsRole_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSenin_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSenin_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsShinsa_POSTGRESQL.xml" />
+    <Content Include="xml\MsShinseiTantou_POSTGRESQL.xml" />
+    <Content Include="xml\MsShousho_POSTGRESQL.xml" />
+    <Content Include="xml\MsShoushuriItem_POSTGRESQL.xml" />
+    <Content Include="xml\MsShoushuriItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsShrJouken_POSTGRESQL.xml" />
+    <Content Include="xml\MsShrJouken_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiDaikoumoku_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiDaikoumoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiExcludeMenjouKind_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiGetsujiShimeBi_POSTGRESQL.xml" />
+    <Content Include="xml\MsSiGetsujiShimeBi_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiHiyouKamoku_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiHiyouKamoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiKamoku_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiKamoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiKoushu_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiKoushu_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiMeisai_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiMeisai_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiMenjouKind_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiMenjouKind_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiMenjou_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiMenjou_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiShokumei_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiShokumei_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSiShubetsu_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsSiShubetsu_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsSsShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\MsSsShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsTanaoroshiLo_POSTGRESQL.xml" />
+    <Content Include="xml\MsTanaoroshiLo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsTani_POSTGRESQL.xml" />
+    <Content Include="xml\MsTani_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsTax_POSTGRESQL.xml" />
+    <Content Include="xml\MsTax_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsThiIraiSbt_POSTGRESQL.xml" />
+    <Content Include="xml\MsThiIraiSbt_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsThiIraiShousai_POSTGRESQL.xml" />
+    <Content Include="xml\MsThiIraiShousai_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsThiIraiStatus_POSTGRESQL.xml" />
+    <Content Include="xml\MsThiIraiStatus_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsUserBumon_POSTGRESQL.xml" />
+    <Content Include="xml\MsUserBumon_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsUserPassHis_POSTGRESQL.xml" />
+    <Content Include="xml\MsUser_POSTGRESQL.xml" />
+    <Content Include="xml\MsUser_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsVesselItemCategory_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselItemCategory_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsVesselItemVessel_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsVesselItemVessel_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsVesselItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsVesselItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsCrewMatrixType_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselType_POSTGRESQL.xml" />
+    <Content Include="xml\MsVesselType_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsVessel_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MsVessel_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsYusoItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\OdAttachFile_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdChozoShousai_POSTGRESQL.xml" />
+    <Content Include="xml\OdChozoShousai_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdChozo_POSTGRESQL.xml" />
+    <Content Include="xml\OdChozo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdFurikaeToritate_POSTGRESQL.xml" />
+    <Content Include="xml\OdGaisanKeijo_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdGaisanKeijo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdGetsujiShime_POSTGRESQL.xml" />
+    <Content Include="xml\OdGetsujiShime_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdHachuMail_POSTGRESQL.xml" />
+    <Content Include="xml\OdHachuTanka_POSTGRESQL.xml" />
+    <Content Include="xml\OdHachuTanka_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdJryGaisan_POSTGRESQL.xml" />
+    <Content Include="xml\OdJryItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdJryItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdJryShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdJryShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdJry_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdJry_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMkItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdMkItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMkShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdMkShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMk_POSTGRESQL.xml" />
+    <Content Include="xml\OdMk_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMmItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdMmItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMmShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdMmShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdMm_POSTGRESQL.xml" />
+    <Content Include="xml\OdMm_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdNyukyoItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdNyukyoItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdNyukyoShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdNyukyoShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdShrGassanHead_POSTGRESQL.xml" />
+    <Content Include="xml\OdShrGassanItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdShrItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdShrItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdShrShousaiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdShrShousaiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdShr_POSTGRESQL.xml" />
+    <Content Include="xml\OdShr_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdThiBunkerMail_POSTGRESQL.xml" />
+    <Content Include="xml\OdThiItem_POSTGRESQL.xml" />
+    <Content Include="xml\OdThiItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\OdThiShousaiItem_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdThiShousaiItem_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\OdThi_POSTGRESQL.xml" />
+    <Content Include="xml\OdThi_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtAlarmInfo_POSTGRESQL.xml" />
+    <Content Include="xml\PtAlarmInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtAnzenHyouji_POSTGRESQL.xml" />
+    <Content Include="xml\PtAnzenHyouji_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtDmAlarmInfo_POSTGRESQL.xml" />
+    <Content Include="xml\PtDmAlarmInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtHonsenkoushinInfo_POSTGRESQL.xml" />
+    <Content Include="xml\PtHonsenkoushinInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtJimushokoushinInfo_POSTGRESQL.xml" />
+    <Content Include="xml\PtJimushokoushinInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\PtKanidouseiInfo_POSTGRESQL.xml" />
+    <Content Include="xml\PtKanidouseiInfo_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\PtPortalInfoFormat_POSTGRESQL.xml" />
+    <Content Include="xml\PtPortalInfoFormat_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\MsBoardingExperience_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SiCard_POSTGRESQL.xml" />
+    <Content Include="xml\SiCard_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiBoardingSchedule_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SiExperienceForeign_POSTGRESQL.xml" />
+    <Content Include="xml\SiExperienceCargo_POSTGRESQL.xml" />
+    <Content Include="xml\SiKyuyoTeate_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiPersonalSchedule_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SiGetsujiShime_POSTGRESQL.xml" />
+    <Content Include="xml\SiGetsujiShime_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiHaijouItem_POSTGRESQL.xml" />
+    <Content Include="xml\SiHaijouItem_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiHaijou_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\SiHaijou_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiJunbikin_POSTGRESQL.xml" />
+    <Content Include="xml\SiJunbikin_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiKazoku_POSTGRESQL.xml" />
+    <Content Include="xml\SiKazoku_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiPresentationItem_POSTGRESQL.xml" />
+    <Content Include="xml\SiSalary_POSTGRESQL.xml" />
+    <Content Include="xml\SiRemarks_POSTGRESQL.xml" />
+    <Content Include="xml\SiRemarksAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiShobatsu_POSTGRESQL.xml" />
+    <Content Include="xml\SiShobatsuAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiShobyo_POSTGRESQL.xml" />
+    <Content Include="xml\SiShobyoAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiKenshinAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiKoushuAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiKoushu_POSTGRESQL.xml" />
+    <Content Include="xml\SiKoushu_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiKyuka_POSTGRESQL.xml" />
+    <Content Include="xml\SiLinkShokumeiCard_POSTGRESQL.xml" />
+    <Content Include="xml\SiLinkShokumeiCard_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiMenjouAttachFile_POSTGRESQL.xml" />
+    <Content Include="xml\SiMenjou_POSTGRESQL.xml" />
+    <Content Include="xml\SiMenjou_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiNenjiShime_POSTGRESQL.xml" />
+    <Content Include="xml\SiNenjiShime_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiFellowPassengers_POSTGRESQL.xml" />
+    <Content Include="xml\SiKenshin_POSTGRESQL.xml" />
+    <Content Include="xml\SiRireki_POSTGRESQL.xml" />
+    <Content Include="xml\SiRireki_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SiSoukin_POSTGRESQL.xml" />
+    <Content Include="xml\SiSoukin_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SnParameter_POSTGRESQL.xml" />
+    <Content Include="xml\SnParameter_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\SnSyncInfo_POSTGRESQL.xml" />
+    <Content Include="xml\SnTableInfo_POSTGRESQL.xml" />
+    <Content Include="xml\SnTableInfo_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\Tajsinseiif_POSTGRESQL.xml" />
+    <Content Include="xml\TKJNAIPLANIF_POSTGRESQL.xml" />
+    <Content Include="xml\TKJNAIPLAN_AMTIF_POSTGRESQL.xml" />
+    <Content Include="xml\TKJNAIPLAN_AMT_BILL_POSTGRESQL.xml" />
+    <Content Include="xml\TKJNAIPLAN_POSTGRESQL.xml" />
+    <Content Include="xml\TKJSHIP_POSTGRESQL.xml" />
+    <Content Include="xml\V_ENEHOU_DATA_POSTGRESQL.xml" />
+    <Content Include="xml\TsTraceLog_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\WingMessage_POSTGRESQL.xml" />
+    <Content Include="xml\WingMessage_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\WorkPattern_POSTGRESQL.xml" />
+    <Content Include="xml\ダイジェスト出力_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\予実実績連携IF_POSTGRESQL.xml" />
+    <Content Include="xml\内航海運輸送実績調査票Data_POSTGRESQL.xml" />
+    <Content Include="xml\合算対象の受領_POSTGRESQL.xml" />
+    <Content Include="xml\手配依頼のステータスを完了にする_POSTGRESQL.xml" />
+    <Content Include="xml\支払実績連携IF_POSTGRESQL.xml" />
+    <Content Include="xml\月次収支データ_POSTGRESQL.xml" />
+    <Content Include="xml\未提出確認一覧出力_POSTGRESQL.xml" />
+    <Content Include="xml\状況確認一覧Row_POSTGRESQL.xml" />
+    <Content Include="xml\状況確認一覧Row_POSTGRESQL_CLIENT.xml" />
+    <Content Include="xml\発注RowData_POSTGRESQL.xml" />
+    <Content Include="xml\管理表Info_POSTGRESQL.xml" />
+    <Content Include="xml\船員検索_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\貯蔵品リスト_POSTGRESQL.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\貯蔵品リスト_POSTGRESQL_CLIENT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\貯蔵品年間管理表_POSTGRESQL.xml" />
+    <Content Include="xml\貯蔵品集計表_POSTGRESQL.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NBaseUtil\NBaseUtil.csproj">
+      <Project>{acdbd951-2c1f-4155-93c1-56ab4212123a}</Project>
+      <Name>NBaseUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ORMapping\ORMapping.csproj">
+      <Project>{1d9a87fb-1ba0-49ef-a5ba-94934a590ae0}</Project>
+      <Name>ORMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlMapper\SqlMapper.csproj">
+      <Project>{e99efcad-a268-4b46-a6d8-396775c922d3}</Project>
+      <Name>SqlMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WtmAccess\WtmData.csproj">
+      <Project>{d497bed9-434e-46b9-ba88-ce2b20ee9afd}</Project>
+      <Name>WtmData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <Files_SQLSERVER Include="xml\*_SQLSERVER.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Files_SQLSERVER)" DestinationFolder="..\Honsen\HonsenWing\HonsenWing\xml" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<databaseConfig>
+
+  <sql name="GetRecordByUserID">
+    select
+    MS_USER_BUMON_ID           ,
+    MS_BUMON_ID                ,
+    MS_USER_ID                 ,
+    SEND_FLAG                  ,
+    VESSEL_ID                  ,
+    DELETE_FLAG                ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+    from
+    MS_USER_BUMON
+
+    where MS_USER_ID = :MS_USER_ID
+	AND (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+  <sql name="GetRecordsByUserID">
+    select
+    MS_USER_BUMON_ID           ,
+    MS_BUMON_ID                ,
+    MS_USER_ID                 ,
+    SEND_FLAG                  ,
+    DELETE_FLAG                ,
+    VESSEL_ID                  ,
+    DATA_NO                    ,
+    USER_KEY                   ,
+    RENEW_DATE                 ,
+    RENEW_USER_ID              ,
+    TS
+    from
+    MS_USER_BUMON
+
+    where MS_USER_ID = :MS_USER_ID
+	AND (DELETE_FLAG = 0 or DELETE_FLAG is NULL)
+  </sql>
+
+	<sql name="InsertRecord">
+		INSERT INTO MS_USER_BUMON(
+		MS_USER_BUMON_ID           ,
+		MS_BUMON_ID                ,
+		MS_USER_ID                 ,
+		DELETE_FLAG                ,
+		SEND_FLAG                  ,
+		VESSEL_ID                  ,
+		DATA_NO                    ,
+		USER_KEY                   ,
+		RENEW_DATE                 ,
+		RENEW_USER_ID              ,
+    TS
+    )
+		VALUES(
+		:MS_USER_BUMON_ID           ,
+		:MS_BUMON_ID                ,
+		:MS_USER_ID                 ,
+		:DELETE_FLAG                ,
+		:SEND_FLAG                  ,
+		:VESSEL_ID                  ,
+		:DATA_NO                    ,
+		:USER_KEY                   ,
+		:RENEW_DATE                 ,
+		:RENEW_USER_ID              ,
+    :TS
+    )
+	</sql>
+
+	<sql name="UpdateRecord">
+    UPDATE MS_USER_BUMON SET
+    MS_BUMON_ID = :MS_BUMON_ID,
+    DELETE_FLAG = :DELETE_FLAG,
+    SEND_FLAG = :SEND_FLAG,
+    VESSEL_ID = :VESSEL_ID,
+    DATA_NO = :DATA_NO,
+    USER_KEY = :USER_KEY,
+    RENEW_DATE = :RENEW_DATE,
+    RENEW_USER_ID = :RENEW_USER_ID,
+    TS = :TS
+
+    WHERE MS_USER_ID = :MS_USER_ID
+
+  </sql>
+
+	<sql name="DeleteRecord">
+    UPDATE MS_USER_BUMON SET
+    DELETE_FLAG = 1
+	WHERE MS_USER_ID = :MS_USER_ID
+	</sql>
+	<sql name="DeleteRecord_Old">
+		DELETE FROM MS_USER_BUMON
+		WHERE MS_USER_ID = :MS_USER_ID
+	</sql>
+</databaseConfig>
