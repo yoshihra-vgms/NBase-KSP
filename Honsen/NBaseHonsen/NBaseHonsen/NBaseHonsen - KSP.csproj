@@ -23,7 +23,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile />
-    <PublishUrl>D:\Project\NBase\Deploy\20250625\Nbase-KSP\NBaseHonsenApp\</PublishUrl>
+    <PublishUrl>D:\Project\NBase\Deploy\20251020\Nbase-KSP\NBaseHonsenApp\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -36,13 +36,13 @@
     <InstallUrl>https://vgms.jp/Nbase-KSP/NBaseHonsenApp/</InstallUrl>
     <ProductName>NBaseHonsenApp-KSP</ProductName>
     <PublisherName>VGMS</PublisherName>
-    <MinimumRequiredVersion>0.0.1.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>19.1.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.0.1.1</ApplicationVersion>
+    <ApplicationVersion>19.1.0.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1899,6 +1899,16 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
+    <PublishFile Include="xml\MsSiAllowance_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
     <PublishFile Include="xml\MsSiDaikoumoku_POSTGRESQL_CLIENT.xml">
       <Visible>False</Visible>
       <Group>
@@ -2480,6 +2490,26 @@
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="xml\PtPortalInfoFormat_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiAllowanceDetail_POSTGRESQL_CLIENT.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="xml\SiAllowance_POSTGRESQL_CLIENT.xml">
       <Visible>False</Visible>
       <Group>
       </Group>

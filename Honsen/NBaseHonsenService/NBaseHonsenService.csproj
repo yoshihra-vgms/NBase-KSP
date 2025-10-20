@@ -76,13 +76,11 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WtmModelBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
+    <Reference Include="WtmModelBase">
+      <HintPath>..\..\..\NBase-Std-Plus\WtmModelBase\bin\Debug\WtmModelBase.dll</HintPath>
     </Reference>
-    <Reference Include="WtmModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WtmModels\bin\Debug\WtmModels.dll</HintPath>
+    <Reference Include="WtmModels">
+      <HintPath>..\..\..\NBase-Std-Plus\WtmModels\bin\Debug\WtmModels.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
